@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   selectCamera();
 });
 
@@ -14,7 +14,7 @@ const NODATA = [
   "No Data",
   "No Data",
   "No Data",
-  "No Data"
+  "No Data",
 ];
 const SPECIALTIES = [
   "Multi",
@@ -32,7 +32,7 @@ const SPECIALTIES = [
   "Microscope",
   "Standard",
   "Vein Harvest",
-  "Olympus GI"
+  "Olympus GI",
 ];
 const PRECISION4KSPECIALTIES = ["Arthro 1", "Hysteroscopy", "ENT"];
 const FOURTEENFOURKSPECIALTIES = ["Arthro", "Lap"];
@@ -50,7 +50,7 @@ const FOURTEENSPECIALTIES = [
   "Microscope",
   "Standard",
   "Vein Harvest",
-  "Olympus GI"
+  "Olympus GI",
 ];
 const FIFTEENWISEVPSPECIALTIES = [
   "Multi",
@@ -67,7 +67,7 @@ const FIFTEENWISEVPSPECIALTIES = [
   "Laser",
   "Microscope",
   "Standard",
-  "Vein Harvest"
+  "Vein Harvest",
 ];
 
 const FIFTEENFOURKSPECIALTIES = [
@@ -82,7 +82,7 @@ const FIFTEENFOURKSPECIALTIES = [
   "ENT",
   "Laser",
   "Microscope",
-  "Standard"
+  "Standard",
 ];
 const TWELVEFOURKSPECIALTIES = ["Arthro"];
 const PRECISIONSPECIALTIES = [
@@ -93,7 +93,7 @@ const PRECISIONSPECIALTIES = [
   "Lap 2",
   "Cysto",
   "Hysteroscopy",
-  "ENT"
+  "ENT",
 ];
 const SIXTEENSPECIALTIES = [
   "Lap 1",
@@ -107,10 +107,10 @@ const SIXTEENSPECIALTIES = [
   "Flexiscope",
   "Cysto",
   "Laser",
-  "Hysto",
+  "Hystero",
   "Microscope",
   "Olympus GI",
-  "Vein Harvest"
+  "Vein Harvest",
 ];
 const SIXTEENVISIONPROSPECIALTIES = ["Lap 1", "Lap 2", "Lap Storz"];
 TWELVESPECIALTIES = [
@@ -125,7 +125,7 @@ TWELVESPECIALTIES = [
   "ENT 2",
   "Laser",
   "Microscope",
-  "Standard"
+  "Standard",
 ];
 ELEVENSPECIALTIES = [
   "Arthro",
@@ -137,20 +137,20 @@ ELEVENSPECIALTIES = [
   "ENT",
   "Laser",
   "Microscope",
-  "Standard"
+  "Standard",
 ];
 FLEXIBLESPECIALTIES = [
   "5mm Flex Lap",
   "10mm Flex Lap",
   "Digital Flex Cysto",
-  "Digital flex Uretero"
+  "Digital flex Uretero",
 ];
 FLEXIBLEVPSPECIALTIES = [
   "5mm Flex Lap",
   "10mm Flex Lap",
   "Digital Flex Cysto",
   "Digital flex Uretero",
-  "Olympus CV 190 GI"
+  "Olympus CV 190 GI",
 ];
 FLEXIBLEWISE19SPECIALTIES = ["Digital Flex Cysto"];
 FLEXIBLEVE21SPECIALTIES = ["5mm Flex Lap"];
@@ -170,7 +170,7 @@ const CCUPARAMETERS = [
   "Size",
   "Brightness Peak",
   "Target Area",
-  "Brt Lvl"
+  "Brt Lvl",
 ];
 // 1288 Parameter
 const TWELVEPARAMETERS = [
@@ -185,7 +185,7 @@ const TWELVEPARAMETERS = [
   "Brt Control",
   "Brt Lvl",
   "R-Gain",
-  "Sound"
+  "Sound",
 ];
 // 1188 Parameters
 const ELEVENPARAMETERS = [
@@ -204,7 +204,7 @@ const ELEVENPARAMETERS = [
   "NTSC/PAL",
   "R-Gain",
   "B-Gain",
-  "Light/Zoom"
+  "Light/Zoom",
 ];
 // 1688 Parameters
 const SIXTEENPARAMETERS = [
@@ -231,7 +231,29 @@ const SIXTEENPARAMETERS = [
   "ENV Level",
   "ENV BG Offset",
   "ENV Gamma",
-  "ENV Max Gain"
+  "ENV Max Gain",
+  // New parameters
+  "Size",
+  "G Hue",
+  "G Gain",
+  "R-Ye Hue",
+  "R-Ye Gain",
+  "Ye Hue",
+  "Ye Gain",
+  "Ye-G Hue",
+  "Ye-G Gain",
+  "G-Cy Hue",
+  "G-Cy Gain",
+  "CY Hue",
+  "CY Gain",
+  "CY-B Hue",
+  "CY-B Gain",
+  "B-Mg Hue",
+  "B-Mg Gain",
+  "Mg Hue",
+  "Mg Gain",
+  "Mg-R Hue",
+  "Mg-R Gain",
 ];
 const FLEXIBLEPARAMETERS = ["R-Gain", "R-Hue", "B-Peak", "B-Gain", "B-Hue"];
 
@@ -261,7 +283,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   LAP2FOURK1688: [
     "Auto",
@@ -287,7 +309,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   LAPSTORZFOURK1688: [
     "Auto",
@@ -313,7 +335,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   ENT1FOURK1688: [
     "Auto",
@@ -339,7 +361,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   ENT2FOURK1688: [
     "Auto",
@@ -365,7 +387,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   ENT3FOURK1688: [
     "Auto",
@@ -391,59 +413,55 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
-  FLEXSCOPEFOURK1688: [
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings"
-  ],
+
   CYSTOFOURK1688: [
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings"
+    "Auto",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
   ],
   ARTHRO1FOURK1688: [
     "Default Settings",
@@ -469,7 +487,7 @@ const SIXTEENSETTINGS = {
     "Default Settings",
     "Default Settings",
     "Default Settings",
-    "Default Settings"
+    "Default Settings",
   ],
   ARTHRO2FOURK1688: [
     "TBD",
@@ -495,85 +513,148 @@ const SIXTEENSETTINGS = {
     "TBD",
     "TBD",
     "TBD",
-    "TBD"
+    "TBD",
   ],
   FLEXISCOPEFOURK1688: [
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings"
+    "Auto",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
   ],
   LASERFOURK1688: [
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings"
+    "Auto",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
   ],
-  HYSTOFOURK1688: [
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings",
-    "Default Settings"
+  HYSTEROFOURK1688: [
+    "Auto",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
   ],
   MICROSCOPEFOURK1688: [
     "Default Settings",
@@ -599,7 +680,7 @@ const SIXTEENSETTINGS = {
     "Default Settings",
     "Default Settings",
     "Default Settings",
-    "Default Settings"
+    "Default Settings",
   ],
   OLYMPUSGIFOURK1688: [
     "Default Settings",
@@ -625,7 +706,7 @@ const SIXTEENSETTINGS = {
     "Default Settings",
     "Default Settings",
     "Default Settings",
-    "Default Settings"
+    "Default Settings",
   ],
   VEINHARVESTFOURK1688: [
     "Default Settings",
@@ -651,7 +732,7 @@ const SIXTEENSETTINGS = {
     "Default Settings",
     "Default Settings",
     "Default Settings",
-    "Default Settings"
+    "Default Settings",
   ],
   LAP1VISIONPRO1688: [
     "Auto",
@@ -677,7 +758,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   LAP2VISIONPRO1688: [
     "Auto",
@@ -703,7 +784,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   LAPSTORZVISIONPRO1688: [
     "Auto",
@@ -729,7 +810,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   ENT1ISIONPRO1688: [
     "Auto",
@@ -755,7 +836,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   ENT1VISIONPRO1688: [
     "Auto",
@@ -781,7 +862,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   ENT2VISIONPRO1688: [
     "Auto",
@@ -807,7 +888,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
+    "0",
   ],
   ENT3VISIONPRO1688: [
     "Auto",
@@ -833,8 +914,8 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "0"
-  ]
+    "0",
+  ],
 };
 // CCU Settings
 const CAMERASETTINGS = {
@@ -850,7 +931,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO1VISIONPRO1588: [
     "26",
@@ -864,7 +945,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO2VISIONPRO1588: [
     "26",
@@ -878,7 +959,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO4_16VISIONPRO1588: [
     "27",
@@ -892,7 +973,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "26"
+    "26",
   ],
   LAP1VISIONPRO1588: [
     "30",
@@ -906,7 +987,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LAP2VISIONPRO1588: [
     "42",
@@ -920,7 +1001,7 @@ const CAMERASETTINGS = {
     "1",
     "0",
     "1",
-    "26"
+    "26",
   ],
   LAPSTORZVISIONPRO1588: [
     "26",
@@ -934,7 +1015,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   CYSTOVISIONPRO1588: [
     "26",
@@ -948,7 +1029,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   HYSTEROSCOPYVISIONPRO1588: [
     "32",
@@ -962,7 +1043,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   FLEXISCOPEVISIONPRO1588: [
     "27",
@@ -976,7 +1057,7 @@ const CAMERASETTINGS = {
     "1",
     "6",
     "1",
-    "10"
+    "10",
   ],
   ENTVISIONPRO1588: [
     "35",
@@ -990,7 +1071,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   LASERVISIONPRO1588: [
     "35",
@@ -1004,7 +1085,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   MICROSCOPEVISIONPRO1588: [
     "35",
@@ -1018,7 +1099,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   STANDARDVISIONPRO1588: [
     "32",
@@ -1032,7 +1113,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   VEINHARVESTVISIONPRO1588: [
     "No Data",
@@ -1046,7 +1127,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   OLYMPUSGIVISIONPRO1588: [
     "No Data",
@@ -1060,7 +1141,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   MULTIVISIONELECT1588: [
     "26",
@@ -1074,7 +1155,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO1VISIONELECT1588: [
     "26",
@@ -1088,7 +1169,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO2VISIONELECT1588: [
     "26",
@@ -1102,7 +1183,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO4_16VISIONELECT1588: [
     "27",
@@ -1116,7 +1197,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "26"
+    "26",
   ],
   LAP1VISIONELECT1588: [
     "30",
@@ -1130,7 +1211,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LAP2VISIONELECT1588: [
     "42",
@@ -1144,7 +1225,7 @@ const CAMERASETTINGS = {
     "1",
     "0",
     "1",
-    "26"
+    "26",
   ],
   LAPSTORZVISIONELECT1588: [
     "26",
@@ -1158,7 +1239,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   CYSTOVISIONELECT1588: [
     "26",
@@ -1172,7 +1253,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   HYSTEROSCOPYVISIONELECT1588: [
     "32",
@@ -1186,7 +1267,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   FLEXISCOPEVISIONELECT1588: [
     "27",
@@ -1200,7 +1281,7 @@ const CAMERASETTINGS = {
     "1",
     "6",
     "1",
-    "10"
+    "10",
   ],
   ENTVISIONELECT1588: [
     "35",
@@ -1214,7 +1295,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   LASERVISIONELECT1588: [
     "35",
@@ -1228,7 +1309,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   MICROSCOPEVISIONELECT1588: [
     "35",
@@ -1242,7 +1323,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   STANDARDVISIONELECT1588: [
     "32",
@@ -1256,7 +1337,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   VEINHARVESTVISIONELECT1588: [
     "No Data",
@@ -1270,7 +1351,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   OLYMPUSGIVISIONELECT1588: [
     "No Data",
@@ -1284,7 +1365,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
 
   MULTIHDTVWISE1588: [
@@ -1299,7 +1380,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO1HDTVWISE1588: [
     "26",
@@ -1313,7 +1394,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO2HDTVWISE1588: [
     "26",
@@ -1327,7 +1408,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO4_16HDTVWISE1588: [
     "27",
@@ -1341,7 +1422,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "26"
+    "26",
   ],
   LAP1HDTVWISE1588: [
     "30",
@@ -1355,7 +1436,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LAP2HDTVWISE1588: [
     "42",
@@ -1369,7 +1450,7 @@ const CAMERASETTINGS = {
     "1",
     "0",
     "1",
-    "26"
+    "26",
   ],
   LAPSTORZHDTVWISE1588: [
     "26",
@@ -1383,7 +1464,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   CYSTOHDTVWISE1588: [
     "26",
@@ -1397,7 +1478,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   HYSTEROSCOPYHDTVWISE1588: [
     "30",
@@ -1411,7 +1492,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   FLEXISCOPEHDTVWISE1588: [
     "27",
@@ -1425,7 +1506,7 @@ const CAMERASETTINGS = {
     "1",
     "6",
     "1",
-    "10"
+    "10",
   ],
   ENTHDTVWISE1588: [
     "35",
@@ -1439,7 +1520,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   LASERHDTVWISE1588: [
     "35",
@@ -1453,7 +1534,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   MICROSCOPEHDTVWISE1588: [
     "35",
@@ -1467,7 +1548,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   STANDARDHDTVWISE1588: [
     "32",
@@ -1481,7 +1562,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   VEINHARVESTHDTVWISE1588: [
     "No Data",
@@ -1495,7 +1576,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   MULTIVISIONPROPRECISIONAC: [
     "No Data",
@@ -1509,7 +1590,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   ARTHRO1VISIONPROPRECISIONAC: [
     "26",
@@ -1523,7 +1604,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO2VISIONPROPRECISIONAC: [
     "26",
@@ -1537,7 +1618,7 @@ const CAMERASETTINGS = {
     "0",
     "5",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO4_16VISIONPROPRECISIONAC: [
     "No Data",
@@ -1551,7 +1632,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   LAP1VISIONPROPRECISIONAC: [
     "26",
@@ -1565,7 +1646,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "19"
+    "19",
   ],
   LAP2VISIONPROPRECISIONAC: [
     "26",
@@ -1579,7 +1660,7 @@ const CAMERASETTINGS = {
     "0",
     "4",
     "1",
-    "19"
+    "19",
   ],
   LAPSTORZVISIONPROPRECISIONAC: [
     "No Data",
@@ -1593,7 +1674,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   CYSTOVISIONPROPRECISIONAC: [
     "26",
@@ -1607,7 +1688,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "19"
+    "19",
   ],
   HYSTEROSCOPYVISIONPROPRECISIONAC: [
     "26",
@@ -1621,7 +1702,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   FLEXISCOPEVISIONPROPRECISIONAC: [
     "No Data",
@@ -1635,7 +1716,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   ENTVISIONPROPRECISIONAC: [
     "32",
@@ -1649,7 +1730,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "2",
-    "19"
+    "19",
   ],
   LASERVISIONPROPRECISIONAC: [
     "No Data",
@@ -1663,7 +1744,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   MICROSCOPEVISIONPROPRECISIONAC: [
     "No Data",
@@ -1677,7 +1758,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   STANDARDVISIONPROPRECISIONAC: [
     "No Data",
@@ -1691,7 +1772,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   VEINHARVESTVISIONPROPRECISIONAC: [
     "No Data",
@@ -1705,7 +1786,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   OLYMPUSGIVISIONPROPRECISIONAC: [
     "No Data",
@@ -1719,7 +1800,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   MULTIHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1733,7 +1814,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   ARTHRO1HDTVWISEPRECISIONAC: [
     "26",
@@ -1747,7 +1828,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO2HDTVWISEPRECISIONAC: [
     "26",
@@ -1761,7 +1842,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO4_16HDTVWISEPRECISIONAC: [
     "No Data",
@@ -1775,7 +1856,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   LAP1HDTVWISEPRECISIONAC: [
     "26",
@@ -1789,7 +1870,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "19"
+    "19",
   ],
   LAP2HDTVWISEPRECISIONAC: [
     "26",
@@ -1803,7 +1884,7 @@ const CAMERASETTINGS = {
     "1",
     "4",
     "1",
-    "19"
+    "19",
   ],
   LAPSTORZHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1817,7 +1898,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   CYSTOHDTVWISEPRECISIONAC: [
     "26",
@@ -1831,7 +1912,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "19"
+    "19",
   ],
   HYSTEROSCOPYHDTVWISEPRECISIONAC: [
     "26",
@@ -1845,7 +1926,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   FLEXISCOPEHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1859,7 +1940,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   ENTHDTVWISEPRECISIONAC: [
     "32",
@@ -1873,7 +1954,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "2",
-    "19"
+    "19",
   ],
   LASERHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1887,7 +1968,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   MICROSCOPEHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1901,7 +1982,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   STANDARDHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1915,7 +1996,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   VEINHARVESTHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1929,7 +2010,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "19"
+    "19",
   ],
   OLYMPUSGIHDTVWISEPRECISIONAC: [
     "No Data",
@@ -1943,7 +2024,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   ARTHRO1FOURKPRECISIONAC: [
     "16",
@@ -1957,7 +2038,7 @@ const CAMERASETTINGS = {
     "0",
     "5",
     "1",
-    "19"
+    "19",
   ],
   HYSTEROSCOPYFOURKPRECISIONAC: [
     "18",
@@ -1971,7 +2052,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "19"
+    "19",
   ],
   ENTFOURKPRECISIONAC: [
     "18",
@@ -1985,7 +2066,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "2",
-    "19"
+    "19",
   ],
   MULTIVISIONPRO1488: [
     "No Data",
@@ -1999,7 +2080,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
 
   ARTHRO1VISIONPRO1488: [
@@ -2014,7 +2095,7 @@ const CAMERASETTINGS = {
     "0",
     "5",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO2VISIONPRO1488: [
     "32",
@@ -2028,7 +2109,7 @@ const CAMERASETTINGS = {
     "0",
     "5",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO4_16VISIONPRO1488: [
     "No Data",
@@ -2042,7 +2123,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   LAP1VISIONPRO1488: [
     "30",
@@ -2056,7 +2137,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LAP2VISIONPRO1488: [
     "30",
@@ -2070,7 +2151,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LAPSTORZVISIONPRO1488: [
     "No Data",
@@ -2084,7 +2165,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   CYSTOVISIONPRO1488: [
     "32",
@@ -2098,7 +2179,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   HYSTEROSCOPYVISIONPRO1488: [
     "32",
@@ -2112,7 +2193,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   FLEXISCOPEVISIONPRO1488: [
     "32",
@@ -2126,7 +2207,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   ENTVISIONPRO1488: [
     "35",
@@ -2140,7 +2221,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LASERVISIONPRO1488: [
     "35",
@@ -2154,7 +2235,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "26"
+    "26",
   ],
   MICROSCOPEVISIONPRO1488: [
     "35",
@@ -2168,7 +2249,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "26"
+    "26",
   ],
   STANDARDVISIONPRO1488: [
     "35",
@@ -2182,7 +2263,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "26"
+    "26",
   ],
   VEINHARVESTVISIONPRO1488: [
     "32",
@@ -2196,7 +2277,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   OLYMPUSGIVISIONPRO1488: [
     "No Data",
@@ -2210,7 +2291,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   MULTIHDTVWISE1488: [
     "No Data",
@@ -2224,7 +2305,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   ARTHRO1HDTVWISE1488: [
     "32",
@@ -2238,7 +2319,7 @@ const CAMERASETTINGS = {
     "0",
     "5",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO2HDTVWISE1488: [
     "32",
@@ -2252,7 +2333,7 @@ const CAMERASETTINGS = {
     "0",
     "5",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO4_16HDTVWISE1488: [
     "No Data",
@@ -2266,7 +2347,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   LAP1HDTVWISE1488: [
     "30",
@@ -2280,7 +2361,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LAP2HDTVWISE1488: [
     "30",
@@ -2294,7 +2375,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LAPSTORZHDTVWISE1488: [
     "No Data",
@@ -2308,7 +2389,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   CYSTOHDTVWISE1488: [
     "32",
@@ -2322,7 +2403,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   HYSTEROSCOPYHDTVWISE1488: [
     "32",
@@ -2336,7 +2417,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   FLEXISCOPEHDTVWISE1488: [
     "32",
@@ -2350,7 +2431,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   ENTHDTVWISE1488: [
     "35",
@@ -2364,7 +2445,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   LASERHDTVWISE1488: [
     "35",
@@ -2378,7 +2459,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "26"
+    "26",
   ],
   MICROSCOPEHDTVWISE1488: [
     "35",
@@ -2392,7 +2473,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "26"
+    "26",
   ],
   STANDARDHDTVWISE1488: [
     "35",
@@ -2406,7 +2487,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "26"
+    "26",
   ],
   VEINHARVESTHDTVWISE1488: [
     "32",
@@ -2420,7 +2501,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   OLYMPUSGIHDTVWISE1488: [
     "No Data",
@@ -2434,7 +2515,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   ARTHROFOURK1488: [
     "24",
@@ -2448,7 +2529,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "2",
-    "25"
+    "25",
   ],
   LAPFOURK1488: [
     "30",
@@ -2462,7 +2543,7 @@ const CAMERASETTINGS = {
     "0",
     "3",
     "1",
-    "23"
+    "23",
   ],
   MULTIHDTVWISE1288: [
     "No Data",
@@ -2476,7 +2557,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   ARTHRO1HDTVWISE1288: [
     "4 bars",
@@ -2490,7 +2571,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "0",
-    "On"
+    "On",
   ],
   ARTHRO2HDTVWISE1288: [
     "4 bars",
@@ -2504,7 +2585,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "0",
-    "On"
+    "On",
   ],
   LAP1HDTVWISE1288: [
     "4 bars",
@@ -2518,7 +2599,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-20",
-    "On"
+    "On",
   ],
   LAP2HDTVWISE1288: [
     "4 bars",
@@ -2532,7 +2613,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-20",
-    "On"
+    "On",
   ],
   CYSTOHDTVWISE1288: [
     "3 bars",
@@ -2546,7 +2627,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   HYSTEROSCOPYHDTVWISE1288: [
     "3 bars",
@@ -2560,7 +2641,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   FLEXISCOPEHDTVWISE1288: [
     "3 bars",
@@ -2574,7 +2655,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   ENT1HDTVWISE1288: [
     "3 bars",
@@ -2588,7 +2669,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-30",
-    "On"
+    "On",
   ],
   ENT2HDTVWISE1288: [
     "3 bars",
@@ -2602,7 +2683,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-30",
-    "On"
+    "On",
   ],
   LASERHDTVWISE1288: [
     "3 bars",
@@ -2616,7 +2697,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   MICROSCOPEHDTVWISE1288: [
     "4 bars",
@@ -2630,7 +2711,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   STANDARDHDTVWISE1288: [
     "4 bars",
@@ -2644,7 +2725,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   ARTHRO1VISIONPRO1288: [
     "4 bars",
@@ -2658,7 +2739,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "0",
-    "On"
+    "On",
   ],
   ARTHRO2VISIONPRO1288: [
     "4 bars",
@@ -2672,7 +2753,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "0",
-    "On"
+    "On",
   ],
   LAP1VISIONPRO1288: [
     "4 bars",
@@ -2686,7 +2767,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-20",
-    "On"
+    "On",
   ],
   LAP2VISIONPRO1288: [
     "4 bars",
@@ -2700,7 +2781,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-20",
-    "On"
+    "On",
   ],
   CYSTOVISIONPRO1288: [
     "3 bars",
@@ -2714,7 +2795,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   HYSTEROSCOPYVISIONPRO1288: [
     "3 bars",
@@ -2728,7 +2809,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   FLEXISCOPEVISIONPRO1288: [
     "3 bars",
@@ -2742,7 +2823,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   ENT1VISIONPRO1288: [
     "3 bars",
@@ -2756,7 +2837,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-30",
-    "On"
+    "On",
   ],
   ENT2VISIONPRO1288: [
     "3 bars",
@@ -2770,7 +2851,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-30",
-    "On"
+    "On",
   ],
   LASERVISIONPRO1288: [
     "3 bars",
@@ -2784,7 +2865,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   MICROSCOPEVISIONPRO1288: [
     "4 bars",
@@ -2798,7 +2879,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   STANDARDVISIONPRO1288: [
     "4 bars",
@@ -2812,7 +2893,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   ARTHROFOURK1288: [
     "4 bars",
@@ -2826,7 +2907,7 @@ const CAMERASETTINGS = {
     "Auto",
     "12",
     "-10",
-    "On"
+    "On",
   ],
   ARTHROVISIONPRO1188: [
     "5 bars",
@@ -2844,7 +2925,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   LAP1VISIONPRO1188: [
     "5 bars",
@@ -2862,7 +2943,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   LAP2VISIONPRO1188: [
     "5 bars",
@@ -2880,7 +2961,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
 
   CYSTOVISIONPRO1188: [
@@ -2899,7 +2980,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   HYSTOVISIONPRO1188: [
     "5 bars",
@@ -2917,7 +2998,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   FLEXISCOPEVISIONPRO1188: [
     "5 bars",
@@ -2935,7 +3016,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   ENTVISIONPRO1188: [
     "5 bars",
@@ -2953,7 +3034,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   LASERVISIONPRO1188: [
     "5 bars",
@@ -2971,7 +3052,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   MICROSCOPEVISIONPRO1188: [
     "5 bars",
@@ -2989,7 +3070,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   STANDARDVISIONPRO1188: [
     "5 bars",
@@ -3007,7 +3088,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   ARTHROHDTVWISE1188: [
     "5 bars",
@@ -3025,7 +3106,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
 
   LAP1HDTVWISE1188: [
@@ -3044,7 +3125,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   LAP2HDTVWISE1188: [
     "5 bars",
@@ -3062,7 +3143,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
 
   CYSTOHDTVWISE1188: [
@@ -3081,7 +3162,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   HYSTOHDTVWISE1188: [
     "5 bars",
@@ -3099,7 +3180,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   FLEXISCOPEHDTVWISE1188: [
     "5 bars",
@@ -3117,7 +3198,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   ENTHDTVWISE1188: [
     "5 bars",
@@ -3135,7 +3216,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   LASERHDTVWISE1188: [
     "5 bars",
@@ -3153,7 +3234,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   MICROSCOPEHDTVWISE1188: [
     "5 bars",
@@ -3171,7 +3252,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   STANDARDHDTVWISE1188: [
     "5 bars",
@@ -3189,7 +3270,7 @@ const CAMERASETTINGS = {
     "NTSC",
     "0",
     "0",
-    "Light"
+    "Light",
   ],
   // Flexible Scope Settings
   FIVEFLEXLAPVISIONELECT21FLEXIBLE: ["-2", "1", "6", "0", "0"],
@@ -3210,7 +3291,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
 
   MULTIFOURK1588: [
@@ -3225,7 +3306,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO1FOURK1588: [
     "26",
@@ -3239,7 +3320,7 @@ const CAMERASETTINGS = {
     "1",
     "5",
     "1",
-    "17"
+    "17",
   ],
   ARTHRO2FOURK1588: [
     "26",
@@ -3253,7 +3334,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   ARTHRO4_16FOURK1588: [
     "No Data",
@@ -3267,7 +3348,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   LAP1FOURK1588: [
     "30",
@@ -3281,7 +3362,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "3",
-    "23"
+    "23",
   ],
   LAP2FOURK1588: [
     "42",
@@ -3295,7 +3376,7 @@ const CAMERASETTINGS = {
     "1",
     "0",
     "1",
-    "26"
+    "26",
   ],
   LAPSTORZFOURK1588: [
     "26",
@@ -3309,7 +3390,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   CYSTOFOURK1588: [
     "26",
@@ -3323,7 +3404,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "19"
+    "19",
   ],
   HYSTEROSCOPYFOURK1588: [
     "32",
@@ -3337,7 +3418,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   FLEXISCOPEFOURK1588: [
     "27",
@@ -3351,7 +3432,7 @@ const CAMERASETTINGS = {
     "1",
     "6",
     "1",
-    "10"
+    "10",
   ],
 
   ENTFOURK1588: [
@@ -3366,7 +3447,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   LASERFOURK1588: [
     "35",
@@ -3380,7 +3461,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   MICROSCOPEFOURK1588: [
     "35",
@@ -3394,7 +3475,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "26"
+    "26",
   ],
   STANDARDFOURK1588: [
     "32",
@@ -3408,7 +3489,7 @@ const CAMERASETTINGS = {
     "1",
     "3",
     "1",
-    "23"
+    "23",
   ],
   VEINHARVESTFOURK1588: [
     "No Data",
@@ -3422,8 +3503,8 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
-  ]
+    "No Data",
+  ],
 };
 
 // put them in monitorParams
@@ -3435,7 +3516,7 @@ const MONITORPARAMS = [
   "Gamma",
   "Brightness",
   "Contrast",
-  "Sharpness"
+  "Sharpness",
 ];
 
 const FOURKPARAMS = [
@@ -3446,7 +3527,7 @@ const FOURKPARAMS = [
   "Enhancement",
   "Brightness",
   "Contrast",
-  "Sharpness"
+  "Sharpness",
 ];
 // Monitor Settings
 const MONITORSETTINGS = {
@@ -3472,7 +3553,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   VISIONPROLAP11688: ["-35", "8", "7", "1.5", "45", "50", "5"],
   VISIONPROLAP21688: ["-15", "5", "5", "1.9", "45", "50", "5"],
@@ -3490,7 +3571,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISELAP11588: ["-25", "5", "5", "2.2", "55", "55", "No Data"],
   HDTVWISELAP21588: ["-35", "-3", "25", "1.7", "55", "55", "No Data"],
@@ -3510,7 +3591,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKARTHRO1PRECISIONAC: ["-30", "-5", "30", "1.5", "Off", "40", "60", "5"],
   FOURKHYSTEROSCOPYPRECISIONAC: [
@@ -3521,7 +3602,7 @@ const MONITORSETTINGS = {
     "Off",
     "40",
     "60",
-    "5"
+    "5",
   ],
   FOURKENTPRECISIONAC: ["-45", "-5", "30", "1.5", "Off", "40", "60", "5"],
   VISIONPROMULTIPRECISIONAC: ["-30", "-30", "5", "S2", "45", "60", "No Data"],
@@ -3532,7 +3613,7 @@ const MONITORSETTINGS = {
     "S2",
     "45",
     "60",
-    "No Data"
+    "No Data",
   ],
   VISIONPROARTHRO2PRECISIONAC: ["-10", "-10", "5", "S2", "45", "60", "No Data"],
   VISIONPROARTHRO4_16PRECISIONAC: [
@@ -3542,7 +3623,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   VISIONPROLAP1PRECISIONAC: ["-35", "5", "5", "S2", "45", "60", "No Data"],
   VISIONPROLAP2PRECISIONAC: ["-6", "-9", "3", "1.9", "50", "58", "No Data"],
@@ -3553,7 +3634,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   VISIONPROCYSTOPRECISIONAC: ["-35", "5", "5", "S2", "45", "60", "No Data"],
   VISIONPROHYSTEROSCOPYPRECISIONAC: [
@@ -3563,7 +3644,7 @@ const MONITORSETTINGS = {
     "S2",
     "45",
     "60",
-    "No Data"
+    "No Data",
   ],
   VISIONPROENTPRECISIONAC: ["-50", "30", "10", "1.5", "47", "58", "No Data"],
   HDTVWISEMULTIPRECISIONAC: ["-30", "-15", "10", "S2", "45", "58", "No Data"],
@@ -3576,7 +3657,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISELAP1PRECISIONAC: ["-35", "-3", "25", "S2", "45", "58", "No Data"],
   HDTVWISELAP2PRECISIONAC: ["8", "0", "2", "S0", "50", "55", "No Data"],
@@ -3587,7 +3668,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISECYSTOPRECISIONAC: ["-35", "-3", "25", "S2", "45", "58", "No Data"],
   HDTVWISEHYSTEROSCOPYPRECISIONAC: [
@@ -3597,7 +3678,7 @@ const MONITORSETTINGS = {
     "S0",
     "45",
     "55",
-    "No Data"
+    "No Data",
   ],
   HDTVWISEFLEXISCOPEPRECISIONAC: [
     "No Data",
@@ -3606,7 +3687,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISEENTPRECISIONAC: [
     "No Data",
@@ -3615,7 +3696,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISELASERPRECISIONAC: [
     "No Data",
@@ -3624,7 +3705,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISEMICROSCOPEPRECISIONAC: [
     "No Data",
@@ -3633,7 +3714,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISESTANDARDPRECISIONAC: [
     "No Data",
@@ -3642,7 +3723,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISEVEINHARVESTPRECISIONAC: [
     "No Data",
@@ -3651,7 +3732,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISEOLYMPUSGIPRECISIONAC: [
     "No Data",
@@ -3660,7 +3741,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKARTHRO1488: ["-10", "-2", "8", "S0", "Off", "43", "54", "7"],
   FOURKLAP1488: ["-10", "30", "25", "1.5", "Off", "50", "50", "5"],
@@ -3674,7 +3755,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISELAP11488: ["-35", "-3", "25", "S2", "45", "58", "No Data"],
   HDTVWISELAP21488: ["-25", "-2", "25", "S2", "45", "60", "No Data"],
@@ -3685,7 +3766,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   HDTVWISECYSTO1488: ["-35", "-3", "25", "S2", "45", "58", "No Data"],
   HDTVWISEHYSTEROSCOPY1488: ["8", "-25", "2", "S0", "45", "55", "No Data"],
@@ -3706,7 +3787,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   VISIONPROLAP11488: ["-35", "5", "5", "S2", "45", "60", "No Data"],
   VISIONPROLAP21488: ["-10", "-9", "3", "1.9", "50", "58", "No Data"],
@@ -3717,7 +3798,7 @@ const MONITORSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   VISIONPROCYSTO1488: ["-35", "5", "5", "S2", "45", "60", "No Data"],
   VISIONPROHYSTEROSCOPY1488: ["-40", "10", "5", "S2", "45", "60", "No Data"],
@@ -3783,7 +3864,7 @@ const MONITORSETTINGS = {
     "S2",
     "45",
     "55",
-    "5"
+    "5",
   ],
   VISIONPROOLYMPUSCV190GIFLEXIBLE: ["30", "30", "30", "S0", "35", "30", "5"],
   HDTVWISEFIVEFLEXLAPFLEXIBLE: ["-40", "-3", "20", "S0", "45", "65", "5"],
@@ -3796,7 +3877,7 @@ const MONITORSETTINGS = {
     "S2",
     "45",
     "55",
-    "5"
+    "5",
   ],
   WISE19DIGITALFLEXCYSTOFLEXIBLE: [
     "3",
@@ -3805,7 +3886,7 @@ const MONITORSETTINGS = {
     "1.7",
     "50",
     "50",
-    "No Data"
+    "No Data",
   ],
   VISIONELECT21FIVEFLEXLAPFLEXIBLE: [
     "-50",
@@ -3814,8 +3895,8 @@ const MONITORSETTINGS = {
     "S0",
     "50",
     "50",
-    "No Data"
-  ]
+    "No Data",
+  ],
 };
 
 const FOURKSETTINGS = {
@@ -3838,7 +3919,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKLAP11588: ["-30", "-5", "30", "1.5", "Off", "45", "60", "5"],
   FOURKLAP21588: ["-10", "25", "22", "1.5", "Off", "42", "53", "1"],
@@ -3850,7 +3931,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKCYSTO1588: [
     "No Data",
@@ -3860,7 +3941,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKHYSTEROSCOPY1588: [
     "No Data",
@@ -3870,7 +3951,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKFLEXISCOPE1588: [
     "No Data",
@@ -3880,7 +3961,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKENT1588: ["-20", "0", "0", "1.9", "Off", "50", "55", "1"],
   FOURKLASER1588: [
@@ -3891,7 +3972,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKMICROSCOPE1588: [
     "No Data",
@@ -3901,7 +3982,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKSTANDARD1588: [
     "No Data",
@@ -3911,7 +3992,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKVEINHARVEST1588: [
     "No Data",
@@ -3921,7 +4002,7 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKOLYMPUSGI1588: [
     "No Data",
@@ -3931,17 +4012,26 @@ const FOURKSETTINGS = {
     "No Data",
     "No Data",
     "No Data",
-    "No Data"
+    "No Data",
   ],
   FOURKFLEXISCOPE1688: ["-35", "0", "10", "S0", "Mid", "45", "70", "No Data"],
   FOURKCYSTO1688: ["-35", "0", "10", "S0", "Mid", "45", "70", "No Data"],
   FOURKARTHRO11688: ["-10", "10", "5", "S4", "Low", "37", "54", "No Data"],
   FOURKARTHRO21688: ["-15", "-5", "8", "S7", "Low", "37", "52", "No Data"],
   FOURKLASER1688: ["-35", "0", "10", "S0", "Mid", "45", "70", "No Data"],
-  FOURKHYSTO1688: ["-45", "-15", "0", "S5", "Low", "40", "50", "No Data"],
+  FOURKHYSTERO1688: ["-45", "-15", "0", "S5", "Low", "40", "50", "No Data"],
   FOURKMICROSCOPE1688: ["TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD"],
   FOURKOLYMPUSGI1688: ["TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD"],
-  FOURKVEINHARVEST1688: ["TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD"]
+  FOURKVEINHARVEST1688: [
+    "TBD",
+    "TBD",
+    "TBD",
+    "TBD",
+    "TBD",
+    "TBD",
+    "TBD",
+    "TBD",
+  ],
 };
 
 const backButton = () => {
@@ -3954,7 +4044,7 @@ const backButton = () => {
 function selectCamera() {
   let cameraButton = document.getElementsByClassName("example_a");
   for (let item of cameraButton) {
-    item.addEventListener("click", function(item) {
+    item.addEventListener("click", function (item) {
       let cameraTopDiv = document.getElementById("top-camera-div");
       cameraTopDiv.classList.add("cameraSelectDiv");
       let camera = this.dataset.camera;
@@ -4074,7 +4164,7 @@ function selectDisplay(camera) {
   let displayButton = document.getElementsByClassName("example_a");
   // Loop over buttons
   for (let button of displayButton) {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
       let displayTopDiv = document.getElementById("displayTopDiv");
       displayTopDiv.classList.add("displaySelectDiv");
       let display = this.dataset.display;
@@ -4094,7 +4184,7 @@ function CameraDisplayObject(camera, display) {
   this.display = display;
 }
 // Object prototype
-CameraDisplayObject.prototype.displaySpecialties = function() {
+CameraDisplayObject.prototype.displaySpecialties = function () {
   let hDiv = document.createElement("div");
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
@@ -4103,72 +4193,72 @@ CameraDisplayObject.prototype.displaySpecialties = function() {
   specialtyTopDiv.appendChild(hDiv);
   // specialty div
   if (this.camera === "Precision AC" && this.display === "FourK") {
-    PRECISION4KSPECIALTIES.forEach(function(specialty) {
+    PRECISION4KSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "Precision AC") {
-    PRECISIONSPECIALTIES.forEach(function(specialty) {
+    PRECISIONSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (
     (this.camera === "1588" && this.display === "VisionPro") ||
     (this.camera === "1588" && this.display === "HDTV Wise")
   ) {
-    FIFTEENWISEVPSPECIALTIES.forEach(function(specialty) {
+    FIFTEENWISEVPSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "1588" && this.display === "FourK") {
-    FIFTEENFOURKSPECIALTIES.forEach(function(specialty) {
+    FIFTEENFOURKSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "1488" && this.display === "FourK") {
-    FOURTEENFOURKSPECIALTIES.forEach(function(specialty) {
+    FOURTEENFOURKSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (
     this.camera === "1488" &&
     (this.display === "VisionPro" || this.display === "HDTV Wise")
   ) {
-    FOURTEENSPECIALTIES.forEach(function(specialty) {
+    FOURTEENSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "1688" && this.display === "VisionPro") {
-    SIXTEENVISIONPROSPECIALTIES.forEach(function(specialty) {
+    SIXTEENVISIONPROSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "1288" && this.display === "FourK") {
-    TWELVEFOURKSPECIALTIES.forEach(function(specialty) {
+    TWELVEFOURKSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (
     this.camera === "1288" &&
     (this.display === "VisionPro" || this.display === "HDTV Wise")
   ) {
-    TWELVESPECIALTIES.forEach(function(specialty) {
+    TWELVESPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "1188") {
-    ELEVENSPECIALTIES.forEach(function(specialty) {
+    ELEVENSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "Flexible" && this.display === "HDTV Wise") {
-    FLEXIBLESPECIALTIES.forEach(function(specialty) {
+    FLEXIBLESPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "Flexible" && this.display === "VisionPro") {
-    FLEXIBLEVPSPECIALTIES.forEach(function(specialty) {
+    FLEXIBLEVPSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "Flexible" && this.display === "Wise 19") {
-    FLEXIBLEWISE19SPECIALTIES.forEach(function(specialty) {
+    FLEXIBLEWISE19SPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else if (this.camera === "Flexible" && this.display === "Vision Elect 21") {
-    FLEXIBLEVE21SPECIALTIES.forEach(function(specialty) {
+    FLEXIBLEVE21SPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   } else {
-    SIXTEENSPECIALTIES.forEach(function(specialty) {
+    SIXTEENSPECIALTIES.forEach(function (specialty) {
       specialtyDiv(specialty);
     });
   }
@@ -4194,17 +4284,18 @@ function selectSpecialty(cameraDisplay) {
   let specialtyButton = document.getElementsByClassName("example_a");
   let specialtyTopDiv = document.getElementById("specialtyTopDiv");
   for (let button of specialtyButton) {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
       specialtyTopDiv.classList.add("specialtySelectDiv");
       let cameraDisplaySpecialty = {
         camera: cameraDisplay.camera,
         display: cameraDisplay.display,
-        specialty: this.dataset.specialty
+        specialty: this.dataset.specialty,
       }; // camera
       displaySettings(cameraDisplaySpecialty);
     });
   }
 }
+
 function displaySettings(cameraDisplaySpecialty) {
   let headerDiv = document.createElement("div");
   headerDiv.setAttribute("class", "settings-header");
@@ -4217,7 +4308,6 @@ function displaySettings(cameraDisplaySpecialty) {
   );
   cameraParametersHeaderDiv.appendChild(cameraParameterTitle);
   headerDiv.appendChild(cameraParametersHeaderDiv);
-
   // params/settings parent Div
   let parentDiv = document.createElement("div");
   parentDiv.setAttribute("class", "parent-div");
@@ -4258,7 +4348,7 @@ function displaySettings(cameraDisplaySpecialty) {
     cameraDisplaySpecialty.camera !== "Flexible"
   ) {
     // CCU Parameters
-    CCUPARAMETERS.forEach(function(parameter) {
+    CCUPARAMETERS.forEach(function (parameter) {
       let cameraParameter = document.createElement("p");
       cameraParameter.appendChild(document.createTextNode(parameter));
       cameraParameterDiv.appendChild(cameraParameter);
@@ -4267,7 +4357,7 @@ function displaySettings(cameraDisplaySpecialty) {
     // CCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
-        CAMERASETTINGS[setting].forEach(function(setting) {
+        CAMERASETTINGS[setting].forEach(function (setting) {
           let cameraSettings = document.createElement("p");
           cameraSettings.appendChild(document.createTextNode(setting));
           cameraSettingsDiv.appendChild(cameraSettings);
@@ -4277,7 +4367,7 @@ function displaySettings(cameraDisplaySpecialty) {
     }
   } else if (cameraDisplaySpecialty.camera === "1288") {
     // 1288 Parameters
-    TWELVEPARAMETERS.forEach(function(parameter) {
+    TWELVEPARAMETERS.forEach(function (parameter) {
       let cameraParameter = document.createElement("p");
       cameraParameter.appendChild(document.createTextNode(parameter));
       cameraParameterDiv.appendChild(cameraParameter);
@@ -4286,7 +4376,7 @@ function displaySettings(cameraDisplaySpecialty) {
     // 1288 CCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
-        CAMERASETTINGS[setting].forEach(function(setting) {
+        CAMERASETTINGS[setting].forEach(function (setting) {
           let cameraSettings = document.createElement("p");
           cameraSettings.appendChild(document.createTextNode(setting));
           cameraSettingsDiv.appendChild(cameraSettings);
@@ -4296,7 +4386,7 @@ function displaySettings(cameraDisplaySpecialty) {
     }
   } else if (cameraDisplaySpecialty.camera === "1188") {
     // 1188 Parameters
-    ELEVENPARAMETERS.forEach(function(parameter) {
+    ELEVENPARAMETERS.forEach(function (parameter) {
       let cameraParameter = document.createElement("p");
       cameraParameter.appendChild(document.createTextNode(parameter));
       cameraParameterDiv.appendChild(cameraParameter);
@@ -4305,7 +4395,7 @@ function displaySettings(cameraDisplaySpecialty) {
     // 1188 CCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
-        CAMERASETTINGS[setting].forEach(function(setting) {
+        CAMERASETTINGS[setting].forEach(function (setting) {
           let cameraSettings = document.createElement("p");
           cameraSettings.appendChild(document.createTextNode(setting));
           cameraSettingsDiv.appendChild(cameraSettings);
@@ -4315,7 +4405,7 @@ function displaySettings(cameraDisplaySpecialty) {
     }
   } else if (cameraDisplaySpecialty.camera === "Flexible") {
     // Flexible Parameters
-    FLEXIBLEPARAMETERS.forEach(function(parameter) {
+    FLEXIBLEPARAMETERS.forEach(function (parameter) {
       let cameraParameter = document.createElement("p");
       cameraParameter.appendChild(document.createTextNode(parameter));
       cameraParameterDiv.appendChild(cameraParameter);
@@ -4324,7 +4414,7 @@ function displaySettings(cameraDisplaySpecialty) {
     // FCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
-        CAMERASETTINGS[setting].forEach(function(setting) {
+        CAMERASETTINGS[setting].forEach(function (setting) {
           let cameraSettings = document.createElement("p");
           cameraSettings.appendChild(document.createTextNode(setting));
           cameraSettingsDiv.appendChild(cameraSettings);
@@ -4334,16 +4424,40 @@ function displaySettings(cameraDisplaySpecialty) {
     }
   } else {
     // 1688 Parameters
-    SIXTEENPARAMETERS.forEach(function(parameter) {
+    SIXTEENPARAMETERS.forEach(function (parameter) {
       let cameraParameter = document.createElement("p");
       cameraParameter.appendChild(document.createTextNode(parameter));
       cameraParameterDiv.appendChild(cameraParameter);
       parentDiv.appendChild(cameraParameterDiv);
     });
+
+    // Out Of Box Message Function
+    console.log(cameraDisplaySpecialty.specialty);
+    if (
+      cameraDisplaySpecialty.specialty === "Flexiscope" ||
+      cameraDisplaySpecialty.specialty === "Laser" ||
+      cameraDisplaySpecialty.specialty === "Cysto" ||
+      cameraDisplaySpecialty.specialty === "Hystero" ||
+      cameraDisplaySpecialty.specialty === "Microscope" ||
+      cameraDisplaySpecialty.specialty === "Olympus GI"
+    ) {
+      let outOfBoxMessage = document.createElement("div");
+      let outOfBoxMessageText = document.createElement("p");
+      outOfBoxMessage.setAttribute("class", "out-of-box-message");
+      outOfBoxMessageText.setAttribute("class", "out-of-box-message-text");
+      outOfBoxMessageText.appendChild(
+        document.createTextNode(
+          "These CCU settings come out of box with 1688 CCU software 4.0.13"
+        )
+      );
+      outOfBoxMessage.appendChild(outOfBoxMessageText);
+      ccuSettingsTopDiv.appendChild(outOfBoxMessage);
+    }
+
     // 1688 CCU Settings
     for (let setting in SIXTEENSETTINGS) {
       if (ccuSettings === setting) {
-        SIXTEENSETTINGS[setting].forEach(function(setting) {
+        SIXTEENSETTINGS[setting].forEach(function (setting) {
           let cameraSettings = document.createElement("p");
           cameraSettings.appendChild(document.createTextNode(setting));
           cameraSettingsDiv.appendChild(cameraSettings);
@@ -4352,6 +4466,7 @@ function displaySettings(cameraDisplaySpecialty) {
       }
     }
   }
+
   // Applying Headers to DOM
   ccuSettingsTopDiv.appendChild(headerDiv); // Parameter Header
   ccuSettingsTopDiv.appendChild(headerDiv); // Settings Header
@@ -4417,20 +4532,20 @@ function displaySettings(cameraDisplaySpecialty) {
     cameraDisplaySpecialty.specialty.replace(/\s/g, "").toUpperCase() +
     cameraDisplaySpecialty.camera.replace(/\s/g, "").toUpperCase();
   if (cameraDisplaySpecialty.display !== "FourK") {
-    MONITORPARAMS.forEach(function(parameter) {
+    MONITORPARAMS.forEach(function (parameter) {
       let pTag = document.createElement("p");
       pTag.appendChild(document.createTextNode(parameter));
       monitorParams.appendChild(pTag);
     });
   } else {
-    FOURKPARAMS.forEach(function(parameter) {
+    FOURKPARAMS.forEach(function (parameter) {
       let pTag = document.createElement("p");
       pTag.appendChild(document.createTextNode(parameter));
       monitorParams.appendChild(pTag);
     });
     for (let displaySpecialty in FOURKSETTINGS) {
       if (monitorSpecialtySettings === displaySpecialty) {
-        FOURKSETTINGS[displaySpecialty].forEach(function(setting) {
+        FOURKSETTINGS[displaySpecialty].forEach(function (setting) {
           let sTag = document.createElement("p");
           sTag.appendChild(document.createTextNode(setting));
           monitorSettings.appendChild(sTag);
@@ -4441,7 +4556,7 @@ function displaySettings(cameraDisplaySpecialty) {
 
   for (let displaySpecialty in MONITORSETTINGS) {
     if (monitorSpecialtySettings === displaySpecialty) {
-      MONITORSETTINGS[displaySpecialty].forEach(function(setting) {
+      MONITORSETTINGS[displaySpecialty].forEach(function (setting) {
         let sTag = document.createElement("p");
         sTag.appendChild(document.createTextNode(setting));
         monitorSettings.appendChild(sTag);
