@@ -19,6 +19,13 @@ SDCULTRAALT = ["0", "130", "0", "-150", "750"];
 ORTHOHUB = ["-30", "180", "-10", "83", "660"];
 LAPHUB = ["-30", "260", "10", "83", "660"];
 SPYHUB = ["75", "-10", "10", "83", "660"];
+
+const backButton = () => {
+  let moneySettingsToggle = document.getElementById("printer-settings");
+  let backButtonToggle = document.getElementById("back-button");
+  moneySettingsToggle.setAttribute("class", "money-settings-toggle");
+  backButtonToggle.style.display = "block";
+};
 const selectSDC = () => {
   // Grab the SDC buttons
   let sdcButtons = document.getElementsByClassName("example_a");
@@ -33,6 +40,7 @@ const selectSDC = () => {
       let sdc = this.dataset.sdc;
       // I want to pass this camera to the 'showPrinters'
       changeTitleToPrinter(sdc);
+      backButton();
     });
   }
 };
