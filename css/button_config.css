@@ -20,6 +20,23 @@ body {
   background-position: center center;
 }
 
+.ccu-display-none-div {
+  display: none;
+}
+
+#diagram-show-div {
+  display: none;
+}
+
+.diagram-main-div {
+  width: 500px;
+  height: 600px;
+  margin: 0 auto;
+  background: transparent url("../images/button_config.jpg") 0% 0% no-repeat
+    padding-box;
+  background-size: 500px;
+}
+
 #settings-div {
   display: flex;
   flex-direction: column;
@@ -92,7 +109,7 @@ body {
 }
 
 .title-div {
-  padding-top: 10em;
+  padding-top: 7em;
   margin: 0 auto;
   text-align: center;
   color: #ffb600;

@@ -56,7 +56,6 @@ const changeTitleToPrinter = (sdc) => {
 
 const buttons = (sdc) => {
   let buttonVariable;
-  console.log(sdc);
   // Select printers to show
   if (sdc === "hub") {
     buttonVariable = hubSpecialties;
