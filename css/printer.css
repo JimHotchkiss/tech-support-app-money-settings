@@ -10,25 +10,6 @@ body {
 
 .printer-wrapper {
   background-color: #262626;
-  /* background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(0, 0, 0, 0.15) 100%
-    ),
-    radial-gradient(
-        at top center,
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(0, 0, 0, 0.4) 120%
-      )
-      #989898;
-  background-blend-mode: multiply, multiply;
-
-  background: linear-gradient(
-      rgba(199, 207, 199, 0.5),
-      rgba(236, 255, 176, 0.5)
-    ),
-    url("../images/image1.jpg"); */
-
   min-height: 100vh;
   background-size: cover;
   background-attachment: fixed;
