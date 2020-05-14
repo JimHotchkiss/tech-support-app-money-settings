@@ -4194,6 +4194,11 @@ function CameraDisplayObject(camera, display) {
 }
 // Object prototype
 CameraDisplayObject.prototype.displaySpecialties = function () {
+  let display = this.display;
+
+  if (display === "FourK") {
+    display = "4k";
+  }
   console.log(this.camera, this.display);
   let hDiv = document.createElement("div");
   hDiv.setAttribute("class", "title-div");
@@ -4208,7 +4213,7 @@ CameraDisplayObject.prototype.displaySpecialties = function () {
   let cameraPTag = document.createElement("p");
   cameraPTag.setAttribute("class", "cameraPTag");
   cameraPTag.innerHTML = "Selected CCU: " + this.camera;
-  displayPTag.innerHTML = "Selected Display: " + this.display;
+  displayPTag.innerHTML = "Selected Display: " + display;
 
   selectedConsolesDiv.appendChild(cameraPTag);
   selectedConsolesDiv.appendChild(displayPTag);
