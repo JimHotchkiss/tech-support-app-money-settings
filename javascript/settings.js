@@ -4055,13 +4055,22 @@ function selectCamera() {
 }
 
 function showDisplays(camera) {
+  console.log(camera);
   let displayTopDiv = document.getElementById("displayTopDiv");
   let hDiv = document.createElement("div");
+  let cameraDiv = document.createElement("div");
+  let cameraPTag = document.createElement("p");
+  cameraDiv.setAttribute("class", "camera-div");
+  cameraPTag.setAttribute("class", "camera-p-tag");
+  cameraPTag.innerHTML = "Selected CCU: " + camera;
+  cameraDiv.appendChild(cameraPTag);
+
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
   hElement.append("Select Display");
   displayTopDiv.setAttribute("style", "margin-top: 5em;");
   hDiv.appendChild(hElement);
+  hDiv.appendChild(cameraDiv);
   displayTopDiv.appendChild(hDiv);
 
   // Monitor Variables
@@ -4185,12 +4194,28 @@ function CameraDisplayObject(camera, display) {
 }
 // Object prototype
 CameraDisplayObject.prototype.displaySpecialties = function () {
+  console.log(this.camera, this.display);
   let hDiv = document.createElement("div");
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
   hElement.append("Select Specialty");
+
+  // Breadcrumbs
+  let selectedConsolesDiv = document.createElement("div");
+  selectedConsolesDiv.setAttribute("class", "selected-consoles-div");
+  let displayPTag = document.createElement("p");
+  displayPTag.setAttribute("class", "displayPTag");
+  let cameraPTag = document.createElement("p");
+  cameraPTag.setAttribute("class", "cameraPTag");
+  cameraPTag.innerHTML = "Selected CCU: " + this.camera;
+  displayPTag.innerHTML = "Selected Display: " + this.display;
+
+  selectedConsolesDiv.appendChild(cameraPTag);
+  selectedConsolesDiv.appendChild(displayPTag);
+
   hDiv.appendChild(hElement);
   specialtyTopDiv.appendChild(hDiv);
+  specialtyTopDiv.appendChild(selectedConsolesDiv);
   // specialty div
   if (this.camera === "Precision AC" && this.display === "FourK") {
     PRECISION4KSPECIALTIES.forEach(function (specialty) {

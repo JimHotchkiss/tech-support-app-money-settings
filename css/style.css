@@ -68,8 +68,28 @@ body {
   color: #ffb600;
 }
 
+.camera-div {
+  margin-top: 20px;
+}
+
+.camera-div p {
+  color: #fff;
+}
+
 .displaySelectDiv {
   display: none;
+}
+
+.selected-consoles-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.selected-consoles-div p {
+  color: #fff;
+  margin-left: 20px;
 }
 
 .specialtySelectDiv {
