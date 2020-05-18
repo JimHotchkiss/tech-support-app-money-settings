@@ -4055,7 +4055,6 @@ function selectCamera() {
 }
 
 function showDisplays(camera) {
-  console.log(camera);
   let displayTopDiv = document.getElementById("displayTopDiv");
   let hDiv = document.createElement("div");
   let cameraDiv = document.createElement("div");
@@ -4183,6 +4182,8 @@ function selectDisplay(camera) {
 }
 
 function showSpecialties(camera, display) {
+  console.log(window.history);
+  window.history.back();
   let cameraDisplay = new CameraDisplayObject(camera, display);
   cameraDisplay.displaySpecialties();
 }
