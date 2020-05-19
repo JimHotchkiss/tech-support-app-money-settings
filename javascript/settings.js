@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   selectCamera();
 });
 
+const state = {
+  camera: { name: "" },
+  display: { name: "" },
+  specialty: { name: "" },
+};
+
 const NODATA = [
   "No Data",
   "No Data",
@@ -4037,33 +4043,52 @@ const FOURKSETTINGS = {
 const backButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings");
   let backButtonToggle = document.getElementById("back-button");
+  backButtonToggle.addEventListener("click", () => {
+    if (
+      state.specialty.name === "" &&
+      state.display.name !== "" &&
+      state.camera.name !== ""
+    ) {
+      let displayTopDiv = document.getElementById("displayTopDiv");
+      displayTopDiv.className = "";
+      let cameraTopDiv = document.getElementById("specialtyTopDiv");
+      cameraTopDiv.className = "specialtySelectDiv";
+      showDisplays(state.camera.name, state.display.name);
+      console.log(state.specialty);
+    }
+  });
   moneySettingsToggle.setAttribute("class", "money-settings-toggle");
   backButtonToggle.style.display = "block";
 };
 
-function selectCamera() {
+function selectCamera(camera, display) {
+  console.log(camera, display);
   let cameraButton = document.getElementsByClassName("example_a");
   for (let item of cameraButton) {
     item.addEventListener("click", function (item) {
       let cameraTopDiv = document.getElementById("top-camera-div");
       cameraTopDiv.classList.add("cameraSelectDiv");
       let camera = this.dataset.camera;
+      // ********** Declaring State ********* //
+      state.camera.name = this.dataset.camera;
       showDisplays(camera);
       backButton();
     });
   }
 }
 
-function showDisplays(camera) {
+function showDisplays(camera, display) {
   let displayTopDiv = document.getElementById("displayTopDiv");
   let hDiv = document.createElement("div");
+  //************* bread crumbs *************/
   let cameraDiv = document.createElement("div");
   let cameraPTag = document.createElement("p");
   cameraDiv.setAttribute("class", "camera-div");
   cameraPTag.setAttribute("class", "camera-p-tag");
   cameraPTag.innerHTML = "Selected CCU: " + camera;
+  //************ end  ********************/
   cameraDiv.appendChild(cameraPTag);
-
+  console.log("half way");
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
   hElement.append("Select Display");
@@ -4138,6 +4163,7 @@ function showDisplays(camera) {
     fourKDisplayDiv.appendChild(fourKLink);
     displayTopDiv.appendChild(fourKDisplayDiv);
   };
+
   if (camera === "1688") {
     // Visionpro
     visionPro();
@@ -4176,6 +4202,8 @@ function selectDisplay(camera) {
       let displayTopDiv = document.getElementById("displayTopDiv");
       displayTopDiv.classList.add("displaySelectDiv");
       let display = this.dataset.display;
+      // ************ Delcare State *********
+      state.display.name = this.dataset.display;
       showSpecialties(camera, display);
     });
   }
@@ -4200,7 +4228,6 @@ CameraDisplayObject.prototype.displaySpecialties = function () {
   if (display === "FourK") {
     display = "4k";
   }
-  console.log(this.camera, this.display);
   let hDiv = document.createElement("div");
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
@@ -4322,6 +4349,8 @@ function selectSpecialty(cameraDisplay) {
         display: cameraDisplay.display,
         specialty: this.dataset.specialty,
       }; // camera
+      // ********** Declare State ***********
+      state.specialty = this.dataset.specialty;
       displaySettings(cameraDisplaySpecialty);
     });
   }

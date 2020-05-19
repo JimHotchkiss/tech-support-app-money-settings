@@ -11,7 +11,7 @@ const SDCPARAMETERS = [
   "Chroma",
   "Sharpness",
 ];
-const hubSpecialties = ["Laparoscopic", "Orthroscopy", "Spy-Phi"];
+const hubSpecialties = ["Laparoscopy", "Arthroscopy", "Spy-Phi"];
 SDC = ["130", "78", "0", "-180", "650"];
 SDC3ALT = ["52", "104", "5", "-420", "800"];
 SDCULTRAALT = ["0", "130", "0", "-150", "750"];

@@ -37,6 +37,13 @@
 
 #back-button {
   display: none;
+  margin-left: 25px;
+}
+
+#back-button img {
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
 }
 
 .money-settings-toggle {
