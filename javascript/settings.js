@@ -4044,26 +4044,48 @@ const backButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings");
   let backButtonToggle = document.getElementById("back-button");
   backButtonToggle.addEventListener("click", () => {
+    console.log(state.camera, state.display, state.specialty);
     if (
+      state.specialty.name !== "" &&
+      state.display.name !== "" &&
+      state.camera.name !== ""
+    ) {
+      console.log("back from specialty");
+    } else if (
       state.specialty.name === "" &&
       state.display.name !== "" &&
       state.camera.name !== ""
     ) {
+      console.log("if", state.camera, state.display, state.specialty);
       let displayTopDiv = document.getElementById("displayTopDiv");
       displayTopDiv.className = "";
-      let cameraTopDiv = document.getElementById("specialtyTopDiv");
-      cameraTopDiv.className = "specialtySelectDiv";
+      displayTopDiv.innerHTML = "";
+      let specialtyTopDiv = document.getElementById("specialtyTopDiv");
+      specialtyTopDiv.innerHTML = "";
+      state.display.name = "";
       showDisplays(state.camera.name, state.display.name);
-      console.log(state.specialty);
+    } else if (state.display.name === "" && state.camera.name !== "") {
+      console.log("else if", state.camera, state.display);
+      state.camera.name = "";
+      let specialtyTopDiv = document.getElementById("specialtyTopDiv");
+      specialtyTopDiv.className = "";
+      let cameraTopDiv = document.getElementById("top-camera-div");
+      cameraTopDiv.className = "";
+      // cameraTopDiv.innerHTML = "";
+      let displayTopDiv = document.getElementById("displayTopDiv");
+      displayTopDiv.innerHTML = "";
+      displayTopDiv.className = "";
+      // let displayTopDiv = document.getElementById("displayTopDiv")
+      selectCamera();
     }
   });
+  console.log(state.camera, state.display, state.specialty);
   moneySettingsToggle.setAttribute("class", "money-settings-toggle");
   backButtonToggle.style.display = "block";
 };
 
 function selectCamera(camera, display) {
-  console.log(camera, display);
-  let cameraButton = document.getElementsByClassName("example_a");
+  let cameraButton = document.getElementsByClassName("camera-button");
   for (let item of cameraButton) {
     item.addEventListener("click", function (item) {
       let cameraTopDiv = document.getElementById("top-camera-div");
@@ -4078,7 +4100,9 @@ function selectCamera(camera, display) {
 }
 
 function showDisplays(camera, display) {
+  console.log("show displays", state.camera, state.display, state.specialty);
   let displayTopDiv = document.getElementById("displayTopDiv");
+  displayTopDiv.innerHTML = "";
   let hDiv = document.createElement("div");
   //************* bread crumbs *************/
   let cameraDiv = document.createElement("div");
@@ -4088,7 +4112,6 @@ function showDisplays(camera, display) {
   cameraPTag.innerHTML = "Selected CCU: " + camera;
   //************ end  ********************/
   cameraDiv.appendChild(cameraPTag);
-  console.log("half way");
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
   hElement.append("Select Display");
@@ -4103,10 +4126,9 @@ function showDisplays(camera, display) {
     let wiseLink = document.createElement("a");
     wiseDisplayDiv.setAttribute("class", "display-button-div");
     wiseDisplayDiv.setAttribute("align", "center");
-    wiseLink.setAttribute("class", "example_a");
+    wiseLink.setAttribute("class", "display-button button");
     wiseLink.setAttribute("data-display", "HDTV Wise");
     wiseLink.setAttribute("href", "#");
-    wiseLink.setAttribute("rel", "nofollow noopener");
     wiseLink.appendChild(document.createTextNode("HDTV Wise"));
     wiseDisplayDiv.appendChild(wiseLink);
     displayTopDiv.appendChild(wiseDisplayDiv);
@@ -4116,10 +4138,9 @@ function showDisplays(camera, display) {
     let visionElectLink = document.createElement("a");
     visionElectTwentyOneDisplayDiv.setAttribute("class", "display-button-div");
     visionElectTwentyOneDisplayDiv.setAttribute("align", "center");
-    visionElectLink.setAttribute("class", "example_a");
+    visionElectLink.setAttribute("class", "display-button button");
     visionElectLink.setAttribute("data-display", "Vision Elect 21");
     visionElectLink.setAttribute("href", "#");
-    visionElectLink.setAttribute("rel", "nofollow noopener");
     visionElectLink.appendChild(document.createTextNode("Vision Elect 21"));
     visionElectTwentyOneDisplayDiv.appendChild(visionElectLink);
     displayTopDiv.appendChild(visionElectTwentyOneDisplayDiv);
@@ -4129,10 +4150,9 @@ function showDisplays(camera, display) {
     let wiseNineteenLink = document.createElement("a");
     wiseNineteenDisplayDiv.setAttribute("class", "display-button-div");
     wiseNineteenDisplayDiv.setAttribute("align", "center");
-    wiseNineteenLink.setAttribute("class", "example_a");
+    wiseNineteenLink.setAttribute("class", "display-button button");
     wiseNineteenLink.setAttribute("data-display", "Wise 19");
     wiseNineteenLink.setAttribute("href", "#");
-    wiseNineteenLink.setAttribute("rel", "nofollow noopener");
     wiseNineteenLink.appendChild(document.createTextNode("Wise 19"));
     wiseNineteenDisplayDiv.appendChild(wiseNineteenLink);
     displayTopDiv.appendChild(wiseNineteenDisplayDiv);
@@ -4142,10 +4162,9 @@ function showDisplays(camera, display) {
     let vpLink = document.createElement("a");
     vpDisplayDiv.setAttribute("class", "display-button-div");
     vpDisplayDiv.setAttribute("align", "center");
-    vpLink.setAttribute("class", "example_a");
+    vpLink.setAttribute("class", "display-button button");
     vpLink.setAttribute("data-display", "VisionPro");
     vpLink.setAttribute("href", "#");
-    vpLink.setAttribute("rel", "nofollow noopener");
     vpLink.appendChild(document.createTextNode("Visionpro"));
     vpDisplayDiv.appendChild(vpLink);
     displayTopDiv.appendChild(vpDisplayDiv);
@@ -4155,10 +4174,9 @@ function showDisplays(camera, display) {
     let fourKLink = document.createElement("a");
     fourKDisplayDiv.setAttribute("class", "display-button-div");
     fourKDisplayDiv.setAttribute("align", "center");
-    fourKLink.setAttribute("class", "example_a");
+    fourKLink.setAttribute("class", "display-button button");
     fourKLink.setAttribute("data-display", "FourK");
     fourKLink.setAttribute("href", "#");
-    fourKLink.setAttribute("rel", "nofollow noopener");
     fourKLink.appendChild(document.createTextNode("4K"));
     fourKDisplayDiv.appendChild(fourKLink);
     displayTopDiv.appendChild(fourKDisplayDiv);
@@ -4195,7 +4213,7 @@ function showDisplays(camera, display) {
 }
 
 function selectDisplay(camera) {
-  let displayButton = document.getElementsByClassName("example_a");
+  let displayButton = document.getElementsByClassName("display-button");
   // Loop over buttons
   for (let button of displayButton) {
     button.addEventListener("click", function () {
@@ -4203,6 +4221,7 @@ function selectDisplay(camera) {
       displayTopDiv.classList.add("displaySelectDiv");
       let display = this.dataset.display;
       // ************ Delcare State *********
+      console.log(this.dataset.display);
       state.display.name = this.dataset.display;
       showSpecialties(camera, display);
     });
@@ -4210,8 +4229,7 @@ function selectDisplay(camera) {
 }
 
 function showSpecialties(camera, display) {
-  console.log(window.history);
-  window.history.back();
+  console.log("show specialties", state.camera, state.display, state.specialty);
   let cameraDisplay = new CameraDisplayObject(camera, display);
   cameraDisplay.displaySpecialties();
 }
@@ -4329,21 +4347,23 @@ function specialtyDiv(specialty) {
   let specialtiesLink = document.createElement("a");
   specialtiesDiv.setAttribute("class", "specialty-button-div");
   specialtiesDiv.setAttribute("align", "center");
-  specialtiesLink.setAttribute("class", "example_a");
+  specialtiesLink.setAttribute("class", "specialty-button button");
   specialtiesLink.setAttribute("data-specialty", specialty);
   specialtiesLink.setAttribute("href", "#");
-  specialtiesLink.setAttribute("rel", "nofollow noopener");
   specialtiesLink.appendChild(document.createTextNode(specialty));
   specialtiesDiv.appendChild(specialtiesLink);
   specialtyTopDiv.appendChild(specialtiesDiv);
 }
 // User can select a specialty
 function selectSpecialty(cameraDisplay) {
-  let specialtyButton = document.getElementsByClassName("example_a");
+  let specialtyButton = document.getElementsByClassName("specialty-button");
   let specialtyTopDiv = document.getElementById("specialtyTopDiv");
   for (let button of specialtyButton) {
     button.addEventListener("click", function () {
-      specialtyTopDiv.classList.add("specialtySelectDiv");
+      console.log(specialtyTopDiv);
+      specialtyTopDiv.className = "";
+      specialtyTopDiv.className = "specialtySelectDiv";
+      // specialtyTopDiv.classList.add("specialtySelectDiv");
       let cameraDisplaySpecialty = {
         camera: cameraDisplay.camera,
         display: cameraDisplay.display,
@@ -4357,6 +4377,7 @@ function selectSpecialty(cameraDisplay) {
 }
 
 function displaySettings(cameraDisplaySpecialty) {
+  state.specialty.name = cameraDisplaySpecialty.specialty;
   let headerDiv = document.createElement("div");
   headerDiv.setAttribute("class", "settings-header");
   // Camera Parameter Header Div
