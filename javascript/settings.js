@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   selectCamera();
+  backButton();
 });
 
 const state = {
@@ -4040,8 +4041,88 @@ const FOURKSETTINGS = {
   ],
 };
 
-const backButton = () => {
+const showBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings");
+  let backButtonToggle = document.getElementById("back-button");
+  moneySettingsToggle.id = "money-settings-toggle";
+  backButtonToggle.style.display = "block";
+  showHomeIcon();
+};
+
+const showHomeIcon = () => {
+  // need to grab the js-navbar-toggle div, and insert the home icon
+  let jsNavBarToggle = document.getElementById("js-navbar-toggle");
+  jsNavBarToggle.id = "js-navbar-toggle-hide";
+  let homeIconDiv = document.getElementById("home-icon-div-hide");
+  homeIconDiv.id = "home-icon-div-show";
+  homeIconEventListener();
+};
+
+const homeIconEventListener = () => {
+  let homeIcon = document.getElementById("home-icon-div-show");
+  homeIcon.addEventListener("click", () => {
+    resetState(homeIcon);
+    resetDOM();
+  });
+};
+
+const resetDOM = () => {
+  // Hide home icon
+  hideHomeIcon();
+  // Show menu icon
+  let jsNavBarToggle = document.getElementById("js-navbar-toggle-hide");
+  if (jsNavBarToggle !== null) {
+    jsNavBarToggle.id = "js-navbar-toggle";
+  }
+
+  // replace back icon with "Money Settings"
+  let moneySettingsToggle = document.getElementById("money-settings-toggle");
+  let backButtonToggle = document.getElementById("back-button");
+  moneySettingsToggle.id = "money-settings";
+  backButtonToggle.style.display = "none";
+  // reset to show camera buttons
+  // show ccu
+  let ccuTopDiv = document.getElementById("top-camera-div");
+  ccuTopDiv.className = "camera-div";
+  // reset displayDiv html
+  let displayDiv = document.getElementById("displayTopDiv");
+  displayDiv.innerHTML = "";
+  displayDiv.className = "";
+  // reset specialtyDiv html
+
+  if (specialtyDiv !== null) {
+    let specialtyDiv = document.getElementById("specialtyTopDiv");
+    specialtyDiv.innerHTML = "";
+    specialtyDiv.className = "";
+  }
+  // reset ccu settings div
+  let ccuSettingsDiv = document.getElementById("ccuSettingsTopDiv");
+  if (ccuSettingsDiv !== null) {
+    ccuSettingsDiv.innerHTML = "";
+  }
+  // reset monitor settings div
+  let monitorSettingsDiv = document.getElementById("monitorSettingsTopDiv");
+  if (monitorSettingsDiv !== null) {
+    monitorSettingsDiv.innerHTML = "";
+  }
+};
+
+const resetState = () => {
+  (state.camera.name = ""),
+    (state.display.name = ""),
+    (state.specialty.name = "");
+};
+
+const hideHomeIcon = () => {
+  let homeIconShow = document.getElementById("home-icon-div-show");
+  if (homeIconShow !== null) {
+    homeIconShow.id = "home-icon-div-hide";
+  }
+};
+
+const resetHomeScreen = () => {};
+
+function backButton() {
   let backButtonToggle = document.getElementById("back-button");
   backButtonToggle.addEventListener("click", () => {
     console.log(state.camera, state.display, state.specialty);
@@ -4075,14 +4156,13 @@ const backButton = () => {
       let displayTopDiv = document.getElementById("displayTopDiv");
       displayTopDiv.innerHTML = "";
       displayTopDiv.className = "";
+      console.log("else if", state.camera, state.display, state.specialty);
       // let displayTopDiv = document.getElementById("displayTopDiv")
+      resetHomeScreen();
       selectCamera();
     }
   });
-  console.log(state.camera, state.display, state.specialty);
-  moneySettingsToggle.setAttribute("class", "money-settings-toggle");
-  backButtonToggle.style.display = "block";
-};
+}
 
 function selectCamera(camera, display) {
   let cameraButton = document.getElementsByClassName("camera-button");
@@ -4093,8 +4173,9 @@ function selectCamera(camera, display) {
       let camera = this.dataset.camera;
       // ********** Declaring State ********* //
       state.camera.name = this.dataset.camera;
+      console.log("selectCamera", state.camera, state.display, state.specialty);
       showDisplays(camera);
-      backButton();
+      showBackButton();
     });
   }
 }
@@ -4224,6 +4305,7 @@ function selectDisplay(camera) {
       console.log(this.dataset.display);
       state.display.name = this.dataset.display;
       showSpecialties(camera, display);
+      console.log(state.camera, state.display, state.specialty);
     });
   }
 }
