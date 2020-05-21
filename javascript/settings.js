@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   selectCamera();
+  backButton();
 });
+
+const state = {
+  camera: { name: "" },
+  display: { name: "" },
+  specialty: { name: "" },
+};
 
 const NODATA = [
   "No Data",
@@ -232,28 +239,29 @@ const SIXTEENPARAMETERS = [
   "ENV BG Offset",
   "ENV Gamma",
   "ENV Max Gain",
-  // New parameters
-  "Size",
-  "G Hue",
-  "G Gain",
-  "R-Ye Hue",
-  "R-Ye Gain",
-  "Ye Hue",
-  "Ye Gain",
-  "Ye-G Hue",
-  "Ye-G Gain",
-  "G-Cy Hue",
-  "G-Cy Gain",
-  "CY Hue",
-  "CY Gain",
-  "CY-B Hue",
-  "CY-B Gain",
-  "B-Mg Hue",
-  "B-Mg Gain",
-  "Mg Hue",
-  "Mg Gain",
-  "Mg-R Hue",
-  "Mg-R Gain",
+
+  // ******************************************** New 1688 parameters
+  // "Size",
+  // "G Hue",
+  // "G Gain",
+  // "R-Ye Hue",
+  // "R-Ye Gain",
+  // "Ye Hue",
+  // "Ye Gain",
+  // "Ye-G Hue",
+  // "Ye-G Gain",
+  // "G-Cy Hue",
+  // "G-Cy Gain",
+  // "CY Hue",
+  // "CY Gain",
+  // "CY-B Hue",
+  // "CY-B Gain",
+  // "B-Mg Hue",
+  // "B-Mg Gain",
+  // "Mg Hue",
+  // "Mg Gain",
+  // "Mg-R Hue",
+  // "Mg-R Gain",
 ];
 const FLEXIBLEPARAMETERS = ["R-Gain", "R-Hue", "B-Peak", "B-Gain", "B-Hue"];
 
@@ -441,27 +449,28 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+    // ************** New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   ARTHRO1FOURK1688: [
     "Default Settings",
@@ -540,27 +549,28 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+    // ********* New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   LASERFOURK1688: [
     "Auto",
@@ -587,27 +597,29 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+
+    // ************************ New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   HYSTEROFOURK1688: [
     "Auto",
@@ -634,27 +646,28 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+    // **************** New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   MICROSCOPEFOURK1688: [
     "Default Settings",
@@ -4034,34 +4047,175 @@ const FOURKSETTINGS = {
   ],
 };
 
-const backButton = () => {
+const showBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings");
   let backButtonToggle = document.getElementById("back-button");
-  moneySettingsToggle.setAttribute("class", "money-settings-toggle");
+  // "money-settings-toggle has a display: none"
+  if (moneySettingsToggle !== null) {
+    moneySettingsToggle.id = "money-settings-toggle";
+  }
+
   backButtonToggle.style.display = "block";
+  showHomeIcon();
 };
 
-function selectCamera() {
-  let cameraButton = document.getElementsByClassName("example_a");
+const showHomeIcon = () => {
+  // need to grab the js-navbar-toggle div, and insert the home icon
+  let jsNavBarToggle = document.getElementById("js-navbar-toggle");
+  let homeIconDiv = document.getElementById("home-icon-div-hide");
+  // "js-navbar-toggle-hide" display: none
+  if (jsNavBarToggle !== null) {
+    jsNavBarToggle.id = "js-navbar-toggle-hide";
+  }
+  if (homeIconDiv !== null) {
+    homeIconDiv.id = "home-icon-div-show";
+  }
+  homeIconEventListener();
+};
+
+const homeIconEventListener = () => {
+  let homeIcon = document.getElementById("home-icon-div-show");
+  homeIcon.addEventListener("click", () => {
+    resetState(homeIcon);
+    resetDOM();
+  });
+};
+
+const resetDOM = () => {
+  // Hide home icon
+  hideHomeIcon();
+  // Show menu icon
+  let jsNavBarToggle = document.getElementById("js-navbar-toggle-hide");
+  if (jsNavBarToggle !== null) {
+    jsNavBarToggle.id = "js-navbar-toggle";
+  }
+
+  // replace back icon with "Money Settings"
+  let moneySettingsToggle = document.getElementById("money-settings-toggle");
+  let backButtonToggle = document.getElementById("back-button");
+  if (moneySettingsToggle !== null) {
+    moneySettingsToggle.id = "money-settings";
+    backButtonToggle.style.display = "none";
+  }
+  // reset to show camera buttons
+  // show ccu
+  let ccuTopDiv = document.getElementById("top-camera-div");
+  ccuTopDiv.className = "camera-div";
+  // reset displayDiv html
+  let displayDiv = document.getElementById("displayTopDiv");
+  displayDiv.innerHTML = "";
+  displayDiv.className = "";
+  // reset specialtyDiv html
+
+  if (specialtyDiv !== null) {
+    let specialtyDiv = document.getElementById("specialtyTopDiv");
+    specialtyDiv.innerHTML = "";
+    specialtyDiv.className = "";
+  }
+  // reset ccu settings div
+  let ccuSettingsDiv = document.getElementById("ccuSettingsTopDiv");
+  if (ccuSettingsDiv !== null) {
+    ccuSettingsDiv.innerHTML = "";
+  }
+  // reset monitor settings div
+  let monitorSettingsDiv = document.getElementById("monitorSettingsTopDiv");
+  if (monitorSettingsDiv !== null) {
+    monitorSettingsDiv.innerHTML = "";
+  }
+};
+
+const resetState = () => {
+  (state.camera.name = ""),
+    (state.display.name = ""),
+    (state.specialty.name = "");
+};
+
+const hideHomeIcon = () => {
+  let homeIconShow = document.getElementById("home-icon-div-show");
+  if (homeIconShow !== null) {
+    homeIconShow.id = "home-icon-div-hide";
+  }
+};
+
+function backButton() {
+  let backButtonToggle = document.getElementById("back-button");
+  backButtonToggle.addEventListener("click", () => {
+    console.log(state.camera, state.display, state.specialty);
+    if (
+      state.specialty.name !== "" &&
+      state.display.name !== "" &&
+      state.camera.name !== ""
+    ) {
+      // reset state.specialty
+      state.specialty.name = "";
+      // reset html ccuSettingsTopDiv
+      let ccuSettingsTopDiv = document.getElementById("ccuSettingsTopDiv");
+      ccuSettingsTopDiv.innerHTML = "";
+      // reset html monitorSettingsTopDiv
+      let monitorSettingsTopDiv = document.getElementById(
+        "monitorSettingsTopDiv"
+      );
+      monitorSettingsTopDiv.innerHTML = "";
+      // eliminate specialtySelectDiv to display specialties
+      specialtyTopDiv.className = "";
+      console.log("back from specialty");
+    } else if (
+      state.specialty.name === "" &&
+      state.display.name !== "" &&
+      state.camera.name !== ""
+    ) {
+      console.log("if", state.camera, state.display, state.specialty);
+      let displayTopDiv = document.getElementById("displayTopDiv");
+      displayTopDiv.className = "";
+      displayTopDiv.innerHTML = "";
+      let specialtyTopDiv = document.getElementById("specialtyTopDiv");
+      specialtyTopDiv.innerHTML = "";
+      state.display.name = "";
+      showDisplays(state.camera.name, state.display.name);
+    } else if (state.display.name === "" && state.camera.name !== "") {
+      hideHomeIcon();
+      resetDOM();
+      resetState();
+      selectCamera();
+    }
+  });
+}
+
+function selectCamera(camera, display) {
+  let cameraButton = document.getElementsByClassName("camera-button");
   for (let item of cameraButton) {
     item.addEventListener("click", function (item) {
       let cameraTopDiv = document.getElementById("top-camera-div");
       cameraTopDiv.classList.add("cameraSelectDiv");
       let camera = this.dataset.camera;
+      // ********** Declaring State ********* //
+      state.camera.name = this.dataset.camera;
+      console.log("selectCamera", state.camera, state.display, state.specialty);
       showDisplays(camera);
-      backButton();
+      showBackButton();
     });
   }
 }
 
-function showDisplays(camera) {
+function showDisplays(camera, display) {
+  console.log("show displays", state.camera, state.display, state.specialty);
   let displayTopDiv = document.getElementById("displayTopDiv");
+  displayTopDiv.innerHTML = "";
   let hDiv = document.createElement("div");
+  //************* bread crumbs *************/
+  let cameraDiv = document.createElement("div");
+  let cameraPTag = document.createElement("p");
+  cameraDiv.setAttribute("class", "camera-div");
+  cameraPTag.setAttribute("class", "camera-p-tag");
+  cameraPTag.innerHTML = "CCU: " + camera;
+  //************ end  ********************/
+  cameraDiv.appendChild(cameraPTag);
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
   hElement.append("Select Display");
   displayTopDiv.setAttribute("style", "margin-top: 5em;");
   hDiv.appendChild(hElement);
+  hDiv.appendChild(cameraDiv);
   displayTopDiv.appendChild(hDiv);
 
   // Monitor Variables
@@ -4070,10 +4224,9 @@ function showDisplays(camera) {
     let wiseLink = document.createElement("a");
     wiseDisplayDiv.setAttribute("class", "display-button-div");
     wiseDisplayDiv.setAttribute("align", "center");
-    wiseLink.setAttribute("class", "example_a");
+    wiseLink.setAttribute("class", "display-button button");
     wiseLink.setAttribute("data-display", "HDTV Wise");
     wiseLink.setAttribute("href", "#");
-    wiseLink.setAttribute("rel", "nofollow noopener");
     wiseLink.appendChild(document.createTextNode("HDTV Wise"));
     wiseDisplayDiv.appendChild(wiseLink);
     displayTopDiv.appendChild(wiseDisplayDiv);
@@ -4083,10 +4236,9 @@ function showDisplays(camera) {
     let visionElectLink = document.createElement("a");
     visionElectTwentyOneDisplayDiv.setAttribute("class", "display-button-div");
     visionElectTwentyOneDisplayDiv.setAttribute("align", "center");
-    visionElectLink.setAttribute("class", "example_a");
+    visionElectLink.setAttribute("class", "display-button button");
     visionElectLink.setAttribute("data-display", "Vision Elect 21");
     visionElectLink.setAttribute("href", "#");
-    visionElectLink.setAttribute("rel", "nofollow noopener");
     visionElectLink.appendChild(document.createTextNode("Vision Elect 21"));
     visionElectTwentyOneDisplayDiv.appendChild(visionElectLink);
     displayTopDiv.appendChild(visionElectTwentyOneDisplayDiv);
@@ -4096,10 +4248,9 @@ function showDisplays(camera) {
     let wiseNineteenLink = document.createElement("a");
     wiseNineteenDisplayDiv.setAttribute("class", "display-button-div");
     wiseNineteenDisplayDiv.setAttribute("align", "center");
-    wiseNineteenLink.setAttribute("class", "example_a");
+    wiseNineteenLink.setAttribute("class", "display-button button");
     wiseNineteenLink.setAttribute("data-display", "Wise 19");
     wiseNineteenLink.setAttribute("href", "#");
-    wiseNineteenLink.setAttribute("rel", "nofollow noopener");
     wiseNineteenLink.appendChild(document.createTextNode("Wise 19"));
     wiseNineteenDisplayDiv.appendChild(wiseNineteenLink);
     displayTopDiv.appendChild(wiseNineteenDisplayDiv);
@@ -4109,10 +4260,9 @@ function showDisplays(camera) {
     let vpLink = document.createElement("a");
     vpDisplayDiv.setAttribute("class", "display-button-div");
     vpDisplayDiv.setAttribute("align", "center");
-    vpLink.setAttribute("class", "example_a");
+    vpLink.setAttribute("class", "display-button button");
     vpLink.setAttribute("data-display", "VisionPro");
     vpLink.setAttribute("href", "#");
-    vpLink.setAttribute("rel", "nofollow noopener");
     vpLink.appendChild(document.createTextNode("Visionpro"));
     vpDisplayDiv.appendChild(vpLink);
     displayTopDiv.appendChild(vpDisplayDiv);
@@ -4122,14 +4272,14 @@ function showDisplays(camera) {
     let fourKLink = document.createElement("a");
     fourKDisplayDiv.setAttribute("class", "display-button-div");
     fourKDisplayDiv.setAttribute("align", "center");
-    fourKLink.setAttribute("class", "example_a");
+    fourKLink.setAttribute("class", "display-button button");
     fourKLink.setAttribute("data-display", "FourK");
     fourKLink.setAttribute("href", "#");
-    fourKLink.setAttribute("rel", "nofollow noopener");
     fourKLink.appendChild(document.createTextNode("4K"));
     fourKDisplayDiv.appendChild(fourKLink);
     displayTopDiv.appendChild(fourKDisplayDiv);
   };
+
   if (camera === "1688") {
     // Visionpro
     visionPro();
@@ -4161,19 +4311,23 @@ function showDisplays(camera) {
 }
 
 function selectDisplay(camera) {
-  let displayButton = document.getElementsByClassName("example_a");
+  let displayButton = document.getElementsByClassName("display-button");
   // Loop over buttons
   for (let button of displayButton) {
     button.addEventListener("click", function () {
       let displayTopDiv = document.getElementById("displayTopDiv");
       displayTopDiv.classList.add("displaySelectDiv");
       let display = this.dataset.display;
+      // ************ Delcare State *********
+      state.display.name = this.dataset.display;
       showSpecialties(camera, display);
+      console.log(state.camera, state.display, state.specialty);
     });
   }
 }
 
 function showSpecialties(camera, display) {
+  console.log("show specialties", state.camera, state.display, state.specialty);
   let cameraDisplay = new CameraDisplayObject(camera, display);
   cameraDisplay.displaySpecialties();
 }
@@ -4185,12 +4339,32 @@ function CameraDisplayObject(camera, display) {
 }
 // Object prototype
 CameraDisplayObject.prototype.displaySpecialties = function () {
+  let display = this.display;
+
+  if (display === "FourK") {
+    display = "4k";
+  }
   let hDiv = document.createElement("div");
   hDiv.setAttribute("class", "title-div");
   let hElement = document.createElement("h1");
   hElement.append("Select Specialty");
+
+  // Breadcrumbs
+  let selectedConsolesDiv = document.createElement("div");
+  selectedConsolesDiv.setAttribute("class", "selected-consoles-div");
+  let displayPTag = document.createElement("p");
+  displayPTag.setAttribute("class", "displayPTag");
+  let cameraPTag = document.createElement("p");
+  cameraPTag.setAttribute("class", "cameraPTag");
+  cameraPTag.innerHTML = "CCU: " + this.camera;
+  displayPTag.innerHTML = "DISPLAY: " + display;
+
+  selectedConsolesDiv.appendChild(cameraPTag);
+  selectedConsolesDiv.appendChild(displayPTag);
+
   hDiv.appendChild(hElement);
   specialtyTopDiv.appendChild(hDiv);
+  specialtyTopDiv.appendChild(selectedConsolesDiv);
   // specialty div
   if (this.camera === "Precision AC" && this.display === "FourK") {
     PRECISION4KSPECIALTIES.forEach(function (specialty) {
@@ -4271,32 +4445,38 @@ function specialtyDiv(specialty) {
   let specialtiesLink = document.createElement("a");
   specialtiesDiv.setAttribute("class", "specialty-button-div");
   specialtiesDiv.setAttribute("align", "center");
-  specialtiesLink.setAttribute("class", "example_a");
+  specialtiesLink.setAttribute("class", "specialty-button button");
   specialtiesLink.setAttribute("data-specialty", specialty);
   specialtiesLink.setAttribute("href", "#");
-  specialtiesLink.setAttribute("rel", "nofollow noopener");
   specialtiesLink.appendChild(document.createTextNode(specialty));
   specialtiesDiv.appendChild(specialtiesLink);
   specialtyTopDiv.appendChild(specialtiesDiv);
 }
 // User can select a specialty
 function selectSpecialty(cameraDisplay) {
-  let specialtyButton = document.getElementsByClassName("example_a");
+  let specialtyButton = document.getElementsByClassName("specialty-button");
   let specialtyTopDiv = document.getElementById("specialtyTopDiv");
   for (let button of specialtyButton) {
     button.addEventListener("click", function () {
-      specialtyTopDiv.classList.add("specialtySelectDiv");
+      console.log(specialtyTopDiv);
+      specialtyTopDiv.className = "";
+      specialtyTopDiv.className = "specialtySelectDiv";
+      // specialtyTopDiv.classList.add("specialtySelectDiv");
       let cameraDisplaySpecialty = {
         camera: cameraDisplay.camera,
         display: cameraDisplay.display,
         specialty: this.dataset.specialty,
       }; // camera
+      // ********** Declare State ***********
+      state.specialty.name = this.dataset.specialty;
       displaySettings(cameraDisplaySpecialty);
     });
   }
 }
 
 function displaySettings(cameraDisplaySpecialty) {
+  console.log("displaySettings:", state.camera, state.display, state.specialty);
+  state.specialty.name = cameraDisplaySpecialty.specialty;
   let headerDiv = document.createElement("div");
   headerDiv.setAttribute("class", "settings-header");
   // Camera Parameter Header Div

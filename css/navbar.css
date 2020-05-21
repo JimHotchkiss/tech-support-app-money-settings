@@ -11,6 +11,10 @@
   z-index: 9999;
 }
 
+#js-navbar-toggle-hide {
+  display: none;
+}
+
 .main-nav {
   margin-top: 40px;
   list-style-type: none;
@@ -37,9 +41,36 @@
 
 #back-button {
   display: none;
+  margin-left: 25px;
+  margin-right: 350px;
 }
 
-.money-settings-toggle {
+#back-button img {
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
+}
+
+#home-icon-div-hide {
+  display: none;
+  margin-left: 25px;
+  margin-right: 350px;
+}
+
+#home-icon-div-show {
+  float: right;
+  margin-top: 20px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+#home-icon-div-show img {
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
+}
+
+#money-settings-toggle {
   display: none;
 }
 
