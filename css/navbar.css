@@ -45,11 +45,10 @@
   margin-right: 350px;
 }
 
-#back-button p {
-  color: #ffb600;
-  /* height: 30px;
+#back-button img {
+  height: 30px;
   width: 30px;
-  background-size: 30px; */
+  background-size: 30px;
 }
 
 #home-icon-div-hide {
@@ -65,11 +64,10 @@
   cursor: pointer;
 }
 
-#home-icon-div-show p {
-  color: #ffb600;
-  /* height: 30px;
+#home-icon-div-show img {
+  height: 30px;
   width: 30px;
-  background-size: 30px; */
+  background-size: 30px;
 }
 
 #money-settings-toggle {
