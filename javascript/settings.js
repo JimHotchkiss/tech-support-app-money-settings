@@ -4044,7 +4044,11 @@ const FOURKSETTINGS = {
 const showBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings");
   let backButtonToggle = document.getElementById("back-button");
-  moneySettingsToggle.id = "money-settings-toggle";
+  // "money-settings-toggle has a display: none"
+  if (moneySettingsToggle !== null) {
+    moneySettingsToggle.id = "money-settings-toggle";
+  }
+
   backButtonToggle.style.display = "block";
   showHomeIcon();
 };
@@ -4052,9 +4056,14 @@ const showBackButton = () => {
 const showHomeIcon = () => {
   // need to grab the js-navbar-toggle div, and insert the home icon
   let jsNavBarToggle = document.getElementById("js-navbar-toggle");
-  jsNavBarToggle.id = "js-navbar-toggle-hide";
   let homeIconDiv = document.getElementById("home-icon-div-hide");
-  homeIconDiv.id = "home-icon-div-show";
+  // "js-navbar-toggle-hide" display: none
+  if (jsNavBarToggle !== null) {
+    jsNavBarToggle.id = "js-navbar-toggle-hide";
+  }
+  if (homeIconDiv !== null) {
+    homeIconDiv.id = "home-icon-div-show";
+  }
   homeIconEventListener();
 };
 
@@ -4078,8 +4087,10 @@ const resetDOM = () => {
   // replace back icon with "Money Settings"
   let moneySettingsToggle = document.getElementById("money-settings-toggle");
   let backButtonToggle = document.getElementById("back-button");
-  moneySettingsToggle.id = "money-settings";
-  backButtonToggle.style.display = "none";
+  if (moneySettingsToggle !== null) {
+    moneySettingsToggle.id = "money-settings";
+    backButtonToggle.style.display = "none";
+  }
   // reset to show camera buttons
   // show ccu
   let ccuTopDiv = document.getElementById("top-camera-div");
@@ -4120,8 +4131,6 @@ const hideHomeIcon = () => {
   }
 };
 
-const resetHomeScreen = () => {};
-
 function backButton() {
   let backButtonToggle = document.getElementById("back-button");
   backButtonToggle.addEventListener("click", () => {
@@ -4131,6 +4140,18 @@ function backButton() {
       state.display.name !== "" &&
       state.camera.name !== ""
     ) {
+      // reset state.specialty
+      state.specialty.name = "";
+      // reset html ccuSettingsTopDiv
+      let ccuSettingsTopDiv = document.getElementById("ccuSettingsTopDiv");
+      ccuSettingsTopDiv.innerHTML = "";
+      // reset html monitorSettingsTopDiv
+      let monitorSettingsTopDiv = document.getElementById(
+        "monitorSettingsTopDiv"
+      );
+      monitorSettingsTopDiv.innerHTML = "";
+      // eliminate specialtySelectDiv to display specialties
+      specialtyTopDiv.className = "";
       console.log("back from specialty");
     } else if (
       state.specialty.name === "" &&
@@ -4158,7 +4179,6 @@ function backButton() {
       displayTopDiv.className = "";
       console.log("else if", state.camera, state.display, state.specialty);
       // let displayTopDiv = document.getElementById("displayTopDiv")
-      resetHomeScreen();
       selectCamera();
     }
   });
@@ -4452,13 +4472,14 @@ function selectSpecialty(cameraDisplay) {
         specialty: this.dataset.specialty,
       }; // camera
       // ********** Declare State ***********
-      state.specialty = this.dataset.specialty;
+      state.specialty.name = this.dataset.specialty;
       displaySettings(cameraDisplaySpecialty);
     });
   }
 }
 
 function displaySettings(cameraDisplaySpecialty) {
+  console.log("displaySettings:", state.camera, state.display, state.specialty);
   state.specialty.name = cameraDisplaySpecialty.specialty;
   let headerDiv = document.createElement("div");
   headerDiv.setAttribute("class", "settings-header");
