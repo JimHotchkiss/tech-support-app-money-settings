@@ -239,28 +239,29 @@ const SIXTEENPARAMETERS = [
   "ENV BG Offset",
   "ENV Gamma",
   "ENV Max Gain",
-  // New parameters
-  "Size",
-  "G Hue",
-  "G Gain",
-  "R-Ye Hue",
-  "R-Ye Gain",
-  "Ye Hue",
-  "Ye Gain",
-  "Ye-G Hue",
-  "Ye-G Gain",
-  "G-Cy Hue",
-  "G-Cy Gain",
-  "CY Hue",
-  "CY Gain",
-  "CY-B Hue",
-  "CY-B Gain",
-  "B-Mg Hue",
-  "B-Mg Gain",
-  "Mg Hue",
-  "Mg Gain",
-  "Mg-R Hue",
-  "Mg-R Gain",
+
+  // ******************************************** New 1688 parameters
+  // "Size",
+  // "G Hue",
+  // "G Gain",
+  // "R-Ye Hue",
+  // "R-Ye Gain",
+  // "Ye Hue",
+  // "Ye Gain",
+  // "Ye-G Hue",
+  // "Ye-G Gain",
+  // "G-Cy Hue",
+  // "G-Cy Gain",
+  // "CY Hue",
+  // "CY Gain",
+  // "CY-B Hue",
+  // "CY-B Gain",
+  // "B-Mg Hue",
+  // "B-Mg Gain",
+  // "Mg Hue",
+  // "Mg Gain",
+  // "Mg-R Hue",
+  // "Mg-R Gain",
 ];
 const FLEXIBLEPARAMETERS = ["R-Gain", "R-Hue", "B-Peak", "B-Gain", "B-Hue"];
 
@@ -448,27 +449,28 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+    // ************** New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   ARTHRO1FOURK1688: [
     "Default Settings",
@@ -547,27 +549,28 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+    // ********* New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   LASERFOURK1688: [
     "Auto",
@@ -594,27 +597,29 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+
+    // ************************ New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   HYSTEROFOURK1688: [
     "Auto",
@@ -641,27 +646,28 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    "3",
-    "0",
-    "0",
-    "9",
-    "-5",
-    "4",
-    "5",
-    "0",
-    "0",
-    "0",
-    "0",
-    "5",
-    "-17",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
-    "0",
+    // **************** New 1688 settings
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
   ],
   MICROSCOPEFOURK1688: [
     "Default Settings",
@@ -4167,18 +4173,9 @@ function backButton() {
       state.display.name = "";
       showDisplays(state.camera.name, state.display.name);
     } else if (state.display.name === "" && state.camera.name !== "") {
-      console.log("else if", state.camera, state.display);
-      state.camera.name = "";
-      let specialtyTopDiv = document.getElementById("specialtyTopDiv");
-      specialtyTopDiv.className = "";
-      let cameraTopDiv = document.getElementById("top-camera-div");
-      cameraTopDiv.className = "";
-      // cameraTopDiv.innerHTML = "";
-      let displayTopDiv = document.getElementById("displayTopDiv");
-      displayTopDiv.innerHTML = "";
-      displayTopDiv.className = "";
-      console.log("else if", state.camera, state.display, state.specialty);
-      // let displayTopDiv = document.getElementById("displayTopDiv")
+      hideHomeIcon();
+      resetDOM();
+      resetState();
       selectCamera();
     }
   });
@@ -4210,7 +4207,7 @@ function showDisplays(camera, display) {
   let cameraPTag = document.createElement("p");
   cameraDiv.setAttribute("class", "camera-div");
   cameraPTag.setAttribute("class", "camera-p-tag");
-  cameraPTag.innerHTML = "Selected CCU: " + camera;
+  cameraPTag.innerHTML = "CCU: " + camera;
   //************ end  ********************/
   cameraDiv.appendChild(cameraPTag);
   hDiv.setAttribute("class", "title-div");
@@ -4322,7 +4319,6 @@ function selectDisplay(camera) {
       displayTopDiv.classList.add("displaySelectDiv");
       let display = this.dataset.display;
       // ************ Delcare State *********
-      console.log(this.dataset.display);
       state.display.name = this.dataset.display;
       showSpecialties(camera, display);
       console.log(state.camera, state.display, state.specialty);
@@ -4360,8 +4356,8 @@ CameraDisplayObject.prototype.displaySpecialties = function () {
   displayPTag.setAttribute("class", "displayPTag");
   let cameraPTag = document.createElement("p");
   cameraPTag.setAttribute("class", "cameraPTag");
-  cameraPTag.innerHTML = "Selected CCU: " + this.camera;
-  displayPTag.innerHTML = "Selected Display: " + display;
+  cameraPTag.innerHTML = "CCU: " + this.camera;
+  displayPTag.innerHTML = "DISPLAY: " + display;
 
   selectedConsolesDiv.appendChild(cameraPTag);
   selectedConsolesDiv.appendChild(displayPTag);
