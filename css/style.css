@@ -270,6 +270,12 @@ body {
   font-size: 18px;
 }
 
+/* Default Settings */
+.image-div-hide {
+  display: none;
+}
+/* ///////////////////////////////////////////////////*/
+
 @media (max-width: 451px) {
   .parent-div {
     font-size: 0.9em;
