@@ -23,6 +23,7 @@ function closeNavBar() {
 const showHtml = () => {
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // Titile div
+  topDiv.innerHTML = "";
   const titleDiv = document.createElement("div");
   titleDiv.setAttribute("class", "default-ccu-title-div");
   const titleText = document.createElement("h1");
