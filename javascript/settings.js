@@ -4091,7 +4091,6 @@ function selectCamera(camera, display) {
 }
 
 function showDisplays(camera, display) {
-  console.log("show displays", state.camera, state.display, state.specialty);
   let displayTopDiv = document.getElementById("displayTopDiv");
   displayTopDiv.innerHTML = "";
   let hDiv = document.createElement("div");
@@ -4505,7 +4504,6 @@ function displaySettings(cameraDisplaySpecialty) {
     });
 
     // Out Of Box Message Function
-    console.log(cameraDisplaySpecialty.specialty);
     if (
       cameraDisplaySpecialty.specialty === "Flexiscope" ||
       cameraDisplaySpecialty.specialty === "Laser" ||
