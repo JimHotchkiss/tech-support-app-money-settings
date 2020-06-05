@@ -42,4 +42,51 @@ const showHtml = () => {
   ccuDefaultDiv.appendChild(ccuDefaultAnchor);
   titleDiv.appendChild(ccuDefaultDiv);
   topDiv.appendChild(titleDiv);
+  addEventListenerToCcus();
+};
+
+const addEventListenerToCcus = () => {
+  const defaultButtonDiv = document.getElementsByClassName(
+    "default-button-div"
+  )[0];
+  defaultButtonDiv.addEventListener("click", () => {
+    addSpecialtyTitle();
+  });
+};
+
+const specialties = [
+  "Arthroscopy",
+  "Cystoscopy",
+  "ENT-Skull",
+  "Flexiscope",
+  "Hystero",
+  "Laparoscopy",
+  "Laser",
+  "Microscope",
+  "Standard",
+];
+
+const addSpecialtyTitle = () => {
+  const darkOverlayDiv = document.getElementsByClassName("dark-overlay")[0];
+  darkOverlayDiv.innerHTML = "";
+  const specialtyTitleDiv = document.createElement("div");
+  specialtyTitleDiv.setAttribute("class", "default-specialty-title-div");
+  const specialtyTitleText = document.createElement("h1");
+  specialtyTitleText.setAttribute("class", "default-specialty-title-text");
+  specialtyTitleText.innerText = "Select Specialty";
+  specialtyTitleDiv.appendChild(specialtyTitleText);
+  // Add speciality buttons
+  console.log(specialties);
+  specialties.map((specialty) => {
+    let specialtyDefaultDiv = document.createElement("div");
+    let specialtyDefaultAnchor = document.createElement("p");
+    specialtyDefaultDiv.setAttribute("class", "default-specialty-button-div");
+    specialtyDefaultAnchor.setAttribute("class", "default-specialty-button");
+    specialtyDefaultAnchor.setAttribute("data-display", specialty);
+    specialtyDefaultAnchor.appendChild(document.createTextNode(specialty));
+    specialtyDefaultDiv.appendChild(specialtyDefaultAnchor);
+    specialtyTitleDiv.appendChild(specialtyDefaultDiv);
+  });
+
+  darkOverlayDiv.appendChild(specialtyTitleDiv);
 };

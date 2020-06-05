@@ -41,3 +41,40 @@
   box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
 }
+
+/* /////////////////// Specialties */
+.default-specialty-title-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.default-specialty-title-text {
+  color: #ffb600;
+  margin-top: 120px;
+  margin-bottom: 24px;
+}
+
+.default-specialty-button-div {
+  width: 160px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffb600;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  opacity: 0.9;
+  margin-bottom: 1em;
+}
+
+.default-specialty-button-div:hover {
+  background: #7e7e7e;
+  /* background: #434343; */
+  letter-spacing: 0.7px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
