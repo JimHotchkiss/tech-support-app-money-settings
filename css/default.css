@@ -30,6 +30,7 @@
   display: inline-block;
   opacity: 0.9;
   margin-left: 30%;
+  cursor: pointer;
 }
 
 .default-button-div:hover {
@@ -67,6 +68,7 @@
   display: inline-block;
   opacity: 0.9;
   margin-bottom: 1em;
+  cursor: pointer;
 }
 
 .default-specialty-button-div:hover {
@@ -77,4 +79,28 @@
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
+}
+
+/* //////////////////// Settings /////////////////////////////////////////*/
+.default-settings-title-div {
+  position: relative;
+  top: 120px;
+  margin: auto;
+  width: 60%;
+  text-align: center;
+}
+.settings-title-span {
+  color: #ffb600;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.settings-title-ptag {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.default-parameter-ptag {
+  color: #fff;
 }
