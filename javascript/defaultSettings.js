@@ -123,6 +123,54 @@ const PARAMETERS = [
   "Mg-R Gain",
 ];
 
+const SIXTEEN = [
+  "Auto",
+  "30",
+  "1",
+  "9",
+  "Photometry",
+  "2",
+  "3",
+  "4",
+  "0",
+  "4",
+  "6",
+  "10",
+  "30",
+  "0",
+  "4",
+  "0",
+  "-12",
+  "0",
+  "Auto",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "3",
+  "0",
+  "0",
+  "9",
+  "-5",
+  "4",
+  "5",
+  "0",
+  "0",
+  "0",
+  "0",
+  "5",
+  "-17",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+];
+
 const addSpecialtyTitle = () => {
   const darkOverlayDiv = document.getElementsByClassName("dark-overlay")[0];
   darkOverlayDiv.innerHTML = "";
@@ -162,13 +210,12 @@ const addEventListenerToSpecialty = () => {
   }
 };
 
+// settings/parameter container
+const settingsContainerDiv = document.createElement("div");
+settingsContainerDiv.setAttribute("class", "settings-container-div");
+
 const addDefaultSettingsTitle = () => {
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
-  console.log(topDiv);
-  // Main div
-  const settingsMainDiv = document.createElement("div");
-  settingsMainDiv.setAttribute("class", "settings-main-div");
-  // Title div
   const defaultSettingsTitleDiv = document.createElement("div");
   defaultSettingsTitleDiv.setAttribute("class", "default-settings-title-div");
   // CCU/Specialty span
@@ -179,16 +226,20 @@ const addDefaultSettingsTitle = () => {
     " " +
     defaultSetttingsState.specialty.name;
   defaultSettingsTitleDiv.appendChild(settingsTitleSpan);
-  topDiv.appendChild(defaultSettingsTitleDiv);
+  settingsContainerDiv.appendChild(defaultSettingsTitleDiv);
   // P Tag 'default settings'//
   const settingsTitlePtag = document.createElement("p");
   settingsTitlePtag.setAttribute("class", "settings-title-ptag");
   settingsTitlePtag.innerHTML = "Default Settings";
   defaultSettingsTitleDiv.appendChild(settingsTitlePtag);
-  addDefaultSettings();
+  addDefaultSettingsParameters();
 };
 
-const addDefaultSettings = () => {
+// Settings container div
+const settingsParametersDiv = document.createElement("div");
+settingsParametersDiv.setAttribute("class", "settings-parameters-div");
+///////////////////
+const addDefaultSettingsParameters = () => {
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // So I need two divs, parameters and settings, side by side
   // Parameters div
@@ -203,6 +254,27 @@ const addDefaultSettings = () => {
     parameterDiv.appendChild(parameterPtag);
     parametersDiv.appendChild(parameterDiv);
   });
+  settingsParametersDiv.appendChild(parametersDiv);
+  settingsContainerDiv.appendChild(settingsParametersDiv);
+  topDiv.appendChild(settingsContainerDiv);
+  addDefaultSettings();
+};
 
-  topDiv.appendChild(parametersDiv);
+const addDefaultSettings = () => {
+  const topDiv = document.getElementsByClassName("dark-overlay")[0];
+  // Settings div
+  const settingsDiv = document.createElement("div");
+  settingsDiv.setAttribute("class", "default-settings-div");
+  SIXTEEN.map((setting) => {
+    const settingDiv = document.createElement("div");
+    settingDiv.setAttribute("class", "default-setting-div");
+    const settingPtag = document.createElement("p");
+    settingPtag.setAttribute("class", "default-setting-ptag");
+    settingPtag.innerHTML = setting;
+    settingDiv.appendChild(settingPtag);
+    settingsDiv.appendChild(settingDiv);
+  });
+  settingsParametersDiv.appendChild(settingsDiv);
+  settingsContainerDiv.appendChild(settingsParametersDiv);
+  topDiv.appendChild(settingsContainerDiv);
 };

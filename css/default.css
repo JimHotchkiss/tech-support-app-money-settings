@@ -88,6 +88,7 @@
   margin: auto;
   width: 60%;
   text-align: center;
+  background: blue;
 }
 .settings-title-span {
   color: #ffb600;
@@ -102,5 +103,41 @@
 }
 
 .default-parameter-ptag {
+  color: #fff;
+}
+
+.settings-container-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.default-parameter-div {
+  background: #ffb600;
+  position: relative;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  width: 190px;
+  top: 150px;
+  border-bottom: 1px solid #000;
+}
+
+.settings-parameters-div {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.default-settings-div {
+  position: relative;
+  top: 150px;
+}
+
+.default-setting-div {
+  padding: 16px;
+  background: #ffb600;
+  border-bottom: 1px solid #000;
+}
+
+.default-setting-div p {
   color: #fff;
 }
