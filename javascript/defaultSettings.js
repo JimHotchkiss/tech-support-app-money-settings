@@ -28,6 +28,7 @@ function closeNavBar() {
 }
 
 const showHtml = () => {
+  console.log();
   resetDefaultState();
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // Titile div
@@ -55,7 +56,8 @@ const showHtml = () => {
 
 // reset State
 const resetDefaultState = () => {
-  (state.camera.name = ""), (state.specialty.name = "");
+  (defaultSetttingsState.camera.name = ""),
+    (defaultSetttingsState.specialty.name = "");
 };
 
 const addEventListenerToCcus = () => {
@@ -210,21 +212,10 @@ const addEventListenerToSpecialty = () => {
       defaultSetttingsState.specialty.name = button.dataset.specialty;
       const topDiv = document.getElementsByClassName("dark-overlay")[0];
       // Titile div
+      console.log(topDiv);
       topDiv.innerHTML = "";
-      clearPreviousHtml();
       addDefaultSettingsTitle();
     });
-  }
-};
-
-// Clear out previous HTML
-const clearPreviousHtml = () => {
-  let settingsContainerDiv = document.getElementsByClassName(
-    "settings-container-div"
-  );
-  if (settingsContainerDiv !== null) {
-    console.log(settingsContainerDiv);
-    // settingsContainerDiv.innerHTML = "";
   }
 };
 
@@ -233,7 +224,8 @@ const settingsContainerDiv = document.createElement("div");
 settingsContainerDiv.setAttribute("class", "settings-container-div");
 
 const addDefaultSettingsTitle = () => {
-  console.log(settingsContainerDiv);
+  // console.log(settingsContainerDiv);
+  settingsContainerDiv.innerHTML = "";
   const defaultSettingsTitleDiv = document.createElement("div");
   defaultSettingsTitleDiv.setAttribute("class", "default-settings-title-div");
   // CCU/Specialty span
@@ -258,6 +250,8 @@ const settingsParametersDiv = document.createElement("div");
 settingsParametersDiv.setAttribute("class", "settings-parameters-div");
 ///////////////////
 const addDefaultSettingsParameters = () => {
+  // clear out previous html
+  settingsParametersDiv.innerHTML = "";
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // So I need two divs, parameters and settings, side by side
   // Parameters div
