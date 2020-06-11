@@ -10,6 +10,11 @@
   display: none;
 }
 
+.default-ccu-title-div {
+  max-width: 414px;
+  margin: auto;
+}
+
 .default-ccu-title-div .default-ccu-title-text {
   color: #ffb600;
   margin-top: 120px;
@@ -35,7 +40,6 @@
 
 .default-button-div:hover {
   background: #7e7e7e;
-  /* background: #434343; */
   letter-spacing: 0.7px;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -86,12 +90,14 @@
   position: relative;
   top: 120px;
   margin: auto;
-  width: 60%;
+  width: 75%;
   text-align: center;
-  background: blue;
+  background: #ffb600;
+  border-radius: 10px;
+  padding-bottom: 8px;
 }
 .settings-title-span {
-  color: #ffb600;
+  color: #262626;
   font-size: 24px;
   font-weight: 900;
 }
@@ -99,7 +105,7 @@
 .settings-title-ptag {
   color: #fff;
   font-size: 18px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .default-parameter-ptag {
@@ -109,35 +115,40 @@
 .settings-container-div {
   display: flex;
   flex-direction: column;
-}
-
-.default-parameter-div {
-  background: #ffb600;
-  position: relative;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  width: 190px;
-  top: 150px;
-  border-bottom: 1px solid #000;
+  max-width: 414px;
+  margin: auto;
 }
 
 .settings-parameters-div {
   display: flex;
   flex-direction: row;
   margin: auto;
+  width: 75%;
+  margin-top: 150px;
+  background: #ffb600;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+}
+
+.default-parameters-div {
+}
+
+.default-parameter-div {
+  border-bottom: 1px solid #262626;
+  padding: 32px 0px 12px 8px;
 }
 
 .default-settings-div {
-  position: relative;
-  top: 150px;
 }
 
 .default-setting-div {
-  padding: 16px;
-  background: #ffb600;
-  border-bottom: 1px solid #000;
+  width: 130%;
+  border-bottom: 1px solid #262626;
+  padding: 32px 0px 12px 8px;
 }
 
 .default-setting-div p {
+  margin-left: 24px;
   color: #fff;
 }

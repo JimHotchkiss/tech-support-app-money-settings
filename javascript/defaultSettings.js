@@ -244,7 +244,7 @@ const addDefaultSettingsParameters = () => {
   // So I need two divs, parameters and settings, side by side
   // Parameters div
   const parametersDiv = document.createElement("div");
-  parametersDiv.setAttribute("class", "default-settings-parameters-div");
+  parametersDiv.setAttribute("class", "default-parameters-div");
   PARAMETERS.map((parameter) => {
     const parameterDiv = document.createElement("div");
     parameterDiv.setAttribute("class", "default-parameter-div");

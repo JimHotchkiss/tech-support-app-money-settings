@@ -8,6 +8,11 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+#image-div {
+  max-width: 500px;
+  margin: auto;
+}
+
 #home-section {
   background-color: #262626;
   min-height: 100%;

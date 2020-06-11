@@ -8,6 +8,10 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+#sdc-div {
+  max-width: 500px;
+  margin: auto;
+}
 .printer-wrapper {
   background-color: #262626;
   min-height: 100vh;
