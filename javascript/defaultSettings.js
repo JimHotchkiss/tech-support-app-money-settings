@@ -28,6 +28,7 @@ function closeNavBar() {
 }
 
 const showHtml = () => {
+  resetDefaultState();
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // Titile div
   topDiv.innerHTML = "";
@@ -50,6 +51,11 @@ const showHtml = () => {
   titleDiv.appendChild(ccuDefaultDiv);
   topDiv.appendChild(titleDiv);
   addEventListenerToCcus();
+};
+
+// reset State
+const resetDefaultState = () => {
+  (state.camera.name = ""), (state.specialty.name = "");
 };
 
 const addEventListenerToCcus = () => {
@@ -205,8 +211,20 @@ const addEventListenerToSpecialty = () => {
       const topDiv = document.getElementsByClassName("dark-overlay")[0];
       // Titile div
       topDiv.innerHTML = "";
+      clearPreviousHtml();
       addDefaultSettingsTitle();
     });
+  }
+};
+
+// Clear out previous HTML
+const clearPreviousHtml = () => {
+  let settingsContainerDiv = document.getElementsByClassName(
+    "settings-container-div"
+  );
+  if (settingsContainerDiv !== null) {
+    console.log(settingsContainerDiv);
+    // settingsContainerDiv.innerHTML = "";
   }
 };
 
@@ -215,7 +233,7 @@ const settingsContainerDiv = document.createElement("div");
 settingsContainerDiv.setAttribute("class", "settings-container-div");
 
 const addDefaultSettingsTitle = () => {
-  const topDiv = document.getElementsByClassName("dark-overlay")[0];
+  console.log(settingsContainerDiv);
   const defaultSettingsTitleDiv = document.createElement("div");
   defaultSettingsTitleDiv.setAttribute("class", "default-settings-title-div");
   // CCU/Specialty span
