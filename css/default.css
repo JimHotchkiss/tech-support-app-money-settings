@@ -57,6 +57,10 @@
 .default-specialty-title-text {
   color: #ffb600;
   margin-top: 120px;
+  margin-bottom: 12px;
+}
+.ccu-bread-crumbs-text {
+  color: #fff;
   margin-bottom: 24px;
 }
 

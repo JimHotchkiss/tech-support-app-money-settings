@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   selectDefaultSettings();
+  defaultSettingsBackButton();
 });
 
 // Constants
@@ -65,53 +66,431 @@ const PARAMETERS = [
   "Mg-R Gain",
 ];
 
-const SIXTEEN = [
-  "Auto",
-  "30",
-  "1",
-  "9",
-  "Photometry",
-  "2",
-  "3",
-  "4",
-  "0",
-  "4",
-  "6",
-  "10",
-  "30",
-  "0",
-  "4",
-  "0",
-  "-12",
-  "0",
-  "Auto",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "3",
-  "0",
-  "0",
-  "9",
-  "-5",
-  "4",
-  "5",
-  "0",
-  "0",
-  "0",
-  "0",
-  "5",
-  "-17",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-];
+const SIXTEEN = {
+  Arthroscopy: [
+    "arthro",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Cystoscopy: [
+    "cysto",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  "ENT-Skull": [
+    "ent",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Flexiscope: [
+    "flex",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Hystero: [
+    "hyster",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Laparoscopy: [
+    "lap",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Laser: [
+    "laser",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Microscope: [
+    "micro",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Standard: [
+    "standard",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+};
 
 const FIFTEEN = {
   Arthroscopy: [
@@ -612,7 +991,6 @@ function closeNavBar() {
 }
 
 const showHtml = () => {
-  console.log();
   resetDefaultState();
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // Titile div
@@ -656,8 +1034,58 @@ const addEventListenerToCcus = () => {
     item.addEventListener("click", () => {
       defaultSetttingsState.camera.name = item.dataset.ccu;
       addSpecialtyTitle();
+      showDefaultBackButton();
     });
   }
+};
+
+/////// Back Button //////////////////////////////////////////
+const showDefaultBackButton = () => {
+  let moneySettingsToggle = document.getElementById("money-settings");
+  let backButtonToggle = document.getElementById("back-button");
+  // "money-settings-toggle has a display: none"
+  if (moneySettingsToggle !== null) {
+    moneySettingsToggle.id = "money-settings-toggle";
+  }
+  backButtonToggle.style.display = "block";
+  showDefaultHomeIcon();
+};
+
+const defaultSettingsBackButton = () => {
+  const defaultBackButton = document.getElementById("back-button");
+  defaultBackButton.addEventListener("click", () => {
+    if (defaultSetttingsState.specialty.name !== "") {
+      defaultSetttingsState.specialty.name = "";
+      addSpecialtyTitle();
+    } else {
+      defaultSetttingsState.camera.name = "";
+      console.log(defaultSetttingsState.camera);
+      showHtml();
+    }
+  });
+};
+
+const showDefaultHomeIcon = () => {
+  // need to grab the js-navbar-toggle div, and insert the home icon
+  let jsNavBarToggle = document.getElementById("js-navbar-toggle");
+  let homeIconDiv = document.getElementById("home-icon-div-hide");
+  // "js-navbar-toggle-hide" display: none
+  if (jsNavBarToggle !== null) {
+    jsNavBarToggle.id = "js-navbar-toggle-hide";
+  }
+  if (homeIconDiv !== null) {
+    homeIconDiv.id = "home-icon-div-show";
+  }
+  defaultHomeIconEventListener();
+};
+
+const defaultHomeIconEventListener = () => {
+  let defaultHomeIcon = document.getElementById("home-icon-div-show");
+  defaultHomeIcon.addEventListener("click", () => {
+    console.log("here");
+    // resetDefaultState(homeIcon);
+    // resetDOM();
+  });
 };
 
 const addSpecialtyTitle = () => {
@@ -669,6 +1097,13 @@ const addSpecialtyTitle = () => {
   specialtyTitleText.setAttribute("class", "default-specialty-title-text");
   specialtyTitleText.innerText = "Select Specialty";
   specialtyTitleDiv.appendChild(specialtyTitleText);
+  // Add CCU breadcrubms
+  console.log(defaultSetttingsState);
+  const ccuBreadCrumbsText = document.createElement("p");
+  ccuBreadCrumbsText.setAttribute("class", "ccu-bread-crumbs-text");
+  ccuBreadCrumbsText.innerText =
+    "Selected CCU: " + defaultSetttingsState.camera.name;
+  specialtyTitleDiv.appendChild(ccuBreadCrumbsText);
   // Add speciality buttons
   specialties.map((specialty) => {
     let specialtyDefaultDiv = document.createElement("div");
@@ -693,7 +1128,6 @@ const addEventListenerToSpecialty = () => {
       defaultSetttingsState.specialty.name = button.dataset.specialty;
       const topDiv = document.getElementsByClassName("dark-overlay")[0];
       // Titile div
-      console.log(topDiv);
       topDiv.innerHTML = "";
       addDefaultSettingsTitle();
     });
