@@ -34,6 +34,7 @@
   border-radius: 5px;
   display: inline-block;
   opacity: 0.9;
+  margin-top: 15px;
   margin-left: 30%;
   cursor: pointer;
 }
@@ -94,6 +95,7 @@
   text-align: center;
   background: #ffb600;
   border-radius: 10px;
+  padding-top: 8px;
   padding-bottom: 8px;
 }
 .settings-title-span {

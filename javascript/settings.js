@@ -4213,13 +4213,11 @@ function selectDisplay(camera) {
       // ************ Delcare State *********
       state.display.name = this.dataset.display;
       showSpecialties(camera, display);
-      console.log(state.camera, state.display, state.specialty);
     });
   }
 }
 
 function showSpecialties(camera, display) {
-  console.log("show specialties", state.camera, state.display, state.specialty);
   let cameraDisplay = new CameraDisplayObject(camera, display);
   cameraDisplay.displaySpecialties();
 }

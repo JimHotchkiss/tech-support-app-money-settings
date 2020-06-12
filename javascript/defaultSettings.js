@@ -2,74 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   selectDefaultSettings();
 });
 
-const defaultSetttingsState = {
-  camera: { name: "" },
-  specialty: { name: "" },
-};
-
-const selectDefaultSettings = () => {
-  // Grab the default settings button
-  let defaultButton = document.getElementById("default-settings-button");
-  defaultButton.addEventListener("click", () => {
-    const imageDiv = document.getElementById("image-div");
-    if (imageDiv !== null) {
-      imageDiv.classList.toggle("hide");
-    }
-    closeNavBar();
-    showHtml();
-  });
-};
-
-function closeNavBar() {
-  let mainNav = document.getElementById("js-menu");
-  let jsNavBarToggle = document.getElementById("js-navbar-toggle");
-  mainNav.className = "main-nav";
-  jsNavBarToggle.className = "container";
-}
-
-const showHtml = () => {
-  console.log();
-  resetDefaultState();
-  const topDiv = document.getElementsByClassName("dark-overlay")[0];
-  // Titile div
-  topDiv.innerHTML = "";
-  const titleDiv = document.createElement("div");
-  titleDiv.setAttribute("class", "default-ccu-title-div");
-  const titleText = document.createElement("h1");
-  titleText.setAttribute("class", "default-ccu-title-text");
-  titleText.innerText = "Select CCU";
-
-  // put title div and title text into top div
-  titleDiv.appendChild(titleText);
-
-  let ccuDefaultDiv = document.createElement("div");
-  let ccuDefaultAnchor = document.createElement("p");
-  ccuDefaultDiv.setAttribute("class", "default-button-div");
-  ccuDefaultAnchor.setAttribute("class", "default-button");
-  ccuDefaultDiv.setAttribute("data-ccu", "1688");
-  ccuDefaultAnchor.appendChild(document.createTextNode("1688"));
-  ccuDefaultDiv.appendChild(ccuDefaultAnchor);
-  titleDiv.appendChild(ccuDefaultDiv);
-  topDiv.appendChild(titleDiv);
-  addEventListenerToCcus();
-};
-
-// reset State
-const resetDefaultState = () => {
-  (defaultSetttingsState.camera.name = ""),
-    (defaultSetttingsState.specialty.name = "");
-};
-
-const addEventListenerToCcus = () => {
-  // when the list of ccus become more than one, we can drop the [0] index
-  const defaultButtonDiv = document.getElementsByClassName(
-    "default-button-div"
-  )[0];
-  defaultButtonDiv.addEventListener("click", () => {
-    defaultSetttingsState.camera.name = defaultButtonDiv.dataset.ccu;
-    addSpecialtyTitle();
-  });
-};
+// Constants
+const CAMERAS = ["1688", "1588", "1488", "Precision AC", "1288"];
 
 const specialties = [
   "Arthroscopy",
@@ -179,6 +113,553 @@ const SIXTEEN = [
   "0",
 ];
 
+const FIFTEEN = {
+  Arthroscopy: [
+    "arthro",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Cystoscopy: [
+    "cysto",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  "ENT-Skull": [
+    "ent",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Flexiscope: [
+    "flex",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Hystero: [
+    "hyster",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Laparoscopy: [
+    "lap",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Laser: [
+    "laser",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Microscope: [
+    "micro",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  Standard: [
+    "standard",
+    "30",
+    "1",
+    "9",
+    "Photometry",
+    "2",
+    "3",
+    "4",
+    "0",
+    "4",
+    "6",
+    "10",
+    "30",
+    "0",
+    "4",
+    "0",
+    "-12",
+    "0",
+    "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+};
+// const FIFTEEN = [
+//   "Auto",
+//   "30",
+//   "1",
+//   "9",
+//   "Photometry",
+//   "2",
+//   "3",
+//   "4",
+//   "0",
+//   "4",
+//   "6",
+//   "10",
+//   "30",
+//   "0",
+//   "4",
+//   "0",
+//   "-12",
+//   "0",
+//   "Auto",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+//   "3",
+//   "0",
+//   "0",
+//   "9",
+//   "-5",
+//   "4",
+//   "5",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+//   "5",
+//   "-17",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+//   "0",
+// ];
+
+const defaultSetttingsState = {
+  camera: { name: "" },
+  specialty: { name: "" },
+};
+
+const selectDefaultSettings = () => {
+  // Grab the default settings button
+  let defaultButton = document.getElementById("default-settings-button");
+  defaultButton.addEventListener("click", () => {
+    const imageDiv = document.getElementById("image-div");
+    if (imageDiv !== null) {
+      imageDiv.classList.toggle("hide");
+    }
+    closeNavBar();
+    showHtml();
+  });
+};
+
+function closeNavBar() {
+  let mainNav = document.getElementById("js-menu");
+  let jsNavBarToggle = document.getElementById("js-navbar-toggle");
+  mainNav.className = "main-nav";
+  jsNavBarToggle.className = "container";
+}
+
+const showHtml = () => {
+  console.log();
+  resetDefaultState();
+  const topDiv = document.getElementsByClassName("dark-overlay")[0];
+  // Titile div
+  topDiv.innerHTML = "";
+  const titleDiv = document.createElement("div");
+  titleDiv.setAttribute("class", "default-ccu-title-div");
+  const titleText = document.createElement("h1");
+  titleText.setAttribute("class", "default-ccu-title-text");
+  titleText.innerText = "Select CCU";
+
+  // put title div and title text into top div
+  titleDiv.appendChild(titleText);
+
+  CAMERAS.map((camera) => {
+    let ccuDefaultDiv = document.createElement("div");
+    let ccuDefaultAnchor = document.createElement("p");
+    ccuDefaultDiv.setAttribute("class", "default-button-div");
+    ccuDefaultAnchor.setAttribute("class", "default-button");
+    ccuDefaultDiv.setAttribute("data-ccu", camera);
+    ccuDefaultAnchor.appendChild(document.createTextNode(camera));
+    ccuDefaultDiv.appendChild(ccuDefaultAnchor);
+    titleDiv.appendChild(ccuDefaultDiv);
+    topDiv.appendChild(titleDiv);
+  });
+
+  addEventListenerToCcus();
+};
+
+// reset State
+const resetDefaultState = () => {
+  (defaultSetttingsState.camera.name = ""),
+    (defaultSetttingsState.specialty.name = "");
+};
+
+const addEventListenerToCcus = () => {
+  // when the list of ccus become more than one, we can drop the [0] index
+  const defaultButtonDiv = document.getElementsByClassName(
+    "default-button-div"
+  );
+  for (let item of defaultButtonDiv) {
+    item.addEventListener("click", () => {
+      defaultSetttingsState.camera.name = item.dataset.ccu;
+      addSpecialtyTitle();
+    });
+  }
+};
+
 const addSpecialtyTitle = () => {
   const darkOverlayDiv = document.getElementsByClassName("dark-overlay")[0];
   darkOverlayDiv.innerHTML = "";
@@ -246,6 +727,7 @@ const addDefaultSettingsTitle = () => {
 };
 
 // Settings container div
+let ccuVariable = "";
 const settingsParametersDiv = document.createElement("div");
 settingsParametersDiv.setAttribute("class", "settings-parameters-div");
 ///////////////////
@@ -269,6 +751,21 @@ const addDefaultSettingsParameters = () => {
   settingsParametersDiv.appendChild(parametersDiv);
   settingsContainerDiv.appendChild(settingsParametersDiv);
   topDiv.appendChild(settingsContainerDiv);
+  setCcuVariable();
+};
+const setCcuVariable = () => {
+  console.log(defaultSetttingsState.camera.name);
+  if (defaultSetttingsState.camera.name === "1688") {
+    ccuVariable = SIXTEEN;
+  } else if (defaultSetttingsState.camera.name === "1588") {
+    ccuVariable = FIFTEEN;
+  } else if (defaultSetttingsState.camera.name === "1488") {
+    ccuVariable = FOURTEEN;
+  } else if (defaultSetttingsState.camera.name === "Precision AC") {
+    ccuVariable = PRECISION;
+  } else if (defaultSetttingsState.camera.name === "1288") {
+    ccuVariable = TWELVE;
+  }
   addDefaultSettings();
 };
 
@@ -277,15 +774,21 @@ const addDefaultSettings = () => {
   // Settings div
   const settingsDiv = document.createElement("div");
   settingsDiv.setAttribute("class", "default-settings-div");
-  SIXTEEN.map((setting) => {
-    const settingDiv = document.createElement("div");
-    settingDiv.setAttribute("class", "default-setting-div");
-    const settingPtag = document.createElement("p");
-    settingPtag.setAttribute("class", "default-setting-ptag");
-    settingPtag.innerHTML = setting;
-    settingDiv.appendChild(settingPtag);
-    settingsDiv.appendChild(settingDiv);
-  });
+
+  for (const property in ccuVariable) {
+    if (defaultSetttingsState.specialty.name === property) {
+      ccuVariable[property].map((setting) => {
+        const settingDiv = document.createElement("div");
+        settingDiv.setAttribute("class", "default-setting-div");
+        const settingPtag = document.createElement("p");
+        settingPtag.setAttribute("class", "default-setting-ptag");
+        settingPtag.innerHTML = setting;
+        settingDiv.appendChild(settingPtag);
+        settingsDiv.appendChild(settingDiv);
+      });
+    }
+  }
+
   settingsParametersDiv.appendChild(settingsDiv);
   settingsContainerDiv.appendChild(settingsParametersDiv);
   topDiv.appendChild(settingsContainerDiv);
