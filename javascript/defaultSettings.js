@@ -1059,7 +1059,8 @@ const defaultSettingsBackButton = () => {
       addSpecialtyTitle();
     } else {
       defaultSetttingsState.camera.name = "";
-      console.log(defaultSetttingsState.camera);
+      hideDefaultBackButton();
+      // hideDefaultHomeIcon();
       showHtml();
     }
   });
@@ -1086,6 +1087,13 @@ const defaultHomeIconEventListener = () => {
     // resetDefaultState(homeIcon);
     // resetDOM();
   });
+};
+
+const hideDefaultBackButton = () => {
+  let moneySettingsToggle = document.getElementById("money-settings-toggle");
+  let backButtonToggle = document.getElementById("back-button");
+  moneySettingsToggle.id = "money-settings";
+  backButtonToggle.style.display = "none";
 };
 
 const addSpecialtyTitle = () => {
