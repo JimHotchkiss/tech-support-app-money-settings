@@ -992,6 +992,7 @@ function closeNavBar() {
 
 const showHtml = () => {
   resetDefaultState();
+  showDefaultSettingsTitle();
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // Titile div
   topDiv.innerHTML = "";
@@ -1051,6 +1052,12 @@ const showDefaultBackButton = () => {
   showDefaultHomeIcon();
 };
 
+const showDefaultSettingsTitle = () => {
+  const moneySettingsId = document.getElementById("money-settings");
+  moneySettingsId.setAttribute("href", "#!");
+  moneySettingsId.innerHTML = "Default Settings";
+};
+
 const defaultSettingsBackButton = () => {
   const defaultBackButton = document.getElementById("back-button");
   defaultBackButton.addEventListener("click", () => {
@@ -1060,22 +1067,35 @@ const defaultSettingsBackButton = () => {
     } else {
       defaultSetttingsState.camera.name = "";
       hideDefaultBackButton();
-      // hideDefaultHomeIcon();
+      hideDefaultHomeIcon();
       showHtml();
     }
   });
+};
+
+const hideDefaultHomeIcon = () => {
+  const homeIconDivShow = document.getElementById("home-icon-div-show");
+  const homeIcontPTag = document.getElementById("home-icon-text");
+  homeIconDivShow.removeChild(homeIcontPTag);
+  homeIconDivShow.id = "home-icon-div-hide";
+  const menuContainer = document.getElementById("js-navbar-toggle-hide");
+  menuContainer.id = "js-navbar-toggle";
 };
 
 const showDefaultHomeIcon = () => {
   // need to grab the js-navbar-toggle div, and insert the home icon
   let jsNavBarToggle = document.getElementById("js-navbar-toggle");
   let homeIconDiv = document.getElementById("home-icon-div-hide");
+  const homeIconText = document.createElement("p");
+  homeIconText.setAttribute("id", "home-icon-text");
+  homeIconText.innerHTML = "Money Settings";
   // "js-navbar-toggle-hide" display: none
   if (jsNavBarToggle !== null) {
     jsNavBarToggle.id = "js-navbar-toggle-hide";
   }
   if (homeIconDiv !== null) {
     homeIconDiv.id = "home-icon-div-show";
+    homeIconDiv.appendChild(homeIconText);
   }
   defaultHomeIconEventListener();
 };
