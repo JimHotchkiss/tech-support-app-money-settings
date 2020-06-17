@@ -1076,8 +1076,11 @@ const defaultSettingsBackButton = () => {
 const hideDefaultHomeIcon = () => {
   const homeIconDivShow = document.getElementById("home-icon-div-show");
   const homeIcontPTag = document.getElementById("home-icon-text");
-  homeIconDivShow.removeChild(homeIcontPTag);
-  homeIconDivShow.id = "home-icon-div-hide";
+  if (homeIconDivShow !== null) {
+    homeIconDivShow.removeChild(homeIcontPTag);
+    homeIconDivShow.id = "home-icon-div-hide";
+  }
+
   const menuContainer = document.getElementById("js-navbar-toggle-hide");
   menuContainer.id = "js-navbar-toggle";
 };
@@ -1103,11 +1106,31 @@ const showDefaultHomeIcon = () => {
 const defaultHomeIconEventListener = () => {
   let defaultHomeIcon = document.getElementById("home-icon-div-show");
   defaultHomeIcon.addEventListener("click", () => {
-    console.log("here");
-    // resetDefaultState(homeIcon);
-    // resetDOM();
+    location.href = "./index.html";
+    const defaultSettingsTitleDiv = document.getElementById(
+      "default-settings-title-div"
+    );
+    // clearDefaultSettingsDiv(defaultSettingsTitleDiv);
   });
 };
+
+// const clearDefaultSettingsDiv = (defaultSettingsTitleDiv) => {
+//   while (defaultSettingsTitleDiv.firstChild) {
+//     defaultSettingsTitleDiv.removeChild(defaultSettingsTitleDiv.firstChild);
+//   }
+//   const homeIconDivShow = document.getElementById("home-icon-div-show");
+//   if (homeIconDivShow !== null) {
+//     hideDefaultHomeIcon();
+//   }
+//   hideDefaultBackButton();
+//   replaceDefaultSettingsText();
+// };
+
+// const replaceDefaultSettingsText = () => {
+//   const moneySettingsId = document.getElementById("money-settings");
+//   moneySettingsId.innerHTML = "Money Settings";
+//   moneySettingsId.setAttribute("href", "./index.html");
+// };
 
 const hideDefaultBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings-toggle");
@@ -1120,13 +1143,12 @@ const addSpecialtyTitle = () => {
   const darkOverlayDiv = document.getElementsByClassName("dark-overlay")[0];
   darkOverlayDiv.innerHTML = "";
   const specialtyTitleDiv = document.createElement("div");
-  specialtyTitleDiv.setAttribute("class", "default-specialty-title-div");
+  specialtyTitleDiv.setAttribute("id", "default-settings-title-div");
   const specialtyTitleText = document.createElement("h1");
-  specialtyTitleText.setAttribute("class", "default-specialty-title-text");
+  specialtyTitleText.setAttribute("class", "default-settings-title-text");
   specialtyTitleText.innerText = "Select Specialty";
   specialtyTitleDiv.appendChild(specialtyTitleText);
   // Add CCU breadcrubms
-  console.log(defaultSetttingsState);
   const ccuBreadCrumbsText = document.createElement("p");
   ccuBreadCrumbsText.setAttribute("class", "ccu-bread-crumbs-text");
   ccuBreadCrumbsText.innerText =
