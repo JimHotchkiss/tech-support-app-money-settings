@@ -27,7 +27,7 @@ const SPECIALTIES = [
   "Multi",
   "Arthro 1",
   "Arthro 2",
-  "Arthro 4_16",
+  "Arthro 4/16",
   "Lap 1",
   "Lap 2",
   "Lap STORZ",
@@ -63,7 +63,7 @@ const FIFTEENWISEVPSPECIALTIES = [
   "Multi",
   "Arthro 1",
   "Arthro 2",
-  "Arthro 4_16",
+  "Arthro 4/16",
   "Lap 1",
   "Lap 2",
   "Lap STORZ",
@@ -4362,7 +4362,13 @@ function selectSpecialty(cameraDisplay) {
 }
 
 function displaySettings(cameraDisplaySpecialty) {
-  state.specialty.name = cameraDisplaySpecialty.specialty;
+  if (cameraDisplaySpecialty.specialty === "Arthro 4/16") {
+    cameraDisplaySpecialty.specialty = "Arthro 4_16";
+  }
+  console.log(state.specialty.name);
+  if (state.specialty.name === "Arthro 4_16") {
+    state.specialty.name = "Arthro 4/16";
+  }
   let headerDiv = document.createElement("div");
   headerDiv.setAttribute("class", "settings-header");
   // Camera Parameter Header Div
@@ -4371,9 +4377,7 @@ function displaySettings(cameraDisplaySpecialty) {
   cameraParametersHeaderDiv.setAttribute("class", "camera-header");
   cameraParameterTitle.appendChild(
     document.createTextNode(
-      `${cameraDisplaySpecialty.camera}` +
-        " " +
-        `${cameraDisplaySpecialty.specialty}`
+      `${cameraDisplaySpecialty.camera}` + " " + `${state.specialty.name}`
     )
   );
   let cameraHeaderText = document.createElement("p");
@@ -4561,10 +4565,8 @@ function displaySettings(cameraDisplaySpecialty) {
   } else {
     paramsTitle.appendChild(document.createTextNode("4K"));
   }
-
-  paramsTitle.appendChild(
-    document.createTextNode(` ${cameraDisplaySpecialty.specialty}`)
-  );
+  console.log(state.specialty.name);
+  paramsTitle.appendChild(document.createTextNode(` ${state.specialty.name}`));
 
   // Set attributes
   monitorHeaderDiv.setAttribute("class", "monitor-header-div");

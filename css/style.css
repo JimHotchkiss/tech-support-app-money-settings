@@ -180,7 +180,7 @@ body {
   height: auto;
   width: 80%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 8px;
   margin-bottom: 8px;
 }
 
@@ -304,7 +304,7 @@ body {
   margin: 0 auto;
   text-align: center;
   margin-top: 90px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   padding: 16px;
   color: #fff;
   background: #ffb600;
