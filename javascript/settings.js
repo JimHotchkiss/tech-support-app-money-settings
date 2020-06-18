@@ -4365,18 +4365,25 @@ function selectSpecialty(cameraDisplay) {
 }
 
 function displaySettings(cameraDisplaySpecialty) {
-  console.log("displaySettings:", state.camera, state.display, state.specialty);
   state.specialty.name = cameraDisplaySpecialty.specialty;
   let headerDiv = document.createElement("div");
   headerDiv.setAttribute("class", "settings-header");
   // Camera Parameter Header Div
   let cameraParametersHeaderDiv = document.createElement("div");
   let cameraParameterTitle = document.createElement("h3");
-  cameraParametersHeaderDiv.setAttribute("class", "camera-parameters-header");
+  cameraParametersHeaderDiv.setAttribute("class", "camera-header");
   cameraParameterTitle.appendChild(
-    document.createTextNode(`${cameraDisplaySpecialty.camera}`)
+    document.createTextNode(
+      `${cameraDisplaySpecialty.camera}` +
+        " " +
+        `${cameraDisplaySpecialty.specialty}`
+    )
   );
+  let cameraHeaderText = document.createElement("p");
+  cameraHeaderText.setAttribute("class", "camera-header-text");
+  cameraHeaderText.innerHTML = "Money Settings";
   cameraParametersHeaderDiv.appendChild(cameraParameterTitle);
+  cameraParametersHeaderDiv.appendChild(cameraHeaderText);
   headerDiv.appendChild(cameraParametersHeaderDiv);
   // params/settings parent Div
   let parentDiv = document.createElement("div");
@@ -4388,14 +4395,15 @@ function displaySettings(cameraDisplaySpecialty) {
 
   // settings divs
   // Camera Settings Header Div
-  let cameraSettingsHeaderDiv = document.createElement("div");
-  let cameraSettingsTitle = document.createElement("h3");
-  cameraSettingsHeaderDiv.setAttribute("class", "camera-settings-header");
-  cameraSettingsTitle.appendChild(
-    document.createTextNode(`${cameraDisplaySpecialty.specialty} Settings`)
-  );
-  cameraSettingsHeaderDiv.appendChild(cameraSettingsTitle);
-  headerDiv.appendChild(cameraSettingsHeaderDiv);
+  // let cameraSettingsHeaderDiv = document.createElement("div");
+  // let cameraSettingsTitle = document.createElement("h3");
+  // cameraSettingsHeaderDiv.setAttribute("class", "camera-settings-header");
+  // cameraSettingsTitle.appendChild(
+  //   document.createTextNode(`${cameraDisplaySpecialty.specialty} Settings`)
+  // );
+
+  // cameraSettingsHeaderDiv.appendChild(cameraSettingsTitle);
+  // headerDiv.appendChild(cameraSettingsHeaderDiv);
   let cameraSettingsDiv = document.createElement("div");
   cameraSettingsDiv.setAttribute("class", "camera-settings");
 
@@ -4558,9 +4566,7 @@ function displaySettings(cameraDisplaySpecialty) {
   // Header Div
   let monitorHeaderDiv = document.createElement("div");
   let paramsHeaderDiv = document.createElement("div");
-  let settingsHeaderDiv = document.createElement("div");
   let paramsTitle = document.createElement("h3");
-  let settingsTitle = document.createElement("h3");
   // Give h3 tags Text
   if (cameraDisplaySpecialty.display !== "FourK") {
     paramsTitle.appendChild(
@@ -4570,21 +4576,23 @@ function displaySettings(cameraDisplaySpecialty) {
     paramsTitle.appendChild(document.createTextNode("4K"));
   }
 
-  settingsTitle.appendChild(
-    document.createTextNode(`${cameraDisplaySpecialty.specialty} Settings`)
+  paramsTitle.appendChild(
+    document.createTextNode(` ${cameraDisplaySpecialty.specialty}`)
   );
 
   // Set attributes
   monitorHeaderDiv.setAttribute("class", "monitor-header-div");
-  paramsHeaderDiv.setAttribute("class", "params-header-div");
-  settingsHeaderDiv.setAttribute("class", "settings-header-div");
+  paramsHeaderDiv.setAttribute("class", "monitor-title-div");
+
+  let monitorTitleText = document.createElement("p");
+  monitorTitleText.setAttribute("class", "monitor-title-text");
+  monitorTitleText.innerHTML = "Money Settings";
 
   // Append DOM
   paramsHeaderDiv.appendChild(paramsTitle);
-  settingsHeaderDiv.appendChild(settingsTitle);
+  paramsHeaderDiv.appendChild(monitorTitleText);
 
   monitorHeaderDiv.appendChild(paramsHeaderDiv);
-  monitorHeaderDiv.appendChild(settingsHeaderDiv);
   monitorMainDiv.appendChild(monitorHeaderDiv);
 
   // Monitor parameters

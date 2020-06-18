@@ -143,16 +143,18 @@ body {
 }
 
 .monitor-main-div {
-  background: #ffb600;
   border-radius: 5px;
   width: 80%;
   height: 100%;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .monitor-header-div {
   display: flex;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  background: #ffb600;
 }
 
 .params-header-div {
@@ -174,19 +176,35 @@ body {
   display: flex;
   background: #ffb600;
   opacity: 1;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
   height: auto;
   width: 80%;
   margin: auto;
+  margin-top: 100px;
+  margin-bottom: 16px;
 }
 
 .settings-second-div {
   display: flex;
+  background: #ffb600;
+  padding-top: 16px;
+  border-radius: 5px;
 }
 
 #monitorSettingsTopDiv {
   padding-bottom: 2em;
+}
+
+.monitor-title-div {
+  margin: 16px auto;
+  text-align: center;
+}
+
+.monitor-title-div h3 {
+  margin: auto;
+  color: #262626;
+  font-size: 24px;
+  font-weight: 900;
 }
 
 .monitor-params {
@@ -211,12 +229,31 @@ body {
   margin: 0.5em 0.8em 1em 0.8em;
 }
 
-.camera-parameters-header {
-  flex: 1;
-  text-align: left;
+.monitor-title-text {
+  margin: auto;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+.camera-header {
+  margin: auto;
+  text-align: center;
   color: #262626;
   opacity: 1;
   padding: 1em;
+}
+
+.camera-header h3 {
+  color: #262626;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.camera-header-text {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 6px;
 }
 
 .camera-settings-header {
@@ -233,8 +270,11 @@ body {
   opacity: 1;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   width: 80%;
   height: auto;
+  padding-top: 12px;
   margin: 0 auto;
 }
 
