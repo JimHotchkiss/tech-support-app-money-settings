@@ -993,6 +993,7 @@ function closeNavBar() {
 const showHtml = () => {
   resetDefaultState();
   showDefaultSettingsTitle();
+  showDefaultHomeIcon();
   const topDiv = document.getElementsByClassName("dark-overlay")[0];
   // Titile div
   topDiv.innerHTML = "";
@@ -1049,7 +1050,7 @@ const showDefaultBackButton = () => {
     moneySettingsToggle.id = "money-settings-toggle";
   }
   backButtonToggle.style.display = "block";
-  showDefaultHomeIcon();
+  // showDefaultHomeIcon();
 };
 
 const showDefaultSettingsTitle = () => {
@@ -1077,7 +1078,6 @@ const hideDefaultHomeIcon = () => {
   const homeIconDivShow = document.getElementById("home-icon-div-show");
   const homeIcontPTag = document.getElementById("home-icon-text");
   if (homeIconDivShow !== null) {
-    homeIconDivShow.removeChild(homeIcontPTag);
     homeIconDivShow.id = "home-icon-div-hide";
   }
 
@@ -1089,16 +1089,16 @@ const showDefaultHomeIcon = () => {
   // need to grab the js-navbar-toggle div, and insert the home icon
   let jsNavBarToggle = document.getElementById("js-navbar-toggle");
   let homeIconDiv = document.getElementById("home-icon-div-hide");
-  const homeIconText = document.createElement("p");
-  homeIconText.setAttribute("id", "home-icon-text");
-  homeIconText.innerHTML = "Money Settings";
+  // const homeIconText = document.createElement("p");
+  // homeIconText.setAttribute("id", "home-icon-text");
+  // homeIconText.innerHTML = "Money Settings";
   // "js-navbar-toggle-hide" display: none
   if (jsNavBarToggle !== null) {
     jsNavBarToggle.id = "js-navbar-toggle-hide";
   }
   if (homeIconDiv !== null) {
     homeIconDiv.id = "home-icon-div-show";
-    homeIconDiv.appendChild(homeIconText);
+    // homeIconDiv.appendChild(homeIconText);
   }
   defaultHomeIconEventListener();
 };
@@ -1110,27 +1110,8 @@ const defaultHomeIconEventListener = () => {
     const defaultSettingsTitleDiv = document.getElementById(
       "default-settings-title-div"
     );
-    // clearDefaultSettingsDiv(defaultSettingsTitleDiv);
   });
 };
-
-// const clearDefaultSettingsDiv = (defaultSettingsTitleDiv) => {
-//   while (defaultSettingsTitleDiv.firstChild) {
-//     defaultSettingsTitleDiv.removeChild(defaultSettingsTitleDiv.firstChild);
-//   }
-//   const homeIconDivShow = document.getElementById("home-icon-div-show");
-//   if (homeIconDivShow !== null) {
-//     hideDefaultHomeIcon();
-//   }
-//   hideDefaultBackButton();
-//   replaceDefaultSettingsText();
-// };
-
-// const replaceDefaultSettingsText = () => {
-//   const moneySettingsId = document.getElementById("money-settings");
-//   moneySettingsId.innerHTML = "Money Settings";
-//   moneySettingsId.setAttribute("href", "./index.html");
-// };
 
 const hideDefaultBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings-toggle");
