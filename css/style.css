@@ -29,11 +29,12 @@ body {
 }
 .title-div {
   margin: 0 auto;
+  margin-top: 106px;
   text-align: center;
   color: #262626;
   opacity: 0.8;
   padding: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 16px;
 }
 
 .camera-buttons-div {
