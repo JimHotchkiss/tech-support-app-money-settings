@@ -4033,7 +4033,6 @@ const hideHomeIcon = () => {
 function backButton() {
   let backButtonToggle = document.getElementById("back-button");
   backButtonToggle.addEventListener("click", () => {
-    console.log(state.camera, state.display, state.specialty);
     if (
       state.specialty.name !== "" &&
       state.display.name !== "" &&
@@ -4051,13 +4050,11 @@ function backButton() {
       monitorSettingsTopDiv.innerHTML = "";
       // eliminate specialtySelectDiv to display specialties
       specialtyTopDiv.className = "";
-      console.log("back from specialty");
     } else if (
       state.specialty.name === "" &&
       state.display.name !== "" &&
       state.camera.name !== ""
     ) {
-      console.log("if", state.camera, state.display, state.specialty);
       let displayTopDiv = document.getElementById("displayTopDiv");
       displayTopDiv.className = "";
       displayTopDiv.innerHTML = "";
@@ -4393,17 +4390,6 @@ function displaySettings(cameraDisplaySpecialty) {
 
   cameraParameterDiv.setAttribute("class", "camera-parameter");
 
-  // settings divs
-  // Camera Settings Header Div
-  // let cameraSettingsHeaderDiv = document.createElement("div");
-  // let cameraSettingsTitle = document.createElement("h3");
-  // cameraSettingsHeaderDiv.setAttribute("class", "camera-settings-header");
-  // cameraSettingsTitle.appendChild(
-  //   document.createTextNode(`${cameraDisplaySpecialty.specialty} Settings`)
-  // );
-
-  // cameraSettingsHeaderDiv.appendChild(cameraSettingsTitle);
-  // headerDiv.appendChild(cameraSettingsHeaderDiv);
   let cameraSettingsDiv = document.createElement("div");
   cameraSettingsDiv.setAttribute("class", "camera-settings");
 

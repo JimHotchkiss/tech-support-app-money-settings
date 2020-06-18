@@ -1044,7 +1044,7 @@ const addEventListenerToCcus = () => {
 /////// Back Button //////////////////////////////////////////
 const showDefaultBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings");
-  let backButtonToggle = document.getElementById("back-button");
+  let backButtonToggle = document.getElementById("default-back-button");
   // "money-settings-toggle has a display: none"
   if (moneySettingsToggle !== null) {
     moneySettingsToggle.id = "money-settings-toggle";
@@ -1060,7 +1060,8 @@ const showDefaultSettingsTitle = () => {
 };
 
 const defaultSettingsBackButton = () => {
-  const defaultBackButton = document.getElementById("back-button");
+  console.log("default back button");
+  const defaultBackButton = document.getElementById("default-back-button");
   defaultBackButton.addEventListener("click", () => {
     if (defaultSetttingsState.specialty.name !== "") {
       defaultSetttingsState.specialty.name = "";
@@ -1082,7 +1083,9 @@ const hideDefaultHomeIcon = () => {
   }
 
   const menuContainer = document.getElementById("js-navbar-toggle-hide");
-  menuContainer.id = "js-navbar-toggle";
+  if (menuContainer !== null) {
+    menuContainer.id = "js-navbar-toggle";
+  }
 };
 
 const showDefaultHomeIcon = () => {
@@ -1115,8 +1118,11 @@ const defaultHomeIconEventListener = () => {
 
 const hideDefaultBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings-toggle");
-  let backButtonToggle = document.getElementById("back-button");
-  moneySettingsToggle.id = "money-settings";
+  let backButtonToggle = document.getElementById("default-back-button");
+  if (moneySettingsToggle !== null) {
+    moneySettingsToggle.id = "money-settings";
+  }
+
   backButtonToggle.style.display = "none";
 };
 

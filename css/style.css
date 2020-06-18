@@ -139,7 +139,7 @@ body {
 }
 
 #ccuSettingsTopDiv {
-  margin-top: 5em;
+  margin-top: 95px;
 }
 
 .monitor-main-div {
@@ -152,7 +152,7 @@ body {
 
 .monitor-header-div {
   display: flex;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   border-radius: 5px;
   background: #ffb600;
 }
@@ -180,8 +180,8 @@ body {
   height: auto;
   width: 80%;
   margin: auto;
-  margin-top: 100px;
-  margin-bottom: 16px;
+  margin-top: 40px;
+  margin-bottom: 8px;
 }
 
 .settings-second-div {

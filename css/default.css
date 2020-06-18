@@ -137,7 +137,17 @@
   padding-bottom: 24px;
 }
 
-.default-parameters-div {
+#default-back-button {
+  display: none;
+  margin-left: 25px;
+  margin-right: 350px;
+  margin-top: 24px;
+}
+
+#default-back-button img {
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
 }
 
 .default-parameter-div {
