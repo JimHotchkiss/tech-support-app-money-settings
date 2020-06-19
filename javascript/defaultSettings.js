@@ -18,7 +18,7 @@ const specialties = [
   "Standard",
 ];
 
-const PARAMETERS = [
+const SIXTEENDEFAULTPARAMETERS = [
   "Shutter Mode",
   "Shutter Level",
   "Area",
@@ -66,7 +66,280 @@ const PARAMETERS = [
   "Mg-R Gain",
 ];
 
-const SIXTEEN = {
+const LEGACYDEFAULTPARAMETERS = [
+  "Enhancement",
+  "Contrast",
+  "R-Gain",
+  "R-Hue",
+  "B-Gain",
+  "B-Hue",
+  "Shutter",
+  "Brt Control",
+  "Size",
+  "Brightness Peak",
+  "Target Area",
+  "Brt Lvl",
+];
+
+const DEFAULTFIFTEEN = {
+  Arthroscopy: [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "3",
+    "5",
+    "0",
+    "19",
+  ],
+  Cystoscopy: [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "3",
+    "3",
+    "0",
+    "19",
+  ],
+  "ENT-Skull": [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "1",
+    "0",
+    "0",
+    "19",
+  ],
+  Flexiscope: [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "4",
+    "3",
+    "0",
+    "19",
+  ],
+  Hystero: [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "3",
+    "3",
+    "0",
+    "19",
+  ],
+  Laparoscopy: [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "1",
+    "3",
+    "2",
+    "19",
+  ],
+  Laser: [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "3",
+    "1",
+    "0",
+    "19",
+  ],
+  Microscope: [
+    "27",
+    "Normal",
+    "7",
+    "3",
+    "-4",
+    "-2",
+    "Auto",
+    "Auto",
+    "1",
+    "3",
+    "0",
+    "19",
+  ],
+  Standard: [
+    "27",
+    "Normal",
+    "-5",
+    "0",
+    "-1",
+    "0",
+    "Auto",
+    "Auto",
+    "1",
+    "3",
+    "0",
+    "19",
+  ],
+};
+
+const DEFAULTFOURTEEN = {
+  Arthroscopy: [
+    "36",
+    "Normal",
+    "-15",
+    "0",
+    "-1",
+    "0",
+    "On",
+    "Auto",
+    "2",
+    "5",
+    "0",
+    "19",
+  ],
+  Cystoscopy: [
+    "36",
+    "Normal",
+    "-5",
+    "0",
+    "-12",
+    "0",
+    "On",
+    "Auto",
+    "2",
+    "3",
+    "0",
+    "19",
+  ],
+  "ENT-Skull": [
+    "36",
+    "Normal",
+    "-5",
+    "0",
+    "-12",
+    "0",
+    "On",
+    "Auto",
+    "2",
+    "3",
+    "0",
+    "19",
+  ],
+  Flexiscope: [
+    "36",
+    "Normal",
+    "3",
+    "0",
+    "-12",
+    "0",
+    "On",
+    "Auto",
+    "2",
+    "3",
+    "0",
+    "19",
+  ],
+  Hystero: [
+    "36",
+    "Normal",
+    "-5",
+    "0",
+    "-12",
+    "0",
+    "On",
+    "Auto",
+    "2",
+    "3",
+    "0",
+    "19",
+  ],
+  Laparoscopy: [
+    "36",
+    "Normal",
+    "-5",
+    "0",
+    "-1",
+    "0",
+    "On",
+    "Auto",
+    "0",
+    "3",
+    "0",
+    "19",
+  ],
+  Laser: [
+    "36",
+    "Normal",
+    "3",
+    "0",
+    "-12",
+    "0",
+    "On",
+    "Auto",
+    "2",
+    "1",
+    "0",
+    "19",
+  ],
+  Microscope: [
+    "36",
+    "Normal",
+    "3",
+    "0",
+    "-12",
+    "0",
+    "On",
+    "Auto",
+    "0",
+    "3",
+    "0",
+    "19",
+  ],
+  Standard: [
+    "36",
+    "Normal",
+    "-5",
+    "0",
+    "-12",
+    "0",
+    "On",
+    "Auto",
+    "0",
+    "3",
+    "0",
+    "19",
+  ],
+};
+
+const DEFAULTSIXTEEN = {
   Arthroscopy: [
     "Auto",
     "30",
@@ -1210,32 +1483,46 @@ const addDefaultSettingsParameters = () => {
   // Parameters div
   const parametersDiv = document.createElement("div");
   parametersDiv.setAttribute("class", "default-parameters-div");
-  PARAMETERS.map((parameter) => {
-    const parameterDiv = document.createElement("div");
-    parameterDiv.setAttribute("class", "default-parameter-div");
-    const parameterPtag = document.createElement("p");
-    parameterPtag.setAttribute("class", "default-parameter-ptag");
-    parameterPtag.innerHTML = parameter;
-    parameterDiv.appendChild(parameterPtag);
-    parametersDiv.appendChild(parameterDiv);
-  });
+  console.log(defaultSetttingsState.camera);
+  if (defaultSetttingsState.camera.name !== "1688") {
+    LEGACYDEFAULTPARAMETERS.map((parameter) => {
+      const parameterDiv = document.createElement("div");
+      parameterDiv.setAttribute("class", "default-parameter-div");
+      const parameterPtag = document.createElement("p");
+      parameterPtag.setAttribute("class", "default-parameter-ptag");
+      parameterPtag.innerHTML = parameter;
+      parameterDiv.appendChild(parameterPtag);
+      parametersDiv.appendChild(parameterDiv);
+    });
+  } else {
+    SIXTEENDEFAULTPARAMETERS.map((parameter) => {
+      const parameterDiv = document.createElement("div");
+      parameterDiv.setAttribute("class", "default-parameter-div");
+      const parameterPtag = document.createElement("p");
+      parameterPtag.setAttribute("class", "default-parameter-ptag");
+      parameterPtag.innerHTML = parameter;
+      parameterDiv.appendChild(parameterPtag);
+      parametersDiv.appendChild(parameterDiv);
+    });
+  }
+
   settingsParametersDiv.appendChild(parametersDiv);
   settingsContainerDiv.appendChild(settingsParametersDiv);
   topDiv.appendChild(settingsContainerDiv);
   setCcuVariable();
 };
 const setCcuVariable = () => {
-  console.log(defaultSetttingsState.camera.name);
+  console.log(ccuVariable);
   if (defaultSetttingsState.camera.name === "1688") {
-    ccuVariable = SIXTEEN;
+    ccuVariable = DEFAULTSIXTEEN;
   } else if (defaultSetttingsState.camera.name === "1588") {
-    ccuVariable = FIFTEEN;
+    ccuVariable = DEFAULTFIFTEEN;
   } else if (defaultSetttingsState.camera.name === "1488") {
-    ccuVariable = FOURTEEN;
+    ccuVariable = DEFAULTFOURTEEN;
   } else if (defaultSetttingsState.camera.name === "Precision AC") {
-    ccuVariable = PRECISION;
+    ccuVariable = DEFAULTPRECISION;
   } else if (defaultSetttingsState.camera.name === "1288") {
-    ccuVariable = TWELVE;
+    ccuVariable = DEFAULTTWELVE;
   }
   addDefaultSettings();
 };
@@ -1247,6 +1534,11 @@ const addDefaultSettings = () => {
   settingsDiv.setAttribute("class", "default-settings-div");
 
   for (const property in ccuVariable) {
+    console.log(
+      property,
+      ccuVariable[property],
+      defaultSetttingsState.specialty.name
+    );
     if (defaultSetttingsState.specialty.name === property) {
       ccuVariable[property].map((setting) => {
         const settingDiv = document.createElement("div");

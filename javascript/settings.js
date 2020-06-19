@@ -4365,7 +4365,6 @@ function displaySettings(cameraDisplaySpecialty) {
   if (cameraDisplaySpecialty.specialty === "Arthro 4/16") {
     cameraDisplaySpecialty.specialty = "Arthro 4_16";
   }
-  console.log(state.specialty.name);
   if (state.specialty.name === "Arthro 4_16") {
     state.specialty.name = "Arthro 4/16";
   }

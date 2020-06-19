@@ -95,7 +95,7 @@
   position: relative;
   top: 120px;
   margin: auto;
-  width: 75%;
+  width: 80%;
   text-align: center;
   background: #ffb600;
   border-radius: 10px;
@@ -129,7 +129,7 @@
   display: flex;
   flex-direction: row;
   margin: auto;
-  width: 75%;
+  width: 80%;
   margin-top: 150px;
   background: #ffb600;
   border-radius: 10px;
@@ -152,16 +152,15 @@
 
 .default-parameter-div {
   border-bottom: 1px solid #262626;
+  width: 187px;
   padding: 32px 0px 12px 8px;
-}
-
-.default-settings-div {
 }
 
 .default-setting-div {
-  width: 147%;
   border-bottom: 1px solid #262626;
-  padding: 32px 0px 12px 8px;
+  width: 145px;
+  text-align: left;
+  padding: 32px 0px 12px 0px;
 }
 
 .default-setting-div p {
