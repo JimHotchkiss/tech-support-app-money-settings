@@ -95,7 +95,7 @@
   position: relative;
   top: 120px;
   margin: auto;
-  width: 80%;
+  width: 90%;
   text-align: center;
   background: #ffb600;
   border-radius: 10px;
@@ -129,8 +129,8 @@
   display: flex;
   flex-direction: row;
   margin: auto;
-  width: 80%;
-  margin-top: 150px;
+  width: 90%;
+  margin-top: 135px;
   background: #ffb600;
   border-radius: 10px;
   margin-bottom: 24px;
@@ -151,19 +151,51 @@
 }
 
 .default-parameter-div {
-  border-bottom: 1px solid #262626;
+  /* border-bottom: 1px solid #262626; */
   width: 187px;
-  padding: 32px 0px 12px 8px;
+  /* padding: 32px 0px 12px 8px; */
 }
+.default-parameter-div p {
+  font-size: 15px;
+}
+
+/* .default-parameter-div:after {
+  content: ""; 
+  display: block; 
+  margin: 0 auto; 
+  width: 90%; 
+  padding-top: 20px; 
+  border-bottom: 1px solid #262626; 
+} */
 
 .default-setting-div {
-  border-bottom: 1px solid #262626;
-  width: 145px;
+  /* border-bottom: 1px solid #262626; */
+  width: 184px;
   text-align: left;
-  padding: 32px 0px 12px 0px;
+  /* padding: 32px 0px 12px 0px; */
 }
 
+/* .default-setting-div:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  padding-top: 20px;
+  border-bottom: 1px solid red;
+} */
+
 .default-setting-div p {
+  font-size: 15px;
   margin-left: 24px;
   color: #fff;
+}
+
+.default-parameter-ptag {
+  margin: 1em 0.8em 1em 0.8em;
+  border-bottom: 1px solid #262626;
+}
+
+.default-setting-ptag {
+  margin: 1em 0.8em 1em 0.8em;
+  border-bottom: 1px solid #262626;
 }
