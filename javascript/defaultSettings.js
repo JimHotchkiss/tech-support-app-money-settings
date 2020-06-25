@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Constants
-const CAMERAS = ["1688", "1588", "1488", "Precision AC", "1288"];
+const CAMERAS = ["1688", "1588", "1488", "Precision AC"];
 
 const specialties = [
   "Arthroscopy",
