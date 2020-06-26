@@ -144,7 +144,7 @@ body {
 
 .monitor-main-div {
   border-radius: 5px;
-  width: 80%;
+  width: 90%;
   height: 100%;
   margin: 0 auto;
   margin-top: 20px;
@@ -178,7 +178,7 @@ body {
   opacity: 1;
   border-radius: 5px;
   height: auto;
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -272,7 +272,7 @@ body {
   border-bottom-right-radius: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  width: 80%;
+  width: 90%;
   height: auto;
   padding-top: 12px;
   margin: 0 auto;
@@ -324,15 +324,15 @@ body {
 @media (max-width: 451px) {
   .parent-div {
     font-size: 0.9em;
-    width: 90%;
+    /* width: 90%; */
   }
   .settings-header {
-    width: 90%;
+    /* width: 90%; */
   }
 
   .monitor-main-div {
     font-size: 0.9em;
-    width: 90%;
+    /* width: 90%; */
   }
 }
 @media (max-width: 361px) {
