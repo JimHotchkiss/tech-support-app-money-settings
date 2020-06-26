@@ -68,7 +68,6 @@ const hideSpecialtyButtons = () => {
       backPrinterDiv.removeChild(backPrinterDiv.firstChild);
     }
   }
-  selectSDC();
 };
 
 const updateNavbar = () => {
