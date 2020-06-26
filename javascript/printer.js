@@ -63,12 +63,12 @@ const printerBackButtonlistener = () => {
 
 const hideSpecialtyButtons = () => {
   const backPrinterDiv = document.getElementById("printer-div");
-
   if (backPrinterDiv.firstChild) {
     while (backPrinterDiv.firstChild) {
       backPrinterDiv.removeChild(backPrinterDiv.firstChild);
     }
   }
+  selectSDC();
 };
 
 const updateNavbar = () => {
