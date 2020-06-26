@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   selectSDC();
+  updateNavbar();
+  printerBackButtonlistener();
 });
 // Variables
 const printers = ["SDP1000", "SDP1000 alt."];
@@ -19,6 +21,7 @@ SDCULTRAALT = ["0", "130", "0", "-150", "750"];
 ORTHOHUB = ["-30", "180", "-10", "83", "660"];
 LAPHUB = ["-30", "260", "10", "83", "660"];
 SPYHUB = ["75", "-10", "10", "83", "660"];
+
 const selectSDC = () => {
   // Grab the SDC buttons
   let sdcButtons = document.getElementsByClassName("example_a");
@@ -33,9 +36,53 @@ const selectSDC = () => {
       let sdc = this.dataset.sdc;
       // I want to pass this camera to the 'showPrinters'
       changeTitleToPrinter(sdc);
+      hideLogoHtml();
     });
   }
 };
+
+const hideLogoHtml = () => {
+  const printerLogo = document.getElementById("printer-logo");
+  printerLogo.style.display = "none";
+  changeLogoToBackArrow();
+};
+
+const changeLogoToBackArrow = () => {
+  const printerBackArrow = document.getElementById("printer-back-button");
+  printerBackArrow.style.display = "block";
+};
+
+const printerBackButtonlistener = () => {
+  const printerBackButton = document.getElementById("printer-back-button");
+  printerBackButton.addEventListener("click", () => {
+    const backSdcDiv = document.getElementById("top-sdc-div");
+    backSdcDiv.classList.remove("printer-div");
+    hideSpecialtyButtons();
+  });
+};
+
+const hideSpecialtyButtons = () => {
+  const backPrinterDiv = document.getElementById("printer-div");
+  console.log(backPrinterDiv);
+
+  if (backPrinterDiv.firstChild) {
+    while (backPrinterDiv.firstChild) {
+      backPrinterDiv.removeChild(backPrinterDiv.firstChild);
+    }
+  }
+};
+
+const updateNavbar = () => {
+  const jsNavbar = document.getElementById("js-navbar-toggle");
+  jsNavbar.id = "js-navbar-toggle-hide";
+  showHomeIconPrinter();
+};
+
+const showHomeIconPrinter = () => {
+  showHomeIcon = document.getElementById("printer-home-icon-div-hide");
+  showHomeIcon.id = "printer-home-icon-div-show";
+};
+
 const changeTitleToPrinter = (sdc) => {
   let titleElement = document.getElementById("title-element");
   if (sdc === "hub") {
@@ -48,7 +95,6 @@ const changeTitleToPrinter = (sdc) => {
 
 const buttons = (sdc) => {
   let buttonVariable;
-  console.log(sdc);
   // Select printers to show
   if (sdc === "hub") {
     buttonVariable = hubSpecialties;

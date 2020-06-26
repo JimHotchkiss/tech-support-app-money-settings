@@ -27,6 +27,18 @@ body {
 #top-camera-div {
   margin-top: 5em;
 }
+
+#back-button {
+  /* display: none; */
+  margin-left: 25px;
+  margin-right: 350px;
+}
+
+#back-button img {
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
+}
 .title-div {
   margin: 0 auto;
   margin-top: 106px;

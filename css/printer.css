@@ -8,6 +8,34 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+#printer-back-button {
+  display: none;
+  margin-left: 25px;
+  margin-right: 350px;
+  cursor: pointer;
+}
+
+#printer-back-button img {
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
+  margin-top: 25px;
+}
+
+#printer-home-icon-div-hide {
+  display: none;
+}
+
+#printer-home-icon-div-show img {
+  float: right;
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
+  margin-top: 25px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
 #sdc-div {
   max-width: 500px;
   margin: auto;
@@ -108,7 +136,7 @@ body {
 }
 
 .title-div {
-  padding-top: 10em;
+  padding-top: 125px;
   margin: 0 auto;
   text-align: center;
   color: #ffb600;
