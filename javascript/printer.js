@@ -63,7 +63,6 @@ const printerBackButtonlistener = () => {
 
 const hideSpecialtyButtons = () => {
   const backPrinterDiv = document.getElementById("printer-div");
-  console.log(backPrinterDiv);
 
   if (backPrinterDiv.firstChild) {
     while (backPrinterDiv.firstChild) {
