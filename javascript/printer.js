@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   selectSDC();
-  // updateNavbar();
-  // printerBackButtonlistener();
+  updateNavbar();
+  printerBackButton();
 });
 // Variables
 const printerState = {
@@ -38,39 +38,108 @@ const selectSDC = () => {
       // Reassign the class name
       sdcDiv.classList.add("printer-div");
       // Update state
-      printerState.sdc.name = this.dataset.sdc;
+      const sdc = this.dataset.sdc;
       // I want to pass this camera to the 'showPrinters'
-      console.log("1-after back-button", printerState);
-      // changeTitleToPrinter();
+      upDateSdcState(sdc);
+      changeTitleToPrinter();
       hideLogoHtml();
+      showSpecialtiesOrPrinters();
     });
   }
+};
+
+const upDateSdcState = (sdc) => {
+  printerState.sdc.name = sdc;
+};
+
+const changeTitleToPrinter = () => {
+  let titleElement = document.getElementById("title-element");
+  if (printerState.sdc.name === "hub") {
+    titleElement.innerHTML = "Select Specialty";
+    showHubSpecialty();
+  } else {
+    showSdcPrinters();
+    titleElement.innerHTML = "Select Printer";
+  }
+  // buttons();
+};
+
+const showSdcPrinters = () => {
+  const printerPrintersDiv = document.getElementById(
+    "top-printer-printers-div"
+  );
+  printerPrintersDiv.style.display = "block";
+};
+
+const showHubSpecialty = () => {
+  const printerSpecialtyButtons = document.getElementById(
+    "top-printer-specialty-div"
+  );
+  printerSpecialtyButtons.style.display = "block";
+  hubSpecialtiesAddListener();
 };
 
 const hideLogoHtml = () => {
   const printerLogo = document.getElementById("printer-logo");
   printerLogo.style.display = "none";
-  console.log("hideLogoHtml", printerState);
   changeLogoToBackArrow();
 };
 
-const changeLogoToBackArrow = () => {
-  console.log(printerState);
-  const printerBackArrow = document.getElementById("printer-back-button");
+const showSpecialtiesOrPrinters = () => {};
 
+const changeLogoToBackArrow = () => {
+  const printerBackArrow = document.getElementById("printer-back-button");
   printerBackArrow.style.display = "block";
 };
 
-// const printerBackButtonlistener = () => {
-//   const printerBackButton = document.getElementById("printer-back-button");
-//   printerBackButton.addEventListener("click", () => {
-//     const backSdcDiv = document.getElementById("top-sdc-div");
-//     backSdcDiv.classList.remove("printer-div");
-//     console.log("1");
-//     hideSpecialtyButtons();
-//     updatePrinterState();
-//   });
-// };
+const hubSpecialtiesAddListener = () => {
+  const printerSpecialtyButtons = document.getElementsByClassName(
+    "printer-specialty-example_a"
+  );
+
+  for (let item of printerSpecialtyButtons) {
+    item.addEventListener("click", () => {
+      const specialty = item.dataset.specialty;
+      upDateSpecialtyState(specialty);
+      showHubPrinterSettings();
+    });
+  }
+};
+
+const upDateSpecialtyState = (specialty) => {
+  printerState.specialty.name = specialty;
+};
+
+const showHubPrinterSettings = () => {
+  console.log(printerState);
+};
+
+const printerBackButton = () => {
+  const printerBackButton = document.getElementById("printer-back-button");
+  // Notes - Adjust printer-state
+  printerBackButton.addEventListener("click", () => {
+    adjustState();
+    // if we have a specialty, check sdc, and show either specialies or printers
+    if (printerState.specialty.name !== "") {
+      console.log("show specialites");
+    } else {
+      console.log("show printers");
+    }
+    const backSdcDiv = document.getElementById("top-sdc-div");
+    // backSdcDiv.classList.remove("printer-div");
+    // console.log("1");
+    // hideSpecialtyButtons();
+    // updatePrinterState();
+  });
+};
+
+const adjustState = () => {
+  if (printerState.specialty.name !== "") {
+    printerState.specialty.name = "";
+  } else {
+    printerState.sdc.name = "";
+  }
+};
 
 // const updatePrinterState = () => {
 //   console.log("3", printerState);
@@ -87,28 +156,16 @@ const changeLogoToBackArrow = () => {
 //   }
 // };
 
-// const updateNavbar = () => {
-//   const jsNavbar = document.getElementById("js-navbar-toggle");
-//   jsNavbar.id = "js-navbar-toggle-hide";
-//   showHomeIconPrinter();
-// };
+const updateNavbar = () => {
+  const jsNavbar = document.getElementById("js-navbar-toggle");
+  jsNavbar.id = "js-navbar-toggle-hide";
+  showHomeIconPrinter();
+};
 
-// const showHomeIconPrinter = () => {
-//   showHomeIcon = document.getElementById("printer-home-icon-div-hide");
-//   showHomeIcon.id = "printer-home-icon-div-show";
-// };
-
-// const changeTitleToPrinter = () => {
-//   console.log("2 after back-button", printerState);
-//   let titleElement = document.getElementById("title-element");
-//   if (printerState.sdc.name === "hub") {
-//     titleElement.innerHTML = "Select Specialty";
-//   } else {
-//     console.log(titleElement);
-//     titleElement.innerHTML = "Select Printer";
-//   }
-//   buttons();
-// };
+const showHomeIconPrinter = () => {
+  showHomeIcon = document.getElementById("printer-home-icon-div-hide");
+  showHomeIcon.id = "printer-home-icon-div-show";
+};
 
 // const buttons = () => {
 //   console.log("3 after back-button", printerState);

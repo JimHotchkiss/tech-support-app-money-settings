@@ -161,8 +161,31 @@ body {
 }
 
 .printer-specialty-buttons-div {
-  display: none;
   margin: 16px;
+}
+
+.printer-specialty-example_a {
+  width: 160px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffb600;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  opacity: 0.9;
+  transition: all 0.4s ease 0s;
+}
+
+.printer-specialty-example_a:hover {
+  color: #fff;
+  background: #7e7e7e;
+  letter-spacing: 0.7px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
 }
 
 .printer-example_a {
@@ -176,6 +199,16 @@ body {
   border-radius: 5px;
   display: inline-block;
   opacity: 0.9;
+  transition: all 0.4s ease 0s;
+}
+
+.printer-example_a:hover {
+  color: #fff;
+  background: #7e7e7e;
+  letter-spacing: 0.7px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
 }
 
