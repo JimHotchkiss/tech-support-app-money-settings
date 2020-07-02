@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
   printerBackButtonlistener();
 });
 // Variables
+const printerState = {
+  sdc: { name: "" },
+  specialty: { name: "" },
+};
+
 const printers = ["SDP1000", "SDP1000 alt."];
 const hubPrinters = ["SDP1000"];
 const SDCPARAMETERS = [
@@ -32,10 +37,10 @@ const selectSDC = () => {
       sdcDiv = document.getElementById("top-sdc-div");
       // Reassign the class name
       sdcDiv.classList.add("printer-div");
-      // Grab the dataset using 'this' keyword
-      let sdc = this.dataset.sdc;
+      // Update state
+      printerState.sdc.name = this.dataset.sdc;
       // I want to pass this camera to the 'showPrinters'
-      changeTitleToPrinter(sdc);
+      changeTitleToPrinter();
       hideLogoHtml();
     });
   }
@@ -83,20 +88,20 @@ const showHomeIconPrinter = () => {
 
 const changeTitleToPrinter = (sdc) => {
   let titleElement = document.getElementById("title-element");
-  if (sdc === "hub") {
+  if (printerState.sdc.name === "hub") {
     titleElement.innerHTML = "Select Specialty";
   } else {
     titleElement.innerHTML = "Select Printer";
   }
-  buttons(sdc);
+  buttons();
 };
 
-const buttons = (sdc) => {
+const buttons = () => {
   let buttonVariable;
   // Select printers to show
-  if (sdc === "hub") {
+  if (printerState.sdc.name === "hub") {
     buttonVariable = hubSpecialties;
-  } else if (sdc !== "sdc-hd") {
+  } else if (printerState.sdc.name !== "sdc-hd") {
     buttonVariable = printers;
   } else {
     buttonVariable = hdPrinters;
@@ -115,10 +120,10 @@ const buttons = (sdc) => {
     buttonsDiv.appendChild(buttonsLink);
     buttonsTopDiv.appendChild(buttonsDiv);
   });
-  addListener(sdc);
+  addListener();
 };
 
-const addListener = (sdc) => {
+const addListener = () => {
   let consoleButtons = document.getElementsByClassName("example_a");
   // loop over buttons and add event listener
   for (button of consoleButtons) {
@@ -130,21 +135,21 @@ const addListener = (sdc) => {
       // Grab the dataset using 'this' keyword
       let value = this.dataset.value;
       // I want to pass this camera to the 'showPrinters'
-      changeTitleToSettings(sdc, value);
+      changeTitleToSettings(value);
     });
   }
 };
 
-const changeTitleToSettings = (sdc, value) => {
-  console.log(value);
+const changeTitleToSettings = (value) => {
   // change Select Printer to Settings
   let titleElement = document.getElementById("title-element");
-  titleElement.innerHTML = "SDC Printer Settings";
-  printerSettingsDiv(sdc, value);
+  titleElement.innerHTML =
+    printerState.sdc.name.toUpperCase() + " Printer Settings";
+  printerSettingsDiv(value);
 };
 
-const printerSettingsDiv = (sdc, value) => {
-  let sdcUpcase = sdc.toUpperCase();
+const printerSettingsDiv = (value) => {
+  let sdcUpcase = printerState.sdc.name.toUpperCase();
 
   // Grab printer div
   let printerDiv = document.getElementById("printer-div");
@@ -199,14 +204,17 @@ const printerSettingsDiv = (sdc, value) => {
 
   // insert settings in settingsBoxTwo
   let settings;
-  console.log(value, sdc);
+  console.log(value);
   if (value === "Orthroscopy") {
     settings = ORTHOHUB;
   } else if (value === "Laparoscopic") {
     settings = LAPHUB;
   } else if (value === "Spy-Phi") {
     settings = SPYHUB;
-  } else if (value === "SDP1000 alt." && sdc === "sdc-ultra") {
+  } else if (
+    value === "SDP1000 alt." &&
+    printerState.sdc.name === "sdc-ultra"
+  ) {
     settings = SDCULTRAALT;
   } else if (value === "SDP1000 alt.") {
     settings = SDC3ALT;
