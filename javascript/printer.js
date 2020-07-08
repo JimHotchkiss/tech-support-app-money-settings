@@ -2,11 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   selectSDC();
   updateNavbar();
   printerBackButton();
+  console.log(printerState);
 });
 // Variables
 const printerState = {
   sdc: { name: "" },
   specialty: { name: "" },
+  printer: { name: "" },
 };
 
 const printers = ["SDP1000", "SDP1000 alt."];
@@ -23,7 +25,7 @@ SDC = ["130", "78", "0", "-180", "650"];
 SDC3ALT = ["52", "104", "5", "-420", "800"];
 SDCULTRAALT = ["0", "130", "0", "-150", "750"];
 
-ORTHOHUB = ["-30", "180", "-10", "83", "660"];
+ARTHROHUB = ["-30", "180", "-10", "83", "660"];
 LAPHUB = ["-30", "260", "10", "83", "660"];
 SPYHUB = ["75", "-10", "10", "83", "660"];
 
@@ -38,6 +40,7 @@ const selectSDC = () => {
       // Reassign the class name
       sdcDiv.classList.add("printer-div");
       // Update state
+      console.log(this.dataset.sdc);
       const sdc = this.dataset.sdc;
       // I want to pass this camera to the 'showPrinters'
       upDateSdcState(sdc);
@@ -69,6 +72,7 @@ const showSdcPrinters = () => {
     "top-printer-printers-div"
   );
   printerPrintersDiv.style.display = "block";
+  sdcPrintersAddListener();
 };
 
 const showHubSpecialty = () => {
@@ -92,6 +96,60 @@ const changeLogoToBackArrow = () => {
   printerBackArrow.style.display = "block";
 };
 
+const sdcPrintersAddListener = () => {
+  const printerExample = document.getElementsByClassName("printer-example_a");
+  for (let item of printerExample) {
+    item.addEventListener("click", () => {
+      console.log(item.dataset.printer);
+      const printer = item.dataset.printer;
+      updatePrinterState(printer);
+    });
+  }
+};
+
+const updatePrinterState = (printer) => {
+  printerState.printer.name = printer;
+  showSdcPrinterSettings();
+};
+
+const showSdcPrinterSettings = () => {
+  // close printer button title
+  const titleElement = document.getElementById("title-element");
+  titleElement.style.display = "none";
+  titleElement.innerHTML = "";
+  // Close printer buttons
+  const topPrinterPrtintersDiv = window["top-printer-printers-div"];
+  topPrinterPrtintersDiv.style.display = "none";
+
+  if (
+    printerState.sdc.name === "sdc3" &&
+    printerState.printer.name === "SDP1000"
+  ) {
+    const sdp1000 = window["sdc-sdp1000-settings-div"];
+    sdp1000.style.display = "block";
+  } else if (
+    printerState.sdc.name === "sdc3" &&
+    printerState.printer.name === "SDP1000.alt"
+  ) {
+    const sdp1000Alt = window["sdc-sdp1000-alt-settings-div"];
+    sdp1000Alt.style.display = "block";
+  } else if (
+    printerState.sdc.name === "sdc-ultra" &&
+    printerState.printer.name === "SDP1000"
+  ) {
+    console.log("sdc-ultra sdp1000");
+    const sdp1000Alt = window["sdc-ultra-sdp1000-settings-div"];
+    sdp1000Alt.style.display = "block";
+  } else if (
+    printerState.sdc.name === "sdc-ultra" &&
+    printerState.printer.name === "SDP1000.alt"
+  ) {
+    console.log("sdc-ultra sdp1000.alt");
+    const sdp1000Alt = window["sdc-ultra-sdp1000-alt-settings-div"];
+    sdp1000Alt.style.display = "block";
+  }
+};
+
 const hubSpecialtiesAddListener = () => {
   const printerSpecialtyButtons = document.getElementsByClassName(
     "printer-specialty-example_a"
@@ -99,19 +157,41 @@ const hubSpecialtiesAddListener = () => {
 
   for (let item of printerSpecialtyButtons) {
     item.addEventListener("click", () => {
+      console.log(item.dataset.specialty);
       const specialty = item.dataset.specialty;
       upDateSpecialtyState(specialty);
-      showHubPrinterSettings();
     });
   }
 };
 
 const upDateSpecialtyState = (specialty) => {
+  console.log(specialty);
   printerState.specialty.name = specialty;
+  showHubPrinterSettings();
 };
 
 const showHubPrinterSettings = () => {
   console.log(printerState);
+  const titleElement = document.getElementById("title-element");
+  titleElement.style.display = "none";
+  titleElement.innerHTML = "";
+  const printerSpecialtyDiv = document.getElementById(
+    "top-printer-specialty-div"
+  );
+  printerSpecialtyDiv.style.display = "none";
+  console.log(printerState.specialty.name);
+  if (printerState.specialty.name === "Laparoscopy") {
+    const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
+    hubLapSettingsDiv.style.display = "block";
+  } else if (printerState.specialty.name === "Arthroscopy") {
+    const hubArthroSettingsDiv = document.getElementById(
+      "hub-arthro-settings-div"
+    );
+    hubArthroSettingsDiv.style.display = "block";
+  } else if (printerState.specialty.name === "Spi-phi") {
+    const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
+    hubSpySettingsDiv.style.display = "block";
+  }
 };
 
 const printerBackButton = () => {

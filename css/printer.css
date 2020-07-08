@@ -222,6 +222,72 @@ body {
   transition: all 0.4s ease 0s;
 }
 
+.settings-title-h3 {
+  margin-bottom: 8px;
+}
+
+.hub-printer-settings-title-div {
+  width: 90%;
+  background: #ffb600;
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  padding: 8px;
+}
+
+.title-text-printer-settings {
+  color: #fff;
+}
+
+.printer-settings-container {
+  display: flex;
+  flex-direction: column;
+  background: #ffb600;
+  width: 90%;
+  height: auto;
+  margin: auto;
+  border-radius: 5px;
+  margin-top: 8px;
+  padding: 8px;
+}
+
+.printer-settings-div {
+  display: flex;
+}
+
+.printer-parameters {
+  margin-left: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #262626;
+  width: 150px;
+}
+
+.printer-parameter {
+  color: #fff;
+}
+
+.printer-settings {
+  margin-left: 30px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  width: 150px;
+  border-bottom: 1px solid #262626;
+}
+
+.printer-setting {
+  color: #fff;
+}
+
+.sdc-printer-settings-title-div {
+  width: 90%;
+  background: #ffb600;
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  padding: 8px;
+}
+
 @media (max-width: 321px) {
   #settings-div {
     font-size: 0.85em;
