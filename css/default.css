@@ -128,6 +128,7 @@
 .settings-parameters-div {
   display: flex;
   flex-direction: row;
+  justify-content: start;
   margin: auto;
   width: 90%;
   margin-top: 135px;
@@ -150,42 +151,17 @@
   background-size: 30px;
 }
 
-.default-parameter-div {
-  /* border-bottom: 1px solid #262626; */
-  width: 187px;
-  /* padding: 32px 0px 12px 8px; */
-}
 .default-parameter-div p {
-  font-size: 15px;
+  font-size: 0.9rem;
 }
-
-/* .default-parameter-div:after {
-  content: ""; 
-  display: block; 
-  margin: 0 auto; 
-  width: 90%; 
-  padding-top: 20px; 
-  border-bottom: 1px solid #262626; 
-} */
 
 .default-setting-div {
-  /* border-bottom: 1px solid #262626; */
-  width: 184px;
+  width: 200%;
   text-align: left;
-  /* padding: 32px 0px 12px 0px; */
 }
 
-/* .default-setting-div:after {
-  content: "";
-  display: block;
-  margin: 0 auto;
-  width: 90%;
-  padding-top: 20px;
-  border-bottom: 1px solid red;
-} */
-
 .default-setting-div p {
-  font-size: 15px;
+  font-size: 0.9rem;
   margin-left: 24px;
   color: #fff;
 }
@@ -199,3 +175,24 @@
   margin: 1em 0.8em 1em 0.8em;
   border-bottom: 1px solid #262626;
 }
+
+@media (max-width: 385px) {
+  .default-setting-div {
+    width: 175%;
+  }
+}
+
+@media (max-width: 355px) {
+  .default-setting-div {
+    width: 150%;
+  }
+}
+
+@media (max-width: 336px) {
+  .default-setting-div p {
+    font-size: 0.8rem;
+  }
+  .default-parameter-div p {
+    font-size: 0.8rem;
+  }
+
