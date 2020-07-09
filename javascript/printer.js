@@ -39,6 +39,7 @@ const selectSDC = () => {
       sdcDiv = document.getElementById("top-sdc-div");
       // Reassign the class name
       sdcDiv.classList.add("printer-div");
+      sdcDiv.style.display = "none";
       // Update state
       console.log(this.dataset.sdc);
       const sdc = this.dataset.sdc;
@@ -110,18 +111,12 @@ const updatePrinterState = (printer) => {
 };
 
 const showSdcPrinterSettings = () => {
+  resetDisplaySettings();
+  const printerSettingsMainDiv = window["printer-settings-main-div"];
+  printerSettingsMainDiv.style.display = "block";
   // reset sdc-printer-settings-div
   const sdcPrinterSettingsDiv = window["sdc-printer-settings-div"];
   sdcPrinterSettingsDiv.style.display = "block";
-  // reset all the settings
-  const sdp1000 = window["sdc-sdp1000-settings-div"];
-  sdp1000.style.display = "none";
-  const sdp1000Alt = window["sdc-sdp1000-alt-settings-div"];
-  sdp1000Alt.style.display = "none";
-  const sdp1000Ultra = window["sdc-ultra-sdp1000-settings-div"];
-  sdp1000Ultra.style.display = "none";
-  const sdp1000UltraAlt = window["sdc-ultra-sdp1000-alt-settings-div"];
-  sdp1000UltraAlt.style.display = "none";
 
   // close printer button title
   const titleElement = document.getElementById("title-element");
@@ -155,6 +150,28 @@ const showSdcPrinterSettings = () => {
     const sdp1000Alt = window["sdc-ultra-sdp1000-alt-settings-div"];
     sdp1000Alt.style.display = "block";
   }
+};
+
+const resetDisplaySettings = () => {
+  // Printers
+  const sdp1000 = window["sdc-sdp1000-settings-div"];
+  sdp1000.style.display = "none";
+  const sdp1000Alt = window["sdc-sdp1000-alt-settings-div"];
+  sdp1000Alt.style.display = "none";
+  const sdp1000Ultra = window["sdc-ultra-sdp1000-settings-div"];
+  sdp1000Ultra.style.display = "none";
+  const sdp1000UltraAlt = window["sdc-ultra-sdp1000-alt-settings-div"];
+  sdp1000UltraAlt.style.display = "none";
+
+  // reset specialites
+  const hubArthroSettingsDiv = document.getElementById(
+    "hub-arthro-settings-div"
+  );
+  hubArthroSettingsDiv.style.display = "none";
+  const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
+  hubLapSettingsDiv.style.display = "none";
+  const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
+  hubSpySettingsDiv.style.display = "none";
 };
 
 const hubSpecialtiesAddListener = () => {
@@ -224,6 +241,7 @@ const showHubPrinterSettings = () => {
 };
 
 const printerBackButton = () => {
+  console.log("here");
   // hide all settings
   const sdcPrinterSettingsDiv = window["sdc-printer-settings-div"];
   sdcPrinterSettingsDiv.style.display = "none";
@@ -263,17 +281,21 @@ const resetHub = () => {
   console.log("inside hub reset ");
   // reset state
   printerState.sdc.name = "";
-  // show sdc title
-  let titleElement = document.getElementById("title-element");
-  titleElement.innerHTML = "Select SDC";
-  // show sdc buttons
-  let sdcButtonsDiv = document.getElementsByClassName("printer-div")[0];
-  sdcButtonsDiv.style.display = "block";
-  // hide specialty buttons
+  showSdcs();
   const specialtyButtons = document.getElementById("top-printer-specialty-div");
   specialtyButtons.style.display = "none";
   // reset back button to 'Printer Settings'
   showLogoHtml();
+};
+
+const showSdcs = () => {
+  // show sdc title
+  let titleElement = document.getElementById("title-element");
+  titleElement.style.display = "block";
+  titleElement.innerHTML = "Select SDC";
+  // show sdc buttons
+  let sdcButtonsDiv = document.getElementsByClassName("printer-div")[0];
+  sdcButtonsDiv.style.display = "block";
 };
 
 const showLogoHtml = () => {
@@ -288,7 +310,18 @@ const hideBackArrow = () => {
 };
 
 const resetSdc = () => {
-  console.log("reset sdc");
+  console.log(printerState);
+  // reset state
+  printerState.sdc.name = "";
+  // hide printer buttons
+  const titleElement = window["title-element"];
+  titleElement.style.display = "none";
+  const topPrinterPrintersDiv = window["top-printer-printers-div"];
+  topPrinterPrintersDiv.style.display = "none";
+  // show sdc's buttons
+  showSdcs();
+  // hide back arrow and show Printer Settings logo
+  showLogoHtml();
 };
 
 const hubSpecialtiesBack = () => {
@@ -348,21 +381,6 @@ const adjustState = () => {
   }
 };
 
-// const updatePrinterState = () => {
-//   console.log("3", printerState);
-//   printerState.sdc.name = "";
-// };
-
-// const hideSpecialtyButtons = () => {
-//   console.log("2");
-//   const backPrinterDiv = document.getElementById("printer-div");
-//   if (backPrinterDiv.firstChild) {
-//     while (backPrinterDiv.firstChild) {
-//       backPrinterDiv.removeChild(backPrinterDiv.firstChild);
-//     }
-//   }
-// };
-
 const updateNavbar = () => {
   const jsNavbar = document.getElementById("js-navbar-toggle");
   jsNavbar.id = "js-navbar-toggle-hide";
@@ -373,155 +391,3 @@ const showHomeIconPrinter = () => {
   showHomeIcon = document.getElementById("printer-home-icon-div-hide");
   showHomeIcon.id = "printer-home-icon-div-show";
 };
-
-// const buttons = () => {
-//   console.log("3 after back-button", printerState);
-//   let buttonVariable;
-//   // Select printers to show
-//   if (printerState.sdc.name === "hub") {
-//     buttonVariable = hubSpecialties;
-//   } else if (printerState.sdc.name !== "sdc-hd") {
-//     buttonVariable = printers;
-//   } else {
-//     buttonVariable = hdPrinters;
-//   }
-
-//   if (printerState.sdc.name === "" && printerState.specialty.name === "") {
-//     console.log("specialty not set");
-//   } else {
-//     buttonVariable.forEach((item) => {
-//       console.log(item);
-//       let buttonsTopDiv = document.getElementById("printer-div");
-//       let buttonsDiv = document.createElement("div");
-//       let buttonsLink = document.createElement("a");
-//       buttonsDiv.setAttribute("class", "display-button-div");
-//       buttonsDiv.setAttribute("align", "center");
-//       buttonsLink.setAttribute("class", "example_a");
-//       buttonsLink.setAttribute("data-value", `${item}`);
-//       buttonsLink.setAttribute("href", "#");
-//       buttonsLink.setAttribute("rel", "nofollow noopener");
-//       buttonsLink.appendChild(document.createTextNode(`${item}`));
-//       buttonsDiv.appendChild(buttonsLink);
-//       buttonsTopDiv.appendChild(buttonsDiv);
-//     });
-//   }
-
-//   addListener();
-// };
-
-// const addListener = () => {
-//   let consoleButtons = document.getElementsByClassName("example_a");
-//   // loop over buttons and add event listener
-//   for (button of consoleButtons) {
-//     button.addEventListener("click", function () {
-//       // Grab top div
-//       sdcDiv = document.getElementById("top-sdc-div");
-//       // Reassign the class name
-//       sdcDiv.classList.add("printer-div");
-//       // Grab the dataset using 'this' keyword
-//       printerState.specialty.name = this.dataset.value;
-//       // I want to pass this camera to the 'showPrinters'
-//       changeTitleToSettings();
-//     });
-//   }
-// };
-
-// const changeTitleToSettings = () => {
-//   // change Select Printer to Settings
-//   let titleElement = document.getElementById("title-element");
-//   titleElement.innerHTML =
-//     printerState.sdc.name.toUpperCase() + " Printer Settings";
-//   printerSettingsDiv();
-// };
-
-// const printerSettingsDiv = () => {
-//   let sdcUpcase = printerState.sdc.name.toUpperCase();
-
-//   // Grab printer div
-//   let printerDiv = document.getElementById("printer-div");
-//   // reassign class name
-//   printerDiv.classList.add("printer-display-none-div");
-
-//   // Grab Settings parent div
-//   let settingsDiv = document.getElementById("settings-div");
-//   // Create main div
-//   let settingsMainDiv = document.createElement("div");
-//   settingsMainDiv.setAttribute("class", "settings-main-div");
-//   settingsDiv.appendChild(settingsMainDiv);
-//   // Two Headers side-by-side
-//   let settingsHeaderOne = document.createElement("div");
-//   let settingsHeaderTwo = document.createElement("div");
-//   // Set attributes
-//   settingsHeaderOne.setAttribute("class", "header-one-div");
-//   settingsHeaderTwo.setAttribute("class", "header-two-div");
-//   // Insert text-params
-//   let paramsTitle = document.createElement("h3");
-//   let paramsTitleTextNode = document.createTextNode(`${sdcUpcase}`);
-//   paramsTitle.appendChild(paramsTitleTextNode);
-//   settingsHeaderOne.appendChild(paramsTitle);
-
-//   // Insert text-settings
-//   let settingsTitle = document.createElement("h3");
-//   let settingsTitleTextNode = document.createTextNode(
-//     `${printerState.specialty.name}`
-//   );
-//   settingsTitle.appendChild(settingsTitleTextNode);
-//   settingsHeaderTwo.appendChild(settingsTitle);
-
-//   // Settings body
-//   let settingsBody = document.createElement("div");
-//   settingsBody.setAttribute("class", "settings-body-div");
-//   settingsDiv.appendChild(settingsBody);
-
-//   // Body box1 and box2 side-by-side
-//   let settingsBoxOne = document.createElement("div");
-//   settingsBoxOne.setAttribute("class", "settings-box-one");
-//   let settingsBoxTwo = document.createElement("div");
-//   settingsBoxTwo.setAttribute("class", "settings-box-two");
-//   settingsBody.appendChild(settingsBoxOne);
-//   settingsBody.appendChild(settingsBoxTwo);
-
-//   // insert parameters in settingsBoxOne
-//   SDCPARAMETERS.forEach(function (parameter) {
-//     let pTagBoxOne = document.createElement("p");
-//     pTagBoxOne.setAttribute("class", "p-box");
-//     let pTagTextNode = document.createTextNode(`${parameter}`);
-//     pTagBoxOne.appendChild(pTagTextNode);
-//     settingsBoxOne.appendChild(pTagBoxOne);
-//   });
-
-//   // insert settings in settingsBoxTwo
-//   let settings;
-//   const value = printerState.specialty.name;
-//   if (value === "Orthroscopy") {
-//     settings = ORTHOHUB;
-//   } else if (value === "Laparoscopic") {
-//     settings = LAPHUB;
-//   } else if (value === "Spy-Phi") {
-//     settings = SPYHUB;
-//   } else if (
-//     value === "SDP1000 alt." &&
-//     printerState.sdc.name === "sdc-ultra"
-//   ) {
-//     settings = SDCULTRAALT;
-//   } else if (value === "SDP1000 alt.") {
-//     settings = SDC3ALT;
-//   } else {
-//     settings = SDC;
-//   }
-
-//   settings.forEach(function (setting) {
-//     let pTagDivTwo = document.createElement("div");
-//     pTagDivTwo.setAttribute("class", "p-tag-div-two");
-//     let pTagBoxTwo = document.createElement("p");
-//     pTagBoxTwo.setAttribute("class", "p-box");
-//     let pTagTextNode = document.createTextNode(`${setting}`);
-//     pTagBoxTwo.appendChild(pTagTextNode);
-//     pTagDivTwo.appendChild(pTagBoxTwo);
-//     settingsBoxTwo.appendChild(pTagDivTwo);
-//   });
-
-//   // test insert
-//   settingsMainDiv.appendChild(settingsHeaderOne);
-//   settingsMainDiv.appendChild(settingsHeaderTwo);
-// };
