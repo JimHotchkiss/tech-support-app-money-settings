@@ -46,7 +46,6 @@ const selectSDC = () => {
       upDateSdcState(sdc);
       changeTitleToPrinter();
       hideLogoHtml();
-      showSpecialtiesOrPrinters();
     });
   }
 };
@@ -89,8 +88,6 @@ const hideLogoHtml = () => {
   changeLogoToBackArrow();
 };
 
-const showSpecialtiesOrPrinters = () => {};
-
 const changeLogoToBackArrow = () => {
   const printerBackArrow = document.getElementById("printer-back-button");
   printerBackArrow.style.display = "block";
@@ -113,10 +110,22 @@ const updatePrinterState = (printer) => {
 };
 
 const showSdcPrinterSettings = () => {
+  // reset sdc-printer-settings-div
+  const sdcPrinterSettingsDiv = window["sdc-printer-settings-div"];
+  sdcPrinterSettingsDiv.style.display = "block";
+  // reset all the settings
+  const sdp1000 = window["sdc-sdp1000-settings-div"];
+  sdp1000.style.display = "none";
+  const sdp1000Alt = window["sdc-sdp1000-alt-settings-div"];
+  sdp1000Alt.style.display = "none";
+  const sdp1000Ultra = window["sdc-ultra-sdp1000-settings-div"];
+  sdp1000Ultra.style.display = "none";
+  const sdp1000UltraAlt = window["sdc-ultra-sdp1000-alt-settings-div"];
+  sdp1000UltraAlt.style.display = "none";
+
   // close printer button title
   const titleElement = document.getElementById("title-element");
   titleElement.style.display = "none";
-  titleElement.innerHTML = "";
   // Close printer buttons
   const topPrinterPrtintersDiv = window["top-printer-printers-div"];
   topPrinterPrtintersDiv.style.display = "none";
@@ -137,14 +146,12 @@ const showSdcPrinterSettings = () => {
     printerState.sdc.name === "sdc-ultra" &&
     printerState.printer.name === "SDP1000"
   ) {
-    console.log("sdc-ultra sdp1000");
-    const sdp1000Alt = window["sdc-ultra-sdp1000-settings-div"];
-    sdp1000Alt.style.display = "block";
+    const sdp1000Ultra = window["sdc-ultra-sdp1000-settings-div"];
+    sdp1000Ultra.style.display = "block";
   } else if (
     printerState.sdc.name === "sdc-ultra" &&
     printerState.printer.name === "SDP1000.alt"
   ) {
-    console.log("sdc-ultra sdp1000.alt");
     const sdp1000Alt = window["sdc-ultra-sdp1000-alt-settings-div"];
     sdp1000Alt.style.display = "block";
   }
@@ -174,43 +181,163 @@ const showHubPrinterSettings = () => {
   console.log(printerState);
   const titleElement = document.getElementById("title-element");
   titleElement.style.display = "none";
-  titleElement.innerHTML = "";
   const printerSpecialtyDiv = document.getElementById(
     "top-printer-specialty-div"
   );
   printerSpecialtyDiv.style.display = "none";
-  console.log(printerState.specialty.name);
+  // reset printer settings main div
+  const printerSettingsMainDiv = window["printer-settings-main-div"];
+  printerSettingsMainDiv.style.display = "block";
+
   if (printerState.specialty.name === "Laparoscopy") {
     const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
     hubLapSettingsDiv.style.display = "block";
+    // reset the others
+    const hubArthroSettingsDiv = document.getElementById(
+      "hub-arthro-settings-div"
+    );
+    hubArthroSettingsDiv.style.display = "none";
+    const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
+    hubSpySettingsDiv.style.display = "none";
   } else if (printerState.specialty.name === "Arthroscopy") {
     const hubArthroSettingsDiv = document.getElementById(
       "hub-arthro-settings-div"
     );
     hubArthroSettingsDiv.style.display = "block";
+    // reset lap and spy
+    const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
+    hubLapSettingsDiv.style.display = "none";
+    const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
+    hubSpySettingsDiv.style.display = "none";
   } else if (printerState.specialty.name === "Spi-phi") {
     const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
     hubSpySettingsDiv.style.display = "block";
+
+    // reset lap and arthro
+    const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
+    hubLapSettingsDiv.style.display = "none";
+    const hubArthroSettingsDiv = document.getElementById(
+      "hub-arthro-settings-div"
+    );
+    hubArthroSettingsDiv.style.display = "none";
   }
 };
 
 const printerBackButton = () => {
+  // hide all settings
+  const sdcPrinterSettingsDiv = window["sdc-printer-settings-div"];
+  sdcPrinterSettingsDiv.style.display = "none";
   const printerBackButton = document.getElementById("printer-back-button");
   // Notes - Adjust printer-state
   printerBackButton.addEventListener("click", () => {
-    adjustState();
     // if we have a specialty, check sdc, and show either specialies or printers
     if (printerState.specialty.name !== "") {
-      console.log("show specialites");
+      hubSpecialtiesBack();
+    } else if (
+      printerState.printer.name === "" &&
+      printerState.sdc.name !== ""
+    ) {
+      resetSdcSelection();
+    } else if (
+      printerState.printer.name !== "" &&
+      printerState.sdc.name === "sdc3"
+    ) {
+      sdc3PrintersBack();
     } else {
-      console.log("show printers");
+      sdcUltraPrintersBack();
     }
-    const backSdcDiv = document.getElementById("top-sdc-div");
-    // backSdcDiv.classList.remove("printer-div");
-    // console.log("1");
-    // hideSpecialtyButtons();
-    // updatePrinterState();
   });
+};
+
+const resetSdcSelection = () => {
+  console.log(printerState.sdc);
+  // determine if you're showing printers or specialties
+  if (printerState.sdc.name === "hub") {
+    resetHub();
+  } else {
+    resetSdc();
+  }
+};
+
+const resetHub = () => {
+  console.log("inside hub reset ");
+  // reset state
+  printerState.sdc.name = "";
+  // show sdc title
+  let titleElement = document.getElementById("title-element");
+  titleElement.innerHTML = "Select SDC";
+  // show sdc buttons
+  let sdcButtonsDiv = document.getElementsByClassName("printer-div")[0];
+  sdcButtonsDiv.style.display = "block";
+  // hide specialty buttons
+  const specialtyButtons = document.getElementById("top-printer-specialty-div");
+  specialtyButtons.style.display = "none";
+  // reset back button to 'Printer Settings'
+  showLogoHtml();
+};
+
+const showLogoHtml = () => {
+  const printerLogo = document.getElementById("printer-logo");
+  printerLogo.style.display = "block";
+  hideBackArrow();
+};
+
+const hideBackArrow = () => {
+  const printerBackArrow = document.getElementById("printer-back-button");
+  printerBackArrow.style.display = "none";
+};
+
+const resetSdc = () => {
+  console.log("reset sdc");
+};
+
+const hubSpecialtiesBack = () => {
+  // Reset specialty
+  printerState.specialty.name = "";
+  // Hide settings div
+  const printerSettingsMainDiv = window["printer-settings-main-div"];
+  printerSettingsMainDiv.style.display = "none";
+  // Show specialty title
+  const titleElement = document.getElementById("title-element");
+  titleElement.style.display = "block";
+  // now show specialty buttons
+  const topPrinterSpecialtyDiv = window["top-printer-specialty-div"];
+  topPrinterSpecialtyDiv.style.display = "block";
+  console.log(printerState.sdc);
+};
+
+const sdc3PrintersBack = () => {
+  // reset printer
+  printerState.printer.name = "";
+  // hide settings
+  const sdcPrinterSettingsDiv = window["sdc-printer-settings-div"];
+  // reset the specific settings to display none
+  sdcPrinterSettingsDiv.style.display = "none";
+  const sdp1000 = window["sdc-sdp1000-settings-div"];
+  sdp1000.style.display = "none";
+  const sdp1000Alt = window["sdc-sdp1000-alt-settings-div"];
+  sdp1000Alt.style.display = "none";
+  // show printers title and printer buttons
+  const titleElement = window["title-element"];
+  titleElement.style.display = "block";
+  const topPrinterPrintersDiv = window["top-printer-printers-div"];
+  topPrinterPrintersDiv.style.display = "block";
+};
+
+const sdcUltraPrintersBack = () => {
+  // reset display to none
+  const sdp1000Ultra = window["sdc-ultra-sdp1000-settings-div"];
+  sdp1000Ultra.style.display = "none";
+  const sdp1000UltraAlt = window["sdc-ultra-sdp1000-alt-settings-div"];
+  sdp1000UltraAlt.style.display = "none";
+  printerState.printer.name = "";
+  const sdcUltraSettingsDiv = window["sdc-ultra-sdp1000-settings-div"];
+  sdcUltraSettingsDiv.style.display = "none";
+  // show title and buttons
+  const titleElement = window["title-element"];
+  titleElement.style.display = "block";
+  const topPrinterPrintersDiv = window["top-printer-printers-div"];
+  topPrinterPrintersDiv.style.display = "block";
 };
 
 const adjustState = () => {
