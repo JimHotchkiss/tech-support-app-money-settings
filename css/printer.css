@@ -288,9 +288,15 @@ body {
   padding: 8px;
 }
 
-@media (max-width: 321px) {
+@media (max-width: 320px) {
   #settings-div {
     font-size: 0.85em;
+  }
+  .printer-parameters {
+    width: 100px;
+  }
+  .printer-settings {
+    width: 100px;
   }
 }
 @media (max-width: 361px) {

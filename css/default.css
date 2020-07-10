@@ -155,6 +155,14 @@
   font-size: 0.9rem;
 }
 
+.default-parameters-div {
+  width: 100%;
+}
+
+.default-settings-div {
+  width: 100%;
+}
+
 .default-setting-div {
   width: 200%;
   text-align: left;
@@ -191,6 +199,22 @@
 @media (max-width: 336px) {
   .default-setting-div p {
     font-size: 0.8rem;
+  }
+  .default-parameter-div p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .default-setting-div {
+    width: 200%;
+    margin-left: 8px;
+  }
+  .default-setting-div p {
+    font-size: 0.8rem;
+  }
+  .default-parameter-div {
+    width: 120%;
   }
   .default-parameter-div p {
     font-size: 0.8rem;
