@@ -338,9 +338,6 @@ body {
     font-size: 0.9em;
     /* width: 90%; */
   }
-  .settings-header {
-    /* width: 90%; */
-  }
 
   .monitor-main-div {
     font-size: 0.9em;
@@ -350,5 +347,11 @@ body {
 @media (max-width: 361px) {
   .parent-div {
     font-size: 0.85em;
+  }
+}
+
+@media (max-width: 320px) {
+  .parent-div {
+    font-size: 0.79em;
   }
 }
