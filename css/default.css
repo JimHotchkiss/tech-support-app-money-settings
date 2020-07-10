@@ -156,16 +156,11 @@
 }
 
 .default-parameters-div {
-  width: 100%;
+  width: 50%;
 }
 
 .default-settings-div {
-  width: 100%;
-}
-
-.default-setting-div {
-  width: 200%;
-  text-align: left;
+  width: 50%;
 }
 
 .default-setting-div p {
@@ -185,8 +180,17 @@
 }
 
 @media (max-width: 385px) {
-  .default-setting-div {
-    width: 175%;
+  .default-settings-div {
+    width: 50%;
+  }
+  .default-setting-div p {
+    font-size: 0.8rem;
+  }
+  .default-parameters-div {
+    width: 50%;
+  }
+  .default-parameter-div p {
+    font-size: 0.8rem;
   }
 }
 
@@ -206,15 +210,14 @@
 }
 
 @media (max-width: 320px) {
-  .default-setting-div {
-    width: 200%;
-    margin-left: 8px;
+  .default-settings-div {
+    width: 30%;
   }
   .default-setting-div p {
     font-size: 0.8rem;
   }
-  .default-parameter-div {
-    width: 120%;
+  .default-parameters-div {
+    width: 55%;
   }
   .default-parameter-div p {
     font-size: 0.8rem;
