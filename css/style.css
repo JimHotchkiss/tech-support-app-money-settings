@@ -331,6 +331,23 @@ body {
 .image-div-hide {
   display: none;
 }
+
+/* Software Version 4.0.13 Text Box*/
+.sw-version-div {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 16px;
+  color: #fff;
+  background: #ffb600;
+}
 /* ///////////////////////////////////////////////////*/
 
 @media (max-width: 451px) {

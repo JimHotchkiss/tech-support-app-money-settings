@@ -235,7 +235,31 @@ const SIXTEENPARAMETERS = [
   "ENV BG Offset",
   "ENV Gamma",
   "ENV Max Gain",
-  "Visible with SW 4.0.13",
+  // "Visible with SW 4.0.13",
+  // "Size",
+  // "G Hue",
+  // "G Gain",
+  // "R-Ye Hue",
+  // "R-Ye Gain",
+  // "Ye Hue",
+  // "Ye Gain",
+  // "Ye-G Hue",
+  // "Ye-G Gain",
+  // "G-Cy Hue",
+  // "G-Cy Gain",
+  // "CY Hue",
+  // "CY Gain",
+  // "CY-B Hue",
+  // "CY-B Gain",
+  // "B-Mg Hue",
+  // "B-Mg Gain",
+  // "Mg Hue",
+  // "Mg Gain",
+  // "Mg-R Hue",
+  // "Mg-R Gain",
+];
+
+SOFTWARE4013PARAMETERS: [
   "Size",
   "G Hue",
   "G Gain",
@@ -616,6 +640,30 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "Visisble with SW 4.0.13",
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  // Software version 4.0.13 default settings
+  DEFAULTSW4013LAP: [
     "3",
     "0",
     "0",
@@ -4014,6 +4062,14 @@ const resetDOM = () => {
   if (monitorSettingsDiv !== null) {
     monitorSettingsDiv.innerHTML = "";
   }
+  // reset software version text box
+  const swVersionTextBoxDiv = document.getElementById(
+    "software-version-text-box-div"
+  );
+  console.log(swVersionTextBoxDiv);
+  if (swVersionTextBoxDiv !== null) {
+    swVersionTextBoxDiv.innerHTML = "";
+  }
 };
 
 const resetState = () => {
@@ -4049,6 +4105,14 @@ function backButton() {
       monitorSettingsTopDiv.innerHTML = "";
       // eliminate specialtySelectDiv to display specialties
       specialtyTopDiv.className = "";
+      // reset software version text box
+      const swVersionTextBoxDiv = document.getElementById(
+        "software-version-text-box-div"
+      );
+      console.log(swVersionTextBoxDiv);
+      if (swVersionTextBoxDiv !== null) {
+        swVersionTextBoxDiv.innerHTML = "";
+      }
     } else if (
       state.specialty.name === "" &&
       state.display.name !== "" &&
@@ -4079,7 +4143,6 @@ function selectCamera(camera, display) {
       let camera = this.dataset.camera;
       // ********** Declaring State ********* //
       state.camera.name = this.dataset.camera;
-      console.log("selectCamera", state.camera, state.display, state.specialty);
       showDisplays(camera);
       showBackButton();
     });
@@ -4344,7 +4407,6 @@ function selectSpecialty(cameraDisplay) {
   let specialtyTopDiv = document.getElementById("specialtyTopDiv");
   for (let button of specialtyButton) {
     button.addEventListener("click", function () {
-      console.log(specialtyTopDiv);
       specialtyTopDiv.className = "";
       specialtyTopDiv.className = "specialtySelectDiv";
       // specialtyTopDiv.classList.add("specialtySelectDiv");
@@ -4496,7 +4558,8 @@ function displaySettings(cameraDisplaySpecialty) {
       cameraParameterDiv.appendChild(cameraParameter);
       parentDiv.appendChild(cameraParameterDiv);
     });
-
+    // Software version text box function
+    softwareVersionParams(parentDiv);
     // Out Of Box Message Function
     if (
       cameraDisplaySpecialty.specialty === "Flexiscope" ||
@@ -4530,6 +4593,23 @@ function displaySettings(cameraDisplaySpecialty) {
         });
       }
     }
+    // Software version parameter text box
+    function softwareVersionParams() {
+      const swVersionTextBoxDiv = document.getElementById(
+        "software-version-text-box-div"
+      );
+      const swVersionDiv = document.createElement("div");
+      swVersionDiv.setAttribute("class", "sw-version-div");
+      const swVersionTextTag = document.createElement("p");
+      swVersionTextTag.setAttribute("class", "sw-version-text-tag");
+      swVersionTextTag.innerHTML =
+        "The following settings will be visible on software version 4.0.13";
+      swVersionDiv.appendChild(swVersionTextTag);
+      swVersionTextBoxDiv.appendChild(swVersionDiv);
+      softwareVersionSettings();
+    }
+
+    function softwareVersionSettings() {}
   }
 
   // Applying Headers to DOM

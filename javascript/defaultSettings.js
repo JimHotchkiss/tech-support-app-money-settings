@@ -989,7 +989,6 @@ const showDefaultSettingsTitle = () => {
 };
 
 const defaultSettingsBackButton = () => {
-  console.log("default back button");
   const defaultBackButton = document.getElementById("default-back-button");
   defaultBackButton.addEventListener("click", () => {
     if (defaultSetttingsState.specialty.name !== "") {
