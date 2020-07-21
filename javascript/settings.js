@@ -259,7 +259,7 @@ const SIXTEENPARAMETERS = [
   // "Mg-R Gain",
 ];
 
-SOFTWARE4013PARAMETERS: [
+const SOFTWARE4013PARAMETERS = [
   "Size",
   "G Hue",
   "G Gain",
@@ -312,6 +312,29 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
   ],
+  LAP14K4013: [
+    "0",
+    "0",
+    "3",
+    "-8",
+    "-9",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "-3",
+    "-5",
+    "0",
+    "0",
+  ],
   LAP2FOURK1688: [
     "Auto",
     "30",
@@ -338,6 +361,29 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
   ],
+  LAP24K4013: [
+    "0",
+    "0",
+    "3",
+    "-8",
+    "-9",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "-3",
+    "-5",
+    "0",
+    "0",
+  ],
   LAPSTORZFOURK1688: [
     "Auto",
     "30",
@@ -361,6 +407,29 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
+    "0",
+    "0",
+  ],
+  LAPSTORZ4K4013: [
+    "0",
+    "0",
+    "3",
+    "-8",
+    "-9",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "-3",
+    "-5",
     "0",
     "0",
   ],
@@ -442,14 +511,36 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
   ],
-
+  ENT4K4013: [
+    "3",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
   CYSTOFOURK1688: [
     "Auto",
     "30",
     "1",
     "9",
     "Photometry",
-    "2",
+    "0",
     "3",
     "4",
     "0",
@@ -491,6 +582,29 @@ const SIXTEENSETTINGS = {
     // "0",
     // "0",
   ],
+  CYSTO4013: [
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
   ARTHRO1FOURK1688: [
     "Auto",
     "30",
@@ -511,6 +625,29 @@ const SIXTEENSETTINGS = {
     "2",
     "4",
     "Auto",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
+  ARTHRO4K4013: [
+    "3",
+    "0",
+    "4",
+    "2",
+    "1",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
     "0",
     "0",
     "0",
@@ -565,6 +702,29 @@ const SIXTEENSETTINGS = {
     // "0",
     // "0",
   ],
+  FLEXISCOPE4013: [
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
   LASERFOURK1688: [
     "Auto",
     "30",
@@ -614,10 +774,33 @@ const SIXTEENSETTINGS = {
     // "0",
     // "0",
   ],
+  LASER4013: [
+    "3",
+    "0",
+    "0",
+    "9",
+    "-5",
+    "4",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "5",
+    "-17",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+  ],
   HYSTEROFOURK1688: [
     "Auto",
     "30",
-    "1",
+    "0",
     "9",
     "Photometry",
     "2",
@@ -625,21 +808,44 @@ const SIXTEENSETTINGS = {
     "4",
     "0",
     "4",
-    "6",
-    "10",
-    "30",
+    "8",
     "0",
+    "20",
+    "14",
+    "0",
+    "0",
+    "2",
     "4",
-    "0",
-    "-12",
-    "0",
     "Auto",
     "0",
     "0",
     "0",
     "0",
     "0",
-    "Visisble with SW 4.0.13",
+    // "Visisble with SW 4.0.13",
+    // "3",
+    // "0",
+    // "0",
+    // "9",
+    // "-5",
+    // "4",
+    // "5",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "5",
+    // "-17",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+    // "0",
+  ],
+  HYSTERO4013: [
     "3",
     "0",
     "0",
@@ -4113,6 +4319,12 @@ function backButton() {
       if (swVersionTextBoxDiv !== null) {
         swVersionTextBoxDiv.innerHTML = "";
       }
+      const softwareVersionSettingsIdDiv = document.getElementById(
+        "software-version-settings-div"
+      );
+      if (softwareVersionSettingsIdDiv !== null) {
+        softwareVersionSettingsIdDiv.innerHTML = " ";
+      }
     } else if (
       state.specialty.name === "" &&
       state.display.name !== "" &&
@@ -4603,13 +4815,74 @@ function displaySettings(cameraDisplaySpecialty) {
       const swVersionTextTag = document.createElement("p");
       swVersionTextTag.setAttribute("class", "sw-version-text-tag");
       swVersionTextTag.innerHTML =
-        "The following settings will be visible on software version 4.0.13";
+        "The following CCU settings will be visible on software version 4.0.13";
       swVersionDiv.appendChild(swVersionTextTag);
       swVersionTextBoxDiv.appendChild(swVersionDiv);
       softwareVersionSettings();
     }
 
-    function softwareVersionSettings() {}
+    function softwareVersionSettings() {
+      const softwareVersionSettingsIdDiv = document.getElementById(
+        "software-version-settings-div"
+      );
+      // create parameter div
+      const softwareVersionParameterDiv = document.createElement("div");
+      softwareVersionParameterDiv.setAttribute(
+        "class",
+        "software-version-parameter-div"
+      );
+      // Now I have add the 4.0.13 parameters - SOFTWARE4013PARAMETERS
+      SOFTWARE4013PARAMETERS.map((param) => {
+        // create p-tag
+        const softwareVersionParameterPtag = document.createElement("p");
+        softwareVersionParameterPtag.setAttribute(
+          "class",
+          "software-version-parameter-ptag"
+        );
+        softwareVersionParameterPtag.innerHTML = param;
+        softwareVersionParameterDiv.appendChild(softwareVersionParameterPtag);
+      });
+      // create setting div
+      const softwareVersionSettingDiv = document.createElement("div");
+      softwareVersionSettingDiv.setAttribute(
+        "class",
+        "software-version-setting-div"
+      );
+      let ccuSwSettings;
+      console.log(state.specialty);
+      if (state.specialty.name === "Flexiscope") {
+        ccuSwSettings = SIXTEENSETTINGS.FLEXISCOPE4013;
+      } else if (state.specialty.name === "Cysto") {
+        ccuSwSettings = SIXTEENSETTINGS.CYSTO4013;
+      } else if (state.specialty.name === "Laser") {
+        ccuSwSettings = SIXTEENSETTINGS.LASER4013;
+      } else if (state.specialty.name === "Hystero") {
+        ccuSwSettings = SIXTEENSETTINGS.HYSTERO4013;
+      } else if (state.specialty.name === "Lap 1") {
+        ccuSwSettings = SIXTEENSETTINGS.LAP14K4013;
+      } else if (state.specialty.name === "Lap 2") {
+        ccuSwSettings = SIXTEENSETTINGS.LAP24K4013;
+      } else if (state.specialty.name === "Lap Storz") {
+        ccuSwSettings = SIXTEENSETTINGS.LAPSTORZ4K4013;
+      } else if (state.specialty.name === "Arthro 1") {
+        ccuSwSettings = SIXTEENSETTINGS.ARTHRO4K4013;
+      } else {
+        ccuSwSettings = SIXTEENSETTINGS.ENT4K4013;
+      }
+
+      ccuSwSettings.map((setting) => {
+        // create p-tag
+        const softwareVersionSettingPtag = document.createElement("p");
+        softwareVersionSettingPtag.setAttribute(
+          "class",
+          "software-version-setting-ptag"
+        );
+        softwareVersionSettingPtag.innerHTML = setting;
+        softwareVersionSettingDiv.appendChild(softwareVersionSettingPtag);
+      });
+      softwareVersionSettingsIdDiv.appendChild(softwareVersionParameterDiv);
+      softwareVersionSettingsIdDiv.appendChild(softwareVersionSettingDiv);
+    }
   }
 
   // Applying Headers to DOM
@@ -4643,7 +4916,6 @@ function displaySettings(cameraDisplaySpecialty) {
   } else {
     paramsTitle.appendChild(document.createTextNode("4K"));
   }
-  console.log(state.specialty.name);
   paramsTitle.appendChild(document.createTextNode(` ${state.specialty.name}`));
 
   // Set attributes

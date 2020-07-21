@@ -348,6 +348,41 @@ body {
   color: #fff;
   background: #ffb600;
 }
+
+#software-version-settings-div {
+  display: flex;
+  background: #ffb600;
+  opacity: 1;
+  border-radius: 5px;
+  height: auto;
+  width: 90%;
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.software-version-parameter-div {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+}
+
+.software-version-parameter-div p {
+  border-bottom: 1px solid #262626;
+  margin: 0.5em 0.8em 1em 0.8em;
+}
+
+.software-version-setting-div {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+}
+
+.software-version-setting-div p {
+  border-bottom: 1px solid #262626;
+  margin: 0.5em 0.8em 1em 0.8em;
+}
+
 /* ///////////////////////////////////////////////////*/
 
 @media (max-width: 451px) {
