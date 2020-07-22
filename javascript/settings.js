@@ -822,28 +822,6 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
     "0",
-    // "Visisble with SW 4.0.13",
-    // "3",
-    // "0",
-    // "0",
-    // "9",
-    // "-5",
-    // "4",
-    // "5",
-    // "0",
-    // "0",
-    // "0",
-    // "0",
-    // "5",
-    // "-17",
-    // "0",
-    // "0",
-    // "0",
-    // "0",
-    // "0",
-    // "0",
-    // "0",
-    // "0",
   ],
   HYSTERO4013: [
     "3",
@@ -4272,9 +4250,15 @@ const resetDOM = () => {
   const swVersionTextBoxDiv = document.getElementById(
     "software-version-text-box-div"
   );
-  console.log(swVersionTextBoxDiv);
   if (swVersionTextBoxDiv !== null) {
     swVersionTextBoxDiv.innerHTML = "";
+  }
+  // reset software version settings div
+  const swVersionSettingsDiv = document.getElementById(
+    "software-version-settings-div"
+  );
+  if (swVersionSettingsDiv !== null) {
+    swVersionSettingsDiv.innerHTML = "";
   }
 };
 
