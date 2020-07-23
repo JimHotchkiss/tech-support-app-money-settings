@@ -4159,8 +4159,12 @@ const resetDOM = () => {
   }
   // reset to show camera buttons
   // show ccu
+
   let ccuTopDiv = document.getElementById("top-camera-div");
-  ccuTopDiv.className = "camera-div";
+  if (ccuTopDiv !== null) {
+    ccuTopDiv.className = "camera-div";
+  }
+
   // reset displayDiv html
   let displayDiv = document.getElementById("displayTopDiv");
   displayDiv.innerHTML = "";
