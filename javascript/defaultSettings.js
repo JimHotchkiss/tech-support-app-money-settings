@@ -1190,11 +1190,6 @@ const addDefaultSettings = () => {
   settingsDiv.setAttribute("class", "default-settings-div");
 
   for (const property in ccuVariable) {
-    console.log(
-      property,
-      ccuVariable[property],
-      defaultSetttingsState.specialty.name
-    );
     if (defaultSetttingsState.specialty.name === property) {
       ccuVariable[property].map((setting) => {
         const settingDiv = document.createElement("div");

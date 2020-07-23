@@ -4167,8 +4167,11 @@ const resetDOM = () => {
 
   // reset displayDiv html
   let displayDiv = document.getElementById("displayTopDiv");
-  displayDiv.innerHTML = "";
-  displayDiv.className = "";
+  if (displayDiv !== null) {
+    displayDiv.innerHTML = "";
+    displayDiv.className = "";
+  }
+
   // reset specialtyDiv html
 
   if (specialtyDiv !== null) {
