@@ -4173,9 +4173,8 @@ const resetDOM = () => {
   }
 
   // reset specialtyDiv html
-
+  let specialtyDiv = document.getElementById("specialtyTopDiv");
   if (specialtyDiv !== null) {
-    let specialtyDiv = document.getElementById("specialtyTopDiv");
     specialtyDiv.innerHTML = "";
     specialtyDiv.className = "";
   }
@@ -4776,7 +4775,6 @@ function displaySettings(cameraDisplaySpecialty) {
         "software-version-setting-div"
       );
       let ccuSwSettings;
-      console.log(state.specialty);
       if (state.specialty.name === "Flexiscope") {
         ccuSwSettings = SIXTEENSETTINGS.FLEXISCOPE4013;
       } else if (state.specialty.name === "Cysto") {
