@@ -35,6 +35,7 @@ body {
 }
 
 #back-button img {
+  cursor: pointer;
   height: 30px;
   width: 30px;
   background-size: 30px;
