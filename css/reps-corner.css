@@ -1,0 +1,273 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background: #262626 !important;
+}
+
+.reps-corner-nav {
+  display: flex;
+  background-color: #262626;
+  height: 78px;
+  border-bottom: 5px solid #ffb600;
+  z-index: 9999;
+}
+
+#reps-corner-container.hide {
+  display: none;
+}
+
+#reps-corner-container {
+  margin-top: 30px;
+  max-width: 500px;
+}
+
+.reps-corner-title-div {
+  min-width: 200px;
+}
+
+.reps-corner-back-button {
+  display: none;
+}
+
+.reps-corner-back-button.show {
+  display: flex;
+  min-width: 200px;
+  cursor: pointer;
+}
+
+.reps-corner-back-button.show img {
+  height: 30px;
+  width: 30px;
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+.reps-corner-title-div.hide {
+  display: none;
+}
+
+.reps-corner-title-text {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 16px;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.reps-corner-home-icon-div {
+  margin-top: 6px;
+  margin-left: 80%;
+  cursor: pointer;
+}
+
+.resp-corner-home-img {
+  width: 30px;
+  height: 30px;
+  margin-top: 19px;
+  /* margin-left: 90%; */
+  background: transparent url("../images/home-icon2.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  background-size: 30px;
+}
+
+.table-title {
+  /* color: rgba(255, 255, 255, 0.7); */
+  color: #ffb600;
+}
+
+.ratings-title {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.specialty-title {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.specialty-title:hover {
+  color: #ffb600;
+}
+
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-outer::before {
+  /* F005 */
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  letter-spacing: 7px;
+  color: #ccc;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  letter-spacing: 7px;
+
+  color: #ffb600;
+}
+
+.reps-ratings {
+  display: none;
+}
+
+.reps-ratings.show {
+  display: flex;
+  opacity: 1;
+  border-radius: 5px;
+  height: auto;
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 0;
+  padding: 8px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.reps-ratings.show h3 {
+  text-align: center;
+  color: #ccc;
+}
+
+.ratings {
+  margin-top: 6px;
+  margin-left: 20px;
+}
+
+.far::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  letter-spacing: 7px;
+  color: #ccc;
+}
+
+.fas::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  letter-spacing: 7px;
+  color: #ffb600;
+}
+
+.settings-parameters-container {
+  display: flex;
+  background: #ffb600;
+  opacity: 1;
+  border-radius: 5px;
+  height: auto;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px;
+  margin-top: 24px;
+}
+
+.settings-parameter-div {
+  width: 47%;
+}
+
+.setting-div {
+  width: 225px;
+  margin-left: 20px;
+  border-bottom: 1px solid #262626;
+}
+
+.setting-div p {
+  margin: 0;
+  padding-top: 12px;
+}
+
+.param-div {
+  margin-left: 12px;
+  border-bottom: 1px solid #262626;
+}
+
+.param-div p {
+  margin: 0;
+  padding-top: 12px;
+}
+
+.rc-setting-email-div {
+  margin: 0 auto;
+}
+
+.rc-email-ptag {
+  margin: 0 auto;
+  color: #fff;
+  font-size: 18px;
+}
+
+.rc-setting-name-div {
+  margin: 0 auto;
+}
+
+.rc-name-ptag {
+  margin: 0 auto;
+  padding: 0;
+  color: #262626;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.rc-ccu-title-div {
+  display: flex;
+  flex-direction: column;
+  background: #ffb600;
+  opacity: 1;
+  border-radius: 5px;
+  height: auto;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.rc-setting-ccu-div {
+  margin: 0 auto;
+}
+
+.rc-ccu-ptag {
+  margin: 0;
+  color: #262626;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.param-ptag {
+  color: #fff;
+}
+
+.setting-ptag {
+  color: #fff;
+}
+
+@media (max-width: 414px) {
+  .reps-corner-home-icon-div {
+    margin-left: 40%;
+  }
+
+  * {
+    overflow-x: hidden;
+  }
+}
