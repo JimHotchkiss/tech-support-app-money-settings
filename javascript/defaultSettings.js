@@ -1020,10 +1020,6 @@ const showDefaultHomeIcon = () => {
   // need to grab the js-navbar-toggle div, and insert the home icon
   let jsNavBarToggle = document.getElementById("js-navbar-toggle");
   let homeIconDiv = document.getElementById("home-icon-div-hide");
-  // const homeIconText = document.createElement("p");
-  // homeIconText.setAttribute("id", "home-icon-text");
-  // homeIconText.innerHTML = "Money Settings";
-  // "js-navbar-toggle-hide" display: none
   if (jsNavBarToggle !== null) {
     jsNavBarToggle.id = "js-navbar-toggle-hide";
   }
@@ -1031,13 +1027,22 @@ const showDefaultHomeIcon = () => {
     homeIconDiv.id = "home-icon-div-show";
     // homeIconDiv.appendChild(homeIconText);
   }
+  changeDefaultUrl();
   defaultHomeIconEventListener();
+};
+
+const changeDefaultUrl = () => {
+  const state = {};
+  const title = "";
+  const url = "default-settings.html";
+
+  history.pushState(state, title, url);
 };
 
 const defaultHomeIconEventListener = () => {
   let defaultHomeIcon = document.getElementById("home-icon-div-show");
   defaultHomeIcon.addEventListener("click", () => {
-    location.href = "./index.html";
+    location.href = "./msa.html";
     const defaultSettingsTitleDiv = document.getElementById(
       "default-settings-title-div"
     );
