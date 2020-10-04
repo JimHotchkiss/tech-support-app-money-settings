@@ -7,7 +7,7 @@
 }
 
 .index-nav {
-  position: fixed;
+  /* position: fixed; */
   min-height: 78px;
   width: 100%;
   font-size: 18px;
@@ -28,8 +28,20 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.index-header {
-  padding-top: 78px;
+.cards-container {
+  max-width: 800px;
+  height: auto;
+  background: lightgoldenrodyellow;
+  margin: 10% auto;
+}
+
+.card-img-div {
+}
+
+.card-container {
+  width: 250px;
+  height: 300px;
+  background: lightskyblue;
 }
 
 .msa-button {
