@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   landingPageEventListener();
   msaEventListener();
+  printerEventListener();
 });
 
 const landingPageEventListener = () => {
@@ -14,5 +15,12 @@ const msaEventListener = () => {
   const msaDiv = document.getElementById("msa-card");
   msaDiv.addEventListener("click", () => {
     location.replace("./msa.html");
+  });
+};
+
+const printerEventListener = () => {
+  const printerDiv = document.getElementById("printer-card");
+  printerDiv.addEventListener("click", () => {
+    location.replace("./printer.html");
   });
 };

@@ -33,6 +33,7 @@ body {
 }
 
 .cards-container {
+  display: flex;
   max-width: 800px;
   height: auto;
   margin: 10% auto;
@@ -42,29 +43,65 @@ body {
   display: flex;
   flex-direction: column;
   width: 250px;
-  height: 300px;
+  height: 270px;
   background: #ffb600;
   border-radius: 10px;
-  /* padding: 8px; */
+  margin: 0 16px 0 0;
 }
 
 .card-container:hover {
+  opacity: 0.5;
   cursor: pointer;
-  width: 255px;
-  height: 305px;
+
   background: #ffb600;
   transition: all 0.4s ease 0s;
 }
 
 .card-img-div {
   width: 60px;
-  height: 60px;
+  height: 70px;
   background: transparent url("../images/msa-log.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
   margin-top: 20px;
   margin-left: 12px;
   background-size: 60px;
+}
+
+#printer-card-img-div {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/printer-settings.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+.card-container:hover #printer-card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
+#default-card-img-div {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/default-settings.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+.card-container:hover #default-card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
 }
 
 .card-container:hover .card-img-div {
@@ -95,10 +132,11 @@ body {
   margin-left: 12px;
   padding-top: 8px;
   padding-right: 8px;
+  padding-bottom: 16px;
 }
 
 .card-container:hover .card-text-text {
-  letter-spacing: 0.7px;
+  letter-spacing: 0.4px;
   transition: all 0.4s ease 0s;
 }
 
