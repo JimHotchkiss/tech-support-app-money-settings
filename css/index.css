@@ -34,6 +34,7 @@ body {
 
 .cards-container {
   display: flex;
+  flex-wrap: wrap;
   max-width: 800px;
   height: auto;
   margin: 10% auto;
@@ -46,14 +47,12 @@ body {
   height: 270px;
   background: #ffb600;
   border-radius: 10px;
-  margin: 0 16px 0 0;
+  margin: 0 16px 16px 0;
 }
 
 .card-container:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
-
-  background: #ffb600;
   transition: all 0.4s ease 0s;
 }
 
@@ -104,6 +103,24 @@ body {
   transition: all 0.4s ease 0s;
 }
 
+#contribute-settings-card-img-div {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/share-settings.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+.card-container:hover #contribute-settings-card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
 .card-container:hover .card-img-div {
   width: 65px;
   height: 65px;
@@ -123,7 +140,7 @@ body {
 }
 
 .card-container:hover .card-title-text {
-  letter-spacing: 0.7px;
+  letter-spacing: 0.5px;
   transition: all 0.4s ease 0s;
 }
 
@@ -156,4 +173,14 @@ body {
   background: lightpink;
   color: #262626;
   transition: ease-in-out 0.3s;
+}
+
+@media (max-width: 451px) {
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .card-container {
+    margin: 16px auto;
+  }
 }

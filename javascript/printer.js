@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   selectSDC();
   updateNavbar();
   printerBackButton();
-  console.log(printerState);
 });
 // Variables
 const printerState = {
