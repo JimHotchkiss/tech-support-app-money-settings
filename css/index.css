@@ -37,7 +37,8 @@ body {
   flex-wrap: wrap;
   max-width: 800px;
   height: auto;
-  margin: 10% auto;
+  margin: auto;
+  margin-top: 80px;
 }
 
 .card-container {
