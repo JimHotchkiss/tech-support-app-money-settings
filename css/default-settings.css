@@ -1,0 +1,31 @@
+.default-home-icon {
+    width: 40px;
+    height: 40px;
+    margin-top: -28px;
+    margin-right: 16px;
+    margin-left: auto;
+    background: transparent url("../images/home.jpg") 0% 0% no-repeat
+      padding-box;
+    opacity: 1;
+    background-size: 40px;
+}
+
+.default-home-icon:hover {
+    cursor: pointer;
+}
+
+.default-camera-buttons-div {
+    margin: 16px;
+}
+
+.default-cameras-container.hide{
+    display: none;
+}
+
+.default-title-div {
+    width: 300px;
+    height: 100px;
+    margin-top: 100px;
+    z-index: 999;
+    background: white;
+}
