@@ -928,10 +928,10 @@ function hideDefaultCamerasContainer(cameraId) {
     "default-cameras-container"
   );
   defaultCamerasContainer.classList.add("hide");
-  showDefaultSettingsTitle(cameraId);
+  showDefaultSpecialties(cameraId);
 }
 
-const showDefaultSettingsTitle = (cameraId) => {
+const showDefaultSpecialties = (cameraId) => {
   const defaultSettingsContainer = document.getElementById(
     "default-settings-container"
   );
