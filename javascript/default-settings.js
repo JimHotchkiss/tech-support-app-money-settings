@@ -918,9 +918,14 @@ function defaultSelectCcu() {
   for (let item of defaultCameraBtnsDiv) {
     item.addEventListener("click", () => {
       const cameraId = item.id;
-      hideDefaultCamerasContainer(cameraId);
+      setCcuState(cameraId);
+      hideDefaultCamerasContainer();
     });
   }
+}
+
+function setCcuState(cameraId) {
+  defaultSetttingsState.camera.name = cameraId;
 }
 
 function hideDefaultCamerasContainer(cameraId) {
@@ -928,10 +933,10 @@ function hideDefaultCamerasContainer(cameraId) {
     "default-cameras-container"
   );
   defaultCamerasContainer.classList.add("hide");
-  showDefaultSpecialties(cameraId);
+  showDefaultSpecialties();
 }
 
-const showDefaultSpecialties = (cameraId) => {
+const showDefaultSpecialties = () => {
   const defaultSpecialtiesContainer = document.getElementById(
     "default-specialties-container"
   );
@@ -943,12 +948,24 @@ function defaultSpecialtyEventListener() {
   const defaultSpecialtyBtnsDiv = document.getElementsByClassName(
     "default-specialty-buttons-div"
   );
+  let selectedSpecialty = "";
   for (let item of defaultSpecialtyBtnsDiv) {
     item.addEventListener("click", () => {
       const defaultSpecialtiesContainer = document.getElementById(
         "default-specialties-container"
       );
+      selectedSpecialty = item.id;
+      setSpecialtyState(selectedSpecialty);
       defaultSpecialtiesContainer.classList.remove("show");
+      showDefaultSettingsTitle();
     });
   }
+}
+
+function setSpecialtyState(selectedSpecialty) {
+  defaultSetttingsState.specialty.name = selectedSpecialty;
+}
+
+function showDefaultSettingsTitle() {
+  console.log(defaultSetttingsState);
 }
