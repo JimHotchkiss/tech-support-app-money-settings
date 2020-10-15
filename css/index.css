@@ -133,6 +133,28 @@ body {
   background-size: 60px;
 }
 
+#contact-card-img-div {
+  width: 130px;
+  height: 130px;
+  background: transparent url("../images/contact-image.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 15px;
+  margin-left: -15px;
+  background-size: 130px;
+}
+
+.card-container:hover #contact-card-img-div {
+  width: 135px;
+  height: 135px;
+  background-size: 135px;
+  transition: all 0.4s ease 0s;
+}
+
+#contact-card-title {
+  margin-top: -30px;
+}
+
 .card-container:hover #contribute-settings-card-img-div {
   width: 65px;
   height: 65px;
