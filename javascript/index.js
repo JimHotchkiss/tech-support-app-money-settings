@@ -32,7 +32,7 @@ const printerEventListener = () => {
 const defaultEventListener = () => {
   const defaultDiv = document.getElementById("default-card");
   defaultDiv.addEventListener("click", () => {
-    console.log("default");
+    location.replace("./default.html");
   });
 };
 
