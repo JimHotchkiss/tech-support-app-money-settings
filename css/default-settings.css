@@ -22,3 +22,14 @@
     display: none;
 }
 
+.default-specialties-container {
+    display: none;
+}
+
+.default-specialties-container.show {
+    display: block;
+}
+
+.default-specialty-buttons-div{
+    margin: 16px;
+}

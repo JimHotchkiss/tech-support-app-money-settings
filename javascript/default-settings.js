@@ -932,10 +932,23 @@ function hideDefaultCamerasContainer(cameraId) {
 }
 
 const showDefaultSpecialties = (cameraId) => {
-  const defaultSettingsContainer = document.getElementById(
-    "default-settings-container"
+  const defaultSpecialtiesContainer = document.getElementById(
+    "default-specialties-container"
   );
-  const defaultTitleDiv = document.createElement("div");
-  defaultTitleDiv.setAttribute("class", "default-title-div");
-  defaultSettingsContainer.appendChild(defaultTitleDiv);
+  defaultSpecialtiesContainer.classList.add("show");
+  defaultSpecialtyEventListener();
 };
+
+function defaultSpecialtyEventListener() {
+  const defaultSpecialtyBtnsDiv = document.getElementsByClassName(
+    "default-specialty-buttons-div"
+  );
+  for (let item of defaultSpecialtyBtnsDiv) {
+    item.addEventListener("click", () => {
+      const defaultSpecialtiesContainer = document.getElementById(
+        "default-specialties-container"
+      );
+      defaultSpecialtiesContainer.classList.remove("show");
+    });
+  }
+}
