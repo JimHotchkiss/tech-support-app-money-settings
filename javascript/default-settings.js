@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   defaultSettingsNavHome();
   defaultSelectCcu();
+  defaultSpecialtyEventListener();
 });
 
 // Constants
@@ -657,7 +658,7 @@ const DEFAULTSIXTEEN = {
     "0",
     "0",
   ],
-  Hystero: [
+  Hysteroscopy: [
     "Auto",
     "30",
     "0",
@@ -964,12 +965,16 @@ function clearSettingHtml() {
     "default-parameter-settings-container"
   );
 
-  while (defaultParamSettingsContainer.firstChild) {
-    console.log(defaultParamSettingsContainer.firstChild);
-    defaultParamSettingsContainer.removeChild(
-      defaultParamSettingsContainer.firstChild
-    );
-  }
+  let defaultParamsOuterDiv = document.getElementsByClassName(
+    "default-params-outer-div"
+  );
+
+  let defaultSettingsOuterDiv = document.getElementsByClassName(
+    "default-settings-outer-div"
+  );
+  defaultParamsOuterDiv[0].innerHTML = "";
+  defaultSettingsOuterDiv[0].innerHTML = "";
+  defaultParamSettingsContainer.innerHTML = "";
 }
 
 function hideSettingsContainer() {
@@ -1031,7 +1036,6 @@ const showDefaultSpecialties = () => {
     "default-specialties-container"
   );
   defaultSpecialtiesContainer.classList.add("show");
-  defaultSpecialtyEventListener();
 };
 
 function defaultSpecialtyEventListener() {
@@ -1041,15 +1045,16 @@ function defaultSpecialtyEventListener() {
   let selectedSpecialty = "";
   for (let item of defaultSpecialtyBtnsDiv) {
     item.addEventListener("click", () => {
-      const defaultSpecialtiesContainer = document.getElementById(
-        "default-specialties-container"
-      );
       selectedSpecialty = item.id;
       setSpecialtyState(selectedSpecialty);
-      defaultSpecialtiesContainer.classList.remove("show");
       showDefaultSettingsTitle();
       showDefaultParams();
       showDefaultSettings();
+      const defaultSpecialtiesContainer = document.getElementById(
+        "default-specialties-container"
+      );
+
+      defaultSpecialtiesContainer.classList.remove("show");
     });
   }
 }
@@ -1067,18 +1072,21 @@ function showDefaultParams() {
       paramDiv.innerText = param;
       paramsDiv.appendChild(paramDiv);
     });
+    defaultParamSettingsContainer.appendChild(paramsDiv);
   }
-  defaultParamSettingsContainer.appendChild(paramsDiv);
 }
 
 function showDefaultSettings() {
   const defaultParamSettingsContainer = document.getElementById(
     "default-parameter-settings-container"
   );
+
   const settingsDiv = document.createElement("div");
   settingsDiv.setAttribute("class", "default-settings-outer-div");
+
   if (defaultSetttingsState.camera.name === "1688") {
     for (const item in DEFAULTSIXTEEN) {
+      console.log(item, defaultSetttingsState.specialty.name);
       if (item === defaultSetttingsState.specialty.name) {
         DEFAULTSIXTEEN[item].map((setting) => {
           const settingDiv = document.createElement("div");
@@ -1088,9 +1096,8 @@ function showDefaultSettings() {
         });
       }
     }
+    defaultParamSettingsContainer.appendChild(settingsDiv);
   }
-
-  defaultParamSettingsContainer.appendChild(settingsDiv);
 }
 
 function setSpecialtyState(selectedSpecialty) {

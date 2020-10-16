@@ -99,8 +99,8 @@
 }
 
 .default-breadcrumbs {
-    max-width: 175px;
-    margin: auto;
+    min-width: 195px;
+    text-align: center;
     margin-bottom: 30px;
     
 }
