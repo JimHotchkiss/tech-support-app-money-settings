@@ -928,7 +928,7 @@ function setCcuState(cameraId) {
   defaultSetttingsState.camera.name = cameraId;
 }
 
-function hideDefaultCamerasContainer(cameraId) {
+function hideDefaultCamerasContainer() {
   const defaultCamerasContainer = document.getElementById(
     "default-cameras-container"
   );
@@ -948,8 +948,55 @@ function addBackBtn() {
 function backBtnEventListener() {
   const backBtnDiv = document.getElementById("back-btn-div");
   backBtnDiv.addEventListener("click", () => {
-    hideDefaultSpecialties();
+    if (defaultSetttingsState.specialty.name !== "") {
+      resetSpecialtyDefaultState();
+      hideSettingsContainer();
+    } else {
+      resetCcuDefaultState();
+      hideDefaultSpecialties();
+    }
   });
+}
+
+function hideSettingsContainer() {
+  const defaultSettingsDiv = document.getElementById("default-settings-div");
+  defaultSettingsDiv.classList.remove("default-settings-show");
+  showDefaultSpecialties();
+}
+
+function resetSpecialtyDefaultState() {
+  defaultSetttingsState.specialty.name = "";
+}
+
+function resetCcuDefaultState() {
+  defaultSetttingsState.camera.name = "";
+}
+
+function hideDefaultSpecialties() {
+  const defaultSpecialtiesContainer = document.getElementById(
+    "default-specialties-container"
+  );
+  defaultSpecialtiesContainer.classList.remove("show");
+  hideBackBtn();
+}
+
+function hideBackBtn() {
+  const backBtnDiv = document.getElementById("back-btn-div");
+  backBtnDiv.classList.remove("back-btn-show");
+  replaceDefaultLogo();
+}
+
+function replaceDefaultLogo() {
+  const defaultLogoDiv = document.getElementById("default-logo-div");
+  defaultLogoDiv.classList.remove("default-logo-center");
+  showDefaultCcus();
+}
+
+function showDefaultCcus() {
+  const defaultCamerasContainer = document.getElementById(
+    "default-cameras-container"
+  );
+  defaultCamerasContainer.classList.remove("hide");
 }
 
 function centerDefaultLogo() {
@@ -996,5 +1043,23 @@ function setSpecialtyState(selectedSpecialty) {
 }
 
 function showDefaultSettingsTitle() {
-  console.log(defaultSetttingsState);
+  const defaultSettingsDiv = document.getElementById("default-settings-div");
+  defaultSettingsDiv.classList.add("default-settings-show");
+  populateDefaultSettingsCcuTitle();
+}
+
+function populateDefaultSettingsCcuTitle() {
+  const defaultSettingsCcuTitle = document.getElementById(
+    "default-settings-ccu-title"
+  );
+  defaultSettingsCcuTitle.innerText = defaultSetttingsState.camera.name;
+  populateDefaultSettingsSpecialtyTitle();
+}
+
+function populateDefaultSettingsSpecialtyTitle() {
+  const defaultSettingsSpecialtyTitle = document.getElementById(
+    "default-settings-specialty-title"
+  );
+  defaultSettingsSpecialtyTitle.innerText =
+    defaultSetttingsState.specialty.name;
 }
