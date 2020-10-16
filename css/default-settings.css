@@ -18,6 +18,14 @@
     margin: 16px;
 }
 
+.default-title-div {
+    margin:  auto;
+    margin-top: 106px;
+    text-align: center;
+    color: #ffb600;
+    margin-bottom: 16px;
+}
+
 .default-cameras-container.hide{
     display: none;
 }
@@ -32,4 +40,16 @@
 
 .default-specialty-buttons-div{
     margin: 16px;
+}
+
+.default-breadcrumbs {
+    max-width: 175px;
+    margin: auto;
+    margin-bottom: 30px;
+    
+}
+
+.default-breadcrumbs-text {
+    padding-left: 15px;
+    color: #fff;
 }

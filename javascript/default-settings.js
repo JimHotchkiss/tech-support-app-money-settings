@@ -934,6 +934,15 @@ function hideDefaultCamerasContainer(cameraId) {
   );
   defaultCamerasContainer.classList.add("hide");
   showDefaultSpecialties();
+  populateDefaultBreadCrumbs();
+}
+
+function populateDefaultBreadCrumbs() {
+  const defaultBreadCrumbsText = document.getElementById(
+    "default-breadcrumbs-text"
+  );
+  defaultBreadCrumbsText.innerText = "";
+  defaultBreadCrumbsText.innerText = `Selected CCU: ${defaultSetttingsState.camera.name}`;
 }
 
 const showDefaultSpecialties = () => {
