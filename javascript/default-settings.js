@@ -951,11 +951,25 @@ function backBtnEventListener() {
     if (defaultSetttingsState.specialty.name !== "") {
       resetSpecialtyDefaultState();
       hideSettingsContainer();
+      clearSettingHtml();
     } else {
       resetCcuDefaultState();
       hideDefaultSpecialties();
     }
   });
+}
+
+function clearSettingHtml() {
+  let defaultParamSettingsContainer = document.getElementById(
+    "default-parameter-settings-container"
+  );
+
+  while (defaultParamSettingsContainer.firstChild) {
+    console.log(defaultParamSettingsContainer.firstChild);
+    defaultParamSettingsContainer.removeChild(
+      defaultParamSettingsContainer.firstChild
+    );
+  }
 }
 
 function hideSettingsContainer() {
@@ -1034,8 +1048,49 @@ function defaultSpecialtyEventListener() {
       setSpecialtyState(selectedSpecialty);
       defaultSpecialtiesContainer.classList.remove("show");
       showDefaultSettingsTitle();
+      showDefaultParams();
+      showDefaultSettings();
     });
   }
+}
+
+function showDefaultParams() {
+  const defaultParamSettingsContainer = document.getElementById(
+    "default-parameter-settings-container"
+  );
+  const paramsDiv = document.createElement("div");
+  paramsDiv.setAttribute("class", "default-params-outer-div");
+  if (defaultSetttingsState.camera.name === "1688") {
+    SIXTEENDEFAULTPARAMETERS.map((param) => {
+      const paramDiv = document.createElement("div");
+      paramDiv.setAttribute("class", "default-param-div");
+      paramDiv.innerText = param;
+      paramsDiv.appendChild(paramDiv);
+    });
+  }
+  defaultParamSettingsContainer.appendChild(paramsDiv);
+}
+
+function showDefaultSettings() {
+  const defaultParamSettingsContainer = document.getElementById(
+    "default-parameter-settings-container"
+  );
+  const settingsDiv = document.createElement("div");
+  settingsDiv.setAttribute("class", "default-settings-outer-div");
+  if (defaultSetttingsState.camera.name === "1688") {
+    for (const item in DEFAULTSIXTEEN) {
+      if (item === defaultSetttingsState.specialty.name) {
+        DEFAULTSIXTEEN[item].map((setting) => {
+          const settingDiv = document.createElement("div");
+          settingDiv.setAttribute("class", "default-setting-div");
+          settingDiv.innerText = setting;
+          settingsDiv.appendChild(settingDiv);
+        });
+      }
+    }
+  }
+
+  defaultParamSettingsContainer.appendChild(settingsDiv);
 }
 
 function setSpecialtyState(selectedSpecialty) {

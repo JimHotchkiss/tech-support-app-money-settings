@@ -150,3 +150,50 @@
     font-size: 18px;
     color: #fff;
 }
+
+.default-parameter-settings-container {
+    display: flex;
+}
+
+.default-params-outer-div {
+    margin: auto;
+    width: 50%;
+    margin-top: 130px;
+    text-align: center;
+    background: #ffb600;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.default-settings-outer-div {
+    margin: auto;
+    width: 50%;
+    margin-top: 130px;
+    text-align: center;
+    background: #ffb600;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.default-param-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+    
+}
+
+.default-setting-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+}
