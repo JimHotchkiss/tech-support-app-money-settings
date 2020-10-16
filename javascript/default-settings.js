@@ -935,6 +935,26 @@ function hideDefaultCamerasContainer(cameraId) {
   defaultCamerasContainer.classList.add("hide");
   showDefaultSpecialties();
   populateDefaultBreadCrumbs();
+  addBackBtn();
+}
+
+function addBackBtn() {
+  const backBtnDiv = document.getElementById("back-btn-div");
+  backBtnDiv.classList.add("back-btn-show");
+  centerDefaultLogo();
+  backBtnEventListener();
+}
+
+function backBtnEventListener() {
+  const backBtnDiv = document.getElementById("back-btn-div");
+  backBtnDiv.addEventListener("click", () => {
+    hideDefaultSpecialties();
+  });
+}
+
+function centerDefaultLogo() {
+  const defaultLogoDiv = document.getElementById("default-logo-div");
+  defaultLogoDiv.classList.add("default-logo-center");
 }
 
 function populateDefaultBreadCrumbs() {
