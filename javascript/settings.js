@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   selectCamera();
   backButton();
+  showHomeIcon();
 });
 
 const state = {
@@ -4167,31 +4168,28 @@ const showBackButton = () => {
     moneySettingsToggle.id = "money-settings-toggle";
   }
 
-  backButtonToggle.style.display = "block";
-  showHomeIcon();
+  // backButtonToggle.style.display = "block";
 };
 
 const showHomeIcon = () => {
   // need to grab the js-navbar-toggle div, and insert the home icon
-  let jsNavBarToggle = document.getElementById("js-navbar-toggle");
-  let homeIconDiv = document.getElementById("home-icon-div-hide");
-  // "js-navbar-toggle-hide" display: none
-  if (jsNavBarToggle !== null) {
-    jsNavBarToggle.id = "js-navbar-toggle-hide";
-  }
-  if (homeIconDiv !== null) {
-    homeIconDiv.id = "home-icon-div-show";
-  }
-  homeIconEventListener();
-};
-
-const homeIconEventListener = () => {
-  let homeIcon = document.getElementById("home-icon-div-show");
-  homeIcon.addEventListener("click", () => {
-    resetState(homeIcon);
-    resetDOM();
+  let homeIconDiv = document.getElementById("home-icon-div");
+  homeIconDiv.addEventListener("click", () => {
+    navigateBackHome();
   });
 };
+
+const navigateBackHome = () => {
+  location.replace("./index.html");
+};
+
+// const homeIconEventListener = () => {
+//   let homeIcon = document.getElementById("home-icon-div-show");
+//   homeIcon.addEventListener("click", () => {
+//     resetState(homeIcon);
+//     resetDOM();
+//   });
+// };
 
 const resetDOM = () => {
   // Hide home icon

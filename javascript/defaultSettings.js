@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  selectDefaultSettings();
-  defaultSettingsBackButton();
+  // selectDefaultSettings();
+  // defaultSettingsBackButton();
 });
 
 // Constants
@@ -899,18 +899,18 @@ const defaultSetttingsState = {
   specialty: { name: "" },
 };
 
-const selectDefaultSettings = () => {
-  // Grab the default settings button
-  let defaultButton = document.getElementById("default-settings-button");
-  defaultButton.addEventListener("click", () => {
-    const imageDiv = document.getElementById("image-div");
-    if (imageDiv !== null) {
-      imageDiv.classList.toggle("hide");
-    }
-    closeNavBar();
-    showHtml();
-  });
-};
+// const selectDefaultSettings = () => {
+// Grab the default settings button
+//   let defaultButton = document.getElementById("default-settings-button");
+//   defaultButton.addEventListener("click", () => {
+//     const imageDiv = document.getElementById("image-div");
+//     if (imageDiv !== null) {
+//       imageDiv.classList.toggle("hide");
+//     }
+//     closeNavBar();
+//     showHtml();
+//   });
+// };
 
 function closeNavBar() {
   let mainNav = document.getElementById("js-menu");
@@ -988,20 +988,20 @@ const showDefaultSettingsTitle = () => {
   moneySettingsId.innerHTML = "Default Settings";
 };
 
-const defaultSettingsBackButton = () => {
-  const defaultBackButton = document.getElementById("default-back-button");
-  defaultBackButton.addEventListener("click", () => {
-    if (defaultSetttingsState.specialty.name !== "") {
-      defaultSetttingsState.specialty.name = "";
-      addSpecialtyTitle();
-    } else {
-      defaultSetttingsState.camera.name = "";
-      hideDefaultBackButton();
-      hideDefaultHomeIcon();
-      showHtml();
-    }
-  });
-};
+// const defaultSettingsBackButton = () => {
+//   const defaultBackButton = document.getElementById("default-back-button");
+//   defaultBackButton.addEventListener("click", () => {
+//     if (defaultSetttingsState.specialty.name !== "") {
+//       defaultSetttingsState.specialty.name = "";
+//       addSpecialtyTitle();
+//     } else {
+//       defaultSetttingsState.camera.name = "";
+//       hideDefaultBackButton();
+//       hideDefaultHomeIcon();
+//       showHtml();
+//     }
+//   });
+// };
 
 const hideDefaultHomeIcon = () => {
   const homeIconDivShow = document.getElementById("home-icon-div-show");

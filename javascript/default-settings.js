@@ -1065,15 +1065,19 @@ function showDefaultParams() {
   );
   const paramsDiv = document.createElement("div");
   paramsDiv.setAttribute("class", "default-params-outer-div");
+  let params = "";
   if (defaultSetttingsState.camera.name === "1688") {
-    SIXTEENDEFAULTPARAMETERS.map((param) => {
-      const paramDiv = document.createElement("div");
-      paramDiv.setAttribute("class", "default-param-div");
-      paramDiv.innerText = param;
-      paramsDiv.appendChild(paramDiv);
-    });
-    defaultParamSettingsContainer.appendChild(paramsDiv);
+    params = SIXTEENDEFAULTPARAMETERS;
+  } else {
+    params = LEGACYDEFAULTPARAMETERS;
   }
+  params.map((param) => {
+    const paramDiv = document.createElement("div");
+    paramDiv.setAttribute("class", "default-param-div");
+    paramDiv.innerText = param;
+    paramsDiv.appendChild(paramDiv);
+  });
+  defaultParamSettingsContainer.appendChild(paramsDiv);
 }
 
 function showDefaultSettings() {
@@ -1083,21 +1087,28 @@ function showDefaultSettings() {
 
   const settingsDiv = document.createElement("div");
   settingsDiv.setAttribute("class", "default-settings-outer-div");
-
+  let settings = "";
   if (defaultSetttingsState.camera.name === "1688") {
-    for (const item in DEFAULTSIXTEEN) {
-      console.log(item, defaultSetttingsState.specialty.name);
-      if (item === defaultSetttingsState.specialty.name) {
-        DEFAULTSIXTEEN[item].map((setting) => {
-          const settingDiv = document.createElement("div");
-          settingDiv.setAttribute("class", "default-setting-div");
-          settingDiv.innerText = setting;
-          settingsDiv.appendChild(settingDiv);
-        });
-      }
-    }
-    defaultParamSettingsContainer.appendChild(settingsDiv);
+    settings = DEFAULTSIXTEEN;
+  } else if (defaultSetttingsState.camera.name === "1588") {
+    settings = DEFAULTFIFTEEN;
+  } else if (defaultSetttingsState.camera.name === "1488") {
+    settings = DEFAULTFOURTEEN;
+  } else if (defaultSetttingsState.camera.name === "Precision") {
+    settings = DEFAULTPRECISION;
   }
+  for (const item in settings) {
+    console.log(settings);
+    if (item === defaultSetttingsState.specialty.name) {
+      settings[item].map((setting) => {
+        const settingDiv = document.createElement("div");
+        settingDiv.setAttribute("class", "default-setting-div");
+        settingDiv.innerText = setting;
+        settingsDiv.appendChild(settingDiv);
+      });
+    }
+  }
+  defaultParamSettingsContainer.appendChild(settingsDiv);
 }
 
 function setSpecialtyState(selectedSpecialty) {
