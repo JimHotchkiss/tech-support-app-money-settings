@@ -31,13 +31,13 @@
   margin: 15px auto;
 }
 
-.logo {
+/* .logo {
  display: none;
   font-size: 22px;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.7);
 
-}
+} */
 
 .money-settings-logo-div a {
   font-size: 22px;
@@ -50,9 +50,27 @@
   margin-left: 16px;
 }
 
+.money-settings-logo-div.msa-logo-center {
+  margin-top: 24px;
+  margin-left: 578px;
+}
+
+.home-icon-div:hover {
+cursor: pointer;
+}
 
 
-#back-button img {
+  .back-button {
+    display: none;
+  }
+
+  .back-button.msa-backbtn-show {
+  display: flex;
+  margin-top: 24px;
+  margin-left: 16px;
+  }
+
+.back-button.msa-backbtn-show img {
   height: 30px;
   width: 30px;
   background-size: 30px;

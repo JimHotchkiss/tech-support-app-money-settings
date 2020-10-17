@@ -4163,12 +4163,20 @@ const FOURKSETTINGS = {
 const showBackButton = () => {
   let moneySettingsToggle = document.getElementById("money-settings");
   let backButtonToggle = document.getElementById("back-button");
+
+  backButtonToggle.classList.add("msa-backbtn-show");
+  centerMsaLogo();
   // "money-settings-toggle has a display: none"
-  if (moneySettingsToggle !== null) {
-    moneySettingsToggle.id = "money-settings-toggle";
-  }
+  // if (moneySettingsToggle !== null) {
+  //   moneySettingsToggle.id = "money-settings-toggle";
+  // }
 
   // backButtonToggle.style.display = "block";
+};
+
+const centerMsaLogo = () => {
+  const msaLogo = document.getElementById("money-settings-logo-div");
+  msaLogo.classList.add("msa-logo-center");
 };
 
 const showHomeIcon = () => {
