@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   printerSelectSdc();
+  printerLogoDivHomeNavigation();
+  homeIconNavigation();
+  printerBackButton();
   // selectSDC();
   // printerBackButton();
   // printerLogoButton();
@@ -67,12 +70,41 @@ const printerSpecialtyEventListener = () => {
   const printerSpecialtyExampleA = document.getElementsByClassName(
     "printer-specialty-example_a"
   );
-
   for (let item of printerSpecialtyExampleA) {
     item.addEventListener("click", () => {
-      alert(item.dataset.specialty);
+      let specialty = item.dataset.specialty;
+      // set state
+      setPrinterSpecialtyState(specialty);
+      // hide specialty title and buttons
+      hidePrinterSpecialtyDiv();
+      hideSelectTitle();
+      showHubPrinterSetting(specialty, item);
     });
   }
+};
+
+const hideSelectTitle = () => {
+  const selectTitleDiv = document.getElementById("select-title-div");
+  selectTitleDiv.classList.add("title-div-hide");
+};
+
+const hidePrinterSpecialtyDiv = () => {
+  const topPrinterSpecialtyDiv = document.getElementById(
+    "top-printer-specialty-div"
+  );
+  topPrinterSpecialtyDiv.classList.remove("top-printer-specialty-div-show");
+};
+
+const showHubPrinterSetting = () => {
+  console.log(printerState.specialty.name);
+  if (printerState.specialty.name === "Laparoscopy") {
+    const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
+    hubLapSettingsDiv.classList.add("hub-lap-settings-div-show");
+  }
+};
+
+const setPrinterSpecialtyState = (specialty) => {
+  printerState.specialty.name = specialty;
 };
 
 const showSpecialtyButton = () => {
@@ -99,6 +131,28 @@ const setPrinterState = (sdc) => {
 const hideSdcs = () => {
   const topSdcDiv = document.getElementById("top-sdc-div");
   topSdcDiv.classList.add("sdcs-div-hide");
+};
+
+const printerLogoDivHomeNavigation = () => {
+  const printerLogoDiv = document.getElementById("printer-logo-div");
+  printerLogoDiv.addEventListener("click", () => {
+    location.replace("./printer.html");
+  });
+};
+
+const homeIconNavigation = () => {
+  const homeIconDiv = document.getElementById("home-icon-printer");
+  homeIconDiv.addEventListener("click", () => {
+    location.replace("./index.html");
+  });
+};
+
+const printerBackButton = () => {
+  const printerBackButton = document.getElementById("printer-back-button");
+  printerBackButton.addEventListener("click", () => {
+    // assess where are we
+    console.log(printerState);
+  });
 };
 
 // const selectSDC = () => {

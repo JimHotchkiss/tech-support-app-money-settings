@@ -195,6 +195,10 @@ body {
   color: #ffb600;
 }
 
+.title-div.title-div-hide {
+  display: none;
+}
+
 .sdc-buttons-div {
   margin: 16px;
 }
@@ -300,11 +304,10 @@ body {
   display: none;
 }
 
-.hub-lap-settings-div-hide {
-  display: none;
-}
+
 
 .hub-lap-settings-div-show {
+  margin-top: 30%;
   display: block;
 }
 
