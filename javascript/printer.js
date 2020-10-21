@@ -52,11 +52,25 @@ const printerSelectSdc = () => {
         centerPrinterLogo();
         // show specialty buttons
         showSpecialtyButton();
+        printerSpecialtyEventListener();
       }
 
       // set state
       // if hub - show specialites
       // if sdc2 or sdc ultra - show printers
+    });
+  }
+};
+
+const printerSpecialtyEventListener = () => {
+  // grab specialty buttons
+  const printerSpecialtyExampleA = document.getElementsByClassName(
+    "printer-specialty-example_a"
+  );
+
+  for (let item of printerSpecialtyExampleA) {
+    item.addEventListener("click", () => {
+      alert(item.dataset.specialty);
     });
   }
 };
