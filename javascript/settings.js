@@ -117,6 +117,7 @@ const SIXTEENSPECIALTIES = [
   "Laser",
   "Hystero",
 ];
+
 const SIXTEENVISIONPROSPECIALTIES = ["Lap 1", "Lap 2", "Lap Storz"];
 TWELVESPECIALTIES = [
   "Arthro 1",
@@ -4572,6 +4573,7 @@ CameraDisplayObject.prototype.displaySpecialties = function () {
     });
   } else {
     SIXTEENSPECIALTIES.forEach(function (specialty) {
+      console.log(specialty);
       specialtyDiv(specialty);
     });
   }
@@ -4587,6 +4589,7 @@ function specialtyDiv(specialty) {
   specialtiesLink.setAttribute("class", "specialty-button button");
   specialtiesLink.setAttribute("data-specialty", specialty);
   specialtiesLink.setAttribute("href", "#");
+
   specialtiesLink.appendChild(document.createTextNode(specialty));
   specialtiesDiv.appendChild(specialtiesLink);
   specialtyTopDiv.appendChild(specialtiesDiv);
