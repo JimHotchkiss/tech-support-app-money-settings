@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   selectSDC();
-  updateNavbar();
+  // updateNavbar();
   printerBackButton();
 });
 // Variables
@@ -84,13 +84,13 @@ const showHubSpecialty = () => {
 
 const hideLogoHtml = () => {
   const printerLogo = document.getElementById("printer-logo");
-  printerLogo.style.display = "none";
+  // printerLogo.style.display = "none";
   changeLogoToBackArrow();
 };
 
 const changeLogoToBackArrow = () => {
   const printerBackArrow = document.getElementById("printer-back-button");
-  printerBackArrow.style.display = "block";
+  printerBackArrow.classList.add("printer-back-button-show");
 };
 
 const sdcPrintersAddListener = () => {
@@ -299,7 +299,7 @@ const showSdcs = () => {
 
 const showLogoHtml = () => {
   const printerLogo = document.getElementById("printer-logo");
-  printerLogo.style.display = "block";
+  // printerLogo.style.display = "block";
   hideBackArrow();
 };
 
@@ -380,11 +380,11 @@ const adjustState = () => {
   }
 };
 
-const updateNavbar = () => {
-  const jsNavbar = document.getElementById("js-navbar-toggle");
-  jsNavbar.id = "js-navbar-toggle-hide";
-  showHomeIconPrinter();
-};
+// const updateNavbar = () => {
+//   const jsNavbar = document.getElementById("js-navbar-toggle");
+//   jsNavbar.id = "js-navbar-toggle-hide";
+//   showHomeIconPrinter();
+// };
 
 const showHomeIconPrinter = () => {
   showHomeIcon = document.getElementById("printer-home-icon-div-hide");
