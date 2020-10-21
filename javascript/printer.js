@@ -47,8 +47,7 @@ const printerSelectSdc = () => {
       // if hub, change select sdc to select specialty
       if (item.dataset.sdc === "hub") {
         // change select sdc to select specialty
-        const titleElement = document.getElementById("title-element");
-        titleElement.innerText = "Select Specialty";
+        setSpecialtyTitleElement();
         // show back arrow
         showPrinterBackButton();
         // center printer logo
@@ -56,13 +55,29 @@ const printerSelectSdc = () => {
         // show specialty buttons
         showSpecialtyButton();
         printerSpecialtyEventListener();
+      } else {
+        setPrinterTitleElement();
+        showPrinterBackButton();
+        centerPrinterLogo();
+        showPrinterButton();
       }
-
-      // set state
-      // if hub - show specialites
-      // if sdc2 or sdc ultra - show printers
     });
   }
+};
+
+const showPrinterButton = () => {
+  const printerPrintersDiv = document.getElementById("printer-printers-div");
+  printerPrintersDiv.classList.add("printer-printers-div-show");
+};
+
+const setPrinterTitleElement = () => {
+  const titleElement = document.getElementById("title-element");
+  titleElement.innerText = "Select Printer";
+};
+
+const setSpecialtyTitleElement = () => {
+  const titleElement = document.getElementById("title-element");
+  titleElement.innerText = "Select Specialty";
 };
 
 const printerSpecialtyEventListener = () => {
@@ -96,10 +111,17 @@ const hidePrinterSpecialtyDiv = () => {
 };
 
 const showHubPrinterSetting = () => {
-  console.log(printerState.specialty.name);
   if (printerState.specialty.name === "Laparoscopy") {
     const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
     hubLapSettingsDiv.classList.add("hub-lap-settings-div-show");
+  } else if (printerState.specialty.name === "Arthroscopy") {
+    const hubLapSettingsDiv = document.getElementById(
+      "hub-arthro-settings-div"
+    );
+    hubLapSettingsDiv.classList.add("hub-arthro-settings-div-show");
+  } else {
+    const hubLapSettingsDiv = document.getElementById("hub-spy-settings-div");
+    hubLapSettingsDiv.classList.add("hub-spy-settings-div-show");
   }
 };
 
@@ -151,8 +173,59 @@ const printerBackButton = () => {
   const printerBackButton = document.getElementById("printer-back-button");
   printerBackButton.addEventListener("click", () => {
     // assess where are we
-    console.log(printerState);
+    if (printerState.specialty.name !== "") {
+      resetPrinterSpecialtyState();
+      hidePrinterSettings();
+      showSelectTitleDiv();
+      showSpecialtyButton();
+    } else if (printerState.sdc.name !== "") {
+      resetPrinterSdcState();
+      hideSpecialtyButton();
+      setSdcTitleElement();
+      showSdcs();
+    }
   });
+};
+
+const showSdcs = () => {
+  const topSdcDiv = document.getElementById("top-sdc-div");
+  topSdcDiv.classList.remove("sdcs-div-hide");
+};
+
+const setSdcTitleElement = () => {
+  const titleElement = document.getElementById("title-element");
+  titleElement.innerText = "Select SDC";
+};
+
+const hideSpecialtyButton = () => {
+  const topPrinterSpecialtyDiv = document.getElementById(
+    "top-printer-specialty-div"
+  );
+  topPrinterSpecialtyDiv.classList.remove("top-printer-specialty-div-show");
+};
+
+const resetPrinterSdcState = () => {
+  printerState.sdc.name = "";
+};
+
+const resetPrinterSpecialtyState = () => {
+  printerState.specialty.name = "";
+};
+
+const hidePrinterSettings = () => {
+  const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
+  const hubArthroSettingsDiv = document.getElementById(
+    "hub-arthro-settings-div"
+  );
+  const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
+  hubLapSettingsDiv.classList.remove("hub-lap-settings-div-show");
+  hubArthroSettingsDiv.classList.remove("hub-arthro-settings-div-show");
+  hubSpySettingsDiv.classList.remove("hub-spy-settings-div-show");
+};
+
+const showSelectTitleDiv = () => {
+  const selectTitleDiv = document.getElementById("select-title-div");
+  selectTitleDiv.classList.remove("title-div-hide");
 };
 
 // const selectSDC = () => {

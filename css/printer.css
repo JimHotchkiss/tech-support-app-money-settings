@@ -11,6 +11,14 @@ body {
   display: flex;
 }
 
+.printer-printers-div {
+  display: none;
+}
+
+.printer-printers-div.printer-printers-div-show {
+  display: block;
+}
+
 .printer-settings-main-div.printer-settings-main-div-show {
   display: block;
 }
@@ -28,10 +36,12 @@ body {
 }
 
 .hub-spy-settings-div.hub-spy-settings-div-show{
+  margin-top: 30%;
   display: block;
 }
 
 .hub-arthro-settings-div.hub-arthro-settings-div-show {
+  margin-top: 30%;
   display: block;
 }
 
