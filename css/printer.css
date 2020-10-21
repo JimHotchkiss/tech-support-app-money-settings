@@ -11,6 +11,14 @@ body {
   display: flex;
 }
 
+.printer-settings-main-div.printer-settings-main-div-show {
+  display: block;
+}
+
+.printer-settings-main-div.printer-settings-main-div-hide {
+  display: none;
+}
+
 .home-icon-printer{
   width: 30px;
   height: 30px;
@@ -47,6 +55,10 @@ body {
   max-width: 500px;
   margin: auto;
 }
+
+.sdcs-div-show{
+  display: block;
+}
 .printer-wrapper {
   background-color: #262626;
   min-height: 100vh;
@@ -63,7 +75,7 @@ body {
   margin: 1em;
 }
 
-.printer-div {
+.printer-div-hide {
   display: none;
 }
 
@@ -81,6 +93,10 @@ body {
 
 #title-element {
   margin-bottom: 1em;
+}
+
+.title-element-show {
+  display: block;
 }
 
 .settings-main-div {
@@ -240,6 +256,18 @@ body {
   border-radius: 5px;
   text-align: center;
   padding: 8px;
+}
+
+.hub-lap-settings-div {
+  display: none;
+}
+
+.hub-lap-settings-div-hide {
+  display: none;
+}
+
+.hub-lap-settings-div-show {
+  display: block;
 }
 
 .title-text-printer-settings {

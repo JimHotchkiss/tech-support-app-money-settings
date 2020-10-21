@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   selectSDC();
-  // updateNavbar();
   printerBackButton();
 });
 // Variables
@@ -32,20 +31,20 @@ const selectSDC = () => {
   // Grab the SDC buttons
   let sdcButtons = document.getElementsByClassName("example_a");
   // loop over buttons and add event listener
-  for (button of sdcButtons) {
+  for (let button of sdcButtons) {
     button.addEventListener("click", function () {
       // Grab top div
       sdcDiv = document.getElementById("top-sdc-div");
       // Reassign the class name
-      sdcDiv.classList.add("printer-div");
-      sdcDiv.style.display = "none";
+      sdcDiv.classList.add("printer-div-hide");
+      // sdcDiv.style.display = "none";
       // Update state
-      console.log(this.dataset.sdc);
       const sdc = this.dataset.sdc;
+      console.log("select");
       // I want to pass this camera to the 'showPrinters'
       upDateSdcState(sdc);
       changeTitleToPrinter();
-      hideLogoHtml();
+      showBackArrow();
     });
   }
 };
@@ -82,13 +81,8 @@ const showHubSpecialty = () => {
   hubSpecialtiesAddListener();
 };
 
-const hideLogoHtml = () => {
-  const printerLogo = document.getElementById("printer-logo");
-  // printerLogo.style.display = "none";
-  changeLogoToBackArrow();
-};
-
-const changeLogoToBackArrow = () => {
+const showBackArrow = () => {
+  console.log("show back arrow");
   const printerBackArrow = document.getElementById("printer-back-button");
   printerBackArrow.classList.add("printer-back-button-show");
 };
@@ -112,7 +106,7 @@ const updatePrinterState = (printer) => {
 const showSdcPrinterSettings = () => {
   resetDisplaySettings();
   const printerSettingsMainDiv = window["printer-settings-main-div"];
-  printerSettingsMainDiv.style.display = "block";
+  printerSettingsMainDiv.classList.add = "display-settings-main-div-show";
   // reset sdc-printer-settings-div
   const sdcPrinterSettingsDiv = window["sdc-printer-settings-div"];
   sdcPrinterSettingsDiv.style.display = "block";
@@ -168,7 +162,7 @@ const resetDisplaySettings = () => {
   );
   hubArthroSettingsDiv.style.display = "none";
   const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
-  hubLapSettingsDiv.style.display = "none";
+  hubLapSettingsDiv.classList.add("hub-lap-settings-div-hide");
   const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
   hubSpySettingsDiv.style.display = "none";
 };
@@ -207,7 +201,7 @@ const showHubPrinterSettings = () => {
 
   if (printerState.specialty.name === "Laparoscopy") {
     const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
-    hubLapSettingsDiv.style.display = "block";
+    hubLapSettingsDiv.classList.add("hub-lap-settings-div-show");
     // reset the others
     const hubArthroSettingsDiv = document.getElementById(
       "hub-arthro-settings-div"
@@ -240,7 +234,6 @@ const showHubPrinterSettings = () => {
 };
 
 const printerBackButton = () => {
-  console.log("here");
   // hide all settings
   const sdcPrinterSettingsDiv = window["sdc-printer-settings-div"];
   sdcPrinterSettingsDiv.style.display = "none";
@@ -249,6 +242,9 @@ const printerBackButton = () => {
   printerBackButton.addEventListener("click", () => {
     // if we have a specialty, check sdc, and show either specialies or printers
     if (printerState.specialty.name !== "") {
+      // adjust state
+      printerState.specialty.name = "";
+      resetHubSpecialties();
       hubSpecialtiesBack();
     } else if (
       printerState.printer.name === "" &&
@@ -262,8 +258,21 @@ const printerBackButton = () => {
       sdc3PrintersBack();
     } else {
       sdcUltraPrintersBack();
+      hidePrinterBackButton();
     }
   });
+};
+
+const resetHubSpecialties = () => {
+  let hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
+  hubLapSettingsDiv.classList.remove("hub-lap-settings-div-show");
+
+  hubLapSettingsDiv.classList.add("hub-lap-settings-div-hide");
+};
+
+const hidePrinterBackButton = () => {
+  const printerBackArrow = document.getElementById("printer-back-button");
+  printerBackArrow.classList.remove("printer-back-button-show");
 };
 
 const resetSdcSelection = () => {
@@ -284,28 +293,16 @@ const resetHub = () => {
   const specialtyButtons = document.getElementById("top-printer-specialty-div");
   specialtyButtons.style.display = "none";
   // reset back button to 'Printer Settings'
-  showLogoHtml();
 };
 
 const showSdcs = () => {
   // show sdc title
   let titleElement = document.getElementById("title-element");
-  titleElement.style.display = "block";
+  titleElement.classList.add = "title-element-show";
   titleElement.innerHTML = "Select SDC";
   // show sdc buttons
-  let sdcButtonsDiv = document.getElementsByClassName("printer-div")[0];
-  sdcButtonsDiv.style.display = "block";
-};
-
-const showLogoHtml = () => {
-  const printerLogo = document.getElementById("printer-logo");
-  // printerLogo.style.display = "block";
-  hideBackArrow();
-};
-
-const hideBackArrow = () => {
-  const printerBackArrow = document.getElementById("printer-back-button");
-  printerBackArrow.style.display = "none";
+  // let sdcButtonsDiv = document.getElementsByClassName("printer-div")[0];
+  // sdcButtonsDiv.style.display = "block";
 };
 
 const resetSdc = () => {
@@ -320,15 +317,15 @@ const resetSdc = () => {
   // show sdc's buttons
   showSdcs();
   // hide back arrow and show Printer Settings logo
-  showLogoHtml();
+  hideBackArrow();
 };
 
 const hubSpecialtiesBack = () => {
-  // Reset specialty
-  printerState.specialty.name = "";
+  console.log("hub specialties back");
+
   // Hide settings div
   const printerSettingsMainDiv = window["printer-settings-main-div"];
-  printerSettingsMainDiv.style.display = "none";
+  printerSettingsMainDiv.classList.add("printer-settings-main-div-hide");
   // Show specialty title
   const titleElement = document.getElementById("title-element");
   titleElement.style.display = "block";
@@ -378,15 +375,4 @@ const adjustState = () => {
   } else {
     printerState.sdc.name = "";
   }
-};
-
-// const updateNavbar = () => {
-//   const jsNavbar = document.getElementById("js-navbar-toggle");
-//   jsNavbar.id = "js-navbar-toggle-hide";
-//   showHomeIconPrinter();
-// };
-
-const showHomeIconPrinter = () => {
-  showHomeIcon = document.getElementById("printer-home-icon-div-hide");
-  showHomeIcon.id = "printer-home-icon-div-show";
 };
