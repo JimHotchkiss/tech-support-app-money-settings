@@ -4573,7 +4573,6 @@ CameraDisplayObject.prototype.displaySpecialties = function () {
     });
   } else {
     SIXTEENSPECIALTIES.forEach(function (specialty) {
-      console.log(specialty);
       specialtyDiv(specialty);
     });
   }
