@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   printerLogoDivHomeNavigation();
   homeIconNavigation();
   printerBackButton();
+  selectPrinter();
   // selectSDC();
   // printerBackButton();
   // printerLogoButton();
@@ -65,9 +66,41 @@ const printerSelectSdc = () => {
   }
 };
 
+const selectPrinter = () => {
+  const printerExample = document.getElementsByClassName("printer-example_a");
+  for (let item of printerExample) {
+    item.addEventListener("click", () => {
+      let printerSelected = item.dataset.printer;
+      setPrinterStatePrinter(printerSelected);
+      if (printerSelected === "SDP1000") {
+        showSdp1000Settings();
+      }
+    });
+  }
+};
+
+const showSdp1000Settings = () => {
+  const sdp1000Settings = document.getElementById("sdc-sdp1000-settings-div");
+  sdp1000Settings.classList.add("sdc-sdp1000-settings-div-show");
+};
+
+const setPrinterStatePrinter = (printerSelected) => {
+  printerState.printer.name = printerSelected;
+};
+
 const showPrinterButton = () => {
   const printerPrintersDiv = document.getElementById("printer-printers-div");
   printerPrintersDiv.classList.add("printer-printers-div-show");
+};
+
+const hidePrinterButton = () => {
+  const printerPrintersDiv = document.getElementById("printer-printers-div");
+  printerPrintersDiv.classList.remove("printer-printers-div-show");
+};
+
+const hidePrinterBackButton = () => {
+  const printerBackButton = document.getElementById("printer-back-button");
+  printerBackButton.classList.remove("printer-back-button-show");
 };
 
 const setPrinterTitleElement = () => {
@@ -141,6 +174,11 @@ const centerPrinterLogo = () => {
   printerLogodiv.classList.add("printer-logo-div-center");
 };
 
+const removeCenterPrinterLogo = () => {
+  const printerLogodiv = document.getElementById("printer-logo-div");
+  printerLogodiv.classList.remove("printer-logo-div-center");
+};
+
 const showPrinterBackButton = () => {
   const printerBackButton = document.getElementById("printer-back-button");
   printerBackButton.classList.add("printer-back-button-show");
@@ -178,11 +216,17 @@ const printerBackButton = () => {
       hidePrinterSettings();
       showSelectTitleDiv();
       showSpecialtyButton();
-    } else if (printerState.sdc.name !== "") {
+    } else if (
+      printerState.sdc.name !== "" &&
+      printerState.printer.name === ""
+    ) {
       resetPrinterSdcState();
       hideSpecialtyButton();
+      hidePrinterBackButton();
+      removeCenterPrinterLogo();
       setSdcTitleElement();
       showSdcs();
+      hidePrinterButton();
     }
   });
 };

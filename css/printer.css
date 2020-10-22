@@ -19,6 +19,14 @@ body {
   display: block;
 }
 
+.sdc-sdp1000-settings-div {
+  display: none;
+}
+
+.sdc-sdp1000--settings-div.sdc-sdp1000-settings-div-show {
+  display: block;
+}
+
 .printer-settings-main-div.printer-settings-main-div-show {
   display: block;
 }
