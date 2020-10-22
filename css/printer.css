@@ -23,9 +23,38 @@ body {
   display: none;
 }
 
-.sdc-sdp1000--settings-div.sdc-sdp1000-settings-div-show {
+.sdc-sdp1000-alt-settings-div {
+  display: none;
+}
+
+.sdc-ultra-sdp1000-settings-div {
+  display: none;
+}
+
+.sdc-ultra-sdp1000-settings-div.sdc-ultra-sdp1000-settings-div-show {
+  margin-top: 30%;
   display: block;
 }
+
+.sdc-ultra-sdp1000-alt-settings-div {
+  display: none;
+}
+
+.sdc-ultra-sdp1000-alt-settings-div.sdc-ultra-sdp1000-alt-settings-div-show {
+  margin-top: 30%;
+  display: block;
+}
+
+.sdc-sdp1000-alt-settings-div.sdc-sdp1000-alt-settings-div-show {
+  margin-top: 30%;
+  display: block;
+}
+
+.sdc-sdp1000-settings-div.sdc-sdp1000-settings-div-show {
+  display: block;
+}
+
+
 
 .printer-settings-main-div.printer-settings-main-div-show {
   display: block;
@@ -97,6 +126,10 @@ body {
     padding-box;
   opacity: 1;
   background-size: 30px;
+}
+
+.first-bottom-div{
+  margin-top: 30%;
 }
 
 #sdc-div {
@@ -357,8 +390,13 @@ body {
   width: 45%;
 }
 
-.sdc-sdp1000--settings-div {
-  width: 53%;
+.sdc-sdp1000-settings-div {
+  margin-top: 30%;
+  width: 100%;
+}
+
+.sdc-sdp1000-setting-div {
+  width: 52%;
 }
 
 .printer-settings-div {
@@ -366,6 +404,7 @@ body {
 }
 
 .printer-parameters {
+  width: 100%;
   margin-left: 8px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -377,6 +416,7 @@ body {
 }
 
 .printer-settings {
+  /* width: 100%; */
   margin-left: 24px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -404,7 +444,7 @@ body {
     width: 48%;
   }
 
-  .sdc-sdp1000--settings-div {
+  .sdc-sdp1000-settings-div {
     width: 50%;
   }
 }
