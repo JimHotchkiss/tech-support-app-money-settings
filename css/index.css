@@ -225,3 +225,9 @@ body {
     margin: 16px auto;
   }
 }
+
+@media (min-width: 768px) {
+ .cards-container {
+  padding-left: 120px;
+ }
+}

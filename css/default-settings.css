@@ -46,7 +46,7 @@
 }
 
 .default-logo-div.default-logo-center {
-   margin-left: 40%;
+   margin-left: 70%;
   
 }
 
@@ -236,3 +236,24 @@
         font-size: 14px;
     }
   }
+
+  @media (max-width: 320px) {
+    .default-logo-div.default-logo-center {
+        margin-left: 15%;
+      }
+  .default-logo-div.default-logo-center a{
+        font-size: 18px;
+      }
+   }
+
+  @media (min-width: 768px) {
+    .default-logo-div.default-logo-center {
+      margin-left: 32%;
+    }
+   }
+
+   @media (min-width: 1024px) {
+    .default-logo-div.default-logo-center {
+        margin-left: 41%;
+      }
+   }

@@ -104,7 +104,7 @@ body {
 }
 
 .printer-logo-div.printer-logo-div-center {
-  margin-left: 20%;
+  margin-left: 42%;
 }
 
 .printer-logo-div:hover{
@@ -437,6 +437,10 @@ body {
 }
 
 @media (max-width: 320px) {
+ .printer-logo-div.printer-logo-div-center p{
+   font-size: 18px;
+  }
+   
   #settings-div {
     font-size: 0.85em;
   }
@@ -462,14 +466,44 @@ body {
   .hub-printer-parameter-div {
     width: 48%;
   }
+  .printer-logo-div.printer-logo-div-center {
+   margin-left: 22%;
+  }
+ 
+
+  .printer-logo-div.printer-logo-div-center p{
+    font-size: 18px;
+  }
 }
 
-/* @media (min-width: 721px) {
-  #settings-div {
-    margin-left: 15%;
-    align-items: center;
-    justify-content: center;
-    color: #262626;
-    width: 70%;
+@media (max-width: 414px) {
+  .hub-printer-settings-div {
+    width: 50%;
   }
-} */
+
+  .hub-printer-parameter-div {
+    width: 48%;
+  }
+  .printer-logo-div.printer-logo-div-center {
+   margin-left: 22%;
+  }
+ 
+
+  .printer-logo-div.printer-logo-div-center p{
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .printer-logo-div.printer-logo-div-center{
+    margin-left: 33%;
+  }
+ }
+
+ @media (min-width: 1024px) {
+  .printer-logo-div.printer-logo-div-center{
+    margin-left: 41%;
+  }
+ }
+
+

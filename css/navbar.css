@@ -170,3 +170,15 @@ cursor: pointer;
     margin-left: 20%;
   }
 }
+
+@media (min-width: 768px) {
+  .money-settings-logo-div.msa-logo-center {
+    margin-left: 33%;
+  }
+ }
+
+ @media (min-width: 1024px) {
+  .money-settings-logo-div.msa-logo-center {
+    margin-left: 42%;
+  }
+ }
