@@ -4,7 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
   printerEventListener();
   defaultEventListener();
   shareSettingsEventListener();
+  olympusEventListener();
 });
+
+const olympusEventListener = () => {
+  const olympusDiv = document.getElementById("olympus-card");
+  olympusDiv.addEventListener("click", () => {
+    location.replace("./olympus.html");
+  });
+};
 
 const landingPageEventListener = () => {
   const msaButton = document.getElementById("msa-button");
