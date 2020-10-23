@@ -46,7 +46,7 @@
 }
 
 .default-logo-div.default-logo-center {
-   margin-left: 70%;
+   margin-left: 41%;
   
 }
 
@@ -116,6 +116,8 @@
 
 .default-settings-div.default-settings-show{
     display: block;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 
@@ -200,60 +202,18 @@
 
 /* Media Queries*/
 @media (max-width: 414px) {
-    .default-settings-container {
-        max-width: 380px;
-    }
-    .default-logo-div.default-logo-center {
-        margin-left: 20%;
-       
-     }
-  }
-
-  @media (max-width: 375px) {
-    .default-settings-container {
-        max-width: 350px;
-    }
-    .default-logo-div.default-logo-center {
-       
-        margin-left: 20%;
-       
-     }
-     .back-btn-div.back-btn-show {
-       
-        margin-left: 20px;
-      
-    }
-    .default-home-icon {
-        margin-right: 15px;
-      
-    }
-
-    .default-param-div {
-        font-size: 14px;
-    }
-
-    .default-setting-div {
-        font-size: 14px;
-    }
-  }
-
-  @media (max-width: 320px) {
+   
     .default-logo-div.default-logo-center {
         margin-left: 15%;
-      }
-  .default-logo-div.default-logo-center a{
-        font-size: 18px;
-      }
-   }
+       
+     }
+     .default-param-div {
+         font-size: 14px;
+     }
+     .default-setting-div {
+         font-size: 14px;
+     }
+    
+  }
 
-  @media (min-width: 768px) {
-    .default-logo-div.default-logo-center {
-      margin-left: 32%;
-    }
-   }
 
-   @media (min-width: 1024px) {
-    .default-logo-div.default-logo-center {
-        margin-left: 41%;
-      }
-   }

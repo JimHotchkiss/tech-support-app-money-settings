@@ -140,7 +140,7 @@ const DEFAULTFIFTEEN = {
     "0",
     "19",
   ],
-  Hystero: [
+  Hysteroscopy: [
     "27",
     "Normal",
     "7",
@@ -269,7 +269,7 @@ const DEFAULTFOURTEEN = {
     "0",
     "19",
   ],
-  Hystero: [
+  Hysteroscopy: [
     "36",
     "Normal",
     "-5",
@@ -398,7 +398,7 @@ const DEFAULTPRECISION = {
     "0",
     "19",
   ],
-  Hystero: [
+  Hysteroscopy: [
     "26",
     "Normal",
     "-12",
@@ -948,7 +948,6 @@ function addBackBtn() {
 }
 
 function backBtnEventListener() {
-  console.log(defaultSetttingsState);
   const backBtnDiv = document.getElementById("back-btn-div");
   backBtnDiv.addEventListener("click", () => {
     if (defaultSetttingsState.specialty.name !== "") {
@@ -1102,6 +1101,7 @@ function showDefaultSettings() {
     settings = DEFAULTPRECISION;
   }
   for (const item in settings) {
+    console.log(settings, defaultSetttingsState.specialty.name);
     if (item === defaultSetttingsState.specialty.name) {
       settings[item].map((setting) => {
         const settingDiv = document.createElement("div");
