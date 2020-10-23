@@ -17,7 +17,7 @@
 .olympus-navbar{
     display: flex;
     position: fixed;
-   height: 78px;
+    height: 78px;
     width: 100%;
     font-size: 18px;
     background-color: #262626;
@@ -53,6 +53,27 @@
     background-size: 30px;
 }
 
+.olympus-back-btn-div-show {
+    width: 30px;
+    height: 30px;
+    margin-top: 24px;
+    margin-left: 24px;
+    background: transparent url("../images/arrow.jpg") 0% 0% no-repeat
+      padding-box;
+    opacity: 1;
+    background-size: 30px;
+}
+
+.olympus-back-btn-div-show:hover {
+    cursor: pointer;
+    
+
+}
+
+.olympus-logo-div-center{
+    margin-left: 39%;
+}
+
 .olympus-home-icon:hover {
     cursor: pointer;
     width: 35px;
@@ -63,10 +84,90 @@
 
 .olympus-body-container{
     display: flex;
+    flex-direction: column;
     margin:  auto;
     margin-top: 20px;
-   
-    height: 1200px;
-    width: 300px;
-    background:lightpink;
+    width: 50%;
 }
+
+
+.olympus-title-div {
+    width: 90%;
+    height: height;
+    margin:  0 auto;
+    padding: 16px;
+    /* background: #ffb600; */
+    border-radius: 10px;
+
+}
+
+
+.olympus-title-text {
+    /* color: #262626; */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    font-weight: 900;
+}
+.olympus-ccu-monitor-title-div {
+    display: flex;
+    padding-bottom: 8px;
+}
+
+.olympus-specialty-title-span {
+    margin-left: 8px;
+    /* color: #262626; */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.olympus-title-text-span-div {
+    display: flex;
+    margin: auto;
+    
+}
+
+.olympus-text-div {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.olympus-select-specialty-div {
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffb600;
+    margin-top: 32px;
+    text-align: center;
+}
+
+.olympus-specialty-button {
+    width: 40%;
+    margin:  0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background: #ffb600;
+    border-radius: 10px;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.olympus-specialty-button:hover {
+    cursor: pointer;
+    width: 41%;
+    background: #111111;
+    color: #fff;
+    padding: 16px;
+    transition: all ease-in-out 0.4s;
+}
+
+.olympus-btn-div-hide {
+    display: none;
+}
+
+
+@media (max-width: 414px) {
+   .olympus-body-container {
+       width: 100%;
+   }
+  }
+
