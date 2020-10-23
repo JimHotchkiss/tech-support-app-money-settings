@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   defaultSettingsNavHome();
   defaultSelectCcu();
   defaultSpecialtyEventListener();
+  backBtnEventListener();
 });
 
 // Constants
@@ -918,6 +919,7 @@ function defaultSelectCcu() {
 
   for (let item of defaultCameraBtnsDiv) {
     item.addEventListener("click", () => {
+      console.log(defaultSetttingsState);
       const cameraId = item.id;
       setCcuState(cameraId);
       hideDefaultCamerasContainer();
@@ -943,10 +945,10 @@ function addBackBtn() {
   const backBtnDiv = document.getElementById("back-btn-div");
   backBtnDiv.classList.add("back-btn-show");
   centerDefaultLogo();
-  backBtnEventListener();
 }
 
 function backBtnEventListener() {
+  console.log(defaultSetttingsState);
   const backBtnDiv = document.getElementById("back-btn-div");
   backBtnDiv.addEventListener("click", () => {
     if (defaultSetttingsState.specialty.name !== "") {
@@ -988,6 +990,7 @@ function resetSpecialtyDefaultState() {
 }
 
 function resetCcuDefaultState() {
+  console.log(defaultSetttingsState.camera);
   defaultSetttingsState.camera.name = "";
 }
 
@@ -1042,10 +1045,11 @@ function defaultSpecialtyEventListener() {
   const defaultSpecialtyBtnsDiv = document.getElementsByClassName(
     "default-specialty-buttons-div"
   );
-  let selectedSpecialty = "";
+  // let selectedSpecialty = "";
   for (let item of defaultSpecialtyBtnsDiv) {
     item.addEventListener("click", () => {
-      selectedSpecialty = item.id;
+      console.log(defaultSetttingsState);
+      let selectedSpecialty = item.id;
       setSpecialtyState(selectedSpecialty);
       showDefaultSettingsTitle();
       showDefaultParams();
@@ -1098,7 +1102,6 @@ function showDefaultSettings() {
     settings = DEFAULTPRECISION;
   }
   for (const item in settings) {
-    console.log(settings);
     if (item === defaultSetttingsState.specialty.name) {
       settings[item].map((setting) => {
         const settingDiv = document.createElement("div");
