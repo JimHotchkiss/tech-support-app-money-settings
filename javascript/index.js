@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   printerEventListener();
   defaultEventListener();
   shareSettingsEventListener();
-  olympusEventListener();
+  // olympusEventListener();
   ideaTileListener();
-  contactTileListener();
+  // contactTileListener();
 });
 
 const contactTileListener = () => {
