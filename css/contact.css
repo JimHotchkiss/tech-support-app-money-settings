@@ -56,3 +56,9 @@
 .contact-home-icon {
    cursor: pointer;
 }
+
+.contact-container {
+    width: 50%;
+    height: 100vh;
+    color: red;
+}

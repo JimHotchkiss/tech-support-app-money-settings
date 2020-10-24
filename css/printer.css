@@ -98,6 +98,10 @@ body {
   background-size: 30px;
 }
 
+.home-icon-printer:hover{
+  cursor: pointer;
+}
+
 .printer-logo-div {
   margin-top: 28px;
   margin-left: 16px;
