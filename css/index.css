@@ -79,6 +79,17 @@ body {
   background-size: 60px;
 }
 
+#idea-card-img-div{
+  width: 70px;
+  min-height: 70px;
+  background: transparent url("../images/idea-img.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 10px;
+  margin-left: 12px;
+  background-size: 70px;
+}
+
 .card-container:hover #olympus-card-img-div {
   width: 65px;
   min-height: 63px;

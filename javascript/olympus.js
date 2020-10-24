@@ -20,8 +20,16 @@ const olympusBtnListener = () => {
       hideTitleBtn();
       showBackArrow();
       centerLogoDiv();
+      showSettings();
     });
   }
+};
+
+const showSettings = () => {
+  const olympusSettingsContainer = document.getElementById(
+    "olympus-settings-container"
+  );
+  olympusSettingsContainer.classList.add("olympus-settings-container-show");
 };
 
 const centerLogoDiv = () => {

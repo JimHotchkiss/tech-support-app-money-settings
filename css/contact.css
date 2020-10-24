@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Josefin Sans", sans-serif;
+    /* background-color: #262626; */
+  }
+  
+  body {
+    background: #262626;
+  }
+
+  .olympus-nav-wrapper{
+    height: 78px; 
+}
+
+.contact-navbar{
+    display: flex;
+    position: fixed;
+    height: 78px;
+    width: 100%;
+    font-size: 18px;
+    background-color: #262626;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    border-bottom: 5px solid #ffb600;
+    z-index: 9999;
+}
+
+ a {
+    text-decoration: none;
+}
+
+.contact-logo{
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 16px;
+    margin-left: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-home-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: 24px;
+    margin-top: 24px;
+    background: transparent url("../images/home.jpg") 0% 0% no-repeat
+      padding-box;
+    opacity: 1;
+    background-size: 30px;
+}
+
+.contact-home-icon {
+   cursor: pointer;
+}

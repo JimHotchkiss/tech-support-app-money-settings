@@ -5,7 +5,25 @@ document.addEventListener("DOMContentLoaded", () => {
   defaultEventListener();
   shareSettingsEventListener();
   olympusEventListener();
+  ideaTileListener();
+  contactTileListener();
 });
+
+const contactTileListener = () => {
+  const contactCard = document.getElementById("contact-card");
+  contactCard.addEventListener("click", () => {
+    location.replace("./contact.html");
+  });
+};
+
+const ideaTileListener = () => {
+  const ideaCard = document.getElementById("idea-card");
+  ideaCard.addEventListener("click", () => {
+    window.open(
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=-7udTko5g0WIEFP4H4GeOyvF9t6kmYZAnEVeps1nibRUOERFMFdLWFgyWFZNVE9WUjRSWkFaTzc1VS4u"
+    );
+  });
+};
 
 const olympusEventListener = () => {
   const olympusDiv = document.getElementById("olympus-card");
