@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  /* background-color: #262626; */
+}
+
+body {
+  background: #262626;
+}
+
+.index-nav {
+  /* position: fixed; */
+  min-height: 78px;
+  width: 100%;
+  font-size: 18px;
+  background-color: #262626;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+  border-bottom: 5px solid #ffb600;
+  z-index: 9999;
+}
+
+.index-nav-text {
+  display: inline-block;
+  font-size: 22px;
+  margin-top: 16px;
+  margin-left: 20px;
+  font-weight: 500;
+  padding-top: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  height: auto;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 270px;
+  background: #ffb600;
+  border-radius: 10px;
+  margin: 0 16px 16px 0;
+}
+
+.card-container:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.4s ease 0s;
+}
+
+.card-img-div {
+  width: 60px;
+  height: 70px;
+  background: transparent url("../images/msa-log.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+#olympus-card-img-div {
+  width: 60px;
+  min-height: 60px;
+  background: transparent url("../images/olympus.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+#idea-card-img-div{
+  width: 70px;
+  min-height: 70px;
+  background: transparent url("../images/idea-img.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 10px;
+  margin-left: 12px;
+  background-size: 70px;
+}
+
+.card-container:hover #olympus-card-img-div {
+  width: 65px;
+  min-height: 63px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
+#printer-card-img-div {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/printer-settings.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+.card-container:hover #printer-card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
+#default-card-img-div {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/default-settings.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+.card-container:hover #default-card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
+#contribute-settings-card-img-div {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/share-settings.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+#contact-card-img-div {
+  width: 130px;
+  height: 130px;
+  background: transparent url("../images/contact-image.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 15px;
+  margin-left: -15px;
+  background-size: 130px;
+}
+
+.card-container:hover #contact-card-img-div {
+  width: 135px;
+  height: 135px;
+  background-size: 135px;
+  transition: all 0.4s ease 0s;
+}
+
+#contact-card-title {
+  margin-top: -30px;
+}
+
+.card-container:hover #contribute-settings-card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
+.card-container:hover .card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
+.card-title-div {
+  margin-top: 34px;
+  margin-left: 12px;
+}
+
+.card-title-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #232323;
+}
+
+.card-container:hover .card-title-text {
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease 0s;
+}
+
+.card-text-div {
+  margin-top: 14px;
+  margin-left: 12px;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 16px;
+}
+
+.card-container:hover .card-text-text {
+  letter-spacing: 0.4px;
+  transition: all 0.4s ease 0s;
+}
+
+.card-text-text {
+  font-size: 18px;
+  font-weight: 200;
+  opacity: 0.7;
+}
+.msa-button {
+  padding: 12px 8px;
+  background: lightskyblue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.msa-button:hover {
+  background: lightpink;
+  color: #262626;
+  transition: ease-in-out 0.3s;
+}
+
+@media (max-width: 451px) {
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .card-container {
+    margin: 16px auto;
+  }
+}
+
+@media (min-width: 768px) {
+ .cards-container {
+  padding-left: 120px;
+ }
+}

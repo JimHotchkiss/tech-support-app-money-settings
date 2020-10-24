@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   selectCamera();
   backButton();
+  showHomeIcon();
 });
 
 const state = {
@@ -4161,37 +4162,28 @@ const FOURKSETTINGS = {
 };
 
 const showBackButton = () => {
-  let moneySettingsToggle = document.getElementById("money-settings");
+  console.log(state.camera);
   let backButtonToggle = document.getElementById("back-button");
-  // "money-settings-toggle has a display: none"
-  if (moneySettingsToggle !== null) {
-    moneySettingsToggle.id = "money-settings-toggle";
-  }
 
-  backButtonToggle.style.display = "block";
-  showHomeIcon();
+  backButtonToggle.classList.add("msa-backbtn-show");
+  centerMsaLogo();
+};
+
+const centerMsaLogo = () => {
+  const msaLogo = document.getElementById("money-settings-logo-div");
+  msaLogo.classList.add("msa-logo-center");
 };
 
 const showHomeIcon = () => {
   // need to grab the js-navbar-toggle div, and insert the home icon
-  let jsNavBarToggle = document.getElementById("js-navbar-toggle");
-  let homeIconDiv = document.getElementById("home-icon-div-hide");
-  // "js-navbar-toggle-hide" display: none
-  if (jsNavBarToggle !== null) {
-    jsNavBarToggle.id = "js-navbar-toggle-hide";
-  }
-  if (homeIconDiv !== null) {
-    homeIconDiv.id = "home-icon-div-show";
-  }
-  homeIconEventListener();
+  let homeIconDiv = document.getElementById("home-icon-div");
+  homeIconDiv.addEventListener("click", () => {
+    navigateBackHome();
+  });
 };
 
-const homeIconEventListener = () => {
-  let homeIcon = document.getElementById("home-icon-div-show");
-  homeIcon.addEventListener("click", () => {
-    resetState(homeIcon);
-    resetDOM();
-  });
+const navigateBackHome = () => {
+  location.replace("./index.html");
 };
 
 const resetDOM = () => {
@@ -4271,8 +4263,10 @@ const hideHomeIcon = () => {
 };
 
 function backButton() {
+  console.log("just inside back-button");
   let backButtonToggle = document.getElementById("back-button");
   backButtonToggle.addEventListener("click", () => {
+    console.log("back-button");
     if (
       state.specialty.name !== "" &&
       state.display.name !== "" &&
@@ -4294,7 +4288,6 @@ function backButton() {
       const swVersionTextBoxDiv = document.getElementById(
         "software-version-text-box-div"
       );
-      console.log(swVersionTextBoxDiv);
       if (swVersionTextBoxDiv !== null) {
         swVersionTextBoxDiv.innerHTML = "";
       }
@@ -4317,12 +4310,24 @@ function backButton() {
       state.display.name = "";
       showDisplays(state.camera.name, state.display.name);
     } else if (state.display.name === "" && state.camera.name !== "") {
-      hideHomeIcon();
+      hideBackButton();
+      // hideHomeIcon();
       resetDOM();
       resetState();
       selectCamera();
     }
   });
+}
+
+function hideBackButton() {
+  let backButtonToggle = document.getElementById("back-button");
+  backButtonToggle.classList.remove("msa-backbtn-show");
+  moveLogoToLeft();
+}
+
+function moveLogoToLeft() {
+  const msaLogo = document.getElementById("money-settings-logo-div");
+  msaLogo.classList.remove("msa-logo-center");
 }
 
 function selectCamera(camera, display) {

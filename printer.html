@@ -14,36 +14,15 @@
   <body>
     <nav class="navbar">
       <!-- Nav-menu Div-->
-      <div id="home-icon-printer"></div>
-      <div class="container" id="js-navbar-toggle">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
-      <div id="printer-home-icon-div-hide">
-        <a href="./index.html" class="money-settings-home-anchor"
-          ><img src="./images/home.jpg" alt="home"
-        /></a>
-      </div>
-      <p>
-        <a
-          href="./printer.html"
-          id="printer-logo"
-          class="logo"
-          class="nav-links"
-          >Printer Settings</a
-        >
-      </p>
-      <div id="printer-back-button" class="default-logo">
-        <img src="./images/arrow.jpg" alt="back-arrow" />
-      </div>
-      <ul class="main-nav" id="js-menu">
-        <li>
-          <a href="./index.html" class="nav-links"
-            >Back To CCU Money Settings</a
-          >
-        </li>
-      </ul>
+
+      <div class="navbar-backbtn-logo-home-div">
+        <div id="printer-back-button" class="printer-back-button"></div>
+        <!-- <div id="printer-back-button" class="default-logo"> -->
+          <div id="printer-logo-div" class="printer-logo-div">
+            <p class="printer-logo-text">Printer Settings </p>
+          </div>
+          <div class="home-icon-printer" id="home-icon-printer"></div>
+        </div> 
     </nav>
     <!-- Added Note to commit-->
     <!-- printer-wrapper-->
@@ -51,13 +30,17 @@
       <!-- <div class="title-div">
         <h1 class="">Printer Settings Coming Soon!</h1>
       </div> -->
-      <div class="title-div">
-        <h1 id="title-element" class="">Select SDC</h1>
+      <div id="sdcs-printers-specialty-buttons-div">
+
+
+      </div>
+      <div id="select-title-div" class="title-div">
+        <h1 id="title-element" class="title-element">Select SDC</h1>
       </div>
       <div id="sdc-div">
         <div class="printer-title">
           <!-- Capture Device Buttons -->
-          <div id="top-sdc-div" class="sdc-div">
+          <div id="top-sdc-div" class="sdcs-div" >
             <div class="first-botton-div">
               <div id="hub" class="sdc-buttons-div" align="center">
                 <a
@@ -90,7 +73,6 @@
           </div>
           <div
             id="top-printer-specialty-div"
-            style="display: none;"
             class="printer-specialty-div"
           >
             <div class="first-botton-div">
@@ -133,8 +115,7 @@
             </div>
           </div>
           <div
-            id="top-printer-printers-div"
-            style="display: none;"
+            id="printer-printers-div"
             class="printer-printers-div"
           >
             <div class="first-botton-div">
@@ -160,9 +141,9 @@
           </div>
         </div>
         <!-- Printer settings divs -->
-        <div id="printer-settings-main-div">
+        <div id="printer-settings-main-div" class="printer-settings-main-div">
           <!-- Arthroscopy Printer Settings -->
-          <div id="hub-arthro-settings-div" style="display: none;">
+          <div id="hub-arthro-settings-div" class="hub-arthro-settings-div">
             <div class="hub-printer-settings-title-div">
               <h3 class="settings-title-h3">1688 Arthroscopy</h3>
               <p class="title-text-printer-settings">Printer Settings</p>
@@ -232,7 +213,7 @@
           </div>
           <!-- Laparscopy Printer Settings -->
 
-          <div id="hub-lap-settings-div" style="display: none;">
+          <div id="hub-lap-settings-div" class="hub-lap-settings-div">
             <div class="hub-printer-settings-title-div">
               <h3 class="settings-title-h3">1688 Laparoscopy</h3>
               <p class="title-text-printer-settings">Printer Settings</p>
@@ -301,7 +282,7 @@
             </div>
           </div>
           <!-- SpyPhi Printer Settings -->
-          <div id="hub-spy-settings-div" style="display: none;">
+          <div id="hub-spy-settings-div" class="hub-spy-settings-div">
             <div class="hub-printer-settings-title-div">
               <h3 class="settings-title-h3">1688 Spi-Phi</h3>
               <p class="title-text-printer-settings">Printer Settings</p>
@@ -370,8 +351,8 @@
             </div>
           </div>
           <!-- SDC Printer Settings-->
-          <div id="sdc-printer-settings-div" style="display: block;">
-            <div id="sdc-sdp1000-settings-div" style="display: none;">
+          <div id="sdc-printer-settings-div" >
+            <div id="sdc-sdp1000-settings-div" class="sdc-sdp1000-settings-div">
               <div class="sdc-printer-settings-title-div">
                 <h3 class="settings-title-h3">SDC3 SDP1000</h3>
                 <p class="title-text-printer-settings">Printer Settings</p>
@@ -383,7 +364,7 @@
                       <p class="printer-parameter">Brightness</p>
                     </div>
                   </div>
-                  <div class="sdc-sdp1000--settings-div">
+                  <div class="sdc-sdp1000-setting-div">
                     <div class="printer-settings">
                       <p class="printer-setting">130</p>
                     </div>
@@ -396,7 +377,7 @@
                       <p class="printer-parameter">Contrast</p>
                     </div>
                   </div>
-                  <div class="sdc-sdp1000--settings-div">
+                  <div class="sdc-sdp1000-setting-div">
                     <div class="printer-settings">
                       <p class="printer-setting">78</p>
                     </div>
@@ -409,7 +390,7 @@
                       <p class="printer-parameter">Phase</p>
                     </div>
                   </div>
-                  <div class="sdc-sdp1000--settings-div">
+                  <div class="sdc-sdp1000-setting-div">
                     <div class="printer-settings">
                       <p class="printer-setting">0</p>
                     </div>
@@ -422,7 +403,7 @@
                       <p class="printer-parameter">Chroma</p>
                     </div>
                   </div>
-                  <div class="sdc-sdp1000--settings-div">
+                  <div class="sdc-sdp1000-setting-div">
                     <div class="printer-settings">
                       <p class="printer-setting">-180</p>
                     </div>
@@ -435,7 +416,7 @@
                       <p class="printer-parameter">Sharpness</p>
                     </div>
                   </div>
-                  <div class="sdc-sdp1000--settings-div">
+                  <div class="sdc-sdp1000-setting-div">
                     <div class="printer-settings">
                       <p class="printer-setting">650</p>
                     </div>
@@ -445,7 +426,7 @@
             </div>
           </div>
           <!-- Printer SDC1000 Alt settings -->
-          <div id="sdc-sdp1000-alt-settings-div" style="display: none;">
+          <div id="sdc-sdp1000-alt-settings-div" class="sdc-sdp1000-alt-settings-div" >
             <div class="sdc-printer-settings-title-div">
               <h3 class="settings-title-h3">SDC3 SDP1000 (Alternative)</h3>
               <p class="title-text-printer-settings">Printer Settings</p>
@@ -457,7 +438,7 @@
                     <p class="printer-parameter">Brightness</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">52</p>
                   </div>
@@ -470,7 +451,7 @@
                     <p class="printer-parameter">Contrast</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">104</p>
                   </div>
@@ -483,7 +464,7 @@
                     <p class="printer-parameter">Phase</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">5</p>
                   </div>
@@ -496,7 +477,7 @@
                     <p class="printer-parameter">Chroma</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">-420</p>
                   </div>
@@ -509,7 +490,7 @@
                     <p class="printer-parameter">Sharpness</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">800</p>
                   </div>
@@ -519,7 +500,7 @@
           </div>
           <!-- Printer end SDC1000 alt -->
           <!-- SDC-Ultra SDC1000 -->
-          <div id="sdc-ultra-sdp1000-settings-div" style="display: none;">
+          <div id="sdc-ultra-sdp1000-settings-div" class="sdc-ultra-sdp1000-settings-div" >
             <div class="sdc-printer-settings-title-div">
               <h3 class="settings-title-h3">SDC Ultra SDP1000</h3>
               <p class="title-text-printer-settings">Printer Settings</p>
@@ -531,7 +512,7 @@
                     <p class="printer-parameter">Brightness</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">130</p>
                   </div>
@@ -544,7 +525,7 @@
                     <p class="printer-parameter">Contrast</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">78</p>
                   </div>
@@ -557,7 +538,7 @@
                     <p class="printer-parameter">Phase</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">0</p>
                   </div>
@@ -570,7 +551,7 @@
                     <p class="printer-parameter">Chroma</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">-180</p>
                   </div>
@@ -583,7 +564,7 @@
                     <p class="printer-parameter">Sharpness</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">650</p>
                   </div>
@@ -593,7 +574,7 @@
           </div>
           <!-- SDC-Ultra SDC1000 end -->
           <!-- SDC-Ultra SDC1000.alt -->
-          <div id="sdc-ultra-sdp1000-alt-settings-div" style="display: none;">
+          <div id="sdc-ultra-sdp1000-alt-settings-div" class="sdc-ultra-sdp1000-alt-settings-div" >
             <div class="sdc-printer-settings-title-div">
               <h3 class="settings-title-h3">SDC Ultra SDP1000 (Alternative)</h3>
               <p class="title-text-printer-settings">Printer Settings</p>
@@ -605,7 +586,7 @@
                     <p class="printer-parameter">Brightness</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">0</p>
                   </div>
@@ -618,7 +599,7 @@
                     <p class="printer-parameter">Contrast</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">130</p>
                   </div>
@@ -631,7 +612,7 @@
                     <p class="printer-parameter">Phase</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">0</p>
                   </div>
@@ -644,7 +625,7 @@
                     <p class="printer-parameter">Chroma</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">-150</p>
                   </div>
@@ -657,7 +638,7 @@
                     <p class="printer-parameter">Sharpness</p>
                   </div>
                 </div>
-                <div class="sdc-sdp1000--settings-div">
+                <div class="sdc-sdp1000-setting-div">
                   <div class="printer-settings">
                     <p class="printer-setting">750</p>
                   </div>

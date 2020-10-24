@@ -11,67 +11,100 @@
   z-index: 9999;
 }
 
-#js-navbar-toggle-hide {
+/* #js-navbar-toggle-hide {
   display: none;
-}
+} */
 
 .main-nav {
   margin-top: 40px;
   list-style-type: none;
 }
 
-.nav-links,
+/* .nav-links,
 .logo {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.7);
-}
+} */
 .main-nav li {
   text-align: left;
   padding-left: 20px;
   margin: 15px auto;
 }
 
-.logo {
-  display: inline-block;
+/* .logo {
+ display: none;
   font-size: 22px;
-  margin-top: 16px;
-  margin-left: 20px;
-  padding-top: 10px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+
+} */
+
+.money-settings-logo-div a {
+  font-size: 22px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-#back-button {
-  display: none;
-  margin-left: 25px;
-  margin-right: 350px;
+.money-settings-logo-div {
+  margin-top: 24px;
+  margin-left: 16px;
 }
 
-#back-button img {
+.money-settings-logo-div.msa-logo-center {
+  margin-top: 24px;
+  margin-left: 595px;
+}
+
+.money-settings-logo-div a:hover {
+  color: #ffb600;
+  transition: all ease-in-out 0.4s;
+}
+
+.home-icon-div:hover {
+cursor: pointer;
+}
+
+
+  .back-button {
+    display: none;
+  }
+
+  .back-button.msa-backbtn-show {
+  display: flex;
+  margin-top: 24px;
+  margin-left: 16px;
+  }
+
+.back-button.msa-backbtn-show img {
   height: 30px;
   width: 30px;
   background-size: 30px;
 }
 
-#home-icon-div-hide {
-  display: none;
-  margin-left: 25px;
-  margin-right: 350px;
+.msa-logo-home-backbtn-div {
+  display: flex;
 }
 
-#home-icon-div-show {
-  float: right;
-  margin: 24px 26px 6px 0px;
-  cursor: pointer;
+.home-icon-div {
+ margin-left: auto;
+ margin-right: 24px;
+ margin-top: 24px;
 }
 
-#home-icon-div-show img {
+.home-icon-div img {
   height: 30px;
   width: 30px;
   background-size: 30px;
 }
 
-#money-settings-toggle {
+
+
+
+
+
+/* #money-settings-toggle {
   display: none;
-}
+} */
 
 .navbar-toggle {
   position: absolute;
@@ -123,3 +156,29 @@
   display: inline-block;
   cursor: pointer;
 }
+
+@media (max-width: 375px) {
+  /* .money-settings-logo-div.msa-logo-center {
+    margin-top: 26px;
+    margin-left: 0px;
+  } */
+}
+
+@media (max-width: 414px) {
+  .money-settings-logo-div.msa-logo-center {
+    margin-top: 26px;
+    margin-left: 20%;
+  }
+}
+
+@media (min-width: 768px) {
+  .money-settings-logo-div.msa-logo-center {
+    margin-left: 33%;
+  }
+ }
+
+ @media (min-width: 1024px) {
+  .money-settings-logo-div.msa-logo-center {
+    margin-left: 42%;
+  }
+ }

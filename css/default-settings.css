@@ -1,0 +1,219 @@
+.default-settings-container {
+    max-width: 500px;
+    margin: auto;
+}
+.default-navbar {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    min-height: 78px;
+    width: 100%;
+    font-size: 18px;
+    background-color: #262626;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    border-bottom: 5px solid #ffb600;
+    z-index: 9999;
+}
+
+.default-home-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-top: 24px;
+    margin-right: 24px;
+    background: transparent url("../images/home.jpg") 0% 0% no-repeat
+      padding-box;
+    opacity: 1;
+    background-size: 30px;
+}
+
+.default-logo {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 22px;
+    padding-top: 10px;
+}
+
+.default-logo:hover{
+    color: #ffb600;
+    transition: all ease-in-out 0.4s;
+}
+
+.default-logo-div {
+    margin-top: 24px;
+    margin-left: 16px;
+}
+
+.default-logo-div.default-logo-center {
+   margin-left: 41%;
+  
+}
+
+.default-home-icon:hover {
+    cursor: pointer;
+}
+
+.back-btn-div.back-btn-show {
+    width: 30px;
+    height: 30px;
+    margin-top: 21px;
+    margin-left: 24px;
+    background: transparent url("../images/arrow.jpg") 0% 0% no-repeat
+      padding-box;
+    opacity: 1;
+    background-size: 30px;
+}
+
+.back-btn-div.back-btn-show:hover {
+    cursor: pointer;
+   
+}
+
+.default-camera-buttons-div {
+    margin: 16px;
+}
+
+.default-title-div {
+    margin:  auto;
+    margin-top: 106px;
+    text-align: center;
+    color: #ffb600;
+    margin-bottom: 16px;
+}
+
+.default-cameras-container.hide{
+    display: none;
+}
+
+.default-specialties-container {
+    display: none;
+}
+
+.default-specialties-container.show {
+    display: block;
+}
+
+.default-specialty-buttons-div{
+    margin: 16px;
+}
+
+.default-breadcrumbs {
+    min-width: 195px;
+    text-align: center;
+    margin-bottom: 30px;
+    
+}
+
+.default-breadcrumbs-text {
+    padding-left: 15px;
+    color: #fff;
+}
+
+.default-settings-div{
+    display: none;
+}
+
+.default-settings-div.default-settings-show{
+    display: block;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+
+
+.default-settings-title-div {
+    position: relative;
+    top: 120px;
+    margin: auto;
+    text-align: center;
+    background: #ffb600;
+    border-radius: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.default-settings-ccu-specialty-div{
+    display: flex;
+    justify-content: center;
+    color: #262626;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.default-settings-ccu-title {
+    margin-right: 8px;
+}
+
+.default-settings-subtitle-text{
+    margin-top: 6px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.default-parameter-settings-container {
+    display: flex;
+}
+
+.default-params-outer-div {
+    margin: auto;
+    width: 50%;
+    margin-top: 130px;
+    text-align: center;
+    background: #ffb600;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.default-settings-outer-div {
+    margin: auto;
+    width: 50%;
+    margin-top: 130px;
+    text-align: center;
+    background: #ffb600;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.default-param-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+    
+}
+
+.default-setting-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+}
+
+/* Media Queries*/
+@media (max-width: 414px) {
+   
+    .default-logo-div.default-logo-center {
+        margin-left: 15%;
+       
+     }
+     .default-param-div {
+         font-size: 14px;
+     }
+     .default-setting-div {
+         font-size: 14px;
+     }
+    
+  }
+
+

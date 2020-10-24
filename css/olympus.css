@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Josefin Sans", sans-serif;
+    /* background-color: #262626; */
+  }
+  
+  body {
+    background: #262626;
+  }
+
+.olympus-nav-wrapper{
+    height: 78px; 
+}
+
+.olympus-navbar{
+    display: flex;
+    position: fixed;
+    height: 78px;
+    width: 100%;
+    font-size: 18px;
+    background-color: #262626;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    border-bottom: 5px solid #ffb600;
+    z-index: 9999;
+}
+
+ a {
+    text-decoration: none;
+}
+
+.olympus-logo{
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 16px;
+    margin-left: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.olympus-home-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: 24px;
+    margin-top: 24px;
+    background: transparent url("../images/home.jpg") 0% 0% no-repeat
+      padding-box;
+    opacity: 1;
+    background-size: 30px;
+}
+
+.olympus-back-btn-div-show {
+    width: 30px;
+    height: 30px;
+    margin-top: 24px;
+    margin-left: 24px;
+    background: transparent url("../images/arrow.jpg") 0% 0% no-repeat
+      padding-box;
+    opacity: 1;
+    background-size: 30px;
+}
+
+.olympus-back-btn-div-show:hover {
+    cursor: pointer;
+    
+
+}
+
+.olympus-logo-div-center{
+    margin-left: 39%;
+}
+
+.olympus-home-icon:hover {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-size: 35px;
+    transition: all ease-in-out 0.4s;
+}
+
+.olympus-body-container{
+    display: flex;
+    flex-direction: column;
+    margin:  auto;
+    margin-top: 20px;
+    width: 50%;
+}
+
+
+.olympus-title-div {
+    width: 90%;
+    height: height;
+    margin:  0 auto;
+    padding: 16px;
+    /* background: #ffb600; */
+    border-radius: 10px;
+
+}
+
+
+.olympus-title-text {
+    /* color: #262626; */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    font-weight: 900;
+}
+.olympus-ccu-monitor-title-div {
+    display: flex;
+    padding-bottom: 8px;
+}
+
+.olympus-specialty-title-span {
+    margin-left: 8px;
+    /* color: #262626; */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.olympus-title-text-span-div {
+    display: flex;
+    margin: auto;
+    
+}
+
+.olympus-text-div {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.olympus-select-specialty-div {
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffb600;
+    margin-top: 32px;
+    text-align: center;
+}
+
+.olympus-specialty-button {
+    width: 40%;
+    margin:  0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background: #ffb600;
+    /* color: rgba(255, 255, 255, 0.7); */
+    color: #232323;
+    border-radius: 10px;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.olympus-specialty-button:hover {
+    cursor: pointer;
+    width: 41%;
+    background: #111111;
+    color: #fff;
+    padding: 16px;
+    transition: all ease-in-out 0.4s;
+}
+
+.olympus-btn-div-hide {
+    display: none;
+}
+
+.olympus-settings-container.olympus-settings-container-show {
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    background: lightskyblue;
+}
+
+
+@media (max-width: 414px) {
+   .olympus-body-container {
+       width: 100%;
+   }
+  }
+

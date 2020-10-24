@@ -7,38 +7,142 @@
 body {
   font-family: "Josefin Sans", sans-serif;
 }
-
-#printer-back-button {
-  display: none;
-  margin-left: 25px;
-  margin-right: 350px;
-  cursor: pointer;
+.navbar-backbtn-logo-home-div {
+  display: flex;
 }
 
-#printer-back-button img {
-  height: 30px;
-  width: 30px;
-  background-size: 30px;
-  margin-top: 25px;
-}
-
-#printer-home-icon-div-hide {
+.printer-printers-div {
   display: none;
 }
 
-#printer-home-icon-div-show img {
-  float: right;
-  height: 30px;
+.printer-printers-div.printer-printers-div-show {
+  display: block;
+}
+
+.sdc-sdp1000-settings-div {
+  display: none;
+}
+
+.sdc-sdp1000-alt-settings-div {
+  display: none;
+}
+
+.sdc-ultra-sdp1000-settings-div {
+  display: none;
+}
+
+.sdc-ultra-sdp1000-settings-div.sdc-ultra-sdp1000-settings-div-show {
+  margin-top: 30%;
+  display: block;
+}
+
+.sdc-ultra-sdp1000-alt-settings-div {
+  display: none;
+}
+
+.sdc-ultra-sdp1000-alt-settings-div.sdc-ultra-sdp1000-alt-settings-div-show {
+  margin-top: 30%;
+  display: block;
+}
+
+.sdc-sdp1000-alt-settings-div.sdc-sdp1000-alt-settings-div-show {
+  margin-top: 30%;
+  display: block;
+}
+
+.sdc-sdp1000-settings-div.sdc-sdp1000-settings-div-show {
+  display: block;
+}
+
+
+
+.printer-settings-main-div.printer-settings-main-div-show {
+  display: block;
+}
+
+.printer-settings-main-div.printer-settings-main-div-hide {
+  display: none;
+}
+
+.hub-arthro-settings-div {
+  display: none;
+}
+
+.hub-spy-settings-div {
+  display: none;
+}
+
+.hub-spy-settings-div.hub-spy-settings-div-show{
+  margin-top: 30%;
+  display: block;
+}
+
+.hub-arthro-settings-div.hub-arthro-settings-div-show {
+  margin-top: 30%;
+  display: block;
+}
+
+.sdcs-div.sdcs-div-hide {
+  display: none;
+}
+
+.home-icon-printer{
   width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: 16px;
+  margin-top: 24px;
+  background: transparent url("../images/home.jpg") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
   background-size: 30px;
-  margin-top: 25px;
-  margin-right: 25px;
+}
+
+.home-icon-printer:hover{
   cursor: pointer;
+}
+
+.printer-logo-div {
+  margin-top: 28px;
+  margin-left: 16px;
+}
+
+.printer-logo-div.printer-logo-div-center {
+  margin-left: 42%;
+}
+
+.printer-logo-div:hover{
+  cursor: pointer;
+}
+
+.printer-logo-div p {
+  font-size: 22px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.printer-back-button.printer-back-button-show{
+  width: 30px;
+  height: 30px;
+  margin-top: 24px;
+  margin-left: 16px;
+  background: transparent url("../images/back-icon2.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  background-size: 30px;
+}
+
+.first-bottom-div{
+  margin-top: 30%;
 }
 
 #sdc-div {
   max-width: 500px;
   margin: auto;
+}
+
+.sdcs-div-show{
+  display: block;
 }
 .printer-wrapper {
   background-color: #262626;
@@ -56,7 +160,7 @@ body {
   margin: 1em;
 }
 
-.printer-div {
+.printer-div-hide {
   display: none;
 }
 
@@ -74,6 +178,10 @@ body {
 
 #title-element {
   margin-bottom: 1em;
+}
+
+.title-element-show {
+  display: block;
 }
 
 .settings-main-div {
@@ -142,6 +250,10 @@ body {
   color: #ffb600;
 }
 
+.title-div.title-div-hide {
+  display: none;
+}
+
 .sdc-buttons-div {
   margin: 16px;
 }
@@ -162,6 +274,14 @@ body {
 
 .printer-specialty-buttons-div {
   margin: 16px;
+}
+
+.printer-specialty-div {
+  display: none;
+}
+
+.printer-specialty-div.top-printer-specialty-div-show {
+  display: block;
 }
 
 .printer-specialty-example_a {
@@ -235,6 +355,17 @@ body {
   padding: 8px;
 }
 
+.hub-lap-settings-div {
+  display: none;
+}
+
+
+
+.hub-lap-settings-div-show {
+  margin-top: 30%;
+  display: block;
+}
+
 .title-text-printer-settings {
   color: #fff;
 }
@@ -263,8 +394,13 @@ body {
   width: 45%;
 }
 
-.sdc-sdp1000--settings-div {
-  width: 53%;
+.sdc-sdp1000-settings-div {
+  margin-top: 30%;
+  width: 100%;
+}
+
+.sdc-sdp1000-setting-div {
+  width: 52%;
 }
 
 .printer-settings-div {
@@ -272,6 +408,7 @@ body {
 }
 
 .printer-parameters {
+  width: 100%;
   margin-left: 8px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -283,6 +420,7 @@ body {
 }
 
 .printer-settings {
+  /* width: 100%; */
   margin-left: 24px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -302,40 +440,15 @@ body {
   padding: 8px;
 }
 
-@media (max-width: 320px) {
-  #settings-div {
-    font-size: 0.85em;
-  }
-  .sdc-sdp1000-parameter-div {
-    width: 48%;
+
+
+
+@media (max-width: 414px) {
+
+  .printer-logo-div.printer-logo-div-center {
+   margin-left: 20%;
   }
 
-  .sdc-sdp1000--settings-div {
-    width: 50%;
-  }
-}
-@media (max-width: 361px) {
-  #settings-div {
-    font-size: 0.9em;
-  }
 }
 
-@media (max-width: 375px) {
-  .hub-printer-settings-div {
-    width: 50%;
-  }
 
-  .hub-printer-parameter-div {
-    width: 48%;
-  }
-}
-
-/* @media (min-width: 721px) {
-  #settings-div {
-    margin-left: 15%;
-    align-items: center;
-    justify-content: center;
-    color: #262626;
-    width: 70%;
-  }
-} */

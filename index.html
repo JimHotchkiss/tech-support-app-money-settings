@@ -3,118 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/navbar.css" />
-    <link rel="stylesheet" href="./css/default.css" />
-    <script src="./javascript/settings.js"></script>
-    <script src="./javascript/navbar.js"></script>
-    <script src="./javascript/defaultSettings.js"></script>
-    <title>Tech Support App - Money Settings</title>
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <script src="./javascript/index.js"></script>
+    <title>Tech Support Landing Page</title>
   </head>
   <body>
-    <header id="home-section">
-      <nav class="navbar">
-        <!-- Nav-menu Div-->
-        <div class="container" id="js-navbar-toggle">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </div>
-        <div id="home-icon-div-hide">
-          <img src="./images/home.jpg" alt="home" />
-        </div>
-
-        <a id="money-settings" href="./index.html" class="logo"
-          >Money Settings</a
-        >
-        <!-- remove href="./index.html" to test back button-->
-        <div id="back-button" class="logo">
-          <img src="./images/arrow.jpg" alt="back-arrow" />
-        </div>
-        <div id="default-back-button" class="default-logo">
-          <img src="./images/arrow.jpg" alt="back-arrow" />
-        </div>
-
-        <!-- <a id="back-button" href="./index.html" class="logo">Return</a> -->
-        <ul class="main-nav" id="js-menu">
-          <li>
-            <div class="navbar-button">
-              <a href="./printer.html" class="nav-links">Printer Settings</a>
-            </div>
-          </li>
-          <li>
-            <div class="navbar-button">
-              <p id="default-settings-button" class="default-settings-text">
-                Default Settings
-              </p>
-            </div>
-          </li>
-          <li>
-            <div class="navbar-button">
-              <a
-                href="https://forms.office.com/Pages/ResponsePage.aspx?id=-7udTko5g0WIEFP4H4GeOyvF9t6kmYZAnEVeps1nibRURUk3NEZXQ1lXUDRCMTZPMDZEVTFGTUhXOS4u"
-                id="form-button"
-                class="default-settings-text"
-              >
-                Settings Form
-              </a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <div class="dark-overlay">
-        <div id="image-div">
-          <!-- Camera Buttons -->
-          <div id="top-camera-div" class="camera-div">
-            <div class="title-div">
-              <h1 class="select-text">Select CCU</h1>
-            </div>
-            <div id="1688" class="camera-buttons-div" align="center">
-              <a class="camera-button" href="#" data-camera="1688">1688</a>
-            </div>
-            <div id="1588" class="camera-buttons-div" align="center">
-              <a class="camera-button" href="#" data-camera="1588">1588</a>
-            </div>
-            <div id="Precision" class="camera-buttons-div" align="center">
-              <a class="camera-button" href="#" data-camera="Precision AC"
-                >Precision</a
-              >
-            </div>
-            <div id="1488" class="camera-buttons-div" align="center">
-              <a class="camera-button" href="#" data-camera="1488">1488</a>
-            </div>
-            <div id="1288" class="camera-buttons-div" align="center">
-              <a class="camera-button" href="#" data-camera="1288">1288</a>
-            </div>
-            <div id="1188" class="camera-buttons-div" align="center">
-              <a class="camera-button" href="#" data-camera="1188">1188</a>
-            </div>
-            <div id="flexible" class="camera-buttons-div" align="center">
-              <a class="camera-button" href="#" data-camera="Flexible"
-                >Flexible</a
-              >
-            </div>
-          </div>
-          <!-- Display Buttons Div -->
-          <div id="displayTopDiv"></div>
-
-          <!-- Specialty Buttons Div-->
-          <div id="specialtyTopDiv"></div>
-
-          <!-- CCU Settings Div-->
-          <div id="ccuSettingsTopDiv"></div>
-
-          <!-- Software Version Text Box Div-->
-          <div id="software-version-text-box-div"></div>
-
-          <!-- Software Version Settings Div-->
-          <div id="software-version-settings-div"></div>
-
-          <!-- Monitor Settings Div-->
-          <div id="monitorSettingsTopDiv"></div>
-        </div>
+    <nav class="index-nav">
+      <div class="index-nav-title">
+        <h3 class="index-nav-text">Tech Support App</h3>
       </div>
-    </header>
+    </nav>
+    <div class="cards-container">
+      <div id="msa-card" class="card-container">
+        <div class="card-img-div"></div>
+        <div class="card-title-div">
+          <h3 class="card-title-text">Money Settings</h3>
+        </div>
+        <div class="card-text-div">
+          <p class="card-text-text">
+            The most current money settings for our 1688 platform and legacy
+            equiptment.
+          </p>
+        </div>
+        <div class="card-btn-div"></div>
+      </div>
+      <!-- Olympus -->
+      <div id="olympus-card" class="card-container">
+        <div id="olympus-card-img-div" class="card-img-div"></div>
+        <div class="card-title-div">
+          <h3 class="card-title-text">1688 Olympus Settings</h3>
+        </div>
+        <div class="card-text-div">
+          <p class="card-text-text">
+            The most current Olymnpus settings for our 1688 platform.
+          </p>
+        </div>
+        <div class="card-btn-div"></div>
+      </div>
+      <!-- Olympus end -->
+      <div id="printer-card" class="card-container">
+        <div id="printer-card-img-div" class="card-img-div"></div>
+        <div class="card-title-div">
+          <h3 class="card-title-text">Printer Settings</h3>
+        </div>
+        <div class="card-text-div">
+          <p class="card-text-text">
+            The most current printer settings for the SDP1000.
+          </p>
+        </div>
+        <div class="card-btn-div"></div>
+      </div>
+      <div id="default-card" class="card-container">
+        <div id="default-card-img-div" class="card-img-div"></div>
+        <div class="card-title-div">
+          <h3 class="card-title-text">Default Settings</h3>
+        </div>
+        <div class="card-text-div">
+          <p class="card-text-text">
+            The default settings for the 1688 CCU and many of our legacy CCUs.
+          </p>
+        </div>
+        <div class="card-btn-div"></div>
+      </div>
+      <div id="contribute-settings-card" class="card-container">
+        <div id="contribute-settings-card-img-div" class="card-img-div"></div>
+        <div class="card-title-div">
+          <h3 class="card-title-text">Share Your Settings</h3>
+        </div>
+        <div class="card-text-div">
+          <p class="card-text-text">
+            Do you have settings that are perfectly dialed in? Share them here
+            with the sales force team.
+          </p>
+        </div>
+        <div class="card-btn-div"></div>
+      </div>
+      <div id="contact-card" class="card-container">
+        <div id="contact-card-img-div" class="card-img-div"></div>
+        <div id="contact-card-title" class="card-title-div">
+          <h3 class="card-title-text">Contact Us</h3>
+        </div>
+        <div class="card-text-div">
+          <p class="card-text-text">
+       Need help? Reach out to the Tech Support Team early and often.
+          </p>
+        </div>
+        <div class="card-btn-div"></div>
+      </div>
+      <!-- Suggestions Tile-->
+      <div id="idea-card" class="card-container">
+        <div id="idea-card-img-div" class="card-img-div"></div>
+        <div id="idea-card-title" class="card-title-div">
+          <h3 class="card-title-text">Got An Idea?</h3>
+        </div>
+        <div class="card-text-div">
+          <p class="card-text-text">
+       Got an idea for a feature for the Tech Support App? Share it! We'd love to hear from you.
+          </p>
+        </div>
+        <div class="card-btn-div"></div>
+      </div>
+      <!-- Suggestions Tile End-->
+    </div>
   </body>
 </html>

@@ -28,12 +28,6 @@ body {
   margin-top: 5em;
 }
 
-#back-button {
-  /* display: none; */
-  margin-left: 25px;
-  margin-right: 350px;
-}
-
 #back-button img {
   cursor: pointer;
   height: 30px;
@@ -65,6 +59,16 @@ body {
   border-radius: 5px;
   display: inline-block;
   opacity: 0.9;
+}
+
+.camera-button:hover {
+  background: #7e7e7e;
+  /* background: #434343; */
+  letter-spacing: 0.7px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
 }
 
 .display-button {
@@ -389,25 +393,7 @@ body {
 
 /* ///////////////////////////////////////////////////*/
 
-@media (max-width: 451px) {
-  .parent-div {
-    font-size: 0.9em;
-    /* width: 90%; */
-  }
 
-  .monitor-main-div {
-    font-size: 0.9em;
-    /* width: 90%; */
-  }
-}
-@media (max-width: 361px) {
-  .parent-div {
-    font-size: 0.85em;
-  }
-}
 
-@media (max-width: 320px) {
-  .parent-div {
-    font-size: 0.79em;
-  }
-}
+
+
