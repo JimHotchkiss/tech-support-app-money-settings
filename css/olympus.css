@@ -228,6 +228,10 @@
     margin: auto; 
 }
 
+.olympus-monitor-settings-container {
+    display: none;
+}
+
 .olympus-monitor-params-div {
     width: 50%;
     height: auto;
