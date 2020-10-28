@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   olympusLandingListener();
   olympusBtnListener();
+  olympusBackBtnListener();
 });
 
 const SIXTEENOLYMPUSPARAMETERS = [
@@ -495,6 +496,88 @@ const OLYMPUSSIXTEEN = {
 
 const olympusSetttingsState = {
   specialty: { name: "" },
+};
+
+const olympusBackBtnListener = () => {
+  const olympusBackBtnDiv = document.getElementById("olympus-back-btn-div");
+  olympusBackBtnDiv.addEventListener("click", () => {
+    resetOympusSettingsState();
+    resetOlympusTitle();
+    showTitleBtn();
+    hideCcuSettings();
+    clearCcuHtml();
+    clearMonitorHtml();
+    hideOlympusMonitorSettingsContainer();
+    hideMonitorTitleSettings();
+  });
+};
+
+const hideOlympusMonitorSettingsContainer = () => {
+  const olympusMonitorSettingsContainer = document.getElementById(
+    "olympus-monitor-settings-container"
+  );
+  olympusMonitorSettingsContainer.classList.remove(
+    "olympus-monitor-settings-container-show"
+  );
+};
+
+const hideMonitorTitleSettings = () => {
+  const olympusMonitorTitleDiv = document.getElementById(
+    "olympus-monitor-title-div"
+  );
+  olympusMonitorTitleDiv.classList.remove("olympus-monitor-title-div-show");
+};
+
+const clearMonitorHtml = () => {
+  let olympusMonitorParamsOuterDiv = document.getElementsByClassName(
+    "olympus-monitor-params-div"
+  );
+
+  let olympusMontiorSettingsOuterDiv = document.getElementsByClassName(
+    "olympus-monitor-settings-div"
+  );
+  olympusMonitorParamsOuterDiv[0].innerHTML = "";
+  olympusMontiorSettingsOuterDiv[0].innerHTML = "";
+};
+
+const clearCcuHtml = () => {
+  let olympusParamsOuterDiv = document.getElementsByClassName(
+    "olympus-params-div"
+  );
+
+  let olympusSettingsOuterDiv = document.getElementsByClassName(
+    "olympus-settings-div"
+  );
+  olympusParamsOuterDiv[0].innerHTML = "";
+  olympusSettingsOuterDiv[0].innerHTML = "";
+};
+
+const hideCcuSettings = () => {
+  const olympusSettingsContainer = document.getElementById(
+    "olympus-settings-container"
+  );
+  olympusSettingsContainer.classList.remove("olympus-settings-container-show");
+};
+
+const showTitleBtn = () => {
+  const olumpusBtnDiv = document.getElementById("olympus-btn-div");
+  olumpusBtnDiv.classList.remove("olympus-btn-div-hide");
+};
+
+const resetOlympusTitle = () => {
+  const olympusSpecialtyTitleSpan = document.getElementById(
+    "olympus-specialty-title-span"
+  );
+  olympusSpecialtyTitleSpan.innerText = "4K";
+
+  const olympusMonitorSpecialtyTitleSpan = document.getElementById(
+    "olympus-monitor-specialty-title-span"
+  );
+  olympusMonitorSpecialtyTitleSpan.innerText = "";
+};
+
+const resetOympusSettingsState = () => {
+  olympusSetttingsState.specialty.name = "";
 };
 
 const olympusBtnListener = () => {

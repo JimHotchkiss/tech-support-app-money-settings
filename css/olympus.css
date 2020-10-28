@@ -218,9 +218,7 @@
     margin-bottom: 16px;
 }
 
-.olympus-settings-container {
-    display: none;
-}
+
 
 .olympus-monitor-settings-container.olympus-monitor-settings-container-show {
     display: flex;
@@ -231,6 +229,7 @@
 .olympus-monitor-settings-container {
     display: none;
 }
+
 
 .olympus-monitor-params-div {
     width: 50%;
@@ -261,6 +260,11 @@
 }
 
 .olympus-monitor-settings-div {
+    display: none;
+}
+
+.olympus-monitor-settings-div.olympus-monitor-setting-div-show {
+    display: block;
     width: 50%;
     height: auto;
     background: #ffb600;
