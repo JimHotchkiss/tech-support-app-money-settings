@@ -919,7 +919,6 @@ function defaultSelectCcu() {
 
   for (let item of defaultCameraBtnsDiv) {
     item.addEventListener("click", () => {
-      console.log(defaultSetttingsState);
       const cameraId = item.id;
       setCcuState(cameraId);
       hideDefaultCamerasContainer();
@@ -1101,7 +1100,6 @@ function showDefaultSettings() {
     settings = DEFAULTPRECISION;
   }
   for (const item in settings) {
-    console.log(settings, defaultSetttingsState.specialty.name);
     if (item === defaultSetttingsState.specialty.name) {
       settings[item].map((setting) => {
         const settingDiv = document.createElement("div");

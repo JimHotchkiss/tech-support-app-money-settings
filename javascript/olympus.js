@@ -51,6 +51,22 @@ const SIXTEENOLYMPUSPARAMETERS = [
   "Mg-R Gain",
 ];
 
+const FOURKPARAMS = [
+  "Red",
+  "Green",
+  "Blue",
+  "Gamma",
+  "Enhancement",
+  "Brightness",
+  "Contrast",
+  "Sharpness",
+];
+
+const OLYMPUSFOURK = {
+  Laser: ["0", "0", "0", "2.2", "Med", "45", "50", "5"],
+  Hysteroscopy: ["0", "0", "0", "2.2", "Med", "45", "50", "5"],
+};
+
 const OLYMPUSSIXTEEN = {
   Arthroscopy: [
     "Auto",
@@ -515,6 +531,38 @@ const showMonitorSettings = () => {
   olympusMonitorSettingsContainer.classList.add(
     "olympus-monitor-settings-container-show"
   );
+  populateMonitorParams();
+};
+
+const populateMonitorParams = () => {
+  const monitorParamsDiv = document.getElementById(
+    "olympus-monitor-params-div"
+  );
+  FOURKPARAMS.map((param) => {
+    const paramDiv = document.createElement("div");
+    paramDiv.setAttribute("class", "olympus-monitor-param-div");
+    paramDiv.innerText = param;
+    monitorParamsDiv.appendChild(paramDiv);
+  });
+  populateMonitorSettings();
+};
+
+const populateMonitorSettings = () => {
+  const monitorSettingsDiv = document.getElementById(
+    "olympus-monitor-settings-div"
+  );
+  for (let item in OLYMPUSFOURK) {
+    let settings = "";
+    if (item === olympusSetttingsState.specialty.name) {
+      settings = OLYMPUSFOURK[item];
+      settings.map((setting) => {
+        const settingDiv = document.createElement("div");
+        settingDiv.setAttribute("class", "olympus-monitor-setting-div");
+        settingDiv.innerText = setting;
+        monitorSettingsDiv.appendChild(settingDiv);
+      });
+    }
+  }
 };
 
 const showCcuSettings = () => {
@@ -533,6 +581,23 @@ const populateCcuParams = () => {
     paramDiv.innerText = param;
     paramsDiv.appendChild(paramDiv);
   });
+  populateCcuSettings();
+};
+
+const populateCcuSettings = () => {
+  const settingsDiv = document.getElementById("olympus-settings-div");
+  for (let item in OLYMPUSSIXTEEN) {
+    settings = "";
+    if (item === olympusSetttingsState.specialty.name) {
+      settings = OLYMPUSSIXTEEN[item];
+      settings.map((setting) => {
+        const settingDiv = document.createElement("div");
+        settingDiv.setAttribute("class", "olympus-setting-div");
+        settingDiv.innerText = setting;
+        settingsDiv.appendChild(settingDiv);
+      });
+    }
+  }
 };
 
 const centerLogoDiv = () => {
