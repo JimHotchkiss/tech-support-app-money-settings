@@ -209,6 +209,10 @@
     display: none;
 }
 
+.olympus-settings-container {
+    display: none;
+}
+
 .olympus-settings-container.olympus-settings-container-show {
     display: flex;
     width: 80%;
@@ -260,10 +264,6 @@
 }
 
 .olympus-monitor-settings-div {
-    display: none;
-}
-
-.olympus-monitor-settings-div.olympus-monitor-setting-div-show {
     display: block;
     width: 50%;
     height: auto;
@@ -315,5 +315,36 @@
    .olympus-body-container {
        width: 100%;
    }
+
+   .olympus-logo-div-center {
+       margin-left: 6%;
+   }
+
+   .olympus-settings-container.olympus-settings-container-show{
+       width: 95%;
+   }
+
+   .olympus-title-div {
+       width: 95%;
+   }
+
+   .olympus-param-div {
+       font-size: 14px;
+   }
+
+   .olympus-setting-div{
+       font-size: 14px;
+   }
+
+   .olympus-monitor-title-div.olympus-monitor-title-div-show {
+    width: 95%;
+    }
+
+    .olympus-monitor-settings-container.olympus-monitor-settings-container-show {
+        width: 95%;
+       
   }
+
+
+  
 

@@ -64,8 +64,8 @@ const FOURKPARAMS = [
 ];
 
 const OLYMPUSFOURK = {
-  Laser: ["0", "0", "0", "2.2", "Med", "45", "50", "5"],
-  Hysteroscopy: ["0", "0", "0", "2.2", "Med", "45", "50", "5"],
+  Laser: ["Laser", "0", "0", "2.2", "Med", "45", "50", "5"],
+  Hysteroscopy: ["Hystero", "0", "0", "2.2", "Med", "45", "50", "5"],
 };
 
 const OLYMPUSSIXTEEN = {
@@ -509,7 +509,19 @@ const olympusBackBtnListener = () => {
     clearMonitorHtml();
     hideOlympusMonitorSettingsContainer();
     hideMonitorTitleSettings();
+    hideBackArrow();
+    returnLogoDiv();
   });
+};
+
+const returnLogoDiv = () => {
+  const olympusLogoDiv = document.getElementById("olympus-logo-div");
+  olympusLogoDiv.classList.remove("olympus-logo-div-center");
+};
+
+const hideBackArrow = () => {
+  const backArrow = document.getElementById("olympus-back-btn-div");
+  backArrow.classList.remove("olympus-back-btn-div-show");
 };
 
 const hideOlympusMonitorSettingsContainer = () => {
