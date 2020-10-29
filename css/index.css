@@ -79,6 +79,24 @@ body {
   background-size: 60px;
 }
 
+#storz-card-img-div {
+  width: 60px;
+  min-height: 60px;
+  background: transparent url("../images/olympus.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 60px;
+}
+
+.card-container:hover #storz-card-img-div {
+  width: 65px;
+  min-height: 63px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
+}
+
 #idea-card-img-div{
   width: 70px;
   min-height: 70px;

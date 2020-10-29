@@ -5,9 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
   defaultEventListener();
   shareSettingsEventListener();
   olympusEventListener();
+  storzEventListener();
   ideaTileListener();
   contactTileListener();
 });
+
+const storzEventListener = () => {
+  const storzDiv = document.getElementById("storz-card");
+  storzDiv.addEventListener("click", () => {
+    location.replace("./storz.html");
+  });
+};
 
 const contactTileListener = () => {
   const contactCard = document.getElementById("contact-card");
