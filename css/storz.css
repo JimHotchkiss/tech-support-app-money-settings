@@ -111,6 +111,10 @@
     margin-top: 32px;
 }
 
+.storz-btn-div.storz-btn-div-hide{
+    display: none;
+}
+
 .storz-btn-div {
     margin: 0 auto;
     width: 100%;

@@ -598,7 +598,6 @@ const olympusBtnListener = () => {
   );
   for (let item of olympusSpecialtyButton) {
     item.addEventListener("click", () => {
-      console.log(item.dataset.specialty);
       let selectedSpecialty = item.dataset.specialty;
       updateSpecialtyState(selectedSpecialty);
       updateSpecialtyTitle();
