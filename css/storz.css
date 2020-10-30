@@ -297,6 +297,21 @@
     background: #ffb600;
 }
 
+.storz-monitor-title-div {
+    display: none;
+}
+
+.storz-monitor-title-div.storz-monitor-title-div-show {
+    display: block;
+    width: 80%;
+    margin:  0 auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 16px;
+    background: #ffb600;
+    border-radius: 10px;
+}
+
 
 @media (max-width: 414px) {
     .storz-body-container {
@@ -304,7 +319,7 @@
     }
  
     .storz-logo-div-center {
-        margin-left: 10%;
+        margin-left: 16%;
     }
  
     .storz-settings-container.storz-settings-container-show{

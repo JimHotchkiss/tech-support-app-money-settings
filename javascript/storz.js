@@ -187,6 +187,7 @@ const storzBackBtnListener = () => {
       showStorzMonitorBtns();
       clearStorzCcuHtml();
       clearStorzMonitorHtml();
+      hideStorzMonitorTitle();
     } else {
       console.log("ccu");
       resetStorzCcuSettingsState();
@@ -197,6 +198,13 @@ const storzBackBtnListener = () => {
       realignStorzLogo();
     }
   });
+};
+
+const hideStorzMonitorTitle = () => {
+  const storzMonitorTitleDiv = document.getElementById(
+    "storz-monitor-title-div"
+  );
+  storzMonitorTitleDiv.classList.remove("storz-monitor-title-div-show");
 };
 
 const realignStorzLogo = () => {
@@ -299,7 +307,34 @@ const storzMonitorBtnListener = () => {
       hideStorzMonitorBtns();
       showStorzSettings();
       showStorzMonitorSettings();
+      showStorzMonitorTitle();
     });
+  }
+};
+
+const showStorzMonitorTitle = () => {
+  const storzMonitorTitleDiv = document.getElementById(
+    "storz-monitor-title-div"
+  );
+  storzMonitorTitleDiv.classList.add("storz-monitor-title-div-show");
+  updateStorzMonitorTitle();
+};
+
+const updateStorzMonitorTitle = () => {
+  const storzTitleText = document.getElementById("storz-monitor-title-text");
+  console.log(storzTitleText);
+
+  storzTitleText.innerText =
+    storzSetttingsState.monitor.name + " " + storzSetttingsState.ccu.name;
+  const strozRepDiv = document.getElementById("storz-reps-div");
+
+  for (let item in STORZSETTINGS) {
+    if (
+      item ===
+      storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
+    ) {
+      strozRepDiv.innerText = STORZSETTINGS[item].rep;
+    }
   }
 };
 
