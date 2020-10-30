@@ -3,12 +3,10 @@
     padding: 0;
     margin: 0;
     font-family: "Josefin Sans", sans-serif;
-    /* background-color: #262626; */
+    background-color: #262626;
   }
   
-  body {
-    background: #262626;
-  }
+
 
 .olympus-nav-wrapper{
     height: 78px; 
@@ -123,10 +121,12 @@
 
 .olympus-title-text {
     color: #262626;
+    background: #ffb600;
     font-size: 24px;
     font-weight: 900;
 }
 .olympus-ccu-monitor-title-div {
+    background: #ffb600;
     display: flex;
     padding-bottom: 8px;
 }
@@ -134,11 +134,13 @@
 .olympus-monitor-ccu-monitor-title-div {
     display: flex;
     padding-bottom: 8px;
+    background: #ffb600;
 }
 
 .olympus-specialty-title-span {
     margin-left: 8px;
     color: #262626;
+    background: #ffb600;
     font-size: 24px;
     font-weight: 900;
 }
@@ -146,11 +148,13 @@
 .olympus-monitor-specialty-title-span {
     margin-left: 8px;
     color: #262626;
+    background: #ffb600;
     font-size: 24px;
     font-weight: 900;
 }
 
 .olympus-title-text-span-div {
+    background: #ffb600;
     display: flex;
     margin: auto;    
 }
@@ -158,13 +162,18 @@
 .olympus-monitor-title-text-span-div{
     display: flex;
     margin: auto; 
-    
+    background: #ffb600;
+}
+
+.olympus-monitor-title-text {
+    background: #ffb600;
 }
 
 .olympus-text-div {
     text-align: center;
     font-size: 18px;
     color: #fff;
+    background: #ffb600;
 }
 
 .olympus-monitor-text-div {
@@ -172,6 +181,7 @@
     font-size: 18px;
     font-weight: 500;
     color: #fff;
+    background: #ffb600;
 }
 
 .olympus-select-specialty-div {
@@ -252,6 +262,7 @@
     padding: 16px 0 8px 8px;
     border-bottom: 1px solid #232323;
     color: #fff;
+    background: #ffb600;
 }
 .olympus-monitor-setting-div {
     text-align: left;
@@ -260,6 +271,7 @@
     padding: 16px 0 8px 8px;
     border-bottom: 1px solid #232323;
     color: #fff;
+    background: #ffb600;
 }
 
 .olympus-monitor-settings-div {
@@ -298,6 +310,7 @@
     padding: 16px 0 8px 8px;
     border-bottom: 1px solid #232323;
     color: #fff;
+    background: #ffb600;
 }
 
 .olympus-setting-div {
@@ -307,6 +320,7 @@
     padding: 16px 0 8px 8px;
     border-bottom: 1px solid #232323;
     color: #fff;
+    background: #ffb600;
 }
 
 

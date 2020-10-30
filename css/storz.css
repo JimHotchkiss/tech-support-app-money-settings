@@ -3,15 +3,18 @@
     padding: 0;
     margin: 0;
     font-family: "Josefin Sans", sans-serif;
-    /* background-color: #262626; */
+    background-color: #262626;
   }
   
   body {
-    background: #262626;
+    /* background: #262626; */
   }
 
 .storz-nav-wrapper{
     height: 78px; 
+    
+
+
 }
 
 .storz-navbar{
@@ -23,7 +26,7 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     opacity: 0.9;
     border-bottom: 5px solid #ffb600;
-    z-index: 9999;
+    z-index: 1;
 }
 
  a {
@@ -104,6 +107,7 @@
 .storz-reps-div {
     margin-top: 8px;
     text-align: center;
+    background: #ffb600;
 }
 .storz-monitors-div {
     display: none;
@@ -132,14 +136,21 @@
     display: flex;
     justify-content: center;
     color: #262626;
+    background: #ffb600;
     font-size: 24px;
     font-weight: 900;
+}
+
+.storz-title-text{
+    background: #ffb600;
 }
 
 .storz-text-div {
     display: flex;
     justify-content: center;
     font-size: 18px;
+    margin-top: 4px;
+    background: #ffb600;
     color: #fff;
 }
 .storz-specialty-title-span {
@@ -183,6 +194,107 @@
     color: #fff;
     padding: 16px;
     transition: all ease-in-out 0.4s;
+}
+
+.storz-settings-container {
+    display: none;
+}
+
+.storz-settings-container.storz-settings-container-show {
+    display: flex;
+    width: 80%;
+    height: auto;
+    min-height: 50vh;
+    margin: auto;
+    margin-bottom: 16px;
+}
+
+.storz-monitor-settings-container.storz-monitor-settings-container-show {
+    display: flex;
+    width: 80%;
+    margin: auto; 
+}
+
+.storz-monitor-settings-container {
+    display: none;
+}
+
+.storz-monitor-params-div {
+    width: 50%;
+    height: auto;
+    background: #ffb600;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 16px;
+}
+
+.storz-monitor-settings-div {
+    display: block;
+    width: 50%;
+    height: auto;
+    background: #ffb600;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.storz-monitor-setting-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+    background: #ffb600;
+}
+
+.storz-monitor-param-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+    background: #ffb600;
+}
+
+.storz-params-div {
+    width: 50%;
+    height: 100%;
+    height: auto;
+    background: #ffb600;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 16px;
+}
+
+.storz-settings-div {
+    width: 50%;
+    height: 100%;
+    height: auto;
+    background: #ffb600;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 16px;
+}
+
+.storz-param-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+    background: #ffb600;
+}
+
+.storz-setting-div {
+    text-align: left;
+    margin-left: 8px;
+    width: 90%;
+    padding: 16px 0 8px 8px;
+    border-bottom: 1px solid #232323;
+    color: #fff;
+    background: #ffb600;
 }
 
 
