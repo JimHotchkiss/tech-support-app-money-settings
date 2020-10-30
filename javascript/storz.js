@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   storzLandingListener();
   storzCcuBtnListener();
   storzMonitorBtnListener();
+  storzBackBtnListener();
 });
 
 const FOURKPARAMS = [
@@ -174,6 +175,96 @@ const storzSetttingsState = {
   rep: { name: "" },
 };
 
+const storzBackBtnListener = () => {
+  const storzBackBtnDiv = document.getElementById("storz-back-btn-div");
+  storzBackBtnDiv.addEventListener("click", () => {
+    resetStorzMonitorSettingsState();
+    resetStorzRepSettingsState();
+    resetStorzTitle();
+    hideStorzSettings();
+    showStorzMonitorBtns();
+    clearStorzCcuHtml();
+    clearStorzMonitorHtml();
+
+    showTitleBtn();
+    hideCcuSettings();
+    clearCcuHtml();
+    clearMonitorHtml();
+    hideOlympusMonitorSettingsContainer();
+    hideMonitorTitleSettings();
+    hideBackArrow();
+    returnLogoDiv();
+  });
+};
+
+const clearStorzMonitorHtml = () => {
+  let storzMonitorParamsOuterDiv = document.getElementsByClassName(
+    "storz-monitor-params-div"
+  );
+
+  let storzMontiorSettingsOuterDiv = document.getElementsByClassName(
+    "storz-monitor-settings-div"
+  );
+  storzMonitorParamsOuterDiv[0].innerHTML = "";
+  storzMontiorSettingsOuterDiv[0].innerHTML = "";
+};
+
+const clearStorzCcuHtml = () => {
+  let storzParamsOuterDiv = document.getElementsByClassName("storz-params-div");
+
+  let storzSettingsOuterDiv = document.getElementsByClassName(
+    "storz-settings-div"
+  );
+  storzParamsOuterDiv[0].innerHTML = "";
+  storzSettingsOuterDiv[0].innerHTML = "";
+};
+
+const showStorzMonitorBtns = () => {
+  const storzMonitorsDiv = document.getElementById("storz-monitors-div");
+  storzMonitorsDiv.classList.add("storz-monitors-div-show");
+};
+
+const hideStorzSettings = () => {
+  const storzSettingsContainer = document.getElementById(
+    "storz-settings-container"
+  );
+  storzSettingsContainer.classList.remove("storz-settings-container-show");
+
+  const storzMonitorSettingsContainer = document.getElementById(
+    "storz-monitor-settings-container"
+  );
+  storzMonitorSettingsContainer.classList.remove(
+    "storz-monitor-settings-container-show"
+  );
+};
+
+const resetStorzTitle = () => {
+  const storzTitleText = document.getElementById("storz-title-text");
+
+  storzTitleText.innerText =
+    storzSetttingsState.ccu.name + " " + storzSetttingsState.monitor.name;
+  const strozRepDiv = document.getElementById("storz-reps-div");
+
+  for (let item in STORZSETTINGS) {
+    if (
+      item ===
+      storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
+    ) {
+      strozRepDiv.innerText = STORZSETTINGS[item].rep;
+    } else {
+      strozRepDiv.innerText = "";
+    }
+  }
+};
+
+const resetStorzRepSettingsState = () => {
+  storzSetttingsState.rep.name = "";
+};
+
+const resetStorzMonitorSettingsState = () => {
+  storzSetttingsState.monitor.name = "";
+};
+
 const storzMonitorBtnListener = () => {
   const storzMonitorBtn = document.getElementsByClassName(
     "storz-monitor-button"
@@ -223,7 +314,6 @@ const populateStorzMonitorSettings = () => {
       item ===
       storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
     ) {
-      console.log("inside", STORZSETTINGS[item].monitor);
       settings = STORZSETTINGS[item].monitor;
       settings.map((setting) => {
         const settingDiv = document.createElement("div");
