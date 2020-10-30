@@ -178,23 +178,44 @@ const storzSetttingsState = {
 const storzBackBtnListener = () => {
   const storzBackBtnDiv = document.getElementById("storz-back-btn-div");
   storzBackBtnDiv.addEventListener("click", () => {
-    resetStorzMonitorSettingsState();
-    resetStorzRepSettingsState();
-    resetStorzTitle();
-    hideStorzSettings();
-    showStorzMonitorBtns();
-    clearStorzCcuHtml();
-    clearStorzMonitorHtml();
-
-    showTitleBtn();
-    hideCcuSettings();
-    clearCcuHtml();
-    clearMonitorHtml();
-    hideOlympusMonitorSettingsContainer();
-    hideMonitorTitleSettings();
-    hideBackArrow();
-    returnLogoDiv();
+    if (storzSetttingsState.monitor.name !== "") {
+      console.log("monitor");
+      resetStorzMonitorSettingsState();
+      resetStorzRepSettingsState();
+      resetStorzTitle();
+      hideStorzSettings();
+      showStorzMonitorBtns();
+      clearStorzCcuHtml();
+      clearStorzMonitorHtml();
+    } else {
+      console.log("ccu");
+      resetStorzCcuSettingsState();
+      hideStorzMonitorBtns();
+      showStorzCcuBtns();
+      resetStorzTitle();
+      hideStorzBackArrow();
+      realignStorzLogo();
+    }
   });
+};
+
+const realignStorzLogo = () => {
+  const storzLogoDiv = document.getElementById("storz-logo-div");
+  storzLogoDiv.classList.remove("storz-logo-div-center");
+};
+
+const hideStorzBackArrow = () => {
+  const backArrow = document.getElementById("storz-back-btn-div");
+  backArrow.classList.remove("storz-back-btn-div-show");
+};
+
+const showStorzCcuBtns = () => {
+  const storzBtnDiv = document.getElementById("storz-btn-div");
+  storzBtnDiv.classList.remove("storz-btn-div-hide");
+};
+
+const resetStorzCcuSettingsState = () => {
+  storzSetttingsState.ccu.name = "";
 };
 
 const clearStorzMonitorHtml = () => {

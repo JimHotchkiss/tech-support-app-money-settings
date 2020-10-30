@@ -298,3 +298,43 @@
 }
 
 
+@media (max-width: 414px) {
+    .storz-body-container {
+        width: 100%;
+    }
+ 
+    .storz-logo-div-center {
+        margin-left: 10%;
+    }
+ 
+    .storz-settings-container.storz-settings-container-show{
+        width: 95%;
+    }
+ 
+    .storz-title-div {
+        width: 95%;
+    }
+ 
+    .storz-param-div {
+        font-size: 14px;
+    }
+ 
+    .storz-setting-div{
+        font-size: 14px;
+    }
+ 
+    .storz-monitor-title-div.storz-monitor-title-div-show {
+     width: 95%;
+     }
+ 
+     .storz-monitor-settings-container.storz-monitor-settings-container-show {
+         width: 95%;
+        
+   }
+ 
+ 
+   
+ 
+ 
+
+
