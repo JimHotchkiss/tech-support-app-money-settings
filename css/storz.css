@@ -64,7 +64,7 @@
     cursor: pointer;
 }
 
-.storz-back-btn-div-show {
+.storz-back-btn-div.storz-back-btn-div-show {
     width: 30px;
     height: 30px;
     margin-top: 24px;
@@ -74,6 +74,49 @@
     opacity: 1;
     background-size: 30px;
 }
+
+.storz-back-btn-div.storz-back-btn-div-show:hover {
+  cursor: pointer;
+}
+
+.storz-monitor-button {
+    text-align: center;
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background: #ffb600;
+    color: #232323;
+    border-radius: 10px;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.storz-monitor-button:hover {
+    cursor: pointer;
+    width: 41%;
+    background: #111111;
+    color: #fff;
+    padding: 16px;
+    transition: all ease-in-out 0.4s;
+}
+
+.storz-reps-div {
+    margin-top: 8px;
+    text-align: center;
+}
+.storz-monitors-div {
+    display: none;
+}
+
+.storz-monitors-div.storz-monitors-div-show {
+    display: block;
+}
+
+.storz-logo-div-center{
+    margin-left: 40%;
+}
+
 
 .storz-title-div {
     width: 80%;
