@@ -394,6 +394,17 @@ body {
 /* ///////////////////////////////////////////////////*/
 
 
-
+/* Media Queries*/
+@media (max-width: 414px) {
+   
+ 
+   .camera-parameter p {
+       font-size: 14px;
+   }
+   .camera-settings p {
+       font-size: 14px;
+   }
+  
+}
 
 
