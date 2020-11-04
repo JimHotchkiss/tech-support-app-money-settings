@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   printerEventListener();
   defaultEventListener();
   shareSettingsEventListener();
-  olympusEventListener();
-  storzEventListener();
+  // olympusEventListener();
+  // storzEventListener();
   ideaTileListener();
   contactTileListener();
 });
@@ -20,6 +20,7 @@ const storzEventListener = () => {
 const contactTileListener = () => {
   const contactCard = document.getElementById("contact-card");
   contactCard.addEventListener("click", () => {
+    console.log("contact event listenerå");
     location.replace("./contact.html");
   });
 };

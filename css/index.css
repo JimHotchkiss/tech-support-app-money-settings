@@ -71,7 +71,7 @@ body {
 #olympus-card-img-div {
   width: 60px;
   min-height: 60px;
-  background: transparent url("../images/olympus.png") 0% 0% no-repeat
+  background: transparent url("../images/olympus-storz.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
   margin-top: 20px;
@@ -82,7 +82,7 @@ body {
 #storz-card-img-div {
   width: 60px;
   min-height: 60px;
-  background: transparent url("../images/olympus.png") 0% 0% no-repeat
+  background: transparent url("../images/olympus-storz.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
   margin-top: 20px;
@@ -98,14 +98,21 @@ body {
 }
 
 #idea-card-img-div{
-  width: 70px;
-  min-height: 70px;
-  background: transparent url("../images/idea-img.png") 0% 0% no-repeat
+  width: 60px;
+  min-height: 60px;
+  background: transparent url("../images/idea.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
   margin-top: 10px;
   margin-left: 12px;
-  background-size: 70px;
+  background-size: 60px;
+}
+
+.card-container:hover #idea-card-img-div {
+  width: 65px;
+  height: 65px;
+  background-size: 65px;
+  transition: all 0.4s ease 0s;
 }
 
 .card-container:hover #olympus-card-img-div {
@@ -136,7 +143,7 @@ body {
 #default-card-img-div {
   width: 60px;
   height: 60px;
-  background: transparent url("../images/default-settings.png") 0% 0% no-repeat
+  background: transparent url("../images/default.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
   margin-top: 20px;
@@ -154,7 +161,7 @@ body {
 #contribute-settings-card-img-div {
   width: 60px;
   height: 60px;
-  background: transparent url("../images/share-settings.png") 0% 0% no-repeat
+  background: transparent url("../images/share.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
   margin-top: 20px;

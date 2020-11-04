@@ -132,6 +132,10 @@ body {
   background-size: 30px;
 }
 
+.printer-back-button:hover{
+  cursor: pointer;
+}
+
 .first-bottom-div{
   margin-top: 30%;
 }
