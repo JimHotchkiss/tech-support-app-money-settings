@@ -78,6 +78,47 @@
 }
 
 .contact-param {
-  min-width: 150px;
+  margin: auto;
+  margin-top: 8px;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.contact-info {
+  font-style: italic;
+  margin: 0 auto;
+  margin-top: 16px;
+}
+
+#contact-logo-email {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/email.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin: 0 auto;
+  background-size: 60px;
+}
+
+#contact-logo-phone {
+  width: 60px;
+  height: 60px;
+  background: transparent url("../images/phone.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin: 0 auto;
+  background-size: 60px;
+}
+
+@media (max-width: 414px) {
+   
+  .table-container {
+    width: 95%;
+  }
+
+  .contact-information-container {
+    flex-direction: column;
+  }
+  
 }
 

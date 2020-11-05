@@ -19,25 +19,11 @@
   margin-top: 40px;
   list-style-type: none;
 }
-
-/* .nav-links,
-.logo {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
-} */
 .main-nav li {
   text-align: left;
   padding-left: 20px;
   margin: 15px auto;
 }
-
-/* .logo {
- display: none;
-  font-size: 22px;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
-
-} */
 
 .money-settings-logo-div a {
   font-size: 22px;
