@@ -121,6 +121,40 @@
     margin-left: 40%;
 }
 
+.storz-specialty-button {
+    text-align: center;
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background: #ffb600;
+    color: #232323;
+    border-radius: 10px;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.storz-specialty-button:hover {
+    cursor: pointer;
+    width: 41%;
+    background: #111111;
+    color: #fff;
+    padding: 16px;
+    transition: all ease-in-out 0.4s;
+}
+
+.storz-specialties-div {
+    display: none;
+}
+
+.storz-1688-4K-specialties-div {
+    display: none;
+}
+
+.storz-1688-4K-specialties-div.storz-1688-4K-specialties-div-show {
+    display: block;
+}
+
 
 .storz-title-div {
     width: 80%;

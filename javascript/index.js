@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   printerEventListener();
   defaultEventListener();
   shareSettingsEventListener();
-  // olympusEventListener();
-  // storzEventListener();
+  olympusEventListener();
+  storzEventListener();
   ideaTileListener();
   contactTileListener();
 });

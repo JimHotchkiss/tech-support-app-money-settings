@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   storzLandingListener();
   storzCcuBtnListener();
   storzMonitorBtnListener();
+  storzSpecialtyBtnListener();
   storzBackBtnListener();
 });
 
 const FOURKPARAMS = [
+  "Specialty",
   "Red",
   "Green",
   "Blue",
@@ -16,6 +18,20 @@ const FOURKPARAMS = [
   "Sharpness",
 ];
 // Need to add reps name in settings
+const FIFTEENTORZPARAMETERS = [
+  "Enhancement",
+  "Contrast",
+  "R-Gain",
+  "R-Hue",
+  "B-Gain",
+  "B-Hue",
+  "Shutter",
+  "Brt Control",
+  "Size",
+  "Brightness Peak",
+  "Target Area",
+  "Brt Lvl",
+];
 const SIXTEENSTORZPARAMETERS = [
   "Shutter Mode",
   "Shutter Level",
@@ -65,46 +81,39 @@ const SIXTEENSTORZPARAMETERS = [
 ];
 
 const STORZSETTINGS = {
-  "1688-4K": {
-    rep: "john.doe@stryker.com",
+  "1688-4K-ENT/Skull": {
+    rep: "brian.koch@stryker.com",
     settings: [
-      "4K",
-      "30",
-      "1",
+      "Auto",
+      "70",
+      "3",
       "9",
       "Photometry",
-      "2",
-      "5",
-      "4",
       "0",
-      "4",
       "6",
-      "10",
-      "20",
-      "14",
-      "0",
-      "0",
-      "2",
+      "5",
+      "-10",
       "4",
+      "8",
+      "0",
+      "30",
+      "4",
+      "0",
+      "0",
+      "-1",
+      "0",
       "Auto",
       "0",
       "0",
       "0",
       "0",
       "0",
-      "3",
       "0",
-      "4",
+      "0",
+      "5",
+      "-8",
+      "-9",
       "2",
-      "1",
-      "4",
-      "5",
-      "0",
-      "0",
-      "0",
-      "0",
-      "5",
-      "-17",
       "0",
       "0",
       "0",
@@ -113,10 +122,17 @@ const STORZSETTINGS = {
       "0",
       "0",
       "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-1",
     ],
-    monitor: ["4K", "0", "0", "2.2", "Med", "45", "50", "5"],
+    monitor: ["Arthro A", "-30", "-6", "7", "S0", "Low", "39", "52", "No Data"],
   },
-  "1688-VisionPro": {
+  "1688-VisionPro-ENT/Skull": {
     rep: "jim.jones@stryker.com",
     settings: [
       "Vision pro",
@@ -165,13 +181,14 @@ const STORZSETTINGS = {
       "0",
       "0",
     ],
-    monitor: ["Vision Pro", "0", "0", "2.2", "Med", "45", "50", "5"],
+    monitor: ["No Data", "-30", "-30", "5", "S0", "40", "60", "50", "5"],
   },
 };
 
 const storzSetttingsState = {
   ccu: { name: "" },
   monitor: { name: "" },
+  specialty: { name: "" },
   rep: { name: "" },
 };
 
@@ -179,7 +196,6 @@ const storzBackBtnListener = () => {
   const storzBackBtnDiv = document.getElementById("storz-back-btn-div");
   storzBackBtnDiv.addEventListener("click", () => {
     if (storzSetttingsState.monitor.name !== "") {
-      console.log("monitor");
       resetStorzMonitorSettingsState();
       resetStorzRepSettingsState();
       resetStorzTitle();
@@ -189,7 +205,6 @@ const storzBackBtnListener = () => {
       clearStorzMonitorHtml();
       hideStorzMonitorTitle();
     } else {
-      console.log("ccu");
       resetStorzCcuSettingsState();
       hideStorzMonitorBtns();
       showStorzCcuBtns();
@@ -305,10 +320,56 @@ const storzMonitorBtnListener = () => {
       updateStorzMonitorState(selectedMonitor);
       updateStorzTitle();
       hideStorzMonitorBtns();
+      showSpecialtyBtns();
+      // showStorzSettings();
+      // showStorzMonitorSettings();
+      // showStorzMonitorTitle();
+    });
+  }
+};
+
+const storzSpecialtyBtnListener = () => {
+  const storzSpecialtyBtn = document.getElementsByClassName(
+    "storz-specialty-button"
+  );
+  for (let item of storzSpecialtyBtn) {
+    item.addEventListener("click", () => {
+      let selectedSpecialty = item.dataset.specialty;
+      updateStorzSpecialtyState(selectedSpecialty);
+      hideStorzSpecialtyBtns();
+      updateStorzTitle();
       showStorzSettings();
       showStorzMonitorSettings();
       showStorzMonitorTitle();
     });
+  }
+};
+
+const hideStorzSpecialtyBtns = () => {
+  if (
+    storzSetttingsState.ccu.name === "1688" &&
+    storzSetttingsState.monitor.name === "4K"
+  ) {
+    const specialtyBtnDiv = document.getElementById(
+      "storz-1688-4K-specialties-div"
+    );
+    specialtyBtnDiv.classList.remove("storz-1688-4K-specialties-div-show");
+  }
+};
+
+const updateStorzSpecialtyState = (selectedSpecialty) => {
+  storzSetttingsState.specialty.name = selectedSpecialty;
+};
+
+const showSpecialtyBtns = () => {
+  if (
+    storzSetttingsState.ccu.name === "1688" &&
+    storzSetttingsState.monitor.name === "4K"
+  ) {
+    const specialtyBtnDiv = document.getElementById(
+      "storz-1688-4K-specialties-div"
+    );
+    specialtyBtnDiv.classList.add("storz-1688-4K-specialties-div-show");
   }
 };
 
@@ -322,16 +383,19 @@ const showStorzMonitorTitle = () => {
 
 const updateStorzMonitorTitle = () => {
   const storzTitleText = document.getElementById("storz-monitor-title-text");
-  console.log(storzTitleText);
-
   storzTitleText.innerText =
     storzSetttingsState.monitor.name + " " + storzSetttingsState.ccu.name;
   const strozRepDiv = document.getElementById("storz-reps-div");
 
   for (let item in STORZSETTINGS) {
+    console.log(item);
     if (
       item ===
-      storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
+      storzSetttingsState.ccu.name +
+        "-" +
+        storzSetttingsState.monitor.name +
+        "-" +
+        storzSetttingsState.specialty.name
     ) {
       strozRepDiv.innerText = STORZSETTINGS[item].rep;
     }
@@ -365,10 +429,22 @@ const populateStorzMonitorSettings = () => {
   );
 
   for (let item in STORZSETTINGS) {
+    console.log(
+      item,
+      storzSetttingsState.ccu.name +
+        "-" +
+        storzSetttingsState.monitor.name +
+        "-" +
+        storzSetttingsState.specialty.name
+    );
     settings = "";
     if (
       item ===
-      storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
+      storzSetttingsState.ccu.name +
+        "-" +
+        storzSetttingsState.monitor.name +
+        "-" +
+        storzSetttingsState.specialty.name
     ) {
       settings = STORZSETTINGS[item].monitor;
       settings.map((setting) => {
@@ -390,8 +466,14 @@ const showStorzSettings = () => {
 };
 
 const populateStorzCcuParams = () => {
+  let params = "";
+  if ((storzSetttingsState.ccu.name === "1688", storzSetttingsState.ccu)) {
+    params = SIXTEENSTORZPARAMETERS;
+  } else {
+    params = FIFTEENTORZPARAMETERS;
+  }
   const paramsDiv = document.getElementById("storz-params-div");
-  SIXTEENSTORZPARAMETERS.map((param) => {
+  params.map((param) => {
     const paramDiv = document.createElement("div");
     paramDiv.setAttribute("class", "storz-param-div");
     paramDiv.innerText = param;
@@ -403,12 +485,23 @@ const populateStorzCcuParams = () => {
 const populateStrozCcuSettings = () => {
   const settingsDiv = document.getElementById("storz-settings-div");
   for (let item in STORZSETTINGS) {
+    console.log(
+      item,
+      storzSetttingsState.ccu.name +
+        "-" +
+        storzSetttingsState.monitor.name +
+        "-" +
+        storzSetttingsState.specialty.name
+    );
     settings = "";
     if (
       item ===
-      storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
+      storzSetttingsState.ccu.name +
+        "-" +
+        storzSetttingsState.monitor.name +
+        "-" +
+        storzSetttingsState.specialty.name
     ) {
-      console.log("inside", STORZSETTINGS[item].rep);
       settings = STORZSETTINGS[item].settings;
       settings.map((setting) => {
         const settingDiv = document.createElement("div");
@@ -469,13 +562,30 @@ const updateStorzTitle = () => {
   const storzTitleText = document.getElementById("storz-title-text");
 
   storzTitleText.innerText =
-    storzSetttingsState.ccu.name + " " + storzSetttingsState.monitor.name;
+    storzSetttingsState.ccu.name +
+    " " +
+    storzSetttingsState.monitor.name +
+    " " +
+    storzSetttingsState.specialty.name;
   const strozRepDiv = document.getElementById("storz-reps-div");
 
   for (let item in STORZSETTINGS) {
-    if (
+    console.log(
       item ===
-      storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
+        storzSetttingsState.ccu.name +
+          "-" +
+          storzSetttingsState.monitor.name +
+          "-" +
+          storzSetttingsState.specialty.name
+    );
+    if (
+      storzSetttingsState.specialty.name !== "" &&
+      item ===
+        storzSetttingsState.ccu.name +
+          "-" +
+          storzSetttingsState.monitor.name +
+          "-" +
+          storzSetttingsState.specialty.name
     ) {
       strozRepDiv.innerText = STORZSETTINGS[item].rep;
     }
