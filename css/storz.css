@@ -147,11 +147,47 @@
     display: none;
 }
 
+.storz-specialties-div.storz-specialties-div-show {
+    display: block;
+}
+
 .storz-1688-4K-specialties-div {
     display: none;
 }
 
 .storz-1688-4K-specialties-div.storz-1688-4K-specialties-div-show {
+    display: block;
+}
+
+.storz-1588-VisionPro-specialties-div {
+    display: none;
+}
+
+.storz-1588-VisionPro-specialties-div.storz-1588-VisionPro-specialties-div-show {
+    display: block;
+}
+
+.storz-1588-Wise-specialties-div {
+    display: none;
+}
+
+.storz-1588-Wise-specialties-div.storz-1588-Wise-specialties-div-show {
+    display: block;
+}
+
+.storz-1688-VisionPro-specialties-div {
+    display: none;
+}
+
+.storz-1688-VisionPro-specialties-div.storz-1688-VisionPro-specialties-div-show {
+    display: block;
+}
+
+.storz-1588-VisionPro-monitors-div {
+    display: none;
+}
+
+.storz-1588-VisionPro-monitors-div.storz-1588-VisionPro-monitors-div-show {
     display: block;
 }
 

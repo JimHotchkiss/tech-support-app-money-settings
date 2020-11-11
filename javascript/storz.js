@@ -17,6 +17,17 @@ const FOURKPARAMS = [
   "Contrast",
   "Sharpness",
 ];
+
+const VPPARAMS = [
+  "Specialty",
+  "Red",
+  "Green",
+  "Blue",
+  "Gamma",
+  "Brightness",
+  "Contrast",
+  "Sharpness",
+];
 // Need to add reps name in settings
 const FIFTEENTORZPARAMETERS = [
   "Enhancement",
@@ -133,25 +144,76 @@ const STORZSETTINGS = {
     monitor: ["Arthro A", "-30", "-6", "7", "S0", "Low", "39", "52", "No Data"],
   },
   "1688-VisionPro-ENT/Skull": {
-    rep: "jim.jones@stryker.com",
+    rep: "brian.koch@stryker.com",
     settings: [
-      "Vision pro",
+      "Auto",
+      "70",
+      "3",
+      "9",
+      "Photometry",
+      "0",
+      "6",
+      "5",
+      "-10",
+      "4",
+      "8",
+      "0",
       "30",
-      "1",
+      "4",
+      "0",
+      "0",
+      "-1",
+      "0",
+      "Auto",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "5",
+      "-8",
+      "-9",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-1",
+    ],
+    monitor: ["No Data", "-30", "-30", "5", "S0", "40", "60", "5"],
+  },
+  "1688-4K-Laparoscopy": {
+    rep: "",
+    settings: [
+      "Auto",
+      "30",
+      "0",
       "9",
       "Photometry",
       "2",
-      "5",
+      "3",
       "4",
       "0",
       "4",
-      "6",
-      "10",
-      "20",
-      "14",
+      "8",
+      "0",
+      "23",
+      "12",
       "0",
       "0",
-      "2",
+      "-10",
       "4",
       "Auto",
       "0",
@@ -159,29 +221,127 @@ const STORZSETTINGS = {
       "0",
       "0",
       "0",
+      "0",
+      "0",
       "3",
-      "0",
-      "4",
-      "2",
-      "1",
-      "4",
-      "5",
-      "0",
-      "0",
-      "0",
-      "0",
-      "5",
-      "-17",
+      "-8",
+      "-9",
       "0",
       "0",
       "0",
       "0",
       "0",
       "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-3",
+      "-5",
       "0",
       "0",
     ],
-    monitor: ["No Data", "-30", "-30", "5", "S0", "40", "60", "50", "5"],
+    monitor: [
+      "No Data",
+      "-45",
+      "-15",
+      "-10",
+      "S5",
+      "Low",
+      "40",
+      "50",
+      "No Data",
+    ],
+  },
+
+  "1688-VisionPro-Laparoscopy": {
+    rep: "",
+    settings: [
+      "Auto",
+      "30",
+      "0",
+      "9",
+      "Photometry",
+      "2",
+      "3",
+      "4",
+      "0",
+      "4",
+      "8",
+      "0",
+      "23",
+      "12",
+      "0",
+      "0",
+      "-10",
+      "4",
+      "Auto",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "3",
+      "-8",
+      "-9",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-3",
+      "-5",
+      "0",
+      "0",
+    ],
+    monitor: ["No Data", "-15", "5", "5", "1.9", "45", "50", "5"],
+  },
+  "1588-VisionPro-Laparoscopy": {
+    rep: "",
+    settings: [
+      "26",
+      "Normal",
+      "-10",
+      "-3",
+      "0",
+      "0",
+      "On",
+      "Auto",
+      "1",
+      "3",
+      "1",
+      "19",
+    ],
+    monitor: ["No Data", "-35", "5", "5", "S2", "45", "60", "No Data"],
+  },
+  "1588-HDTV Wise-Laparoscopy": {
+    rep: "",
+    settings: [
+      "26",
+      "Normal",
+      "-10",
+      "-3",
+      "0",
+      "0",
+      "On",
+      "Auto",
+      "1",
+      "3",
+      "1",
+      "19",
+    ],
+    monitor: ["No Data", "-35", "-3", "25", "S2", "45", "58", "No Data"],
   },
 };
 
@@ -195,12 +355,21 @@ const storzSetttingsState = {
 const storzBackBtnListener = () => {
   const storzBackBtnDiv = document.getElementById("storz-back-btn-div");
   storzBackBtnDiv.addEventListener("click", () => {
-    if (storzSetttingsState.monitor.name !== "") {
+    if (storzSetttingsState.specialty.name !== "") {
+      resetStorzSpecilatySettingsState();
+      resetStorzRepSettingsState();
+      resetStorzTitle();
+      hideStorzSettings();
+      showSpecialtyBtns();
+      clearStorzCcuHtml();
+      clearStorzMonitorHtml();
+      hideStorzMonitorTitle();
+    } else if (storzSetttingsState.monitor.name !== "") {
       resetStorzMonitorSettingsState();
       resetStorzRepSettingsState();
       resetStorzTitle();
       hideStorzSettings();
-      showStorzMonitorBtns();
+      showStorzMonitorsBtns();
       clearStorzCcuHtml();
       clearStorzMonitorHtml();
       hideStorzMonitorTitle();
@@ -213,6 +382,10 @@ const storzBackBtnListener = () => {
       realignStorzLogo();
     }
   });
+};
+
+const resetStorzSpecilatySettingsState = () => {
+  storzSetttingsState.specialty.name = "";
 };
 
 const hideStorzMonitorTitle = () => {
@@ -263,11 +436,6 @@ const clearStorzCcuHtml = () => {
   storzSettingsOuterDiv[0].innerHTML = "";
 };
 
-const showStorzMonitorBtns = () => {
-  const storzMonitorsDiv = document.getElementById("storz-monitors-div");
-  storzMonitorsDiv.classList.add("storz-monitors-div-show");
-};
-
 const hideStorzSettings = () => {
   const storzSettingsContainer = document.getElementById(
     "storz-settings-container"
@@ -287,18 +455,8 @@ const resetStorzTitle = () => {
 
   storzTitleText.innerText =
     storzSetttingsState.ccu.name + " " + storzSetttingsState.monitor.name;
-  const strozRepDiv = document.getElementById("storz-reps-div");
-
-  for (let item in STORZSETTINGS) {
-    if (
-      item ===
-      storzSetttingsState.ccu.name + "-" + storzSetttingsState.monitor.name
-    ) {
-      strozRepDiv.innerText = STORZSETTINGS[item].rep;
-    } else {
-      strozRepDiv.innerText = "";
-    }
-  }
+  const strozRepDiv = document.getElementById("storz-monitor-reps-div");
+  strozRepDiv.innerText = "";
 };
 
 const resetStorzRepSettingsState = () => {
@@ -334,6 +492,7 @@ const storzSpecialtyBtnListener = () => {
   );
   for (let item of storzSpecialtyBtn) {
     item.addEventListener("click", () => {
+      console.log("here");
       let selectedSpecialty = item.dataset.specialty;
       updateStorzSpecialtyState(selectedSpecialty);
       hideStorzSpecialtyBtns();
@@ -350,14 +509,41 @@ const hideStorzSpecialtyBtns = () => {
     storzSetttingsState.ccu.name === "1688" &&
     storzSetttingsState.monitor.name === "4K"
   ) {
-    const specialtyBtnDiv = document.getElementById(
+    let specialtyBtnDiv = document.getElementById(
       "storz-1688-4K-specialties-div"
     );
     specialtyBtnDiv.classList.remove("storz-1688-4K-specialties-div-show");
+  } else if (
+    storzSetttingsState.ccu.name === "1688" &&
+    storzSetttingsState.monitor.name === "VisionPro"
+  ) {
+    let specialtyBtnDiv = document.getElementById(
+      "storz-1688-VisionPro-specialties-div"
+    );
+    specialtyBtnDiv.classList.remove(
+      "storz-1688-VisionPro-specialties-div-show"
+    );
+  } else if (
+    storzSetttingsState.ccu.name === "1588" &&
+    storzSetttingsState.monitor.name === "VisionPro"
+  ) {
+    console.log("1588/vp");
+    let specialtyBtnDiv = document.getElementById(
+      "storz-1588-VisionPro-specialties-div"
+    );
+    specialtyBtnDiv.classList.remove(
+      "storz-1588-VisionPro-specialties-div-show"
+    );
+  } else {
+    let specialtyBtnDiv = document.getElementById(
+      "storz-1588-Wise-specialties-div"
+    );
+    specialtyBtnDiv.classList.remove("storz-1588-Wise-specialties-div-show");
   }
 };
 
 const updateStorzSpecialtyState = (selectedSpecialty) => {
+  console.log(selectedSpecialty);
   storzSetttingsState.specialty.name = selectedSpecialty;
 };
 
@@ -370,6 +556,27 @@ const showSpecialtyBtns = () => {
       "storz-1688-4K-specialties-div"
     );
     specialtyBtnDiv.classList.add("storz-1688-4K-specialties-div-show");
+  } else if (
+    storzSetttingsState.ccu.name === "1688" &&
+    storzSetttingsState.monitor.name === "VisionPro"
+  ) {
+    const specialtyBtnDiv = document.getElementById(
+      "storz-1688-VisionPro-specialties-div"
+    );
+    specialtyBtnDiv.classList.add("storz-1688-VisionPro-specialties-div-show");
+  } else if (
+    storzSetttingsState.ccu.name === "1588" &&
+    storzSetttingsState.monitor.name === "VisionPro"
+  ) {
+    const specialtyBtnDiv = document.getElementById(
+      "storz-1588-VisionPro-specialties-div"
+    );
+    specialtyBtnDiv.classList.add("storz-1588-VisionPro-specialties-div-show");
+  } else {
+    const specialtyBtnDiv = document.getElementById(
+      "storz-1588-Wise-specialties-div"
+    );
+    specialtyBtnDiv.classList.add("storz-1588-Wise-specialties-div-show");
   }
 };
 
@@ -384,11 +591,14 @@ const showStorzMonitorTitle = () => {
 const updateStorzMonitorTitle = () => {
   const storzTitleText = document.getElementById("storz-monitor-title-text");
   storzTitleText.innerText =
-    storzSetttingsState.monitor.name + " " + storzSetttingsState.ccu.name;
-  const strozRepDiv = document.getElementById("storz-reps-div");
+    storzSetttingsState.monitor.name +
+    " " +
+    storzSetttingsState.ccu.name +
+    " " +
+    storzSetttingsState.specialty.name;
+  const strozRepDiv = document.getElementById("storz-monitor-reps-div");
 
   for (let item in STORZSETTINGS) {
-    console.log(item);
     if (
       item ===
       storzSetttingsState.ccu.name +
@@ -414,7 +624,16 @@ const showStorzMonitorSettings = () => {
 
 const populateStorzMonitorParams = () => {
   const monitorParamsDiv = document.getElementById("storz-monitor-params-div");
-  FOURKPARAMS.map((param) => {
+  let params = "";
+  if (
+    storzSetttingsState.monitor.name === "VisionPro" ||
+    storzSetttingsState.monitor.name === "HDTV Wise"
+  ) {
+    params = VPPARAMS;
+  } else {
+    params = FOURKPARAMS;
+  }
+  params.map((param) => {
     const paramDiv = document.createElement("div");
     paramDiv.setAttribute("class", "storz-monitor-param-div");
     paramDiv.innerText = param;
@@ -429,14 +648,6 @@ const populateStorzMonitorSettings = () => {
   );
 
   for (let item in STORZSETTINGS) {
-    console.log(
-      item,
-      storzSetttingsState.ccu.name +
-        "-" +
-        storzSetttingsState.monitor.name +
-        "-" +
-        storzSetttingsState.specialty.name
-    );
     settings = "";
     if (
       item ===
@@ -458,6 +669,7 @@ const populateStorzMonitorSettings = () => {
 };
 
 const showStorzSettings = () => {
+  console.log("987");
   const storzSettingsContainer = document.getElementById(
     "storz-settings-container"
   );
@@ -467,7 +679,7 @@ const showStorzSettings = () => {
 
 const populateStorzCcuParams = () => {
   let params = "";
-  if ((storzSetttingsState.ccu.name === "1688", storzSetttingsState.ccu)) {
+  if (storzSetttingsState.ccu.name === "1688") {
     params = SIXTEENSTORZPARAMETERS;
   } else {
     params = FIFTEENTORZPARAMETERS;
@@ -485,14 +697,7 @@ const populateStorzCcuParams = () => {
 const populateStrozCcuSettings = () => {
   const settingsDiv = document.getElementById("storz-settings-div");
   for (let item in STORZSETTINGS) {
-    console.log(
-      item,
-      storzSetttingsState.ccu.name +
-        "-" +
-        storzSetttingsState.monitor.name +
-        "-" +
-        storzSetttingsState.specialty.name
-    );
+    console.log(item);
     settings = "";
     if (
       item ===
@@ -514,8 +719,15 @@ const populateStrozCcuSettings = () => {
 };
 
 const hideStorzMonitorBtns = () => {
-  const storzMonitorsDiv = document.getElementById("storz-monitors-div");
-  storzMonitorsDiv.classList.remove("storz-monitors-div-show");
+  if (storzSetttingsState.ccu.name === "1588") {
+    const storzMonitorsDiv = document.getElementById(
+      "storz-1588-VisionPro-monitors-div"
+    );
+    storzMonitorsDiv.classList.remove("storz-1588-VisionPro-monitors-div-show");
+  } else {
+    const storzMonitorsDiv = document.getElementById("storz-monitors-div");
+    storzMonitorsDiv.classList.remove("storz-monitors-div-show");
+  }
 };
 
 const updateStorzMonitorState = (selectedMonitor) => {
@@ -538,8 +750,15 @@ const storzCcuBtnListener = () => {
 };
 
 const showStorzMonitorsBtn = () => {
-  const storzMonitorsDiv = document.getElementById("storz-monitors-div");
-  storzMonitorsDiv.classList.add("storz-monitors-div-show");
+  if (storzSetttingsState.ccu.name === "1588") {
+    const storzMonitorsDiv = document.getElementById(
+      "storz-1588-VisionPro-monitors-div"
+    );
+    storzMonitorsDiv.classList.add("storz-1588-VisionPro-monitors-div-show");
+  } else {
+    const storzMonitorsDiv = document.getElementById("storz-monitors-div");
+    storzMonitorsDiv.classList.add("storz-monitors-div-show");
+  }
 };
 
 const centerStorzLogo = () => {
@@ -560,7 +779,6 @@ const hideStorzCcusBtnDiv = () => {
 
 const updateStorzTitle = () => {
   const storzTitleText = document.getElementById("storz-title-text");
-
   storzTitleText.innerText =
     storzSetttingsState.ccu.name +
     " " +
@@ -570,14 +788,6 @@ const updateStorzTitle = () => {
   const strozRepDiv = document.getElementById("storz-reps-div");
 
   for (let item in STORZSETTINGS) {
-    console.log(
-      item ===
-        storzSetttingsState.ccu.name +
-          "-" +
-          storzSetttingsState.monitor.name +
-          "-" +
-          storzSetttingsState.specialty.name
-    );
     if (
       storzSetttingsState.specialty.name !== "" &&
       item ===
