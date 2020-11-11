@@ -368,8 +368,9 @@ const storzBackBtnListener = () => {
       resetStorzMonitorSettingsState();
       resetStorzRepSettingsState();
       resetStorzTitle();
-      hideStorzSettings();
-      showStorzMonitorsBtns();
+      // hideStorzSettings();
+      backBtnHideStorzSpecialtyBtns();
+      showStorzMonitorsBtn();
       clearStorzCcuHtml();
       clearStorzMonitorHtml();
       hideStorzMonitorTitle();
@@ -382,6 +383,30 @@ const storzBackBtnListener = () => {
       realignStorzLogo();
     }
   });
+};
+
+const backBtnHideStorzSpecialtyBtns = () => {
+  const specialtyBtns16884K = document.getElementById(
+    "storz-1688-4K-specialties-div"
+  );
+  specialtyBtns16884K.classList.remove("storz-1688-4K-specialties-div-show");
+  const specialtyBtn1688VP = document.getElementById(
+    "storz-1688-VisionPro-specialties-div"
+  );
+  specialtyBtn1688VP.classList.remove(
+    "storz-1688-VisionPro-specialties-div-show"
+  );
+  const specialtyBtn1588VP = document.getElementById(
+    "storz-1588-VisionPro-specialties-div"
+  );
+  specialtyBtn1588VP.classList.remove(
+    "storz-1588-VisionPro-specialties-div-show"
+  );
+
+  const specialtyBtn1588Wise = document.getElementById(
+    "storz-1588-Wise-specialties-div"
+  );
+  specialtyBtn1588Wise.classList.remove("storz-1588-Wise-specialties-div-show");
 };
 
 const resetStorzSpecilatySettingsState = () => {
@@ -505,6 +530,7 @@ const storzSpecialtyBtnListener = () => {
 };
 
 const hideStorzSpecialtyBtns = () => {
+  console.log(storzSetttingsState);
   if (
     storzSetttingsState.ccu.name === "1688" &&
     storzSetttingsState.monitor.name === "4K"
@@ -527,7 +553,6 @@ const hideStorzSpecialtyBtns = () => {
     storzSetttingsState.ccu.name === "1588" &&
     storzSetttingsState.monitor.name === "VisionPro"
   ) {
-    console.log("1588/vp");
     let specialtyBtnDiv = document.getElementById(
       "storz-1588-VisionPro-specialties-div"
     );
@@ -590,12 +615,20 @@ const showStorzMonitorTitle = () => {
 
 const updateStorzMonitorTitle = () => {
   const storzTitleText = document.getElementById("storz-monitor-title-text");
+
+  let specialty = "";
+  if (storzSetttingsState.specialty.name === "Laparoscopy") {
+    specialty = "Lap";
+  } else {
+    specialty = storzSetttingsState.specialty.name;
+  }
+
   storzTitleText.innerText =
     storzSetttingsState.monitor.name +
     " " +
     storzSetttingsState.ccu.name +
     " " +
-    storzSetttingsState.specialty.name;
+    specialty;
   const strozRepDiv = document.getElementById("storz-monitor-reps-div");
 
   for (let item in STORZSETTINGS) {
@@ -719,15 +752,14 @@ const populateStrozCcuSettings = () => {
 };
 
 const hideStorzMonitorBtns = () => {
-  if (storzSetttingsState.ccu.name === "1588") {
-    const storzMonitorsDiv = document.getElementById(
-      "storz-1588-VisionPro-monitors-div"
-    );
-    storzMonitorsDiv.classList.remove("storz-1588-VisionPro-monitors-div-show");
-  } else {
-    const storzMonitorsDiv = document.getElementById("storz-monitors-div");
-    storzMonitorsDiv.classList.remove("storz-monitors-div-show");
-  }
+  const storzMonitorsDiv = document.getElementById("storz-monitors-div");
+  storzMonitorsDiv.classList.remove("storz-monitors-div-show");
+  const storz1588MonitorsDiv = document.getElementById(
+    "storz-1588-VisionPro-monitors-div"
+  );
+  storz1588MonitorsDiv.classList.remove(
+    "storz-1588-VisionPro-monitors-div-show"
+  );
 };
 
 const updateStorzMonitorState = (selectedMonitor) => {
@@ -778,13 +810,19 @@ const hideStorzCcusBtnDiv = () => {
 };
 
 const updateStorzTitle = () => {
+  let specialty = "";
+  if (storzSetttingsState.specialty.name === "Laparoscopy") {
+    specialty = "Lap";
+  } else {
+    specialty = storzSetttingsState.specialty.name;
+  }
   const storzTitleText = document.getElementById("storz-title-text");
   storzTitleText.innerText =
     storzSetttingsState.ccu.name +
     " " +
     storzSetttingsState.monitor.name +
     " " +
-    storzSetttingsState.specialty.name;
+    specialty;
   const strozRepDiv = document.getElementById("storz-reps-div");
 
   for (let item in STORZSETTINGS) {
