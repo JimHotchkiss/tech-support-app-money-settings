@@ -29,6 +29,7 @@ SDCULTRAALT = ["0", "130", "0", "-150", "750"];
 ARTHROHUB = ["-30", "180", "-10", "83", "660"];
 LAPHUB = ["-30", "260", "10", "83", "660"];
 SPYHUB = ["75", "-10", "10", "83", "660"];
+Olympus_Ortho_1 = ["-30", "180", "-10", "83", "660"];
 
 const printerSelectSdc = () => {
   // grab sdc button
@@ -180,7 +181,9 @@ const hidePrinterSpecialtyDiv = () => {
 };
 
 const showHubPrinterSetting = () => {
+  console.log(printerState.specialty.name);
   if (printerState.specialty.name === "Laparoscopy") {
+    console.log("sup");
     const hubLapSettingsDiv = document.getElementById("hub-lap-settings-div");
     hubLapSettingsDiv.classList.add("hub-lap-settings-div-show");
   } else if (printerState.specialty.name === "Arthroscopy") {
@@ -188,6 +191,20 @@ const showHubPrinterSetting = () => {
       "hub-arthro-settings-div"
     );
     hubLapSettingsDiv.classList.add("hub-arthro-settings-div-show");
+  } else if (printerState.specialty.name === "Olympus_Ortho_1") {
+    const olympusOrthoSettingsDiv = document.getElementById(
+      "hub-olympus-ortho1-settings-div"
+    );
+    olympusOrthoSettingsDiv.classList.add(
+      "hub-olympus-ortho1-settings-div-show"
+    );
+  } else if (printerState.specialty.name === "Olympus_Ortho_2") {
+    const olympusOrthoSettingsDiv = document.getElementById(
+      "hub-olympus-ortho2-settings-div"
+    );
+    olympusOrthoSettingsDiv.classList.add(
+      "hub-olympus-ortho2-settings-div-show"
+    );
   } else {
     const hubLapSettingsDiv = document.getElementById("hub-spy-settings-div");
     hubLapSettingsDiv.classList.add("hub-spy-settings-div-show");
@@ -328,10 +345,15 @@ const hidePrinterSettings = () => {
   const hubArthroSettingsDiv = document.getElementById(
     "hub-arthro-settings-div"
   );
+
+  const hubOrtho1 = document.getElementById("hub-olympus-ortho1-settings-div");
+  const hubOrtho2 = document.getElementById("hub-olympus-ortho2-settings-div");
   const hubSpySettingsDiv = document.getElementById("hub-spy-settings-div");
   hubLapSettingsDiv.classList.remove("hub-lap-settings-div-show");
   hubArthroSettingsDiv.classList.remove("hub-arthro-settings-div-show");
   hubSpySettingsDiv.classList.remove("hub-spy-settings-div-show");
+  hubOrtho1.classList.remove("hub-olympus-ortho1-settings-div-show");
+  hubOrtho2.classList.remove("hub-olympus-ortho2-settings-div-show");
 };
 
 const showSelectTitleDiv = () => {

@@ -77,6 +77,24 @@ body {
   display: block;
 }
 
+.hub-olympus-ortho1-settings-div {
+  display: none;
+}
+
+.hub-olympus-ortho1-settings-div.hub-olympus-ortho1-settings-div-show{
+  margin-top: 30%;
+  display: block;
+}
+
+.hub-olympus-ortho2-settings-div {
+  display: none;
+}
+
+.hub-olympus-ortho2-settings-div.hub-olympus-ortho2-settings-div-show{
+  margin-top: 30%;
+  display: block;
+}
+
 .hub-arthro-settings-div.hub-arthro-settings-div-show {
   margin-top: 30%;
   display: block;
