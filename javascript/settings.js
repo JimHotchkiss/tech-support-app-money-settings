@@ -31,7 +31,7 @@ const SPECIALTIES = [
   "Arthro 4/16",
   "Lap 1",
   "Lap 2",
-  "Lap STORZ",
+  // "Lap STORZ",
   "Cysto",
   "Hysteroscopy",
   "Flexiscope",
@@ -67,7 +67,7 @@ const FIFTEENWISEVPSPECIALTIES = [
   "Arthro 4/16",
   "Lap 1",
   "Lap 2",
-  "Lap STORZ",
+  // "Lap STORZ",
   "Cysto",
   "Hysteroscopy",
   "Flexiscope",
@@ -106,7 +106,7 @@ const PRECISIONSPECIALTIES = [
 const SIXTEENSPECIALTIES = [
   "Lap 1",
   "Lap 2",
-  "Lap Storz",
+  // "Lap Storz",
   "Arthro 1",
   "Arthro 2",
   "ENT 1",
@@ -119,7 +119,7 @@ const SIXTEENSPECIALTIES = [
   "Hystero",
 ];
 
-const SIXTEENVISIONPROSPECIALTIES = ["Lap 1", "Lap 2", "Lap Storz"];
+const SIXTEENVISIONPROSPECIALTIES = ["Lap 1", "Lap 2"];
 TWELVESPECIALTIES = [
   "Arthro 1",
   "Arthro 2",
