@@ -93,7 +93,7 @@ const SIXTEENSTORZPARAMETERS = [
 
 const STORZSETTINGS = {
   "1688-4K-ENT/Skull": {
-    rep: "brian.koch@stryker.com",
+    rep: "Brian Koch",
     settings: [
       "Auto",
       "70",
@@ -144,7 +144,7 @@ const STORZSETTINGS = {
     monitor: ["Arthro A", "-30", "-6", "7", "S0", "Low", "39", "52", "No Data"],
   },
   "1688-VisionPro-ENT/Skull": {
-    rep: "brian.koch@stryker.com",
+    rep: "Brian Koch",
     settings: [
       "Auto",
       "70",
@@ -568,7 +568,6 @@ const hideStorzSpecialtyBtns = () => {
 };
 
 const updateStorzSpecialtyState = (selectedSpecialty) => {
-  console.log(selectedSpecialty);
   storzSetttingsState.specialty.name = selectedSpecialty;
 };
 
@@ -640,7 +639,7 @@ const updateStorzMonitorTitle = () => {
         "-" +
         storzSetttingsState.specialty.name
     ) {
-      strozRepDiv.innerText = STORZSETTINGS[item].rep;
+      strozRepDiv.innerText = "Rep:" + " " + STORZSETTINGS[item].rep;
     }
   }
 };
@@ -835,7 +834,7 @@ const updateStorzTitle = () => {
           "-" +
           storzSetttingsState.specialty.name
     ) {
-      strozRepDiv.innerText = STORZSETTINGS[item].rep;
+      strozRepDiv.innerText = "Rep:" + " " + STORZSETTINGS[item].rep;
     }
   }
 };
