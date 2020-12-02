@@ -1089,8 +1089,17 @@ const olympusBtnListener = () => {
       showCcuSettings()
       showMonitorTitleSettings()
       showMonitorSettings()
+      scrollToTop()
     })
   }
+}
+
+const scrollToTop = () => {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  })
 }
 
 const showMonitorTitleSettings = () => {
