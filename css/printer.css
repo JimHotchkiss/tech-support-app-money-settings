@@ -86,11 +86,20 @@ body {
   display: block;
 }
 
-.hub-olympus-ortho2-settings-div {
+.hub-olympus-ortho3-settings-div {
   display: none;
 }
 
-.hub-olympus-ortho2-settings-div.hub-olympus-ortho2-settings-div-show{
+.hub-olympus-ortho3-settings-div.hub-olympus-ortho3-settings-div-show{
+  margin-top: 30%;
+  display: block;
+}
+
+.hub-olympus-lap1-settings-div {
+  display: none;
+}
+
+.hub-olympus-lap1-settings-div.hub-olympus-lap1-settings-div-show {
   margin-top: 30%;
   display: block;
 }
@@ -319,6 +328,16 @@ body {
   opacity: 0.9;
   transition: all 0.4s ease 0s;
 }
+
+.printer-specialty-button-text {
+  color: #000;
+  font-size: 14px;
+  font-weight: 300;;
+  margin: 0; 
+  padding: 0;
+}
+
+
 
 .printer-specialty-example_a:hover {
   color: #fff;
