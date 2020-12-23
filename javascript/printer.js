@@ -14,7 +14,7 @@ const printerState = {
 
 const printers = ["SDP1000", "SDP1000 alt."]
 const hubPrinters = ["SDP1000"]
-const SDCPARAMETERS = ["Brightness", "Contrast", "Phase", "Chroma", "Sharpness"]
+const SDCPARAMETERS = ["Brightness", "Sharpness", "Contrast", "Chroma", "Phase"]
 const hubSpecialties = ["Laparoscopy", "Arthroscopy", "Spy-Phi"]
 SDC = ["130", "78", "0", "-180", "650"]
 SDC3ALT = ["52", "104", "5", "-420", "800"]
