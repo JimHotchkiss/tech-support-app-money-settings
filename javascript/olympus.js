@@ -65,9 +65,9 @@ const FOURKPARAMS = [
 ]
 
 const OLYMPUSFOURK = {
-  Laser: ["Standard", "0", "0", "0", "2.2", "Med", "45", "50", "5"],
-  Hysteroscopy: ["Standard", "0", "0", "0", "2.2", "Med", "45", "50", "5"],
-  Laparoscopy: ["Lap 1", "-45", "-5", "10", "S7", "Low", "45", "50", "5"],
+  "Laparoscopy 3": ["Standard", "0", "0", "0", "2.2", "Med", "45", "50", "5"],
+  "Laparoscopy 2": ["Standard", "0", "0", "0", "2.2", "Med", "45", "50", "5"],
+  "Laparoscopy 1": ["Lap 1", "-45", "-5", "10", "S7", "Low", "45", "50", "5"],
   "ENT 1": ["No Data", "-30", "-6", "7", "S0", "Low", "39", "52", "5"],
   "ENT 2": ["No Data", "-30", "-6", "7", "S0", "Mid", "39", "59", "5"],
   "ENT 3": ["No Data", "-30", "-6", "6", "S0", "Mid", "39", "52", "5"],
@@ -739,7 +739,7 @@ const OLYMPUSSIXTEEN = {
     "0",
     "0",
   ],
-  Hysteroscopy: [
+  "Laparoscopy 2": [
     "Auto",
     "15",
     "0",
@@ -786,7 +786,7 @@ const OLYMPUSSIXTEEN = {
     "-7",
     "-10",
   ],
-  Laparoscopy: [
+  "Laparoscopy 1": [
     "Auto",
     "30",
     "0",
@@ -833,7 +833,7 @@ const OLYMPUSSIXTEEN = {
     "0",
     "0",
   ],
-  Laser: [
+  "Laparoscopy 3": [
     "Auto",
     "15",
     "0",
@@ -993,6 +993,8 @@ const olympusBackBtnListener = () => {
     hideMonitorTitleSettings()
     hideBackArrow()
     returnLogoDiv()
+    // scroll to top
+    scrollToTop()
   })
 }
 
