@@ -983,6 +983,7 @@ const olympusSetttingsState = {
 const olympusBackBtnListener = () => {
   const olympusBackBtnDiv = document.getElementById("olympus-back-btn-div")
   olympusBackBtnDiv.addEventListener("click", () => {
+    scrollToTop()
     resetOympusSettingsState()
     resetOlympusTitle()
     showTitleBtn()
@@ -993,8 +994,6 @@ const olympusBackBtnListener = () => {
     hideMonitorTitleSettings()
     hideBackArrow()
     returnLogoDiv()
-    // scroll to top
-    scrollToTop()
   })
 }
 
