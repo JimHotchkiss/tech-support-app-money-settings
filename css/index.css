@@ -169,15 +169,31 @@ body {
   background-size: 60px;
 }
 
+#sports-med-complaint-div {
+  width: 50px;
+  height: 60px;
+  background: transparent url("../images/complaint.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-size: 50px;
+}
+
+.card-container:hover #sports-med-complaint-div {
+  width: 55px;
+  height: 65px;
+  background-size: 55px;
+  transition: all 0.4s ease 0s;
+}
+
+
 #contact-card-img-div {
   width: 60px;
   height: 60px;
   background: transparent url("../images/contact.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
- 
-  /* margin-top: 15px;
-  margin-left: -15px; */
   background-size: 60px;
 }
 

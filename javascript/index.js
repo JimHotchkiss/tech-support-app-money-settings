@@ -1,81 +1,91 @@
 document.addEventListener("DOMContentLoaded", () => {
-  landingPageEventListener();
-  msaEventListener();
-  printerEventListener();
-  defaultEventListener();
-  shareSettingsEventListener();
-  olympusEventListener();
-  storzEventListener();
-  ideaTileListener();
-  contactTileListener();
-});
+  landingPageEventListener()
+  msaEventListener()
+  printerEventListener()
+  defaultEventListener()
+  shareSettingsEventListener()
+  olympusEventListener()
+  storzEventListener()
+  ideaTileListener()
+  contactTileListener()
+  complaintSubmissionEventListener()
+})
 
 const storzEventListener = () => {
-  const storzDiv = document.getElementById("storz-card");
+  const storzDiv = document.getElementById("storz-card")
   storzDiv.addEventListener("click", () => {
-    location.replace("./storz.html");
-  });
-};
+    location.replace("./storz.html")
+  })
+}
 
 const contactTileListener = () => {
-  const contactCard = document.getElementById("contact-card");
+  const contactCard = document.getElementById("contact-card")
   contactCard.addEventListener("click", () => {
-    console.log("contact event listenerå");
-    location.replace("./contact.html");
-  });
-};
+    console.log("contact event listenerå")
+    location.replace("./contact.html")
+  })
+}
 
 const ideaTileListener = () => {
-  const ideaCard = document.getElementById("idea-card");
+  const ideaCard = document.getElementById("idea-card")
   ideaCard.addEventListener("click", () => {
     window.open(
       "https://forms.office.com/Pages/ResponsePage.aspx?id=-7udTko5g0WIEFP4H4GeOyvF9t6kmYZAnEVeps1nibRUOERFMFdLWFgyWFZNVE9WUjRSWkFaTzc1VS4u"
-    );
-  });
-};
+    )
+  })
+}
 
 const olympusEventListener = () => {
-  const olympusDiv = document.getElementById("olympus-card");
+  const olympusDiv = document.getElementById("olympus-card")
   olympusDiv.addEventListener("click", () => {
-    location.replace("./olympus.html");
-  });
-};
+    location.replace("./olympus.html")
+  })
+}
 
 const landingPageEventListener = () => {
-  const msaButton = document.getElementById("msa-button");
+  const msaButton = document.getElementById("msa-button")
   if (msaButton) {
     msaButton.addEventListener("click", () => {
-      location.replace("./msa.html");
-    });
+      location.replace("./msa.html")
+    })
   }
-};
+}
 
 const msaEventListener = () => {
-  const msaDiv = document.getElementById("msa-card");
+  const msaDiv = document.getElementById("msa-card")
   msaDiv.addEventListener("click", () => {
-    location.replace("./msa.html");
-  });
-};
+    location.replace("./msa.html")
+  })
+}
 
 const printerEventListener = () => {
-  const printerDiv = document.getElementById("printer-card");
+  const printerDiv = document.getElementById("printer-card")
   printerDiv.addEventListener("click", () => {
-    location.replace("./printer.html");
-  });
-};
+    location.replace("./printer.html")
+  })
+}
 
 const defaultEventListener = () => {
-  const defaultDiv = document.getElementById("default-card");
+  const defaultDiv = document.getElementById("default-card")
   defaultDiv.addEventListener("click", () => {
-    location.replace("./default-settings.html");
-  });
-};
+    location.replace("./default-settings.html")
+  })
+}
 
 const shareSettingsEventListener = () => {
-  const shareSettingsDiv = document.getElementById("contribute-settings-card");
+  const shareSettingsDiv = document.getElementById("contribute-settings-card")
   shareSettingsDiv.addEventListener("click", () => {
     window.open(
       "https://forms.office.com/Pages/ResponsePage.aspx?id=-7udTko5g0WIEFP4H4GeOyvF9t6kmYZAnEVeps1nibRURUk3NEZXQ1lXUDRCMTZPMDZEVTFGTUhXOS4u"
-    );
-  });
-};
+    )
+  })
+}
+
+const complaintSubmissionEventListener = () => {
+  const shareSettingsDiv = document.getElementById("sports-med-complaint")
+  shareSettingsDiv.addEventListener("click", () => {
+    window.open(
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=-7udTko5g0WIEFP4H4GeOyvF9t6kmYZAnEVeps1nibRUMVRQRzEzNERSTTY4SEoxTEZBM1RaS05TSy4u"
+    )
+  })
+}
