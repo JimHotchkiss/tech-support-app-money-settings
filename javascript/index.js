@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   storzEventListener()
   ideaTileListener()
   contactTileListener()
-  // complaintSubmissionEventListener()
+  complaintSubmissionEventListener()
 })
 
 const storzEventListener = () => {
@@ -81,11 +81,11 @@ const shareSettingsEventListener = () => {
   })
 }
 
-// const complaintSubmissionEventListener = () => {
-//   const shareSettingsDiv = document.getElementById("sports-med-complaint")
-//   shareSettingsDiv.addEventListener("click", () => {
-//     window.open(
-//       "https://forms.office.com/Pages/ResponsePage.aspx?id=-7udTko5g0WIEFP4H4GeOyvF9t6kmYZAnEVeps1nibRUMVRQRzEzNERSTTY4SEoxTEZBM1RaS05TSy4u"
-//     )
-//   })
-// }
+const complaintSubmissionEventListener = () => {
+  const shareSettingsDiv = document.getElementById("sports-med-complaint")
+  shareSettingsDiv.addEventListener("click", () => {
+    window.open(
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=-7udTko5g0WIEFP4H4GeOyvF9t6kmYZAnEVeps1nibRUMVRQRzEzNERSTTY4SEoxTEZBM1RaS05TSy4u"
+    )
+  })
+}
