@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  selectCamera();
-  backButton();
-  showHomeIcon();
-});
+  selectCamera()
+  backButton()
+  showHomeIcon()
+})
 
 const state = {
   camera: { name: "" },
   display: { name: "" },
   specialty: { name: "" },
-};
+}
 
 const NODATA = [
   "No Data",
@@ -23,7 +23,7 @@ const NODATA = [
   "No Data",
   "No Data",
   "No Data",
-];
+]
 const SPECIALTIES = [
   "Multi",
   "Arthro 1",
@@ -41,9 +41,9 @@ const SPECIALTIES = [
   "Standard",
   "Vein Harvest",
   "Olympus GI",
-];
-const PRECISION4KSPECIALTIES = ["Arthro 1", "Hysteroscopy", "ENT"];
-const FOURTEENFOURKSPECIALTIES = ["Arthro", "Lap"];
+]
+const PRECISION4KSPECIALTIES = ["Arthro 1", "Hysteroscopy", "ENT"]
+const FOURTEENFOURKSPECIALTIES = ["Arthro", "Lap"]
 const FOURTEENSPECIALTIES = [
   "Multi",
   "Arthro 1",
@@ -59,7 +59,7 @@ const FOURTEENSPECIALTIES = [
   "Standard",
   "Vein Harvest",
   "Olympus GI",
-];
+]
 const FIFTEENWISEVPSPECIALTIES = [
   "Multi",
   "Arthro 1",
@@ -76,7 +76,7 @@ const FIFTEENWISEVPSPECIALTIES = [
   "Microscope",
   "Standard",
   "Vein Harvest",
-];
+]
 
 const FIFTEENFOURKSPECIALTIES = [
   "Multi",
@@ -91,8 +91,8 @@ const FIFTEENFOURKSPECIALTIES = [
   "Laser",
   "Microscope",
   "Standard",
-];
-const TWELVEFOURKSPECIALTIES = ["Arthro"];
+]
+const TWELVEFOURKSPECIALTIES = ["Arthro"]
 const PRECISIONSPECIALTIES = [
   "Multi",
   "Arthro 1",
@@ -102,7 +102,7 @@ const PRECISIONSPECIALTIES = [
   "Cysto",
   "Hysteroscopy",
   "ENT",
-];
+]
 const SIXTEENSPECIALTIES = [
   "Lap 1",
   "Lap 2",
@@ -117,9 +117,9 @@ const SIXTEENSPECIALTIES = [
   "Cysto 2",
   "Laser",
   "Hystero",
-];
+]
 
-const SIXTEENVISIONPROSPECIALTIES = ["Lap 1", "Lap 2"];
+const SIXTEENVISIONPROSPECIALTIES = ["Lap 1", "Lap 2"]
 TWELVESPECIALTIES = [
   "Arthro 1",
   "Arthro 2",
@@ -133,7 +133,7 @@ TWELVESPECIALTIES = [
   "Laser",
   "Microscope",
   "Standard",
-];
+]
 ELEVENSPECIALTIES = [
   "Arthro",
   "Lap 1",
@@ -145,24 +145,24 @@ ELEVENSPECIALTIES = [
   "Laser",
   "Microscope",
   "Standard",
-];
+]
 FLEXIBLESPECIALTIES = [
   "5mm Flex Lap",
   "10mm Flex Lap",
   "Digital Flex Cysto",
   "Digital flex Uretero",
-];
+]
 FLEXIBLEVPSPECIALTIES = [
   "5mm Flex Lap",
   "10mm Flex Lap",
   "Digital Flex Cysto",
   "Digital flex Uretero",
   "Olympus CV 190 GI",
-];
-FLEXIBLEWISE19SPECIALTIES = ["Digital Flex Cysto"];
-FLEXIBLEVE21SPECIALTIES = ["5mm Flex Lap"];
+]
+FLEXIBLEWISE19SPECIALTIES = ["Digital Flex Cysto"]
+FLEXIBLEVE21SPECIALTIES = ["5mm Flex Lap"]
 
-let ccuSettings;
+let ccuSettings
 // let ccuSettingsUpCase;
 // CCU Params
 const CCUPARAMETERS = [
@@ -178,7 +178,7 @@ const CCUPARAMETERS = [
   "Brightness Peak",
   "Target Area",
   "Brt Lvl",
-];
+]
 // 1288 Parameter
 const TWELVEPARAMETERS = [
   "Enhance",
@@ -193,7 +193,7 @@ const TWELVEPARAMETERS = [
   "Brt Lvl",
   "R-Gain",
   "Sound",
-];
+]
 // 1188 Parameters
 const ELEVENPARAMETERS = [
   "Enhance",
@@ -212,7 +212,7 @@ const ELEVENPARAMETERS = [
   "R-Gain",
   "B-Gain",
   "Light/Zoom",
-];
+]
 // 1688 Parameters
 const SIXTEENPARAMETERS = [
   "Shutter Mode",
@@ -239,7 +239,7 @@ const SIXTEENPARAMETERS = [
   "ENV BG Offset",
   "ENV Gamma",
   "ENV Max Gain",
-];
+]
 
 const SOFTWARE4013PARAMETERS = [
   "Size",
@@ -263,8 +263,8 @@ const SOFTWARE4013PARAMETERS = [
   "Mg Gain",
   "Mg-R Hue",
   "Mg-R Gain",
-];
-const FLEXIBLEPARAMETERS = ["R-Gain", "R-Hue", "B-Peak", "B-Gain", "B-Hue"];
+]
+const FLEXIBLEPARAMETERS = ["R-Gain", "R-Hue", "B-Peak", "B-Gain", "B-Hue"]
 
 // Sixteen CCU Settings
 const SIXTEENSETTINGS = {
@@ -518,22 +518,22 @@ const SIXTEENSETTINGS = {
   ],
   CYSTOFOURK1688: [
     "Auto",
-    "30",
-    "1",
+    "45",
+    "0",
     "9",
     "Photometry",
-    "0",
-    "3",
+    "4",
+    "4",
     "4",
     "0",
     "4",
-    "6",
-    "10",
-    "30",
-    "0",
+    "5",
+    "9",
+    "19",
     "4",
-    "0",
-    "-12",
+    "1",
+    "-3",
+    "-8",
     "0",
     "Auto",
     "0",
@@ -1040,7 +1040,7 @@ const SIXTEENSETTINGS = {
     "0",
     "0",
   ],
-};
+}
 // CCU Settings
 const CAMERASETTINGS = {
   MULTIVISIONPRO1588: [
@@ -3629,7 +3629,7 @@ const CAMERASETTINGS = {
     "No Data",
     "No Data",
   ],
-};
+}
 
 // put them in monitorParams
 
@@ -3641,7 +3641,7 @@ const MONITORPARAMS = [
   "Brightness",
   "Contrast",
   "Sharpness",
-];
+]
 
 const FOURKPARAMS = [
   "Red",
@@ -3652,7 +3652,7 @@ const FOURKPARAMS = [
   "Brightness",
   "Contrast",
   "Sharpness",
-];
+]
 // Monitor Settings
 const MONITORSETTINGS = {
   VISIONPROMULTI1588: ["-20", "-20", "10", "S2", "45", "60", "No Data"],
@@ -4021,7 +4021,7 @@ const MONITORSETTINGS = {
     "50",
     "No Data",
   ],
-};
+}
 
 const FOURKSETTINGS = {
   FOURKLAP11688: ["-45", "-5", "10", "S7", "Low", "45", "50", "No Data"],
@@ -4139,7 +4139,7 @@ const FOURKSETTINGS = {
     "No Data",
   ],
   FOURKFLEXISCOPE1688: ["-35", "0", "10", "S0", "Mid", "45", "70", "No Data"],
-  FOURKCYSTO1688: ["-35", "0", "10", "S0", "Mid", "45", "70", "No Data"],
+  FOURKCYSTO1688: ["-30", "-6", "7", "S0", "Low", "45", "65", "5"],
 
   FOURKCYSTO21688: ["-35", "0", "10", "S0", "Off", "45", "70", "No Data"],
 
@@ -4159,513 +4159,513 @@ const FOURKSETTINGS = {
     "TBD",
     "TBD",
   ],
-};
+}
 
 const showBackButton = () => {
-  console.log(state.camera);
-  let backButtonToggle = document.getElementById("back-button");
+  console.log(state.camera)
+  let backButtonToggle = document.getElementById("back-button")
 
-  backButtonToggle.classList.add("msa-backbtn-show");
-  centerMsaLogo();
-};
+  backButtonToggle.classList.add("msa-backbtn-show")
+  centerMsaLogo()
+}
 
 const centerMsaLogo = () => {
-  const msaLogo = document.getElementById("money-settings-logo-div");
-  msaLogo.classList.add("msa-logo-center");
-};
+  const msaLogo = document.getElementById("money-settings-logo-div")
+  msaLogo.classList.add("msa-logo-center")
+}
 
 const showHomeIcon = () => {
   // need to grab the js-navbar-toggle div, and insert the home icon
-  let homeIconDiv = document.getElementById("home-icon-div");
+  let homeIconDiv = document.getElementById("home-icon-div")
   homeIconDiv.addEventListener("click", () => {
-    navigateBackHome();
-  });
-};
+    navigateBackHome()
+  })
+}
 
 const navigateBackHome = () => {
-  location.replace("./index.html");
-};
+  location.replace("./index.html")
+}
 
 const resetDOM = () => {
   // Hide home icon
-  hideHomeIcon();
+  hideHomeIcon()
   // Show menu icon
-  let jsNavBarToggle = document.getElementById("js-navbar-toggle-hide");
+  let jsNavBarToggle = document.getElementById("js-navbar-toggle-hide")
   if (jsNavBarToggle !== null) {
-    jsNavBarToggle.id = "js-navbar-toggle";
+    jsNavBarToggle.id = "js-navbar-toggle"
   }
 
   // replace back icon with "Money Settings"
-  let moneySettingsToggle = document.getElementById("money-settings-toggle");
-  let backButtonToggle = document.getElementById("back-button");
+  let moneySettingsToggle = document.getElementById("money-settings-toggle")
+  let backButtonToggle = document.getElementById("back-button")
   if (moneySettingsToggle !== null) {
-    moneySettingsToggle.id = "money-settings";
-    backButtonToggle.style.display = "none";
+    moneySettingsToggle.id = "money-settings"
+    backButtonToggle.style.display = "none"
   }
   // reset to show camera buttons
   // show ccu
 
-  let ccuTopDiv = document.getElementById("top-camera-div");
+  let ccuTopDiv = document.getElementById("top-camera-div")
   if (ccuTopDiv !== null) {
-    ccuTopDiv.className = "camera-div";
+    ccuTopDiv.className = "camera-div"
   }
 
   // reset displayDiv html
-  let displayDiv = document.getElementById("displayTopDiv");
+  let displayDiv = document.getElementById("displayTopDiv")
   if (displayDiv !== null) {
-    displayDiv.innerHTML = "";
-    displayDiv.className = "";
+    displayDiv.innerHTML = ""
+    displayDiv.className = ""
   }
 
   // reset specialtyDiv html
-  let specialtyDiv = document.getElementById("specialtyTopDiv");
+  let specialtyDiv = document.getElementById("specialtyTopDiv")
   if (specialtyDiv !== null) {
-    specialtyDiv.innerHTML = "";
-    specialtyDiv.className = "";
+    specialtyDiv.innerHTML = ""
+    specialtyDiv.className = ""
   }
   // reset ccu settings div
-  let ccuSettingsDiv = document.getElementById("ccuSettingsTopDiv");
+  let ccuSettingsDiv = document.getElementById("ccuSettingsTopDiv")
   if (ccuSettingsDiv !== null) {
-    ccuSettingsDiv.innerHTML = "";
+    ccuSettingsDiv.innerHTML = ""
   }
   // reset monitor settings div
-  let monitorSettingsDiv = document.getElementById("monitorSettingsTopDiv");
+  let monitorSettingsDiv = document.getElementById("monitorSettingsTopDiv")
   if (monitorSettingsDiv !== null) {
-    monitorSettingsDiv.innerHTML = "";
+    monitorSettingsDiv.innerHTML = ""
   }
   // reset software version text box
   const swVersionTextBoxDiv = document.getElementById(
     "software-version-text-box-div"
-  );
+  )
   if (swVersionTextBoxDiv !== null) {
-    swVersionTextBoxDiv.innerHTML = "";
+    swVersionTextBoxDiv.innerHTML = ""
   }
   // reset software version settings div
   const swVersionSettingsDiv = document.getElementById(
     "software-version-settings-div"
-  );
+  )
   if (swVersionSettingsDiv !== null) {
-    swVersionSettingsDiv.innerHTML = "";
+    swVersionSettingsDiv.innerHTML = ""
   }
-};
+}
 
 const resetState = () => {
-  (state.camera.name = ""),
+  ;(state.camera.name = ""),
     (state.display.name = ""),
-    (state.specialty.name = "");
-};
+    (state.specialty.name = "")
+}
 
 const hideHomeIcon = () => {
-  let homeIconShow = document.getElementById("home-icon-div-show");
+  let homeIconShow = document.getElementById("home-icon-div-show")
   if (homeIconShow !== null) {
-    homeIconShow.id = "home-icon-div-hide";
+    homeIconShow.id = "home-icon-div-hide"
   }
-};
+}
 
 function backButton() {
-  console.log("just inside back-button");
-  let backButtonToggle = document.getElementById("back-button");
+  console.log("just inside back-button")
+  let backButtonToggle = document.getElementById("back-button")
   backButtonToggle.addEventListener("click", () => {
-    console.log("back-button");
+    console.log("back-button")
     if (
       state.specialty.name !== "" &&
       state.display.name !== "" &&
       state.camera.name !== ""
     ) {
       // reset state.specialty
-      state.specialty.name = "";
+      state.specialty.name = ""
       // reset html ccuSettingsTopDiv
-      let ccuSettingsTopDiv = document.getElementById("ccuSettingsTopDiv");
-      ccuSettingsTopDiv.innerHTML = "";
+      let ccuSettingsTopDiv = document.getElementById("ccuSettingsTopDiv")
+      ccuSettingsTopDiv.innerHTML = ""
       // reset html monitorSettingsTopDiv
       let monitorSettingsTopDiv = document.getElementById(
         "monitorSettingsTopDiv"
-      );
-      monitorSettingsTopDiv.innerHTML = "";
+      )
+      monitorSettingsTopDiv.innerHTML = ""
       // eliminate specialtySelectDiv to display specialties
-      specialtyTopDiv.className = "";
+      specialtyTopDiv.className = ""
       // reset software version text box
       const swVersionTextBoxDiv = document.getElementById(
         "software-version-text-box-div"
-      );
+      )
       if (swVersionTextBoxDiv !== null) {
-        swVersionTextBoxDiv.innerHTML = "";
+        swVersionTextBoxDiv.innerHTML = ""
       }
       const softwareVersionSettingsIdDiv = document.getElementById(
         "software-version-settings-div"
-      );
+      )
       if (softwareVersionSettingsIdDiv !== null) {
-        softwareVersionSettingsIdDiv.innerHTML = " ";
+        softwareVersionSettingsIdDiv.innerHTML = " "
       }
     } else if (
       state.specialty.name === "" &&
       state.display.name !== "" &&
       state.camera.name !== ""
     ) {
-      let displayTopDiv = document.getElementById("displayTopDiv");
-      displayTopDiv.className = "";
-      displayTopDiv.innerHTML = "";
-      let specialtyTopDiv = document.getElementById("specialtyTopDiv");
-      specialtyTopDiv.innerHTML = "";
-      state.display.name = "";
-      showDisplays(state.camera.name, state.display.name);
+      let displayTopDiv = document.getElementById("displayTopDiv")
+      displayTopDiv.className = ""
+      displayTopDiv.innerHTML = ""
+      let specialtyTopDiv = document.getElementById("specialtyTopDiv")
+      specialtyTopDiv.innerHTML = ""
+      state.display.name = ""
+      showDisplays(state.camera.name, state.display.name)
     } else if (state.display.name === "" && state.camera.name !== "") {
-      hideBackButton();
+      hideBackButton()
       // hideHomeIcon();
-      resetDOM();
-      resetState();
-      selectCamera();
+      resetDOM()
+      resetState()
+      selectCamera()
     }
-  });
+  })
 }
 
 function hideBackButton() {
-  let backButtonToggle = document.getElementById("back-button");
-  backButtonToggle.classList.remove("msa-backbtn-show");
-  moveLogoToLeft();
+  let backButtonToggle = document.getElementById("back-button")
+  backButtonToggle.classList.remove("msa-backbtn-show")
+  moveLogoToLeft()
 }
 
 function moveLogoToLeft() {
-  const msaLogo = document.getElementById("money-settings-logo-div");
-  msaLogo.classList.remove("msa-logo-center");
+  const msaLogo = document.getElementById("money-settings-logo-div")
+  msaLogo.classList.remove("msa-logo-center")
 }
 
 function selectCamera(camera, display) {
-  let cameraButton = document.getElementsByClassName("camera-button");
+  let cameraButton = document.getElementsByClassName("camera-button")
   for (let item of cameraButton) {
     item.addEventListener("click", function (item) {
-      let cameraTopDiv = document.getElementById("top-camera-div");
-      cameraTopDiv.classList.add("cameraSelectDiv");
-      let camera = this.dataset.camera;
+      let cameraTopDiv = document.getElementById("top-camera-div")
+      cameraTopDiv.classList.add("cameraSelectDiv")
+      let camera = this.dataset.camera
       // ********** Declaring State ********* //
-      state.camera.name = this.dataset.camera;
-      showDisplays(camera);
-      showBackButton();
-    });
+      state.camera.name = this.dataset.camera
+      showDisplays(camera)
+      showBackButton()
+    })
   }
 }
 
 function showDisplays(camera, display) {
-  let displayTopDiv = document.getElementById("displayTopDiv");
-  displayTopDiv.innerHTML = "";
-  let hDiv = document.createElement("div");
+  let displayTopDiv = document.getElementById("displayTopDiv")
+  displayTopDiv.innerHTML = ""
+  let hDiv = document.createElement("div")
   //************* bread crumbs *************/
-  let cameraDiv = document.createElement("div");
-  let cameraPTag = document.createElement("p");
-  cameraDiv.setAttribute("class", "camera-div");
-  cameraPTag.setAttribute("class", "camera-p-tag");
-  cameraPTag.innerHTML = "CCU: " + camera;
+  let cameraDiv = document.createElement("div")
+  let cameraPTag = document.createElement("p")
+  cameraDiv.setAttribute("class", "camera-div")
+  cameraPTag.setAttribute("class", "camera-p-tag")
+  cameraPTag.innerHTML = "CCU: " + camera
   //************ end  ********************/
-  cameraDiv.appendChild(cameraPTag);
-  hDiv.setAttribute("class", "title-div");
-  let hElement = document.createElement("h1");
-  hElement.append("Select Display");
-  displayTopDiv.setAttribute("style", "margin-top: 5em;");
-  hDiv.appendChild(hElement);
-  hDiv.appendChild(cameraDiv);
-  displayTopDiv.appendChild(hDiv);
+  cameraDiv.appendChild(cameraPTag)
+  hDiv.setAttribute("class", "title-div")
+  let hElement = document.createElement("h1")
+  hElement.append("Select Display")
+  displayTopDiv.setAttribute("style", "margin-top: 5em;")
+  hDiv.appendChild(hElement)
+  hDiv.appendChild(cameraDiv)
+  displayTopDiv.appendChild(hDiv)
 
   // Monitor Variables
   const hdtvWise = () => {
-    let wiseDisplayDiv = document.createElement("div");
-    let wiseLink = document.createElement("a");
-    wiseDisplayDiv.setAttribute("class", "display-button-div");
-    wiseDisplayDiv.setAttribute("align", "center");
-    wiseLink.setAttribute("class", "display-button button");
-    wiseLink.setAttribute("data-display", "HDTV Wise");
-    wiseLink.setAttribute("href", "#");
-    wiseLink.appendChild(document.createTextNode("HDTV Wise"));
-    wiseDisplayDiv.appendChild(wiseLink);
-    displayTopDiv.appendChild(wiseDisplayDiv);
-  };
+    let wiseDisplayDiv = document.createElement("div")
+    let wiseLink = document.createElement("a")
+    wiseDisplayDiv.setAttribute("class", "display-button-div")
+    wiseDisplayDiv.setAttribute("align", "center")
+    wiseLink.setAttribute("class", "display-button button")
+    wiseLink.setAttribute("data-display", "HDTV Wise")
+    wiseLink.setAttribute("href", "#")
+    wiseLink.appendChild(document.createTextNode("HDTV Wise"))
+    wiseDisplayDiv.appendChild(wiseLink)
+    displayTopDiv.appendChild(wiseDisplayDiv)
+  }
   const VisionElectTwentyOne = () => {
-    let visionElectTwentyOneDisplayDiv = document.createElement("div");
-    let visionElectLink = document.createElement("a");
-    visionElectTwentyOneDisplayDiv.setAttribute("class", "display-button-div");
-    visionElectTwentyOneDisplayDiv.setAttribute("align", "center");
-    visionElectLink.setAttribute("class", "display-button button");
-    visionElectLink.setAttribute("data-display", "Vision Elect 21");
-    visionElectLink.setAttribute("href", "#");
-    visionElectLink.appendChild(document.createTextNode("Vision Elect 21"));
-    visionElectTwentyOneDisplayDiv.appendChild(visionElectLink);
-    displayTopDiv.appendChild(visionElectTwentyOneDisplayDiv);
-  };
+    let visionElectTwentyOneDisplayDiv = document.createElement("div")
+    let visionElectLink = document.createElement("a")
+    visionElectTwentyOneDisplayDiv.setAttribute("class", "display-button-div")
+    visionElectTwentyOneDisplayDiv.setAttribute("align", "center")
+    visionElectLink.setAttribute("class", "display-button button")
+    visionElectLink.setAttribute("data-display", "Vision Elect 21")
+    visionElectLink.setAttribute("href", "#")
+    visionElectLink.appendChild(document.createTextNode("Vision Elect 21"))
+    visionElectTwentyOneDisplayDiv.appendChild(visionElectLink)
+    displayTopDiv.appendChild(visionElectTwentyOneDisplayDiv)
+  }
   const wiseNineteen = () => {
-    let wiseNineteenDisplayDiv = document.createElement("div");
-    let wiseNineteenLink = document.createElement("a");
-    wiseNineteenDisplayDiv.setAttribute("class", "display-button-div");
-    wiseNineteenDisplayDiv.setAttribute("align", "center");
-    wiseNineteenLink.setAttribute("class", "display-button button");
-    wiseNineteenLink.setAttribute("data-display", "Wise 19");
-    wiseNineteenLink.setAttribute("href", "#");
-    wiseNineteenLink.appendChild(document.createTextNode("Wise 19"));
-    wiseNineteenDisplayDiv.appendChild(wiseNineteenLink);
-    displayTopDiv.appendChild(wiseNineteenDisplayDiv);
-  };
+    let wiseNineteenDisplayDiv = document.createElement("div")
+    let wiseNineteenLink = document.createElement("a")
+    wiseNineteenDisplayDiv.setAttribute("class", "display-button-div")
+    wiseNineteenDisplayDiv.setAttribute("align", "center")
+    wiseNineteenLink.setAttribute("class", "display-button button")
+    wiseNineteenLink.setAttribute("data-display", "Wise 19")
+    wiseNineteenLink.setAttribute("href", "#")
+    wiseNineteenLink.appendChild(document.createTextNode("Wise 19"))
+    wiseNineteenDisplayDiv.appendChild(wiseNineteenLink)
+    displayTopDiv.appendChild(wiseNineteenDisplayDiv)
+  }
   const visionPro = () => {
-    let vpDisplayDiv = document.createElement("div");
-    let vpLink = document.createElement("a");
-    vpDisplayDiv.setAttribute("class", "display-button-div");
-    vpDisplayDiv.setAttribute("align", "center");
-    vpLink.setAttribute("class", "display-button button");
-    vpLink.setAttribute("data-display", "VisionPro");
-    vpLink.setAttribute("href", "#");
-    vpLink.appendChild(document.createTextNode("Visionpro"));
-    vpDisplayDiv.appendChild(vpLink);
-    displayTopDiv.appendChild(vpDisplayDiv);
-  };
+    let vpDisplayDiv = document.createElement("div")
+    let vpLink = document.createElement("a")
+    vpDisplayDiv.setAttribute("class", "display-button-div")
+    vpDisplayDiv.setAttribute("align", "center")
+    vpLink.setAttribute("class", "display-button button")
+    vpLink.setAttribute("data-display", "VisionPro")
+    vpLink.setAttribute("href", "#")
+    vpLink.appendChild(document.createTextNode("Visionpro"))
+    vpDisplayDiv.appendChild(vpLink)
+    displayTopDiv.appendChild(vpDisplayDiv)
+  }
   const fourK = () => {
-    let fourKDisplayDiv = document.createElement("div");
-    let fourKLink = document.createElement("a");
-    fourKDisplayDiv.setAttribute("class", "display-button-div");
-    fourKDisplayDiv.setAttribute("align", "center");
-    fourKLink.setAttribute("class", "display-button button");
-    fourKLink.setAttribute("data-display", "FourK");
-    fourKLink.setAttribute("href", "#");
-    fourKLink.appendChild(document.createTextNode("4K"));
-    fourKDisplayDiv.appendChild(fourKLink);
-    displayTopDiv.appendChild(fourKDisplayDiv);
-  };
+    let fourKDisplayDiv = document.createElement("div")
+    let fourKLink = document.createElement("a")
+    fourKDisplayDiv.setAttribute("class", "display-button-div")
+    fourKDisplayDiv.setAttribute("align", "center")
+    fourKLink.setAttribute("class", "display-button button")
+    fourKLink.setAttribute("data-display", "FourK")
+    fourKLink.setAttribute("href", "#")
+    fourKLink.appendChild(document.createTextNode("4K"))
+    fourKDisplayDiv.appendChild(fourKLink)
+    displayTopDiv.appendChild(fourKDisplayDiv)
+  }
 
   if (camera === "1688") {
     // Visionpro
-    visionPro();
+    visionPro()
     // 4K
-    fourK();
-    selectDisplay(camera);
+    fourK()
+    selectDisplay(camera)
   } else if (camera === "1188") {
     // HDTV Wise
-    hdtvWise();
+    hdtvWise()
     // Visionpro
-    visionPro();
-    selectDisplay(camera);
+    visionPro()
+    selectDisplay(camera)
   } else if (camera === "Flexible") {
-    VisionElectTwentyOne();
-    wiseNineteen();
-    hdtvWise();
-    visionPro();
-    selectDisplay(camera);
+    VisionElectTwentyOne()
+    wiseNineteen()
+    hdtvWise()
+    visionPro()
+    selectDisplay(camera)
   } else {
     // HDTV Wise
-    hdtvWise();
+    hdtvWise()
     // Visionpro
-    visionPro();
+    visionPro()
     // 4K
-    fourK();
-    selectDisplay(camera);
+    fourK()
+    selectDisplay(camera)
   }
   // Button selection
 }
 
 function selectDisplay(camera) {
-  let displayButton = document.getElementsByClassName("display-button");
+  let displayButton = document.getElementsByClassName("display-button")
   // Loop over buttons
   for (let button of displayButton) {
     button.addEventListener("click", function () {
-      let displayTopDiv = document.getElementById("displayTopDiv");
-      displayTopDiv.classList.add("displaySelectDiv");
-      let display = this.dataset.display;
+      let displayTopDiv = document.getElementById("displayTopDiv")
+      displayTopDiv.classList.add("displaySelectDiv")
+      let display = this.dataset.display
       // ************ Delcare State *********
-      state.display.name = this.dataset.display;
-      showSpecialties(camera, display);
-    });
+      state.display.name = this.dataset.display
+      showSpecialties(camera, display)
+    })
   }
 }
 
 function showSpecialties(camera, display) {
-  let cameraDisplay = new CameraDisplayObject(camera, display);
-  cameraDisplay.displaySpecialties();
+  let cameraDisplay = new CameraDisplayObject(camera, display)
+  cameraDisplay.displaySpecialties()
 }
 
 // Specialites Object Model
 function CameraDisplayObject(camera, display) {
-  this.camera = camera;
-  this.display = display;
+  this.camera = camera
+  this.display = display
 }
 // Object prototype
 CameraDisplayObject.prototype.displaySpecialties = function () {
-  let display = this.display;
+  let display = this.display
 
   if (display === "FourK") {
-    display = "4k";
+    display = "4k"
   }
-  let hDiv = document.createElement("div");
-  hDiv.setAttribute("class", "title-div");
-  let hElement = document.createElement("h1");
-  hElement.append("Select Specialty");
+  let hDiv = document.createElement("div")
+  hDiv.setAttribute("class", "title-div")
+  let hElement = document.createElement("h1")
+  hElement.append("Select Specialty")
 
   // Breadcrumbs
-  let selectedConsolesDiv = document.createElement("div");
-  selectedConsolesDiv.setAttribute("class", "selected-consoles-div");
-  let displayPTag = document.createElement("p");
-  displayPTag.setAttribute("class", "displayPTag");
-  let cameraPTag = document.createElement("p");
-  cameraPTag.setAttribute("class", "cameraPTag");
-  cameraPTag.innerHTML = "CCU: " + this.camera;
-  displayPTag.innerHTML = "DISPLAY: " + display;
+  let selectedConsolesDiv = document.createElement("div")
+  selectedConsolesDiv.setAttribute("class", "selected-consoles-div")
+  let displayPTag = document.createElement("p")
+  displayPTag.setAttribute("class", "displayPTag")
+  let cameraPTag = document.createElement("p")
+  cameraPTag.setAttribute("class", "cameraPTag")
+  cameraPTag.innerHTML = "CCU: " + this.camera
+  displayPTag.innerHTML = "DISPLAY: " + display
 
-  selectedConsolesDiv.appendChild(cameraPTag);
-  selectedConsolesDiv.appendChild(displayPTag);
+  selectedConsolesDiv.appendChild(cameraPTag)
+  selectedConsolesDiv.appendChild(displayPTag)
 
-  hDiv.appendChild(hElement);
-  specialtyTopDiv.appendChild(hDiv);
-  specialtyTopDiv.appendChild(selectedConsolesDiv);
+  hDiv.appendChild(hElement)
+  specialtyTopDiv.appendChild(hDiv)
+  specialtyTopDiv.appendChild(selectedConsolesDiv)
   // specialty div
   if (this.camera === "Precision AC" && this.display === "FourK") {
     PRECISION4KSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "Precision AC") {
     PRECISIONSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (
     (this.camera === "1588" && this.display === "VisionPro") ||
     (this.camera === "1588" && this.display === "HDTV Wise")
   ) {
     FIFTEENWISEVPSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "1588" && this.display === "FourK") {
     FIFTEENFOURKSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "1488" && this.display === "FourK") {
     FOURTEENFOURKSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (
     this.camera === "1488" &&
     (this.display === "VisionPro" || this.display === "HDTV Wise")
   ) {
     FOURTEENSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "1688" && this.display === "VisionPro") {
     SIXTEENVISIONPROSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "1288" && this.display === "FourK") {
     TWELVEFOURKSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (
     this.camera === "1288" &&
     (this.display === "VisionPro" || this.display === "HDTV Wise")
   ) {
     TWELVESPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "1188") {
     ELEVENSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "Flexible" && this.display === "HDTV Wise") {
     FLEXIBLESPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "Flexible" && this.display === "VisionPro") {
     FLEXIBLEVPSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "Flexible" && this.display === "Wise 19") {
     FLEXIBLEWISE19SPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else if (this.camera === "Flexible" && this.display === "Vision Elect 21") {
     FLEXIBLEVE21SPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   } else {
     SIXTEENSPECIALTIES.forEach(function (specialty) {
-      specialtyDiv(specialty);
-    });
+      specialtyDiv(specialty)
+    })
   }
-  let cameraDisplay = this;
-  selectSpecialty(cameraDisplay);
-};
+  let cameraDisplay = this
+  selectSpecialty(cameraDisplay)
+}
 
 function specialtyDiv(specialty) {
-  let specialtiesDiv = document.createElement("div");
-  let specialtiesLink = document.createElement("a");
-  specialtiesDiv.setAttribute("class", "specialty-button-div");
-  specialtiesDiv.setAttribute("align", "center");
-  specialtiesLink.setAttribute("class", "specialty-button button");
-  specialtiesLink.setAttribute("data-specialty", specialty);
-  specialtiesLink.setAttribute("href", "#");
+  let specialtiesDiv = document.createElement("div")
+  let specialtiesLink = document.createElement("a")
+  specialtiesDiv.setAttribute("class", "specialty-button-div")
+  specialtiesDiv.setAttribute("align", "center")
+  specialtiesLink.setAttribute("class", "specialty-button button")
+  specialtiesLink.setAttribute("data-specialty", specialty)
+  specialtiesLink.setAttribute("href", "#")
 
-  specialtiesLink.appendChild(document.createTextNode(specialty));
-  specialtiesDiv.appendChild(specialtiesLink);
-  specialtyTopDiv.appendChild(specialtiesDiv);
+  specialtiesLink.appendChild(document.createTextNode(specialty))
+  specialtiesDiv.appendChild(specialtiesLink)
+  specialtyTopDiv.appendChild(specialtiesDiv)
 }
 // User can select a specialty
 function selectSpecialty(cameraDisplay) {
-  let specialtyButton = document.getElementsByClassName("specialty-button");
-  let specialtyTopDiv = document.getElementById("specialtyTopDiv");
+  let specialtyButton = document.getElementsByClassName("specialty-button")
+  let specialtyTopDiv = document.getElementById("specialtyTopDiv")
   for (let button of specialtyButton) {
     button.addEventListener("click", function () {
-      specialtyTopDiv.className = "";
-      specialtyTopDiv.className = "specialtySelectDiv";
+      specialtyTopDiv.className = ""
+      specialtyTopDiv.className = "specialtySelectDiv"
       // specialtyTopDiv.classList.add("specialtySelectDiv");
       let cameraDisplaySpecialty = {
         camera: cameraDisplay.camera,
         display: cameraDisplay.display,
         specialty: this.dataset.specialty,
-      }; // camera
+      } // camera
       // ********** Declare State ***********
-      state.specialty.name = this.dataset.specialty;
-      displaySettings(cameraDisplaySpecialty);
-    });
+      state.specialty.name = this.dataset.specialty
+      displaySettings(cameraDisplaySpecialty)
+    })
   }
 }
 
 function displaySettings(cameraDisplaySpecialty) {
   if (cameraDisplaySpecialty.specialty === "Arthro 4/16") {
-    cameraDisplaySpecialty.specialty = "Arthro 4_16";
+    cameraDisplaySpecialty.specialty = "Arthro 4_16"
   }
   if (state.specialty.name === "Arthro 4_16") {
-    state.specialty.name = "Arthro 4/16";
+    state.specialty.name = "Arthro 4/16"
   }
-  let headerDiv = document.createElement("div");
-  headerDiv.setAttribute("class", "settings-header");
+  let headerDiv = document.createElement("div")
+  headerDiv.setAttribute("class", "settings-header")
   // Camera Parameter Header Div
-  let cameraParametersHeaderDiv = document.createElement("div");
-  let cameraParameterTitle = document.createElement("h3");
-  cameraParametersHeaderDiv.setAttribute("class", "camera-header");
+  let cameraParametersHeaderDiv = document.createElement("div")
+  let cameraParameterTitle = document.createElement("h3")
+  cameraParametersHeaderDiv.setAttribute("class", "camera-header")
   cameraParameterTitle.appendChild(
     document.createTextNode(
       `${cameraDisplaySpecialty.camera}` + " " + `${state.specialty.name}`
     )
-  );
-  let cameraHeaderText = document.createElement("p");
-  cameraHeaderText.setAttribute("class", "camera-header-text");
-  cameraHeaderText.innerHTML = "Money Settings";
-  cameraParametersHeaderDiv.appendChild(cameraParameterTitle);
-  cameraParametersHeaderDiv.appendChild(cameraHeaderText);
-  headerDiv.appendChild(cameraParametersHeaderDiv);
+  )
+  let cameraHeaderText = document.createElement("p")
+  cameraHeaderText.setAttribute("class", "camera-header-text")
+  cameraHeaderText.innerHTML = "Money Settings"
+  cameraParametersHeaderDiv.appendChild(cameraParameterTitle)
+  cameraParametersHeaderDiv.appendChild(cameraHeaderText)
+  headerDiv.appendChild(cameraParametersHeaderDiv)
   // params/settings parent Div
-  let parentDiv = document.createElement("div");
-  parentDiv.setAttribute("class", "parent-div");
+  let parentDiv = document.createElement("div")
+  parentDiv.setAttribute("class", "parent-div")
   // Camera parameters Div
-  let cameraParameterDiv = document.createElement("div");
+  let cameraParameterDiv = document.createElement("div")
 
-  cameraParameterDiv.setAttribute("class", "camera-parameter");
+  cameraParameterDiv.setAttribute("class", "camera-parameter")
 
-  let cameraSettingsDiv = document.createElement("div");
-  cameraSettingsDiv.setAttribute("class", "camera-settings");
+  let cameraSettingsDiv = document.createElement("div")
+  cameraSettingsDiv.setAttribute("class", "camera-settings")
 
   // CCU/Specialty Settings
   // convert 5mm to FIVEMM function
   if (cameraDisplaySpecialty.specialty === "5mm Flex Lap") {
-    cameraDisplaySpecialty.specialty = "Five Flex Lap";
+    cameraDisplaySpecialty.specialty = "Five Flex Lap"
   } else if (cameraDisplaySpecialty.specialty === "10mm Flex Lap") {
-    cameraDisplaySpecialty.specialty = "Ten Flex Lap";
+    cameraDisplaySpecialty.specialty = "Ten Flex Lap"
   }
 
   ccuSettings =
     cameraDisplaySpecialty.specialty.replace(/\s/g, "").toUpperCase() +
     cameraDisplaySpecialty.display.replace(/\s/g, "").toUpperCase() +
-    cameraDisplaySpecialty.camera.replace(/\s/g, "").toUpperCase();
+    cameraDisplaySpecialty.camera.replace(/\s/g, "").toUpperCase()
   if (
     cameraDisplaySpecialty.camera !== "1688" &&
     cameraDisplaySpecialty.camera !== "1288" &&
@@ -4674,89 +4674,89 @@ function displaySettings(cameraDisplaySpecialty) {
   ) {
     // CCU Parameters
     CCUPARAMETERS.forEach(function (parameter) {
-      let cameraParameter = document.createElement("p");
-      cameraParameter.appendChild(document.createTextNode(parameter));
-      cameraParameterDiv.appendChild(cameraParameter);
-      parentDiv.appendChild(cameraParameterDiv);
-    });
+      let cameraParameter = document.createElement("p")
+      cameraParameter.appendChild(document.createTextNode(parameter))
+      cameraParameterDiv.appendChild(cameraParameter)
+      parentDiv.appendChild(cameraParameterDiv)
+    })
     // CCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
         CAMERASETTINGS[setting].forEach(function (setting) {
-          let cameraSettings = document.createElement("p");
-          cameraSettings.appendChild(document.createTextNode(setting));
-          cameraSettingsDiv.appendChild(cameraSettings);
-          parentDiv.appendChild(cameraSettingsDiv);
-        });
+          let cameraSettings = document.createElement("p")
+          cameraSettings.appendChild(document.createTextNode(setting))
+          cameraSettingsDiv.appendChild(cameraSettings)
+          parentDiv.appendChild(cameraSettingsDiv)
+        })
       }
     }
   } else if (cameraDisplaySpecialty.camera === "1288") {
     // 1288 Parameters
     TWELVEPARAMETERS.forEach(function (parameter) {
-      let cameraParameter = document.createElement("p");
-      cameraParameter.appendChild(document.createTextNode(parameter));
-      cameraParameterDiv.appendChild(cameraParameter);
-      parentDiv.appendChild(cameraParameterDiv);
-    });
+      let cameraParameter = document.createElement("p")
+      cameraParameter.appendChild(document.createTextNode(parameter))
+      cameraParameterDiv.appendChild(cameraParameter)
+      parentDiv.appendChild(cameraParameterDiv)
+    })
     // 1288 CCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
         CAMERASETTINGS[setting].forEach(function (setting) {
-          let cameraSettings = document.createElement("p");
-          cameraSettings.appendChild(document.createTextNode(setting));
-          cameraSettingsDiv.appendChild(cameraSettings);
-          parentDiv.appendChild(cameraSettingsDiv);
-        });
+          let cameraSettings = document.createElement("p")
+          cameraSettings.appendChild(document.createTextNode(setting))
+          cameraSettingsDiv.appendChild(cameraSettings)
+          parentDiv.appendChild(cameraSettingsDiv)
+        })
       }
     }
   } else if (cameraDisplaySpecialty.camera === "1188") {
     // 1188 Parameters
     ELEVENPARAMETERS.forEach(function (parameter) {
-      let cameraParameter = document.createElement("p");
-      cameraParameter.appendChild(document.createTextNode(parameter));
-      cameraParameterDiv.appendChild(cameraParameter);
-      parentDiv.appendChild(cameraParameterDiv);
-    });
+      let cameraParameter = document.createElement("p")
+      cameraParameter.appendChild(document.createTextNode(parameter))
+      cameraParameterDiv.appendChild(cameraParameter)
+      parentDiv.appendChild(cameraParameterDiv)
+    })
     // 1188 CCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
         CAMERASETTINGS[setting].forEach(function (setting) {
-          let cameraSettings = document.createElement("p");
-          cameraSettings.appendChild(document.createTextNode(setting));
-          cameraSettingsDiv.appendChild(cameraSettings);
-          parentDiv.appendChild(cameraSettingsDiv);
-        });
+          let cameraSettings = document.createElement("p")
+          cameraSettings.appendChild(document.createTextNode(setting))
+          cameraSettingsDiv.appendChild(cameraSettings)
+          parentDiv.appendChild(cameraSettingsDiv)
+        })
       }
     }
   } else if (cameraDisplaySpecialty.camera === "Flexible") {
     // Flexible Parameters
     FLEXIBLEPARAMETERS.forEach(function (parameter) {
-      let cameraParameter = document.createElement("p");
-      cameraParameter.appendChild(document.createTextNode(parameter));
-      cameraParameterDiv.appendChild(cameraParameter);
-      parentDiv.appendChild(cameraParameterDiv);
-    });
+      let cameraParameter = document.createElement("p")
+      cameraParameter.appendChild(document.createTextNode(parameter))
+      cameraParameterDiv.appendChild(cameraParameter)
+      parentDiv.appendChild(cameraParameterDiv)
+    })
     // FCU Settings
     for (let setting in CAMERASETTINGS) {
       if (ccuSettings === setting) {
         CAMERASETTINGS[setting].forEach(function (setting) {
-          let cameraSettings = document.createElement("p");
-          cameraSettings.appendChild(document.createTextNode(setting));
-          cameraSettingsDiv.appendChild(cameraSettings);
-          parentDiv.appendChild(cameraSettingsDiv);
-        });
+          let cameraSettings = document.createElement("p")
+          cameraSettings.appendChild(document.createTextNode(setting))
+          cameraSettingsDiv.appendChild(cameraSettings)
+          parentDiv.appendChild(cameraSettingsDiv)
+        })
       }
     }
   } else {
     // 1688 Parameters
     SIXTEENPARAMETERS.forEach(function (parameter) {
-      let cameraParameter = document.createElement("p");
-      cameraParameter.appendChild(document.createTextNode(parameter));
-      cameraParameterDiv.appendChild(cameraParameter);
-      parentDiv.appendChild(cameraParameterDiv);
-    });
+      let cameraParameter = document.createElement("p")
+      cameraParameter.appendChild(document.createTextNode(parameter))
+      cameraParameterDiv.appendChild(cameraParameter)
+      parentDiv.appendChild(cameraParameterDiv)
+    })
     // Software version text box function
-    softwareVersionParams(parentDiv);
+    softwareVersionParams(parentDiv)
     // Out Of Box Message Function
     if (
       cameraDisplaySpecialty.specialty === "Flexiscope" ||
@@ -4766,192 +4766,192 @@ function displaySettings(cameraDisplaySpecialty) {
       cameraDisplaySpecialty.specialty === "Microscope" ||
       cameraDisplaySpecialty.specialty === "Olympus GI"
     ) {
-      let outOfBoxMessage = document.createElement("div");
-      let outOfBoxMessageText = document.createElement("p");
-      outOfBoxMessage.setAttribute("class", "out-of-box-message");
-      outOfBoxMessageText.setAttribute("class", "out-of-box-message-text");
+      let outOfBoxMessage = document.createElement("div")
+      let outOfBoxMessageText = document.createElement("p")
+      outOfBoxMessage.setAttribute("class", "out-of-box-message")
+      outOfBoxMessageText.setAttribute("class", "out-of-box-message-text")
       outOfBoxMessageText.appendChild(
         document.createTextNode(
           "These CCU settings come out of box with 1688 CCU software 4.0.13"
         )
-      );
-      outOfBoxMessage.appendChild(outOfBoxMessageText);
-      ccuSettingsTopDiv.appendChild(outOfBoxMessage);
+      )
+      outOfBoxMessage.appendChild(outOfBoxMessageText)
+      ccuSettingsTopDiv.appendChild(outOfBoxMessage)
     }
 
     // 1688 CCU Settings
     for (let setting in SIXTEENSETTINGS) {
       if (ccuSettings === setting) {
         SIXTEENSETTINGS[setting].forEach(function (setting) {
-          let cameraSettings = document.createElement("p");
-          cameraSettings.appendChild(document.createTextNode(setting));
-          cameraSettingsDiv.appendChild(cameraSettings);
-          parentDiv.appendChild(cameraSettingsDiv);
-        });
+          let cameraSettings = document.createElement("p")
+          cameraSettings.appendChild(document.createTextNode(setting))
+          cameraSettingsDiv.appendChild(cameraSettings)
+          parentDiv.appendChild(cameraSettingsDiv)
+        })
       }
     }
     // Software version parameter text box
     function softwareVersionParams() {
       const swVersionTextBoxDiv = document.getElementById(
         "software-version-text-box-div"
-      );
-      const swVersionDiv = document.createElement("div");
-      swVersionDiv.setAttribute("class", "sw-version-div");
-      const swVersionTextTag = document.createElement("p");
-      swVersionTextTag.setAttribute("class", "sw-version-text-tag");
+      )
+      const swVersionDiv = document.createElement("div")
+      swVersionDiv.setAttribute("class", "sw-version-div")
+      const swVersionTextTag = document.createElement("p")
+      swVersionTextTag.setAttribute("class", "sw-version-text-tag")
       swVersionTextTag.innerHTML =
-        "The following CCU settings will be visible on software version 4.0.13";
-      swVersionDiv.appendChild(swVersionTextTag);
-      swVersionTextBoxDiv.appendChild(swVersionDiv);
-      softwareVersionSettings();
+        "The following CCU settings will be visible on software version 4.0.13"
+      swVersionDiv.appendChild(swVersionTextTag)
+      swVersionTextBoxDiv.appendChild(swVersionDiv)
+      softwareVersionSettings()
     }
 
     function softwareVersionSettings() {
       const softwareVersionSettingsIdDiv = document.getElementById(
         "software-version-settings-div"
-      );
+      )
       // create parameter div
-      const softwareVersionParameterDiv = document.createElement("div");
+      const softwareVersionParameterDiv = document.createElement("div")
       softwareVersionParameterDiv.setAttribute(
         "class",
         "software-version-parameter-div"
-      );
+      )
       // Now I have add the 4.0.13 parameters - SOFTWARE4013PARAMETERS
       SOFTWARE4013PARAMETERS.map((param) => {
         // create p-tag
-        const softwareVersionParameterPtag = document.createElement("p");
+        const softwareVersionParameterPtag = document.createElement("p")
         softwareVersionParameterPtag.setAttribute(
           "class",
           "software-version-parameter-ptag"
-        );
-        softwareVersionParameterPtag.innerHTML = param;
-        softwareVersionParameterDiv.appendChild(softwareVersionParameterPtag);
-      });
+        )
+        softwareVersionParameterPtag.innerHTML = param
+        softwareVersionParameterDiv.appendChild(softwareVersionParameterPtag)
+      })
       // create setting div
-      const softwareVersionSettingDiv = document.createElement("div");
+      const softwareVersionSettingDiv = document.createElement("div")
       softwareVersionSettingDiv.setAttribute(
         "class",
         "software-version-setting-div"
-      );
-      let ccuSwSettings;
+      )
+      let ccuSwSettings
       if (state.specialty.name === "Flexiscope") {
-        ccuSwSettings = SIXTEENSETTINGS.FLEXISCOPE4013;
+        ccuSwSettings = SIXTEENSETTINGS.FLEXISCOPE4013
       } else if (state.specialty.name === "Cysto") {
-        ccuSwSettings = SIXTEENSETTINGS.CYSTO4013;
+        ccuSwSettings = SIXTEENSETTINGS.CYSTO4013
       } else if (state.specialty.name === "Laser") {
-        ccuSwSettings = SIXTEENSETTINGS.LASER4013;
+        ccuSwSettings = SIXTEENSETTINGS.LASER4013
       } else if (state.specialty.name === "Hystero") {
-        ccuSwSettings = SIXTEENSETTINGS.HYSTERO4013;
+        ccuSwSettings = SIXTEENSETTINGS.HYSTERO4013
       } else if (state.specialty.name === "Lap 1") {
-        ccuSwSettings = SIXTEENSETTINGS.LAP14K4013;
+        ccuSwSettings = SIXTEENSETTINGS.LAP14K4013
       } else if (state.specialty.name === "Lap 2") {
-        ccuSwSettings = SIXTEENSETTINGS.LAP24K4013;
+        ccuSwSettings = SIXTEENSETTINGS.LAP24K4013
       } else if (state.specialty.name === "Lap Storz") {
-        ccuSwSettings = SIXTEENSETTINGS.LAPSTORZ4K4013;
+        ccuSwSettings = SIXTEENSETTINGS.LAPSTORZ4K4013
       } else if (
         state.specialty.name === "Arthro 1" ||
         state.specialty.name === "Arthro 2"
       ) {
-        ccuSwSettings = SIXTEENSETTINGS.ARTHRO4K4013;
+        ccuSwSettings = SIXTEENSETTINGS.ARTHRO4K4013
       } else {
-        ccuSwSettings = SIXTEENSETTINGS.ENT4K4013;
+        ccuSwSettings = SIXTEENSETTINGS.ENT4K4013
       }
 
       ccuSwSettings.map((setting) => {
         // create p-tag
-        const softwareVersionSettingPtag = document.createElement("p");
+        const softwareVersionSettingPtag = document.createElement("p")
         softwareVersionSettingPtag.setAttribute(
           "class",
           "software-version-setting-ptag"
-        );
-        softwareVersionSettingPtag.innerHTML = setting;
-        softwareVersionSettingDiv.appendChild(softwareVersionSettingPtag);
-      });
-      softwareVersionSettingsIdDiv.appendChild(softwareVersionParameterDiv);
-      softwareVersionSettingsIdDiv.appendChild(softwareVersionSettingDiv);
+        )
+        softwareVersionSettingPtag.innerHTML = setting
+        softwareVersionSettingDiv.appendChild(softwareVersionSettingPtag)
+      })
+      softwareVersionSettingsIdDiv.appendChild(softwareVersionParameterDiv)
+      softwareVersionSettingsIdDiv.appendChild(softwareVersionSettingDiv)
     }
   }
 
   // Applying Headers to DOM
-  ccuSettingsTopDiv.appendChild(headerDiv); // Parameter Header
-  ccuSettingsTopDiv.appendChild(headerDiv); // Settings Header
+  ccuSettingsTopDiv.appendChild(headerDiv) // Parameter Header
+  ccuSettingsTopDiv.appendChild(headerDiv) // Settings Header
 
   // Display Settings Div
-  let displayHeaderDiv = document.createElement("div");
-  displayHeaderDiv.setAttribute("class", "container-display");
+  let displayHeaderDiv = document.createElement("div")
+  displayHeaderDiv.setAttribute("class", "container-display")
 
   // Apply params settings to DOM
-  ccuSettingsTopDiv.appendChild(parentDiv);
+  ccuSettingsTopDiv.appendChild(parentDiv)
 
   // Monitor settings
   // Main div
-  let monitorSettingsTopDiv = document.getElementById("monitorSettingsTopDiv");
+  let monitorSettingsTopDiv = document.getElementById("monitorSettingsTopDiv")
   // created Main Monitor Div
-  let monitorMainDiv = document.createElement("div");
-  monitorMainDiv.setAttribute("class", "monitor-main-div");
-  monitorSettingsTopDiv.appendChild(monitorMainDiv);
+  let monitorMainDiv = document.createElement("div")
+  monitorMainDiv.setAttribute("class", "monitor-main-div")
+  monitorSettingsTopDiv.appendChild(monitorMainDiv)
 
   // Header Div
-  let monitorHeaderDiv = document.createElement("div");
-  let paramsHeaderDiv = document.createElement("div");
-  let paramsTitle = document.createElement("h3");
+  let monitorHeaderDiv = document.createElement("div")
+  let paramsHeaderDiv = document.createElement("div")
+  let paramsTitle = document.createElement("h3")
   // Give h3 tags Text
   if (cameraDisplaySpecialty.display !== "FourK") {
     paramsTitle.appendChild(
       document.createTextNode(`${cameraDisplaySpecialty.display}`)
-    );
+    )
   } else {
-    paramsTitle.appendChild(document.createTextNode("4K"));
+    paramsTitle.appendChild(document.createTextNode("4K"))
   }
-  paramsTitle.appendChild(document.createTextNode(` ${state.specialty.name}`));
+  paramsTitle.appendChild(document.createTextNode(` ${state.specialty.name}`))
 
   // Set attributes
-  monitorHeaderDiv.setAttribute("class", "monitor-header-div");
-  paramsHeaderDiv.setAttribute("class", "monitor-title-div");
+  monitorHeaderDiv.setAttribute("class", "monitor-header-div")
+  paramsHeaderDiv.setAttribute("class", "monitor-title-div")
 
-  let monitorTitleText = document.createElement("p");
-  monitorTitleText.setAttribute("class", "monitor-title-text");
-  monitorTitleText.innerHTML = "Money Settings";
+  let monitorTitleText = document.createElement("p")
+  monitorTitleText.setAttribute("class", "monitor-title-text")
+  monitorTitleText.innerHTML = "Money Settings"
 
   // Append DOM
-  paramsHeaderDiv.appendChild(paramsTitle);
-  paramsHeaderDiv.appendChild(monitorTitleText);
+  paramsHeaderDiv.appendChild(paramsTitle)
+  paramsHeaderDiv.appendChild(monitorTitleText)
 
-  monitorHeaderDiv.appendChild(paramsHeaderDiv);
-  monitorMainDiv.appendChild(monitorHeaderDiv);
+  monitorHeaderDiv.appendChild(paramsHeaderDiv)
+  monitorMainDiv.appendChild(monitorHeaderDiv)
 
   // Monitor parameters
-  let secondDiv = document.createElement("div");
-  secondDiv.setAttribute("class", "settings-second-div");
-  let monitorParams = document.createElement("div");
-  monitorParams.setAttribute("class", "monitor-params");
-  let monitorSettings = document.createElement("div");
-  monitorSettings.setAttribute("class", "monitor-settings");
+  let secondDiv = document.createElement("div")
+  secondDiv.setAttribute("class", "settings-second-div")
+  let monitorParams = document.createElement("div")
+  monitorParams.setAttribute("class", "monitor-params")
+  let monitorSettings = document.createElement("div")
+  monitorSettings.setAttribute("class", "monitor-settings")
 
   // Loop through array
   let monitorSpecialtySettings =
     cameraDisplaySpecialty.display.replace(/\s/g, "").toUpperCase() +
     cameraDisplaySpecialty.specialty.replace(/\s/g, "").toUpperCase() +
-    cameraDisplaySpecialty.camera.replace(/\s/g, "").toUpperCase();
+    cameraDisplaySpecialty.camera.replace(/\s/g, "").toUpperCase()
   if (cameraDisplaySpecialty.display !== "FourK") {
     MONITORPARAMS.forEach(function (parameter) {
-      let pTag = document.createElement("p");
-      pTag.appendChild(document.createTextNode(parameter));
-      monitorParams.appendChild(pTag);
-    });
+      let pTag = document.createElement("p")
+      pTag.appendChild(document.createTextNode(parameter))
+      monitorParams.appendChild(pTag)
+    })
   } else {
     FOURKPARAMS.forEach(function (parameter) {
-      let pTag = document.createElement("p");
-      pTag.appendChild(document.createTextNode(parameter));
-      monitorParams.appendChild(pTag);
-    });
+      let pTag = document.createElement("p")
+      pTag.appendChild(document.createTextNode(parameter))
+      monitorParams.appendChild(pTag)
+    })
     for (let displaySpecialty in FOURKSETTINGS) {
       if (monitorSpecialtySettings === displaySpecialty) {
         FOURKSETTINGS[displaySpecialty].forEach(function (setting) {
-          let sTag = document.createElement("p");
-          sTag.appendChild(document.createTextNode(setting));
-          monitorSettings.appendChild(sTag);
-        });
+          let sTag = document.createElement("p")
+          sTag.appendChild(document.createTextNode(setting))
+          monitorSettings.appendChild(sTag)
+        })
       }
     }
   }
@@ -4959,15 +4959,15 @@ function displaySettings(cameraDisplaySpecialty) {
   for (let displaySpecialty in MONITORSETTINGS) {
     if (monitorSpecialtySettings === displaySpecialty) {
       MONITORSETTINGS[displaySpecialty].forEach(function (setting) {
-        let sTag = document.createElement("p");
-        sTag.appendChild(document.createTextNode(setting));
-        monitorSettings.appendChild(sTag);
-      });
+        let sTag = document.createElement("p")
+        sTag.appendChild(document.createTextNode(setting))
+        monitorSettings.appendChild(sTag)
+      })
     }
   }
 
   // Settings divs
-  secondDiv.appendChild(monitorParams);
-  secondDiv.appendChild(monitorSettings);
-  monitorMainDiv.appendChild(secondDiv);
+  secondDiv.appendChild(monitorParams)
+  secondDiv.appendChild(monitorSettings)
+  monitorMainDiv.appendChild(secondDiv)
 }
