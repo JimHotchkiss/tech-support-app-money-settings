@@ -33,3 +33,10 @@
             (x) B Hue            -3
             (x) R Gain           -8
             (x) R Hue            0
+# 4/30/2021
+    [X] Corrected printer setting 
+        (x) Brightness 130 to  130
+        (x) Sharpness   78 to    0
+        (x) Contrast     0 to  650
+        (x) Chroma    -180 to -180
+        (x) Phase      650 to   78
