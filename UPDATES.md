@@ -40,3 +40,10 @@
         (x) Contrast     0 to  650
         (x) Chroma    -180 to -180
         (x) Phase      650 to   78
+# 6/18/2021
+    [] Corrected printer setting - SDC3 SDP1000
+        (x) Brightness 130 to  130
+        () Sharpness   0 to    650
+        () Contrast     650 to  78
+        () Chroma    -180 to -180
+        () Phase      78 to   0
